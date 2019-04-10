@@ -1,0 +1,112 @@
+//
+// Editor event keystroke bindings
+//
+
+// Test event
+//SetEventBinding("TestEvent",                              "<Shift><F10>");
+//SetEventBinding("TestEvent",                              "<Ctrl><F10>");
+
+// Camera
+SetEventBinding("CameraEnable",                             "<Alt>");
+SetEventBinding("CameraMoveForward",                        "<Alt><Shift>");
+SetEventBinding("CameraMoveBackward",                       "<Alt><Ctrl>");
+SetEventBinding("CameraAdjustRadius",                       "<Alt><Space>");
+SetEventBinding("CameraResetRadius",                        "<Shift><Home>");
+SetEventBinding("CameraLookDown",                           "<Ctrl><Home>");
+SetEventBinding("CameraCopyPosition",                       "<Ctrl><P>");
+SetEventBinding("CameraCopyPosition",                       "<Ctrl><Shift><P>");
+SetEventBinding("CameraCopyOrientation",                    "<Ctrl><Shift><O>");
+SetEventBinding("CameraSnapToObject",                       "<F11>");
+SetEventBinding("CameraSnapToObjectWithRadius",             "<Shift><F11>");
+SetEventBinding("CameraSnapToGround",                       "<Alt><F11>");
+SetEventBinding("CameraStrafe",                             "<Alt><Shift><Space>");
+SetEventBinding("CameraStrafeFree",                         "<Alt><Space>");
+SetEventBinding("CameraStrafeLeft",                         "<Alt><Left>");
+SetEventBinding("CameraStrafeRight",                        "<Alt><Right>");
+                                                            
+// Tasks                                                    
+SetEventBinding("TaskMoveUp",                               "<Shift><PageUp>");
+SetEventBinding("TaskMoveDown",                             "<Shift><PageDown>");
+SetEventBinding("TaskMoveHigher",                           "<Ctrl><PageUp>");
+SetEventBinding("TaskMoveLower",                            "<Ctrl><PageDown>");
+SetEventBinding("TaskNew",                                  "<Insert>");
+SetEventBinding("TaskNewFirstChild",                        "<Control><Insert>");
+SetEventBinding("TaskNewCameraRelative",                    "<Shift><Insert>");
+SetEventBinding("TaskCopy",                                 "<Ctrl><C>");
+SetEventBinding("TaskCopyRecursive",                        "<Ctrl><Shift><C>");
+SetEventBinding("TaskPaste",                                "<Ctrl><V>");
+SetEventBinding("TaskSendEvent",                            "<Ctrl><E>");
+SetEventBinding("TaskSendEventRecursive",                   "<Ctrl><Shift><E>");
+SetEventBinding("TaskFind",                                 "<Ctrl><F>");
+SetEventBinding("TaskFindTextInTask",                       "<Ctrl><H>");
+SetEventBinding("TaskFindByTaskID",                         "<Ctrl><Shift><I>");
+SetEventBinding("TaskFindByTaskNote",                       "<Ctrl><Shift><N>");
+SetEventBinding("TaskFindAgain",                            "<Ctrl><Shift><F>");
+SetEventBinding("TaskSetID",                                "<Ctrl><I>");
+SetEventBinding("TaskRebuildTree",                          "<F5>");
+SetEventBinding("TaskMakeTemplate",                         "<Ctrl><M>");
+SetEventBinding("TaskSortChildren",                         "<Shift><F5>");
+
+// Animtask
+SetEventBinding("AnimTaskIncreaseKeyframeInterpolation",    "<F8>");
+SetEventBinding("AnimTaskDecreaseKeyframeInterpolation",    "<Shift><F8>");
+SetEventBinding("AnimTaskToggleCameraRelative",             "<F6>");
+SetEventBinding("AnimTaskGoToCursor",                       "<Ctrl><G>");
+SetEventBinding("AnimTaskToggleWindowHidden",               "<Ctrl><Shift><H>");
+SetEventBinding("AnimTaskStartRecording",                   "<Ctrl><Q>");
+SetEventBinding("AnimTaskGoToTop",                          "<Ctrl><R>");
+SetEventBinding("AnimTaskToggleSyncPlayback",               "<Ctrl><Shift><S>");
+                                                            
+// Timer                                                    
+SetEventBinding("TimerIncreaseSpeed",                       "<F12>");
+SetEventBinding("TimerDecreaseSpeed",                       "<Shift><F12>");
+SetEventBinding("TimerReset",                               "<Ctrl><R>");
+SetEventBinding("TimerStartStop",                           "<Ctrl><T>");
+
+// Manipulate object
+SetEventBinding("Manipulate",                               "<LeftMouseButton>");
+SetEventBinding("ManipulatePositionXY",                     "<LeftMouseButton><Shift>");
+SetEventBinding("ManipulatePositionXZ",                     "<LeftMouseButton><Ctrl>");
+SetEventBinding("ManipulatePositionXZ",                     "<LeftMouseButton><Shift><Ctrl>");
+SetEventBinding("ManipulatePositionSnapToGround",           "<LeftMouseButton><S>");
+SetEventBinding("ManipulatePositionSnapToObject",           "<LeftMouseButton><O>");
+SetEventBinding("ManipulateOrientationAlpha",               "<LeftMouseButton><A>");
+SetEventBinding("ManipulateOrientationBeta",                "<LeftMouseButton><B>");
+SetEventBinding("ManipulateOrientationGamma",               "<LeftMouseButton><G>");
+SetEventBinding("ManipulateOrientationReset",               "<LeftMouseButton><Space>");
+
+// Graph Node
+SetEventBinding("ScaleGraphNode",                           "<LeftMouseButton><Decimal>");
+SetEventBinding("ScaleGraphNodeHalfe",                      "<LeftMouseButton><Divide>");
+SetEventBinding("ScaleGraphNodeDouble",                     "<LeftMouseButton><Multiply>");
+SetEventBinding("CreateGraphNode",                          "<LeftMouseButton><Plus>");
+SetEventBinding("DeleteGraphNode",                          "<LeftMouseButton><Minus>");
+
+// Other                                                    
+SetEventBinding("ToggleDisplay",                            "<F2>");
+SetEventBinding("ToggleMouseInverted",                      "<Ctrl><Shift><M>");
+SetEventBinding("ToggleDebugText",                          "<F1>");
+SetEventBinding("ToggleTaskTypeView",                       "<Shift><F2>");
+SetEventBinding("ToggleGame",                               "<F3>");
+SetEventBinding("ToggleTaskNoteDisplay",                    "<F6>");
+SetEventBinding("ToggleQEDRunEvent",                        "<F9>");
+SetEventBinding("ToggleSaveStateOnExit",                    "<Ctrl><A>");
+SetEventBinding("SaveState",                                "<Ctrl><W>");
+SetEventBinding("SaveObjectFile",                           "<Ctrl><S>");
+SetEventBinding("SaveSubTaskObjectFile",                    "<Ctrl><Shift><T>");
+SetEventBinding("SaveSubTaskObjectFileParent",              "<Ctrl><Alt><T>");
+SetEventBinding("LoadSubTaskObjectFile",                    "<Ctrl><Shift><L>");
+SetEventBinding("SnapToGroundRecursive",                    "<Ctrl><Shift><G>");
+SetEventBinding("ToggleConsole",                            "<F10>");
+SetEventBinding("ConsoleIncreaseAutoActivateLevel",         "<Ctrl><F10>");
+SetEventBinding("ConsoleDecreaseAutoActivateLevel",         "<Shift><F10>");
+SetEventBinding("AutoComplete",                             "<Ctrl><Space>");
+SetEventBinding("AutoCompleteTaskName",                     "<Ctrl><N>");
+SetEventBinding("AutoCompleteModelName",		    "<Ctrl><O>");
+SetEventBinding("Undo",                                     "<Ctrl><Z>");
+SetEventBinding("Redo",                                     "<Ctrl><Y>");
+SetEventBinding("ReloadSettings",                           "<F4>");
+
+// Toggle objects in editor (Extreme Sports)
+SetEventBinding("ToggleObjects",                            "<Ctrl><Shift><Z>");
+

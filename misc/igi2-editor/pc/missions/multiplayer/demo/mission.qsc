@@ -1,0 +1,37 @@
+// Mission configuration file.
+// Note that all language dependant text must be isolated in language spesific resource files.
+DefineMission(
+// Mission ID (must be unique between missions)
+	100,
+
+// GameMode ID
+	"M", "U", "L", "T",
+
+
+// Name of mission
+	"Demo (Redstone)",
+
+// Description of mission
+	"Demo of a complete multiplayer level",
+
+// Which terrain to use
+	"",
+
+// Mission directory
+	"missions/multiplayer/demo",
+	
+// Common models directory
+	"missions/multiplayer/common",
+	
+// Mission models directory
+	"missions/multiplayer/demo",
+	
+// Common models resource name
+	"multiplayer",
+	
+// Mission models resource name
+	"demo",
+	
+// Mission Screenshot resource name
+	"demo.spr"
+);
