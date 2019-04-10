@@ -1,0 +1,794 @@
+//------------------------------------------------
+//--- 010 Editor v9.0.1 Binary Template
+//
+//      File: IGI2_MEF.bt
+//   Authors: Rotari Artiom
+//   Version: 1.0
+//   Purpose: 
+//  Category: Game
+// File Mask: ILFF
+//  ID BYTEs: 
+//   History: 
+//------------------------------------------------
+
+void Align() { if(!FEof()) while(FTell() % align != 0) BYTE pad; }
+
+
+struct
+{
+    LittleEndian();
+
+    CHAR Signature[4];
+    DWORD size;
+    DWORD align;
+    DWORD next;
+
+    struct
+    {
+        CHAR Signature[4];
+
+        while(FTell() < FileSize())
+        {
+            switch(ReadString(FTell(), 4))
+            {
+                case "HSEM":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            FLOAT _00;  // {0.1599999964237213}
+                            DWORD dtm_0;    // year
+                            DWORD dtm_1;    // moon
+                            DWORD dtm_2;    // day
+                            DWORD dtm_3;    // hour
+                            DWORD dtm_4;    // minute
+                            DWORD dtm_5;    // second
+                            DWORD dtm_6;    // milisecond
+                            DWORD _08;   // {0, 1, 3}
+                            DWORD _09;   // {0}
+                            DWORD _10;   // {0}
+                            DWORD _11;   // {0}
+                            FLOAT _12;  // [-1197574.5         - 588632.5625],   2708
+                            FLOAT _13;  // [-551761.5625       - 164895.65625],  2704
+                            FLOAT _14;  // [-1004530.75        - 245571.46875],  2689
+                            FLOAT _15;  // [ 0.0               - 4107811.25],    2714
+                            FLOAT _16;  // [-1197574.5         - 588632.5625],   2763
+                            FLOAT _17;  // [-450069.625        - 166205.71875],  2751
+                            FLOAT _18;  // [-1004220.0         - 224238.328125], 2733
+                            FLOAT _19;  // [ 8.636710166931152 - 4107811.25],    2740
+                            FLOAT _20;  // [-1197574.5         - 588632.5625],   2763
+                            FLOAT _21;  // [-450069.625        - 166205.71875],  2751
+                            FLOAT _22;  // [-1004220.0         - 224238.328125], 2733
+                            FLOAT _23;  // [ 8.636710166931152 - 4107811.25],    2740
+                            DWORD _24;   // [0 .. 14793], 748
+                            DWORD _25;   // [0 .. 15430], 1049
+                            DWORD _26;   // [36 .. 494166], 2324
+                            DWORD _27;   // [0 .. 14795], 539
+                            DWORD _28;   // [0 .. 16246], 747
+                            DWORD _29;   // [0 .. 1167796], 1291
+                            FLOAT _30;  // [16.031251907348633 .. 5001837.0], 1993
+                            WORD _31; // [0 .. 15], 11
+                            WORD _32; // [0 .. 63], 36
+                            WORD _33; // [0 .. 92], 42
+                            WORD _34; // [0 .. 68], 34
+                            WORD _35; // [0 .. 19], 16
+                            WORD _36; // {0, 31, 28, 47}
+                            WORD _37; // [0 .. 182], 25
+                            WORD _38; // {0, 43947}
+                            WORD _39; // {0, 43947}
+                            WORD _40; // {0, 43947}
+                            WORD _41; // {0, 43947}
+                            WORD _42; // {0, 43947}
+                            WORD _43; // {0, 43947}
+                            WORD _44; // {0, 43947}
+                            WORD _45; // {0, 43947}
+                            WORD _46; // {0, 43947}
+                            WORD _47; // {0, 43947}
+                            WORD _48; // {0, 43947}
+                            WORD _49; // {0, 43947}
+                            WORD _50; // {0, 43947}
+                            WORD _51; // {0, 43947}
+                            WORD _52; // {0, 43947}
+                            WORD _53; // {0}
+                            WORD _54; // {0}
+                            WORD _55; // {0}
+                            WORD _56; // {0}
+                        } data;
+
+                        Align();
+                    } HSEM;
+                    break;
+                case "REIH":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            BYTE _0[HSEM.data._36];
+
+                            while(FTell() % align != 0) BYTE pad;
+
+                            struct
+                            {
+                                FLOAT _0;
+                                FLOAT _1;
+                                FLOAT _2;
+                            } _1[HSEM.data._36];
+                        } data;
+
+                        Align();
+                    } REIH;
+                    break;
+                case "MANB":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            struct
+                            {
+                                CHAR name[16];
+                            } bname[size / 16];
+                        } data;
+
+                        Align();
+                    } MANB;
+                    break;
+                case "ATTA":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            struct
+                            {
+                                CHAR  name[16];
+                                FLOAT _01;  // [-270479.34375 .. 902459.3125], 1481
+                                FLOAT _02;  // [-358269.3125 .. 293201.09375], 1446
+                                FLOAT _03;  // [-133254.34375 .. 289563.84375], 937
+                                FLOAT _04;  // [-1.0 .. 1.0], 229
+                                FLOAT _05;  // [-1.0 .. 1.0], 297
+                                FLOAT _06;  // [-1.0 .. 1.0], 219
+                                FLOAT _07;  // [-1.0 .. 1.0], 304
+                                FLOAT _08;  // [-1.0 .. 1.0], 245
+                                FLOAT _09;  // [-1.0 .. 1.0], 191
+                                FLOAT _10;  // [-1.0 .. 1.0], 255
+                                FLOAT _11;  // [-1.0 .. 1.0], 244
+                                FLOAT _12;  // [-1.0 .. 1.0], 93
+                                int   _13;  // {0, 2880154539}
+                                int   _14;  // {0, 4, -1, 15}
+
+                            } unk[size / 72];
+                        } data;
+
+                        Align();
+                    } ATTA;
+                    break;
+                case "XTVM":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            struct
+                            {
+                                DWORD _00;
+                                DWORD _01;
+                                DWORD _02;
+                                DWORD _03;
+                            } unk[size / 16];
+                        } data;
+
+                        Align();
+                    } XTVM;
+                    break;
+                case "TROP":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            struct
+                            {
+                                DWORD _00;
+                                DWORD _01;
+                                DWORD _02;
+                                DWORD _03;
+                                DWORD _04;
+                            } unk[size / 20];
+                        } data;
+
+                        Align();
+                    } TROP;
+                    break;
+                case "XVTP":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            struct
+                            {
+                                DWORD _00;
+                                DWORD _01;
+                                DWORD _02;
+                            } unk[size / 12];
+                        } data;
+
+                        Align();
+                    } XVTP;
+                    break;
+                case "CFTP":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            struct
+                            {
+                                DWORD _00;
+                                DWORD _01;
+                                DWORD _02;
+                            } unk[size / 12];
+                        } data;
+
+                        Align();
+                    } CFTP;
+                    break;
+                case "WOLG":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            struct
+                            {
+                                FLOAT _00;
+                                FLOAT _01;
+                                FLOAT _02;
+                                FLOAT _03;
+                                FLOAT _04;
+                                FLOAT _05;
+                                FLOAT _06;
+                                DWORD  _07;
+                            } unk[size / 32];
+                        } data;
+
+                        Align();
+                    } WOLG;
+                    break;
+                case "D3DR":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        switch(size)
+                        {
+                            case 36:
+                                struct
+                                {
+                                    DWORD _four;
+                                    DWORD _tris;
+                                    DWORD _dner;
+                                    DWORD _vert;
+                                    DWORD _04;
+                                    DWORD _05;
+                                    DWORD _06;
+                                    DWORD _07;
+                                    DWORD _08;
+                                } data;
+                                break;
+                            case 40:
+                                struct
+                                {
+                                    DWORD _four;
+                                    DWORD _tris;
+                                    DWORD _dner;
+                                    DWORD _03;
+                                    DWORD _04;
+                                    DWORD _vert;
+                                    DWORD _06;
+                                    DWORD _07;
+                                    DWORD _08;
+                                    DWORD _09;
+                                } data;
+                                break;
+                            case 44:
+                                struct
+                                {
+                                    DWORD _four;
+                                    DWORD _01;
+                                    DWORD _tris;
+                                    DWORD _dner;
+                                    DWORD _vert;
+                                    DWORD _05;
+                                    DWORD _06;
+                                    DWORD _07;
+                                    DWORD _08;
+                                    DWORD _09;
+                                    DWORD _10;
+                                } data;
+                                break;
+                        }
+
+                        Align();
+                    } D3DR;
+                    break;
+                case "ECAF":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            struct
+                            {
+                                WORD _a;
+                                WORD _b;
+                                WORD _c;
+                            } face[D3DR.data._tris];
+                        } data;
+
+                        Align();
+                    } ECAF;
+                    break;
+                case "DNER":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            switch(D3DR.size)
+                            {
+                                case 36:
+                                case 40:
+                                    struct
+                                    {
+                                        DWORD   _00;
+                                        FLOAT  _01;
+                                        FLOAT  _02;
+                                        FLOAT  _03;
+                                        WORD _04;
+                                        WORD _05;
+                                        WORD _06;
+                                        WORD _07;
+                                        WORD _08;
+                                        DWORD   _09;
+                                        WORD _10;
+                                    } dner[D3DR.data._dner];
+                                    break;
+                                case 44:
+                                    struct
+                                    {
+                                        DWORD   _00;
+                                        FLOAT  _01;
+                                        FLOAT  _02;
+                                        FLOAT  _03;
+                                        WORD _04;
+                                        WORD _05;
+                                        WORD _06;
+                                        WORD _07;
+                                        DWORD   _08;
+                                    } dner[D3DR.data._dner];
+                                    break;
+                            }
+                        } data;
+
+                        Align();
+                    } DNER;
+                    break;
+                case "XTRV":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            switch(D3DR.size)
+                            {
+                                case 36:
+                                    struct
+                                    {
+                                        FLOAT _00;
+                                        FLOAT _01;
+                                        FLOAT _02;
+                                        FLOAT _03;
+                                        FLOAT _04;
+                                        FLOAT _05;
+                                        FLOAT _06;
+                                        FLOAT _07;
+                                    } vertex[D3DR.data._vert];
+                                    break;
+                                case 40:
+                                    struct
+                                    {
+                                        FLOAT _00;
+                                        FLOAT _01;
+                                        FLOAT _02;
+                                        FLOAT _03;
+                                        FLOAT _04;
+                                        FLOAT _05;
+                                        FLOAT _06;
+                                        FLOAT _07;
+                                        FLOAT _08;
+                                        FLOAT _09;
+                                    } vertex[D3DR.data._vert];
+                                    break;
+                                case 44:
+                                    struct
+                                    {
+                                        FLOAT _00;
+                                        FLOAT _01;
+                                        FLOAT _02;
+                                        FLOAT _03;
+                                        FLOAT _04;
+                                        FLOAT _05;
+                                        FLOAT _06;
+                                    } vertex[D3DR.data._vert];
+                                    break;
+                            }
+                        } data;
+
+                        Align();
+                    } XTRV;
+                    break;
+                case "PMTL":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            struct
+                            {
+                                DWORD _00;
+                                DWORD _01;
+                            } unk[size / 8];
+                        } data;
+
+                        Align();
+                    } PMTL;
+                    break;
+                case "HSMC":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            DWORD _00; // [0 .. 14795], 513
+                            DWORD _01; // [0 .. 15226], 730
+                            DWORD _02; // [0 .. 46], 35
+                            DWORD _03; // [0 .. 29589], 513
+                            DWORD _04; // {0}
+                            DWORD _05; // {0}
+                            DWORD _06; // {0}
+                            DWORD _07; // {0}
+                            DWORD _08; // [0 .. 1562], 188
+                            DWORD _09; // [0 .. 1020], 163
+                            DWORD _10; // {0, 1, 2}
+                            DWORD _11; // [0 .. 3123], 188
+                            DWORD _12; // {0}
+                            DWORD _13; // {0}
+                            DWORD _14; // {0}
+                            DWORD _15; // {0}
+                        } data;
+
+                        Align();
+                    } HSMC;
+                    break;
+                case "XTVC":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            struct
+                            {
+                                DWORD _00;
+                                DWORD _01;
+                                DWORD _02;
+                                DWORD _03;
+                                DWORD _04;
+                            } unk[size / 20];
+                        } data;
+
+                        Align();
+                    } XTVC;
+                    break;
+                case "ECFC":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            struct
+                            {
+                                DWORD _00;
+                                DWORD _01;
+                                DWORD _02;
+                            } unk[size / 12];
+                        } data;
+
+                        Align();
+                    } ECFC;
+                    break;
+                case "TAMC":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            struct
+                            {
+                                DWORD _00;
+                                DWORD _01;
+                                DWORD _02;
+                                DWORD _03;
+                            } unk[size / 16];
+                        } data;
+
+                        Align();
+                    } TAMC;
+                    break;
+                case "HPSC":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            struct
+                            {
+                                FLOAT  _00;
+                                FLOAT  _01;
+                                FLOAT  _02;
+                                FLOAT  _03;
+                                DWORD   _04;
+                                WORD _05;
+                                WORD _06;
+                            } unk [size / 24];
+                        } data;
+
+                        Align();
+                    } HPSC;
+                    break;
+                case "HPRM":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            struct
+                            {
+                                DWORD _00;
+                                DWORD _01;
+                                DWORD _02;
+                                DWORD _03;
+                            } unk[size / 16];
+                        } data;
+
+                        Align();
+                    } HPRM;
+                    break;
+                case "TXAN":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            DWORD _00; // {25}
+                            DWORD _01; // {26}
+                            DWORD _02; // {0}
+                            DWORD _03; // {1}
+                            DWORD _04; // {2}
+                            DWORD _05; // {3}
+                            DWORD _06; // {4}
+                            DWORD _07; // {5}
+                            DWORD _08; // {6}
+                            DWORD _09; // {7}
+                            DWORD _10; // {8}
+                            DWORD _11; // {9}
+                            DWORD _12; // {10}
+                            DWORD _13; // {11}
+                            DWORD _14; // {12}
+                            DWORD _15; // {13}
+                            DWORD _16; // {14}
+                            DWORD _17; // {15}
+                            DWORD _18; // {16}
+                            DWORD _19; // {17}
+                            DWORD _20; // {18}
+                            DWORD _21; // {19}
+                            DWORD _22; // {20}
+                            DWORD _23; // {21}
+                            DWORD _24; // {22}
+                            DWORD _25; // {23}
+                            DWORD _26; // {24}
+                            DWORD _27; // {25}
+                        } data;
+
+                        Align();
+                    } TXAN;
+                    break;
+                case "SEMS":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            struct
+                            {
+                                DWORD _00;
+                                DWORD _01;
+                                DWORD _02;
+                                DWORD _03;
+                                DWORD _04;
+                                DWORD _05;
+                                DWORD _06;
+                            } unk[size / 28];
+                        } data;
+
+                        Align();
+                    } SEMS;
+                    break;
+                case "XTVS":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            struct
+                            {
+                                DWORD _00;
+                                DWORD _01;
+                                DWORD _02;
+                            } unk[size / 12];
+                        } data;
+
+                        Align();
+                    } XTVS;
+                    break;
+                case "CAFS":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            struct
+                            {
+                                DWORD _00;
+                                DWORD _01;
+                                DWORD _02;
+                                DWORD _03;
+                                FLOAT _04;
+                                FLOAT _05;
+                                FLOAT _06;
+                                DWORD _07;
+                                DWORD _08;
+                                DWORD _09;
+                                DWORD _10;
+                                FLOAT _11;
+                                FLOAT _12;
+                                FLOAT _13;
+                            } unk[size / 56];
+                        } data;
+
+                        Align();
+                    } CAFS;
+                    break;
+                case "EGDE":
+                    struct
+                    {
+                        CHAR Signature[4];
+                        DWORD size;
+                        DWORD align;
+                        DWORD next;
+
+                        struct
+                        {
+                            struct
+                            {
+                                DWORD _00;
+                                DWORD _01;
+                            } unk[size / 8];
+                        } data;
+
+                        Align();
+                    } EGDE;
+                    break;
+                default: Assert(false);
+            }
+        }
+    } OCEM;
+} ILFF;

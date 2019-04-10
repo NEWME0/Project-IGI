@@ -1,0 +1,199 @@
+//------------------------------------------------
+//--- 010 Editor v9.0.1 Binary Template
+//
+//      File: IGI2_QVM.bt
+//   Authors: Rotari Artiom
+//   Version: 1.0
+//   Purpose: 
+//  Category: Game
+// File Mask: LOOP
+//  ID BYTEs: 
+//   History: 
+//------------------------------------------------
+
+struct CString;
+struct QVM;
+struct Node;
+struct Task;
+
+typedef struct TYPE2 { uBYTE value[1]; };
+typedef struct TYPE3 { uBYTE value[2]; };
+typedef struct TYPE4 { uBYTE value[3]; };
+typedef struct TYPE6 { uBYTE value[5]; };
+typedef struct TYPEN (DWORD minlen){
+    local int last = -1;
+    
+    while(last < minlen)
+    {
+        uBYTE value;
+        last += 1;
+    }
+    
+    while(true)
+    {
+        if(value[last] == 0)
+        {
+            Printf("%u\n", last + 1);
+            break;
+        }
+
+        uBYTE value;
+        last += 1;
+    }
+};
+
+string ReadCString(CString &o)
+{
+    return o.value;
+}
+
+
+typedef struct
+{
+    string value;
+} CString <read=ReadCString>;
+
+typedef struct
+{
+    CHAR Signatureature[4];
+    DWORD unknow0;
+    DWORD unknow1;
+
+    struct
+    {
+        DWORD offsetTaskIndices;
+        DWORD offsetTaskValues;
+        DWORD sizeTaskIndices;
+        DWORD sizeTaskValues;
+    } TaskHeader;
+
+    struct
+    {
+        DWORD offsetCStringIndices;
+        DWORD offsetCStringValues;
+        DWORD sizeCStringIndices;
+        DWORD sizeCStringValues;
+    } CStringHeader;
+
+    struct
+    {
+        DWORD offsetTaskTree;
+        DWORD sizeTaskTree;
+    } TaskTreeHeader;
+
+    DWORD unknow2;
+    DWORD unknow3;
+    DWORD unknow4;
+
+    struct
+    {
+        local DWORD count = TaskHeader.sizeTaskIndices / 4;
+        DWORD offset[count] <optimize=true>;
+    } TaskIndices;
+
+    struct
+    {
+        local DWORD count = TaskIndices.count;
+        CString value[count] <optimize=false>;
+    } TaskValues;
+
+    struct
+    {
+        local DWORD count = CStringHeader.sizeCStringIndices / 4;
+        DWORD offset[count] <optimize=true>;
+    } CStringIndices;
+
+    struct
+    {
+        local DWORD count = CStringIndices.count;
+        CString value[count] <optimize=false>;
+    } CStringValues;
+
+    struct
+    {
+        while(ReadBYTE() != 0)
+            Node node <optimize=false>;
+
+        BYTE pad;
+    } TaskTree;
+} QVM;
+
+
+typedef struct
+{
+    uBYTE type;
+
+    if(ReadBYTE() == 7)
+    struct
+    {
+        uBYTE type;
+        DWORD count;
+        DWORD array[count];
+    } offsets;
+
+    if(ReadBYTE() == 3)
+    struct
+    {
+        uBYTE type;
+        DWORD size;
+
+        local long i;
+        local long offset = qvm.TaskTreeHeader.offsetTaskTree;
+
+        for(i = 0; i < offsets.count; i++)
+        {
+            FSeek(offset + offsets.array[i]);
+            Node node;
+        }
+    } values;
+
+    uBYTE unknow6;
+} Task;
+
+enum <uBYTE> NODETYPE
+{
+    NT_DWORD64   = 8,
+    NT_WORD   = 9,
+    NT_DWORD24   = 10,
+    NT_REAL32   = 11,
+    NT_STRING   = 15,
+    NT_STRING_2 = 16,
+    NT_TASK     = 19,
+    NT_DWORD8    = 21,
+    NT_UNKNOWN  = 22,
+};
+
+typedef struct
+{
+    NODETYPE type;
+
+    switch(type)
+    {
+        case 8:  TYPE6  value; break;
+        case 9:  struct {WORD value; }          value; break;
+        case 10: TYPE4  value; break;
+        case 11: struct { FLOAT value; BYTE pad;} value; break;
+        case 15: struct { WORD value;} value; break;
+        case 16: struct { WORD value; BYTE pad; } value; break;
+        case 19: Task  value; break;
+        case 21: TYPE2 value; break;
+        case 22: TYPEN value(2); break;
+    }
+} Node;
+
+
+/*
+(8,  {6})
+(9,  {3, 4})
+(10, {4})
+(11, {6, 7})
+(15, {3})
+(16, {4})
+(19, {...})
+(21, {2})
+(22, {2, 3})
+*/
+
+QVM qvm;
+
+

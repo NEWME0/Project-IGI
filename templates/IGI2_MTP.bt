@@ -1,0 +1,193 @@
+//------------------------------------------------
+//--- 010 Editor v9.0.1 Binary Template
+//
+//      File: IGI2_MTP.bt
+//   Authors: Rotari Artiom
+//   Version: 1.0
+//   Purpose: 
+//  Category: Game
+// File Mask: FORM
+//  ID BYTEs: 
+//   History: 
+//------------------------------------------------
+
+typedef struct { string value; } CString <read=CStringRead>;
+string CStringRead(CString &o) { return o.value; }
+
+
+
+struct
+{
+	BigEndian();
+
+	CHAR fourc[4]; //FORM
+	DWORD size;
+
+	struct
+	{
+		CHAR fourc[4]; // MTP 
+
+		struct
+		{
+			BigEndian();
+
+			CHAR fourc[4]; // BANM
+			DWORD size;
+
+			struct
+			{
+				LittleEndian();
+
+				DWORD count;
+				CString unk[count] <optimize=false>;
+
+			} data;
+
+			while (FTell() % 4 != 0) BYTE pad;
+		} BANM;
+
+		struct
+		{
+			BigEndian();
+
+			CHAR fourc[4]; // SNDS
+			DWORD size;
+
+			BYTE data[size];
+
+			while (FTell() % 4 != 0) BYTE pad;
+		} SNDS;
+
+		struct
+		{
+			BigEndian();
+
+			CHAR fourc[4]; // SVOL
+			DWORD size;
+
+			struct
+			{
+				LittleEndian();
+
+				DWORD count;
+				CString unk[count] <optimize=false>;
+
+			} data;
+
+			while (FTell() % 4 != 0) BYTE pad;
+		} SVOL;
+
+		struct
+		{
+			BigEndian();
+
+			CHAR fourc[4]; // MODS
+			DWORD size;
+
+			struct
+			{
+				LittleEndian();
+
+				DWORD count;
+				CString unk[count] <optimize=false>;
+
+			} data;
+
+			while (FTell() % 4 != 0) BYTE pad;
+		} MODS;
+
+		struct
+		{
+			BigEndian();
+
+			CHAR fourc[4]; // VNAM
+			DWORD size;
+
+			struct
+			{
+				LittleEndian();
+
+				DWORD count;
+				DWORD _DWORD[count];
+				CString unk[count] <optimize=false>;
+
+			} data;
+
+			while (FTell() % 4 != 0) BYTE pad;
+		} VNAM;
+
+		struct
+		{
+			BigEndian();
+
+			CHAR fourc[4]; // INST
+			DWORD size;
+
+			struct
+			{
+				LittleEndian();
+
+				DWORD unk[size / 4];
+
+			} data;
+
+			while (FTell() % 4 != 0) BYTE pad;
+		} INST;
+
+		struct
+		{
+			BigEndian();
+
+			CHAR fourc[4]; // TEXF
+			DWORD size;
+
+			struct
+			{
+				LittleEndian();
+
+				DWORD count;
+				CString unk[count] <optimize=false>;
+
+			} data;
+
+			while (FTell() % 4 != 0) BYTE pad;
+		} TEXF;
+
+		struct
+		{
+			BigEndian();
+
+			CHAR fourc[4]; // PALF
+			DWORD size;
+
+			BYTE data[size];
+
+			while (FTell() % 4 != 0) BYTE pad;
+		} PALF;
+
+		struct
+		{
+			BigEndian();
+
+			CHAR fourc[4]; // GTT 
+			DWORD size;
+
+			struct
+			{
+				LittleEndian();
+
+				DWORD count;
+				struct
+				{
+					DWORD _01;
+					DWORD _02;
+				} unk[count];
+
+			} data;
+
+			while (FTell() % 4 != 0) BYTE pad;
+		} GTT;
+
+	} MTP;
+
+} FORM;

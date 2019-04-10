@@ -1,0 +1,35 @@
+//------------------------------------------------
+//--- 010 Editor v9.0.1 Binary Template
+//
+//      File: IGI2_WAV.bt
+//   Authors: Rotari Artiom
+//   Version: 1.0
+//   Purpose: 
+//  Category: Game
+// File Mask: ILSF
+//  ID BYTEs: 
+//   History: 
+//------------------------------------------------
+
+
+struct
+{
+    CHAR   Signature[4];   // signature            {ILSF}
+    WORD   _0;             //                      {1}
+    WORD   SampleWidth;    // smample size in bits {16}
+    WORD   NumChannels;    // channels count       {1, 2}
+    WORD   _1;             //                      {0, 4097}
+    DWORD  SampleRate;     // sample rate          {11025, 22050, 44100}
+    DWORD  SampleCount;    // sample count         {...}
+
+
+    Assert(Signature == "ILSF", "Wrong Signature");
+    Assert(SampleWidth == 16, "Wrong SampleWidth");
+    Assert(NumChannels == 1 || NumChannels == 2, "Wrong NumChannels");
+
+
+    WORD   SampleData[NumChannels * SampleCount];  // sample data
+} IGI2_WAV;
+
+
+Assert(FEof());

@@ -1,0 +1,120 @@
+//------------------------------------------------
+//--- 010 Editor v9.0.1 Binary Template
+//
+//      File: IGI2_PIC.bt
+//   Authors: Rotari Artiom
+//   Version: 1.0
+//   Purpose: 
+//  Category: Game
+// File Mask: LOOP
+//  ID BYTEs: 
+//   History: 
+//------------------------------------------------
+
+
+struct
+{
+    CHAR magic[4];
+    Assert(magic == "LOOP");
+
+    DWORD _01;
+    DWORD _02;
+    DWORD _03;
+    DWORD _04;
+    DWORD _05;
+    DWORD _06;
+    DWORD _07;
+    DWORD _08;
+    DWORD _09;
+    DWORD _10;
+    DWORD _11;
+    DWORD _12;
+
+    switch(_01)
+    {
+        case 7:
+        {
+            struct
+            {
+                DWORD _1;
+                DWORD _2;
+
+                WORD _3;
+                WORD _4;
+                WORD _5;
+                WORD _6;
+
+                DWORD _7;
+                DWORD _8;
+                DWORD _9;
+                DWORD _10;
+                DWORD _11;
+                DWORD _12;
+            } sprhead[_08];
+
+            local DWORD i;
+
+            for(i = 0; i < _08; i++)
+            {
+                struct
+                {
+                    BYTE data[sprhead[i]._3 * sprhead[i]._5 * 4];
+                } sprbody;
+            }
+        }
+        break;
+        case 9:
+        {
+            struct
+            {
+                DWORD _1;
+                DWORD _2;
+
+                WORD _3;
+                WORD _4;
+                WORD _5;
+                WORD _6;
+
+                DWORD _7;
+                DWORD _8;
+                DWORD _9;
+                DWORD _10;
+            } sprhead[_08];
+
+            local DWORD i;
+
+            for(i = 0; i < _08; i++)
+            {
+                struct
+                {
+                    BYTE data[sprhead[i]._4 * sprhead[i]._5 * 4];
+                } sprbody;
+            }
+        }
+        break;
+    }
+} loop_01;
+
+
+struct
+{
+    CHAR magic[4];
+    Assert(magic == "LOOP");
+
+    DWORD _1;
+    DWORD _2;
+    DWORD _3;
+    DWORD _4;
+    DWORD _5;
+
+    struct
+    {
+        DWORD _1;
+        DWORD _2;
+        DWORD _3;
+        DWORD _4;
+    } sprwhat[loop_01._08];
+} loop_02;
+
+
+Assert(FEof());

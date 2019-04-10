@@ -1,0 +1,127 @@
+//------------------------------------------------
+//--- 010 Editor v9.0.1 Binary Template
+//
+//      File: IGI2_FNT.bt
+//   Authors: Rotari Artiom
+//   Version: 1.0
+//   Purpose: 
+//  Category: Game
+// File Mask: ILFF
+//  ID BYTEs: 
+//   History: 
+//------------------------------------------------
+
+
+void Align()
+{
+    while(FTell() % 4 != 0)
+        BYTE Padding <hidden=true>;
+}
+
+
+typedef struct RGBA_8888
+{
+    BYTE R;
+    BYTE G;
+    BYTE B;
+    BYTE A;
+};
+
+
+struct {
+    CHAR  FileSignature[4]; //ILFF
+    DWORD Width;
+    DWORD Align;
+    DWORD Skip;
+    CHAR  DataSignature[4]; //FONT
+
+
+    struct {
+        Align();
+
+        CHAR  ChunkSignature[4]; //FNTH
+        DWORD ChunkWidth;
+        DWORD ChunkAlign;
+        DWORD ChunkSkip;
+
+        DWORD _0;
+        DWORD CharCount;
+        DWORD _1;
+        DWORD _2;
+        DWORD _3;
+        DWORD _4;
+    } FNTH;
+
+
+    struct {
+        Align();
+
+        CHAR  ChunkSignature[4]; //ANMF
+        DWORD ChunkWidth;
+        DWORD ChunkAlign;
+        DWORD ChunkSkip;
+
+        struct {
+            DWORD _0;
+            FLOAT UpperLeftTexcoordU;
+            FLOAT UpperLeftTexcoordV;
+            FLOAT LowerDownTexcoordU;
+            FLOAT LowerDownTexcoordV;
+            WORD  _1;
+            WORD  _2;
+            WORD  _3;
+            WORD  _4;
+            DWORD _5;
+            DWORD _6;
+            DWORD _7;
+        } Item[FNTH.CharCount] <optimize=true>;
+    } ANMF;
+
+
+    struct {
+        Align();
+
+        CHAR  ChunkSignature[4]; //TRN2
+        DWORD ChunkWidth;
+        DWORD ChunkAlign;
+        DWORD ChunkSkip;
+
+        wchar_t Charset[FNTH.CharCount];
+    } TRN2;
+
+
+    struct {
+        Align();
+
+        CHAR  ChunkSignature[4]; //TEXH
+        DWORD ChunkWidth;
+        DWORD ChunkAlign;
+        DWORD ChunkSkip;
+
+        WORD  _0;
+        DWORD _1;
+        DWORD _2;
+        DWORD _3;
+        WORD  _ImgWidth;
+        WORD  _ImgHeigth;
+        WORD  ImgWidth;
+        WORD  ImgHeigth;
+        WORD  PixelWidth;
+    } TEXH;
+
+
+    struct {
+        Align();
+
+        CHAR  ChunkSignature[4]; //BODY
+        DWORD ChunkWidth;
+        DWORD ChunkAlign;
+        DWORD ChunkSkip;
+
+        RGBA_8888 PixelData[TEXH.ImgWidth * 1 * TEXH.ImgHeigth] <optimize=true>;
+    } BODY;
+
+} IGI2_FNT;
+
+
+Assert(FEof());

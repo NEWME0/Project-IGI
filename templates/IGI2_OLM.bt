@@ -1,0 +1,74 @@
+//------------------------------------------------
+//--- 010 Editor v9.0.1 Binary Template
+//
+//      File: IGI2_OLM.bt
+//   Authors: Rotari Artiom
+//   Version: 1.0
+//   Purpose: 
+//  Category: Game
+// File Mask: 
+//  ID BYTEs: 
+//   History: 
+//------------------------------------------------
+
+
+struct
+{
+    LittleEndian();
+    DWORD _00;
+    DWORD _01;
+
+    DWORD _year;
+    DWORD _moon;
+    DWORD _day;
+    DWORD _hour;
+    DWORD _minute;
+    DWORD _second;
+    DWORD _milisecond;
+
+    DWORD _09;
+    DWORD _10;
+    DWORD _11;    //count
+    DWORD _12;
+    DWORD _13;
+    DWORD _14;
+
+
+    struct
+    {
+        WORD _00;
+        WORD _01;
+        WORD _02;
+        WORD _03;
+        WORD _04;
+        WORD _05;
+        WORD _06;
+        WORD _07;
+        WORD _08;
+        WORD _09;
+        WORD _10;
+        WORD _11;
+        WORD _12;
+        WORD _13;
+        WORD _14;
+        WORD _15;
+        WORD _16;
+        WORD _17;
+        WORD _18;
+        WORD _19;
+        WORD _20;
+        WORD _21;
+        WORD _22;
+        WORD _23;
+        WORD _24;
+        WORD _25;
+    } texhead [_11];
+
+
+    BYTE buffer_01[1024 * 774 * 4];
+    BYTE buffer_02[768  * 768 * 4];
+    BYTE buffer_03[512  * 512 * 4];
+} header;
+
+
+Assert(FEof());

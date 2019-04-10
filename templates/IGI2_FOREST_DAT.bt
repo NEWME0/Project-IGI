@@ -1,0 +1,43 @@
+//------------------------------------------------
+//--- 010 Editor v9.0.1 Binary Template
+//
+//      File: IGI2_FOREST_DAT.bt
+//   Authors: Rotari Artiom
+//   Version: 1.0
+//   Purpose: 
+//  Category: Game
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+
+
+struct
+{
+    struct
+    {
+        DWORD VersionStringLength;
+        CHAR  VersionString[VersionStringLength];
+    } Version;
+
+
+    local DWORD TreeItemCount = (FileSize() - FTell()) / 40;
+
+    struct
+    {
+        FLOAT PositionX;
+        FLOAT PositionY;
+        FLOAT PositionZ;
+        FLOAT RotationX;
+        FLOAT RotationY;
+        FLOAT RotationZ;
+        FLOAT ScaleX;
+        FLOAT ScaleY;
+        FLOAT ScaleZ;
+        WORD  _0;
+        WORD  _1;
+    } TreeItem[TreeItemCount];
+} IGI2_FOREST_DAT;
+
+
+Assert(FEof());

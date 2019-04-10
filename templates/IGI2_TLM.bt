@@ -1,0 +1,67 @@
+//------------------------------------------------
+//--- 010 Editor v9.0.1 Binary Template
+//
+//      File: IGI2_TLM.bt
+//   Authors: Rotari Artiom
+//   Version: 1.0
+//   Purpose: 
+//  Category: Game
+// File Mask: 
+//  ID BYTEs: 
+//   History: 
+//------------------------------------------------
+
+#define PIXEL_SIZE 4
+
+
+struct
+{
+    struct
+    {
+        LittleEndian();
+        DWORD _1; Assert(_1 == 1008981770);
+        DWORD creations_year;
+        DWORD creations_month;
+        DWORD creations_day;
+        DWORD creations_hour;
+        DWORD creations_minute;
+        DWORD creations_second;
+        DWORD creations_milisecond;
+        DWORD _2; Assert(_2 == 3);
+        DWORD resolution_x;
+        DWORD resolution_y;
+    } header;
+
+    struct
+    {
+        if(!FEof())
+            BYTE lod_0[(header.resolution_x / (1 << 0)) * (header.resolution_y / (1 << 0)) * PIXEL_SIZE];
+
+        if(!FEof())
+            BYTE lod_1[(header.resolution_x / (1 << 1)) * (header.resolution_y / (1 << 1)) * PIXEL_SIZE];
+
+        if(!FEof())
+            BYTE lod_2[(header.resolution_x / (1 << 2)) * (header.resolution_y / (1 << 2)) * PIXEL_SIZE];
+
+        if(!FEof())
+            BYTE lod_3[(header.resolution_x / (1 << 3)) * (header.resolution_y / (1 << 3)) * PIXEL_SIZE];
+
+        if(!FEof())
+            BYTE lod_4[(header.resolution_x / (1 << 4)) * (header.resolution_y / (1 << 4)) * PIXEL_SIZE];
+
+        if(!FEof())
+            BYTE lod_5[(header.resolution_x / (1 << 5)) * (header.resolution_y / (1 << 5)) * PIXEL_SIZE];
+
+        if(!FEof())
+            BYTE lod_6[(header.resolution_x / (1 << 6)) * (header.resolution_y / (1 << 6)) * PIXEL_SIZE];
+
+        if(!FEof())
+            BYTE lod_7[(header.resolution_x / (1 << 7)) * (header.resolution_y / (1 << 7)) * PIXEL_SIZE];
+
+        if(!FEof())
+            BYTE lod_8[(header.resolution_x / (1 << 8)) * (header.resolution_y / (1 << 8)) * PIXEL_SIZE];
+    } lods;
+} IGI2_TLM;
+
+
+Assert(FEof());

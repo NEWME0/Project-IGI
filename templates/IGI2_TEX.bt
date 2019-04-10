@@ -1,0 +1,109 @@
+//------------------------------------------------
+//--- 010 Editor v9.0.1 Binary Template
+//
+//      File: IGI2_TEX.bt
+//   Authors: Rotari Artiom
+//   Version: 1.0
+//   Purpose: 
+//  Category: Game
+// File Mask: LOOP
+//  ID BYTEs: 
+//   History: 
+//------------------------------------------------
+
+
+struct
+{
+    struct
+    {
+        CHAR magic[4];
+        Assert(magic == "LOOP");
+
+        DWORD _0;  // unknown always 11
+        DWORD _1;  // pixel format {2: argb1555, 67: bgra8888, 3: ?}
+        DWORD _2;  // unknown {0, 524288} 524288 for multi.txt
+        DWORD _3;  // unknown always 0
+
+        WORD _4;  // unknown {2, 3, 4, 5, 6, 7, 8}
+        WORD _5;  // width0
+        WORD _6;  // heigth0
+        WORD _7;  // width1
+        WORD _8;  // height1
+        WORD _9;  // pixel stride
+    } head;
+
+    struct
+    {
+        switch(head._9)
+        {
+            case 2:
+            {
+                if(!FEof())
+                    WORD img[(head._7 * head._8)] <format=binary>;
+
+                if(!FEof())
+                    WORD lod_0[(head._7 / (2 << 0)) * (head._8 / (2 << 0))];
+
+                if(!FEof())
+                    WORD lod_1[(head._7 / (2 << 1)) * (head._8 / (2 << 1))];
+
+                if(!FEof())
+                    WORD lod_2[(head._7 / (2 << 2)) * (head._8 / (2 << 2))];
+
+                if(!FEof())
+                    WORD lod_3[(head._7 / (2 << 3)) * (head._8 / (2 << 3))];
+
+                if(!FEof())
+                    WORD lod_4[(head._7 / (2 << 4)) * (head._8 / (2 << 4))];
+
+                if(!FEof())
+                    WORD lod_5[(head._7 / (2 << 5)) * (head._8 / (2 << 5))];
+
+                if(!FEof())
+                    WORD lod_6[(head._7 / (2 << 6)) * (head._8 / (2 << 6))];
+
+                if(!FEof())
+                    WORD lod_7[(head._7 / (2 << 7)) * (head._8 / (2 << 7))];
+
+                if(!FEof())
+                    WORD lod_8[(head._7 / (2 << 8)) * (head._8 / (2 << 8))];
+            }; break;
+
+            case 4:
+            {
+                if(!FEof())
+                    DWORD img[((head._7 / 1) * (head._8 / 1))] <format=binary>;
+
+                if(!FEof())
+                    DWORD lod_0[(head._7 / (2 << 0)) * (head._8 / (2 << 0))];
+
+                if(!FEof())
+                    DWORD lod_1[(head._7 / (2 << 1)) * (head._8 / (2 << 1))];
+
+                if(!FEof())
+                    DWORD lod_2[(head._7 / (2 << 2)) * (head._8 / (2 << 2))];
+
+                if(!FEof())
+                    DWORD lod_3[(head._7 / (2 << 3)) * (head._8 / (2 << 3))];
+
+                if(!FEof())
+                    DWORD lod_4[(head._7 / (2 << 4)) * (head._8 / (2 << 4))];
+
+                if(!FEof())
+                    DWORD lod_5[(head._7 / (2 << 5)) * (head._8 / (2 << 5))];
+
+                if(!FEof())
+                    DWORD lod_6[(head._7 / (2 << 6)) * (head._8 / (2 << 6))];
+
+                if(!FEof())
+                    DWORD lod_7[(head._7 / (2 << 7)) * (head._8 / (2 << 7))];
+
+                if(!FEof())
+                    DWORD lod_8[(head._7 / (2 << 8)) * (head._8 / (2 << 8))];
+            }; break;
+        }
+    } body;
+} IGI2_TEX;
+
+
+Assert(FEof());

@@ -1,0 +1,134 @@
+//------------------------------------------------
+//--- 010 Editor v9.0.1 Binary Template
+//
+//      File: IGI2_IFF.bt
+//   Authors: Rotari Artiom
+//   Version: 1.0
+//   Purpose: 
+//  Category: Game
+// File Mask: ILFF
+//  ID BYTEs: 
+//   History: 
+//------------------------------------------------
+
+struct {
+    LittleEndian();
+
+    CHAR Signature[4];
+    DWORD size;
+    DWORD align;
+    DWORD next;
+
+    struct {
+        CHAR Signature[4];
+        Assert(sign == "MINA");
+
+        struct
+        {
+            while(FTell() % align != 0) BYTE pad <hidden=true>;
+
+            CHAR Signature[4];
+            DWORD size;
+            DWORD align;
+            DWORD next;
+
+            struct
+            {
+                CHAR _1[8];
+                DWORD _2;
+                DWORD _3;
+                DWORD _4;
+                DWORD _5;
+                CHAR _6[4];
+                DWORD _7;
+                DWORD _8;
+                DWORD _9;
+                DWORD _10;
+                CHAR _11[8];
+
+                string _12;
+            } data;
+        } DHNA;
+
+        struct
+        {
+            while(FTell() % align != 0) BYTE pad <hidden=true>;
+
+            CHAR Signature[4];
+            DWORD size;
+            DWORD align;
+            DWORD next;
+
+            struct
+            {
+                BYTE _0[DHNA.data._5];
+
+                while(FTell() % align != 0) BYTE pad <hidden=true>;
+
+                struct
+                {
+                    FLOAT _0;
+                    FLOAT _1;
+                    FLOAT _2;
+                } _1[DHNA.data._5];
+            } data;
+        } REIH;
+
+        struct
+        {
+            while(FTell() % align != 0) BYTE pad <hidden=true>;
+
+            CHAR Signature[4];
+            DWORD size;
+            DWORD align;
+            DWORD next;
+
+            struct
+            {
+                WORD _0;
+                WORD _1;
+                WORD _2;
+                WORD _3;
+                WORD _4;
+                WORD _5;
+
+                BYTE unk[size - 12];
+            } data;
+        } TNVE;
+
+        if(!FEof())
+        struct
+        {
+            while(FTell() % align != 0) BYTE pad <hidden=true>;
+
+            CHAR Signature[4];
+            DWORD size;
+            DWORD align;
+            DWORD next;
+
+            struct
+            {
+                struct
+                {
+                    CHAR _0[16];
+                    FLOAT _1;
+                    FLOAT _2;
+                    FLOAT _3;
+                    FLOAT _4;
+                    FLOAT _5;
+                    FLOAT _6;
+                    FLOAT _7;
+                    FLOAT _8;
+                    FLOAT _9;
+                    FLOAT _10;
+                    FLOAT _11;
+                    FLOAT _12;
+                    CHAR _13[4];
+                    DWORD _14;
+                    DWORD _15;
+                    DWORD _16;
+                } unk[size / 80];
+            } data;
+        } ATTA;
+    } MINA;
+} ILFF;
