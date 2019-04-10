@@ -1,0 +1,7 @@
+
+
+void ALIGN(DWORD modulus)
+{
+    while(FTell() % modulus != 0)
+        BYTE Padding <hidden=true>;
+}

@@ -11,14 +11,16 @@
 //   History: 
 //------------------------------------------------
 
-void Align() { if(!FEof()) while(FTell() % align != 0) BYTE pad; }
+
+#include "common/ALIGN.bt";
+#include "common/DATETIME.bt";
 
 
 struct
 {
     LittleEndian();
 
-    CHAR Signature[4];
+    CHAR  Signature[4];
     DWORD size;
     DWORD align;
     DWORD next;
@@ -42,13 +44,7 @@ struct
                         struct
                         {
                             FLOAT _00;  // {0.1599999964237213}
-                            DWORD dtm_0;    // year
-                            DWORD dtm_1;    // moon
-                            DWORD dtm_2;    // day
-                            DWORD dtm_3;    // hour
-                            DWORD dtm_4;    // minute
-                            DWORD dtm_5;    // second
-                            DWORD dtm_6;    // milisecond
+                            DATETIME DateTime;
                             DWORD _08;   // {0, 1, 3}
                             DWORD _09;   // {0}
                             DWORD _10;   // {0}
@@ -100,7 +96,7 @@ struct
                             WORD _56; // {0}
                         } data;
 
-                        Align();
+                     ALIGN(4);
                     } HSEM;
                     break;
                 case "REIH":
@@ -125,7 +121,7 @@ struct
                             } _1[HSEM.data._36];
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } REIH;
                     break;
                 case "MANB":
@@ -144,7 +140,7 @@ struct
                             } bname[size / 16];
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } MANB;
                     break;
                 case "ATTA":
@@ -178,7 +174,7 @@ struct
                             } unk[size / 72];
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } ATTA;
                     break;
                 case "XTVM":
@@ -200,7 +196,7 @@ struct
                             } unk[size / 16];
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } XTVM;
                     break;
                 case "TROP":
@@ -223,7 +219,7 @@ struct
                             } unk[size / 20];
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } TROP;
                     break;
                 case "XVTP":
@@ -244,7 +240,7 @@ struct
                             } unk[size / 12];
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } XVTP;
                     break;
                 case "CFTP":
@@ -265,7 +261,7 @@ struct
                             } unk[size / 12];
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } CFTP;
                     break;
                 case "WOLG":
@@ -291,7 +287,7 @@ struct
                             } unk[size / 32];
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } WOLG;
                     break;
                 case "D3DR":
@@ -351,7 +347,7 @@ struct
                                 break;
                         }
 
-                        Align();
+                        ALIGN(4);
                     } D3DR;
                     break;
                 case "ECAF":
@@ -372,7 +368,7 @@ struct
                             } face[D3DR.data._tris];
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } ECAF;
                     break;
                 case "DNER":
@@ -421,7 +417,7 @@ struct
                             }
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } DNER;
                     break;
                 case "XTRV":
@@ -479,7 +475,7 @@ struct
                             }
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } XTRV;
                     break;
                 case "PMTL":
@@ -499,7 +495,7 @@ struct
                             } unk[size / 8];
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } PMTL;
                     break;
                 case "HSMC":
@@ -530,7 +526,7 @@ struct
                             DWORD _15; // {0}
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } HSMC;
                     break;
                 case "XTVC":
@@ -553,7 +549,7 @@ struct
                             } unk[size / 20];
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } XTVC;
                     break;
                 case "ECFC":
@@ -574,7 +570,7 @@ struct
                             } unk[size / 12];
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } ECFC;
                     break;
                 case "TAMC":
@@ -596,7 +592,7 @@ struct
                             } unk[size / 16];
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } TAMC;
                     break;
                 case "HPSC":
@@ -621,7 +617,7 @@ struct
                             } unk [size / 24];
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } HPSC;
                     break;
                 case "HPRM":
@@ -643,7 +639,7 @@ struct
                             } unk[size / 16];
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } HPRM;
                     break;
                 case "TXAN":
@@ -686,7 +682,7 @@ struct
                             DWORD _27; // {25}
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } TXAN;
                     break;
                 case "SEMS":
@@ -711,7 +707,7 @@ struct
                             } unk[size / 28];
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } SEMS;
                     break;
                 case "XTVS":
@@ -732,7 +728,7 @@ struct
                             } unk[size / 12];
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } XTVS;
                     break;
                 case "CAFS":
@@ -764,7 +760,7 @@ struct
                             } unk[size / 56];
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } CAFS;
                     break;
                 case "EGDE":
@@ -784,7 +780,7 @@ struct
                             } unk[size / 8];
                         } data;
 
-                        Align();
+                        ALIGN(4);
                     } EGDE;
                     break;
                 default: Assert(false);

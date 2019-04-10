@@ -1,0 +1,9 @@
+
+
+typedef struct RGBA_8888
+{
+    BYTE R;
+    BYTE G;
+    BYTE B;
+    BYTE A;
+};

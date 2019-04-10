@@ -1,0 +1,8 @@
+
+
+typedef struct VECTOR_FLOAT_3
+{
+	FLOAT X;
+	FLOAT Y;
+	FLOAT Z;
+};

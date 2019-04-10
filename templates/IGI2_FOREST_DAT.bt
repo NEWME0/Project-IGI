@@ -12,6 +12,9 @@
 //------------------------------------------------
 
 
+#include "common/VECTOR_FLOAT_3.bt";
+
+
 struct
 {
     struct
@@ -25,15 +28,9 @@ struct
 
     struct
     {
-        FLOAT PositionX;
-        FLOAT PositionY;
-        FLOAT PositionZ;
-        FLOAT RotationX;
-        FLOAT RotationY;
-        FLOAT RotationZ;
-        FLOAT ScaleX;
-        FLOAT ScaleY;
-        FLOAT ScaleZ;
+        VECTOR_FLOAT_3 Position;
+        VECTOR_FLOAT_3 Rotation;
+        VECTOR_FLOAT_3 Scale;
         WORD  _0;
         WORD  _1;
     } TreeItem[TreeItemCount];

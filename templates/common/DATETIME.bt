@@ -1,0 +1,12 @@
+
+
+typedef struct DATETIME
+{
+    DWORD Year;
+    DWORD Month;
+    DWORD Day;
+    DWORD Hour;
+    DWORD Minute;
+    DWORD Second;
+    DWORD Milisecond;
+};

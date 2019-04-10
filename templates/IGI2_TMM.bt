@@ -13,22 +13,20 @@
 
 #define PIXEL_SIZE 1
 
+#include "common/DATETIME.bt";
+
+
 struct
 {
     struct
     {
         LittleEndian();
-        DWORD _1;
-        DWORD creation_year;
-        DWORD creation_month;
-        DWORD creation_day;
-        DWORD creation_hour;
-        DWORD creation_minute;
-        DWORD creation_second;
-        DWORD creation_milisecond;
-        DWORD _2;
-        DWORD resolution_x;
-        DWORD resolution_y;
+
+        DWORD    _1;
+        DATETIME DateTime;
+        DWORD    _2;
+        DWORD    resolution_x;
+        DWORD    resolution_y;
     } header;
 
     struct

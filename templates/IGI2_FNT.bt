@@ -12,20 +12,8 @@
 //------------------------------------------------
 
 
-void Align()
-{
-    while(FTell() % 4 != 0)
-        BYTE Padding <hidden=true>;
-}
-
-
-typedef struct RGBA_8888
-{
-    BYTE R;
-    BYTE G;
-    BYTE B;
-    BYTE A;
-};
+#include "common/ALIGN.bt";
+#include "common/RGBA_8888.bt";
 
 
 struct {
@@ -37,7 +25,7 @@ struct {
 
 
     struct {
-        Align();
+        ALIGN(4);
 
         CHAR  ChunkSignature[4]; //FNTH
         DWORD ChunkWidth;
@@ -54,7 +42,7 @@ struct {
 
 
     struct {
-        Align();
+        ALIGN(4);
 
         CHAR  ChunkSignature[4]; //ANMF
         DWORD ChunkWidth;
@@ -79,7 +67,7 @@ struct {
 
 
     struct {
-        Align();
+        ALIGN(4);
 
         CHAR  ChunkSignature[4]; //TRN2
         DWORD ChunkWidth;
@@ -91,7 +79,7 @@ struct {
 
 
     struct {
-        Align();
+        ALIGN(4);
 
         CHAR  ChunkSignature[4]; //TEXH
         DWORD ChunkWidth;
@@ -111,7 +99,7 @@ struct {
 
 
     struct {
-        Align();
+        ALIGN(4);
 
         CHAR  ChunkSignature[4]; //BODY
         DWORD ChunkWidth;
