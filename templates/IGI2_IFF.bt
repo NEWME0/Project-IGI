@@ -11,124 +11,105 @@
 //   History: 
 //------------------------------------------------
 
+
+#include "common/ALIGN.bt";
+#include "common/CSTRING.bt";
+#include "common/FSTRING.bt";
+#include "common/VECTOR_FLOAT_3.bt";
+
+
 struct {
     LittleEndian();
 
     CHAR  Signature[4];
-    DWORD size;
-    DWORD align;
-    DWORD next;
+    DWORD Size;
+    DWORD Align;
+    DWORD Next;
 
     struct {
-        CHAR Signature[4];
-        Assert(sign == "MINA");
+        CHAR  Signature[4];
 
         struct
         {
-            while(FTell() % align != 0) BYTE pad <hidden=true>;
+            ALIGN(4);
 
-            CHAR Signature[4];
-            DWORD size;
-            DWORD align;
-            DWORD next;
+            CHAR  Signature[4];
+            DWORD Size;
+            DWORD Align;
+            DWORD Next;
 
-            struct
-            {
-                CHAR  _1[8];
-                DWORD _2;
-                DWORD _3;
-                DWORD _4;
-                DWORD _5;
-                CHAR  _6[4];
-                DWORD _7;
-                DWORD _8;
-                DWORD _9;
-                DWORD _10;
-                CHAR  _11[8];
-
-                string _12;
-            } data;
+            BYTE    Reserved_0[8];
+            DWORD   _0;
+            DWORD   _1;
+            DWORD   _2;
+            DWORD   BoneCount;
+            BYTE    Reserved_1[4];
+            DWORD   _3;
+            DWORD   _4;
+            DWORD   _5;
+            DWORD   _6;
+            BYTE    Reserved_2[8];
+            CSTRING AnimName;
         } DHNA;
 
         struct
         {
-            while(FTell() % align != 0) BYTE pad <hidden=true>;
+            ALIGN(4);
 
-            CHAR Signature[4];
-            DWORD size;
-            DWORD align;
-            DWORD next;
+            CHAR  Signature[4];
+            DWORD Size;
+            DWORD Align;
+            DWORD Next;
 
-            struct
-            {
-                BYTE _0[DHNA.data._5];
+            BYTE BoneChildCount[DHNA.BoneCount];
 
-                while(FTell() % align != 0) BYTE pad <hidden=true>;
+            ALIGN(4);
 
-                struct
-                {
-                    FLOAT _0;
-                    FLOAT _1;
-                    FLOAT _2;
-                } _1[DHNA.data._5];
-            } data;
+            VECTOR_FLOAT_3 BonePosition[DHNA.BoneCount];
         } REIH;
 
         struct
         {
-            while(FTell() % align != 0) BYTE pad <hidden=true>;
+            ALIGN(4);
 
-            CHAR Signature[4];
-            DWORD size;
-            DWORD align;
-            DWORD next;
+            CHAR  Signature[4];
+            DWORD Size;
+            DWORD Align;
+            DWORD Next;
 
-            struct
-            {
-                WORD _0;
-                WORD _1;
-                WORD _2;
-                WORD _3;
-                WORD _4;
-                WORD _5;
-
-                BYTE unk[size - 12];
-            } data;
+            FLOAT _0[Size / 4];
         } TNVE;
 
         if(!FEof())
         struct
         {
-            while(FTell() % align != 0) BYTE pad <hidden=true>;
+            ALIGN(4);
 
-            CHAR Signature[4];
-            DWORD size;
-            DWORD align;
-            DWORD next;
+            CHAR  Signature[4];
+            DWORD Size;
+            DWORD Align;
+            DWORD Next;
 
             struct
             {
-                struct
-                {
-                    CHAR _0[16];
-                    FLOAT _1;
-                    FLOAT _2;
-                    FLOAT _3;
-                    FLOAT _4;
-                    FLOAT _5;
-                    FLOAT _6;
-                    FLOAT _7;
-                    FLOAT _8;
-                    FLOAT _9;
-                    FLOAT _10;
-                    FLOAT _11;
-                    FLOAT _12;
-                    CHAR _13[4];
-                    DWORD _14;
-                    DWORD _15;
-                    DWORD _16;
-                } unk[size / 80];
-            } data;
+                FSTRING  ModelName(16);
+                FLOAT    _1;
+                FLOAT    _2;
+                FLOAT    _3;
+                FLOAT    _4;
+                FLOAT    _5;
+                FLOAT    _6;
+                FLOAT    _7;
+                FLOAT    _8;
+                FLOAT    _9;
+                FLOAT    _10;
+                FLOAT    _11;
+                FLOAT    _12;
+                CHAR     Reserved_0[4];
+                DWORD    _14;
+                DWORD    _15;
+                DWORD    _16;
+            } Attachment[Size / 80];
         } ATTA;
     } MINA;
 } ILFF;
