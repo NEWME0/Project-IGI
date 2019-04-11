@@ -1,0 +1,6 @@
+BeginResource("export/demo.res");
+AddResource("modles/100_01_1.mef", "LOCAL:modles/100_01_1.mef");
+AddResource("modles/100_01_2.mef", "LOCAL:modles/100_01_2.mef");
+AddStringResource("LOCAL:String name", "String value in resource");
+AddDirectoryResource("Some dirname");
+EndResource();
