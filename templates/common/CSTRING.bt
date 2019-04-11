@@ -1,0 +1,10 @@
+typedef struct
+{
+	string value;
+} CSTRING <read=ReadCSTRING>;
+
+
+string ReadCSTRING(CSTRING &o)
+{
+	return o.value;
+}

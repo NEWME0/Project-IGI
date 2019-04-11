@@ -1,0 +1,9 @@
+typedef struct (DWORD length)
+{
+	CHAR value[length];
+} FSTRING <read=ReadFSTRING>;
+
+string ReadFSTRING(FSTRING &o)
+{
+	return o.value;
+}
