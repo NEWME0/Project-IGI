@@ -1,7 +1,0 @@
-SetModelDirectory("models");
-SetTextureDirectory("textures");
-SetPaletteDirectory("palettes");
-SetTempDirectory("temp");
-
-SetTargetPlatform("PC");
-CreateCompleteModelLightmap("testmodel");

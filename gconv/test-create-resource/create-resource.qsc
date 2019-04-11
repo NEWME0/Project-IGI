@@ -1,5 +1,0 @@
-SetModelDirectory("models");
-SetTextureDirectory("textures");
-SetPaletteDirectory("palettes");
-SetTempDirectory("temp");
-

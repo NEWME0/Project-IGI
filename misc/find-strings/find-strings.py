@@ -2,29 +2,29 @@ import os
 import string
 
 
-source_path = "../igi2-editor/pc/tools/gconvapi.dll"
-valid_chars = bytes(string.printable, 'utf8')
-minwordlen  = 4
+SOURCE_PATH = "../igi2-editor/pc/tools/gconvapi.dll"
+SOURCE_NAME = os.path.basename(SOURCE_PATH)
+OUTPUT_PATH = os.path.join('./', SOURCE_NAME + '.words.txt')
+VALID_CHARS = bytes(string.ascii_letters + string.whitespace, 'utf8')
+MINWORDLEN  = 4
 
-with open(source_path, 'rb') as f:
+with open(SOURCE_PATH, 'rb') as f:
     source = f.read()
 
 
-words = list()
+storage = list()
 word = bytearray()
 
 for char in source:
-    if char in valid_chars:
+    if char in VALID_CHARS:
         word.append(char)
     else:
-        if len(word) >= minwordlen:
-            words.append(word.decode('utf8'))
+        if len(word) >= MINWORDLEN:
+            storage.append(word.decode('utf8'))
 
         word.clear()
 
 
-for word in words:
-    print(word)
-
-
-input()
+with open(OUTPUT_PATH, 'w+') as o:
+    for word in storage:
+        print(word, file=o)
