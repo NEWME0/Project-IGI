@@ -1,0 +1,603 @@
+D:/Program Files (x86)/Codemasters/IGI 2/pc/common/fonts/fonts_hi.res
+{'.fnt'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/common/fonts/fonts_lo.res
+{'.fnt'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/common/fonts/fonts_med.res
+{'.fnt'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/common/models/common.res
+{'.iff', '.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/common/models/new.res
+{'.iff'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/common/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/common/sounds/ENGLISH/sounds.res
+{'.mp3'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/common/sprites/sprites.res
+{'.spr'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/common/textures/common.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/common/textures/new.res
+set()
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/common/textures/textures.res
+{'.tga', '.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/computer/computer.res
+{'.spr', '.jpg'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/editor/models/editor.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/editor/textures/editor.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/menusystem/ingamemenu.res
+{'.spr'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/menusystem/loadingscreen.res
+{'.jpg'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/menusystem/menusystem.res
+{'.jpg', '.pic', '.spr'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/menusystem/missionsprites.res
+{'.spr'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/menusystem/models/menusystem.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/menusystem/sound/sounds.res
+{'.mp3', '.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/menusystem/textures/menusystem.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/common/models/location1.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/common/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/common/textures/location1.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level1/envmaps/water_2886.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level1/envmaps/water_4020.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level1/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level1/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level1/models/level1.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level1/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level1/sounds/english/sounds.res
+{'.mp3', '.syn'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level1/textures/level1.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level2/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level2/models/level2.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level2/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level2/sounds/ENGLISH/sounds.res
+{'.mp3', '.syn'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level2/textures/level2.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level3/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level3/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level3/models/level3.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level3/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level3/sounds/ENGLISH/sounds.res
+{'.mp3', '.syn'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level3/textures/level3.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level4/envmaps/water_4086.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level4/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level4/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level4/models/level4.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level4/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level4/sounds/ENGLISH/sounds.res
+{'.mp3', '.syn'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level4/textures/level4.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level5/envmaps/water_4086.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level5/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level5/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level5/models/level5.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level5/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level5/sounds/ENGLISH/sounds.res
+{'.mp3', '.syn'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level5/textures/level5.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level6/envmaps/water_4086.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level6/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level6/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level6/models/level6.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level6/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level6/sounds/ENGLISH/sounds.res
+{'.mp3', '.syn'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level6/textures/level6.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level7/envmaps/water_4030.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level7/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level7/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level7/models/level7.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level7/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level7/sounds/ENGLISH/sounds.res
+{'.mp3', '.syn'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location1/level7/textures/level7.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/common/models/location2.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/common/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/common/textures/location2.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level1/envmaps/water_3744.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level1/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level1/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level1/models/level1.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level1/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level1/sounds/ENGLISH/sounds.res
+{'.mp3', '.syn'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level1/textures/level1.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level2/envmaps/water_3970.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level2/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level2/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level2/models/level2.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level2/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level2/sounds/ENGLISH/sounds.res
+{'.mp3', '.syn'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level2/textures/level2.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level3/envmaps/water_4031.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level3/envmaps/water_4068.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level3/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level3/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level3/models/level3.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level3/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level3/sounds/ENGLISH/sounds.res
+{'.mp3', '.syn'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level3/textures/level3.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level4/envmaps/water_4077.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level4/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level4/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level4/models/level4.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level4/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level4/sounds/ENGLISH/sounds.res
+{'.mp3', '.syn'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level4/textures/level4.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level5/envmaps/water_4040.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level5/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level5/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level5/models/level5.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level5/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level5/sounds/ENGLISH/sounds.res
+{'.mp3', '.syn'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level5/textures/level5.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level6/envmaps/water_4074.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level6/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level6/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level6/models/level6.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level6/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level6/sounds/ENGLISH/sounds.res
+{'.mp3', '.syn'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location2/level6/textures/level6.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/common/models/location3.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/common/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/common/textures/location3.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level1/envmaps/water_3824.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level1/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level1/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level1/models/level1.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level1/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level1/sounds/ENGLISH/sounds.res
+{'.mp3', '.syn'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level1/textures/level1.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level2/envmaps/water_4073.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level2/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level2/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level2/models/level2.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level2/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level2/sounds/ENGLISH/sounds.res
+{'.mp3', '.syn'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level2/textures/level2.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level3/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level3/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level3/models/level3.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level3/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level3/sounds/ENGLISH/sounds.res
+{'.mp3', '.syn'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/level3/textures/level3.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL4/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL4/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL4/models/level4.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL4/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL4/sounds/ENGLISH/sounds.res
+{'.mp3', '.syn'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL4/textures/level4.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL5/envmaps/water_3150.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL5/envmaps/water_4089.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL5/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL5/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL5/models/level5.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL5/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL5/sounds/ENGLISH/sounds.res
+{'.mp3', '.syn'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL5/textures/level5.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL6/envmaps/water_3733.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL6/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL6/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL6/models/level6.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL6/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL6/sounds/ENGLISH/sounds.res
+{'.mp3', '.syn'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/location3/LEVEL6/textures/level6.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/chinesetemple/envmaps/water_4069.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/chinesetemple/HEIGHTMAPS/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/chinesetemple/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/chinesetemple/models/chinesetemple.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/chinesetemple/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/chinesetemple/textures/chinesetemple.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/common/models/multiplayer.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/common/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/common/textures/multiplayer.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/forestraid/envmaps/water_4043.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/forestraid/HEIGHTMAPS/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/forestraid/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/forestraid/models/forestraid.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/forestraid/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/forestraid/textures/forestraid.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/jungle/ENVMAPS/water_4000.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/jungle/HEIGHTMAPS/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/jungle/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/jungle/models/jungle.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/jungle/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/jungle/textures/jungle.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/redstone/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/redstone/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/redstone/models/redstone.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/redstone/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/redstone/textures/redstone.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/sandstorm/envmaps/water_3716.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/sandstorm/HEIGHTMAPS/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/sandstorm/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/sandstorm/models/sandstorm.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/sandstorm/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/sandstorm/textures/sandstorm.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/timberland/envmaps/water_3884.res
+{'.bmp'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/timberland/heightmaps/heightmaps.res
+{'.thm', '.tlm', '.tmm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/timberland/lightmaps/lightmaps.res
+{'.olm'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/timberland/models/timberland.res
+{'.mef'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/timberland/sounds/sounds.res
+{'.wav'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/missions/multiplayer/timberland/textures/timberland.res
+{'.tex'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/screens/game/status/status.res
+{'.spr'}
+
+D:/Program Files (x86)/Codemasters/IGI 2/pc/weapons/weapons.res
+{'.spr'}
+
