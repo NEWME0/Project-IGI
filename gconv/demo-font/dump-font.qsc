@@ -1,0 +1,9 @@
+DumpFont("loadfontbig1024.fnt");
+DumpFont("loadfontbig1280.fnt");
+DumpFont("loadfontbig640.fnt");
+DumpFont("loadfontbig800.fnt");
+
+DumpFont("loadfontsmall1024.fnt");
+DumpFont("loadfontsmall1280.fnt");
+DumpFont("loadfontsmall640.fnt");
+DumpFont("loadfontsmall800.fnt");
