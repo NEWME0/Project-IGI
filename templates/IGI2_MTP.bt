@@ -21,7 +21,7 @@ struct
 	BigEndian();
 
 	CHAR fourc[4]; //FORM
-	DWORD size;
+	UINT32 size;
 
 	struct
 	{
@@ -32,13 +32,13 @@ struct
 			BigEndian();
 
 			CHAR fourc[4]; // BANM
-			DWORD size;
+			UINT32 size;
 
 			struct
 			{
 				LittleEndian();
 
-				DWORD count;
+				UINT32 count;
 				CString unk[count] <optimize=false>;
 
 			} data;
@@ -51,7 +51,7 @@ struct
 			BigEndian();
 
 			CHAR fourc[4]; // SNDS
-			DWORD size;
+			UINT32 size;
 
 			BYTE data[size];
 
@@ -63,13 +63,13 @@ struct
 			BigEndian();
 
 			CHAR fourc[4]; // SVOL
-			DWORD size;
+			UINT32 size;
 
 			struct
 			{
 				LittleEndian();
 
-				DWORD count;
+				UINT32 count;
 				CString unk[count] <optimize=false>;
 
 			} data;
@@ -82,13 +82,13 @@ struct
 			BigEndian();
 
 			CHAR fourc[4]; // MODS
-			DWORD size;
+			UINT32 size;
 
 			struct
 			{
 				LittleEndian();
 
-				DWORD count;
+				UINT32 count;
 				CString unk[count] <optimize=false>;
 
 			} data;
@@ -101,14 +101,14 @@ struct
 			BigEndian();
 
 			CHAR fourc[4]; // VNAM
-			DWORD size;
+			UINT32 size;
 
 			struct
 			{
 				LittleEndian();
 
-				DWORD count;
-				DWORD _DWORD[count];
+				UINT32 count;
+				UINT32 _UINT32[count];
 				CString unk[count] <optimize=false>;
 
 			} data;
@@ -121,13 +121,13 @@ struct
 			BigEndian();
 
 			CHAR fourc[4]; // INST
-			DWORD size;
+			UINT32 size;
 
 			struct
 			{
 				LittleEndian();
 
-				DWORD unk[size / 4];
+				UINT32 unk[size / 4];
 
 			} data;
 
@@ -139,13 +139,13 @@ struct
 			BigEndian();
 
 			CHAR fourc[4]; // TEXF
-			DWORD size;
+			UINT32 size;
 
 			struct
 			{
 				LittleEndian();
 
-				DWORD count;
+				UINT32 count;
 				CString unk[count] <optimize=false>;
 
 			} data;
@@ -158,7 +158,7 @@ struct
 			BigEndian();
 
 			CHAR fourc[4]; // PALF
-			DWORD size;
+			UINT32 size;
 
 			BYTE data[size];
 
@@ -170,17 +170,17 @@ struct
 			BigEndian();
 
 			CHAR fourc[4]; // GTT 
-			DWORD size;
+			UINT32 size;
 
 			struct
 			{
 				LittleEndian();
 
-				DWORD count;
+				UINT32 count;
 				struct
 				{
-					DWORD _01;
-					DWORD _02;
+					UINT32 _01;
+					UINT32 _02;
 				} unk[count];
 
 			} data;

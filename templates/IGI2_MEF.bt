@@ -12,8 +12,8 @@
 //------------------------------------------------
 
 
-#include "common/ALIGN.bt";
-#include "common/DATETIME.bt";
+#include "COMMON/ALIGN.bt";
+#include "COMMON/DATETIME.bt";
 
 
 struct
@@ -21,9 +21,9 @@ struct
     LittleEndian();
 
     CHAR  Signature[4];
-    DWORD size;
-    DWORD align;
-    DWORD next;
+    UINT32 size;
+    UINT32 align;
+    UINT32 next;
 
     struct
     {
@@ -37,18 +37,18 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
                             FLOAT _00;  // {0.1599999964237213}
                             DATETIME DateTime;
-                            DWORD _08;   // {0, 1, 3}
-                            DWORD _09;   // {0}
-                            DWORD _10;   // {0}
-                            DWORD _11;   // {0}
+                            UINT32 _08;   // {0, 1, 3}
+                            UINT32 _09;   // {0}
+                            UINT32 _10;   // {0}
+                            UINT32 _11;   // {0}
                             FLOAT _12;  // [-1197574.5         - 588632.5625],   2708
                             FLOAT _13;  // [-551761.5625       - 164895.65625],  2704
                             FLOAT _14;  // [-1004530.75        - 245571.46875],  2689
@@ -61,39 +61,39 @@ struct
                             FLOAT _21;  // [-450069.625        - 166205.71875],  2751
                             FLOAT _22;  // [-1004220.0         - 224238.328125], 2733
                             FLOAT _23;  // [ 8.636710166931152 - 4107811.25],    2740
-                            DWORD _24;   // [0 .. 14793], 748
-                            DWORD _25;   // [0 .. 15430], 1049
-                            DWORD _26;   // [36 .. 494166], 2324
-                            DWORD _27;   // [0 .. 14795], 539
-                            DWORD _28;   // [0 .. 16246], 747
-                            DWORD _29;   // [0 .. 1167796], 1291
+                            UINT32 _24;   // [0 .. 14793], 748
+                            UINT32 _25;   // [0 .. 15430], 1049
+                            UINT32 _26;   // [36 .. 494166], 2324
+                            UINT32 _27;   // [0 .. 14795], 539
+                            UINT32 _28;   // [0 .. 16246], 747
+                            UINT32 _29;   // [0 .. 1167796], 1291
                             FLOAT _30;  // [16.031251907348633 .. 5001837.0], 1993
-                            WORD _31; // [0 .. 15], 11
-                            WORD _32; // [0 .. 63], 36
-                            WORD _33; // [0 .. 92], 42
-                            WORD _34; // [0 .. 68], 34
-                            WORD _35; // [0 .. 19], 16
-                            WORD _36; // {0, 31, 28, 47}
-                            WORD _37; // [0 .. 182], 25
-                            WORD _38; // {0, 43947}
-                            WORD _39; // {0, 43947}
-                            WORD _40; // {0, 43947}
-                            WORD _41; // {0, 43947}
-                            WORD _42; // {0, 43947}
-                            WORD _43; // {0, 43947}
-                            WORD _44; // {0, 43947}
-                            WORD _45; // {0, 43947}
-                            WORD _46; // {0, 43947}
-                            WORD _47; // {0, 43947}
-                            WORD _48; // {0, 43947}
-                            WORD _49; // {0, 43947}
-                            WORD _50; // {0, 43947}
-                            WORD _51; // {0, 43947}
-                            WORD _52; // {0, 43947}
-                            WORD _53; // {0}
-                            WORD _54; // {0}
-                            WORD _55; // {0}
-                            WORD _56; // {0}
+                            UINT16 _31; // [0 .. 15], 11
+                            UINT16 _32; // [0 .. 63], 36
+                            UINT16 _33; // [0 .. 92], 42
+                            UINT16 _34; // [0 .. 68], 34
+                            UINT16 _35; // [0 .. 19], 16
+                            UINT16 _36; // {0, 31, 28, 47}
+                            UINT16 _37; // [0 .. 182], 25
+                            UINT16 _38; // {0, 43947}
+                            UINT16 _39; // {0, 43947}
+                            UINT16 _40; // {0, 43947}
+                            UINT16 _41; // {0, 43947}
+                            UINT16 _42; // {0, 43947}
+                            UINT16 _43; // {0, 43947}
+                            UINT16 _44; // {0, 43947}
+                            UINT16 _45; // {0, 43947}
+                            UINT16 _46; // {0, 43947}
+                            UINT16 _47; // {0, 43947}
+                            UINT16 _48; // {0, 43947}
+                            UINT16 _49; // {0, 43947}
+                            UINT16 _50; // {0, 43947}
+                            UINT16 _51; // {0, 43947}
+                            UINT16 _52; // {0, 43947}
+                            UINT16 _53; // {0}
+                            UINT16 _54; // {0}
+                            UINT16 _55; // {0}
+                            UINT16 _56; // {0}
                         } data;
 
                      ALIGN(4);
@@ -103,9 +103,9 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
@@ -128,9 +128,9 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
@@ -147,9 +147,9 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
@@ -181,18 +181,18 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
                             struct
                             {
-                                DWORD _00;
-                                DWORD _01;
-                                DWORD _02;
-                                DWORD _03;
+                                UINT32 _00;
+                                UINT32 _01;
+                                UINT32 _02;
+                                UINT32 _03;
                             } unk[size / 16];
                         } data;
 
@@ -203,19 +203,19 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
                             struct
                             {
-                                DWORD _00;
-                                DWORD _01;
-                                DWORD _02;
-                                DWORD _03;
-                                DWORD _04;
+                                UINT32 _00;
+                                UINT32 _01;
+                                UINT32 _02;
+                                UINT32 _03;
+                                UINT32 _04;
                             } unk[size / 20];
                         } data;
 
@@ -226,17 +226,17 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
                             struct
                             {
-                                DWORD _00;
-                                DWORD _01;
-                                DWORD _02;
+                                UINT32 _00;
+                                UINT32 _01;
+                                UINT32 _02;
                             } unk[size / 12];
                         } data;
 
@@ -247,17 +247,17 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
                             struct
                             {
-                                DWORD _00;
-                                DWORD _01;
-                                DWORD _02;
+                                UINT32 _00;
+                                UINT32 _01;
+                                UINT32 _02;
                             } unk[size / 12];
                         } data;
 
@@ -268,9 +268,9 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
@@ -283,7 +283,7 @@ struct
                                 FLOAT _04;
                                 FLOAT _05;
                                 FLOAT _06;
-                                DWORD  _07;
+                                UINT32  _07;
                             } unk[size / 32];
                         } data;
 
@@ -294,55 +294,55 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         switch(size)
                         {
                             case 36:
                                 struct
                                 {
-                                    DWORD _four;
-                                    DWORD _tris;
-                                    DWORD _dner;
-                                    DWORD _vert;
-                                    DWORD _04;
-                                    DWORD _05;
-                                    DWORD _06;
-                                    DWORD _07;
-                                    DWORD _08;
+                                    UINT32 _four;
+                                    UINT32 _tris;
+                                    UINT32 _dner;
+                                    UINT32 _vert;
+                                    UINT32 _04;
+                                    UINT32 _05;
+                                    UINT32 _06;
+                                    UINT32 _07;
+                                    UINT32 _08;
                                 } data;
                                 break;
                             case 40:
                                 struct
                                 {
-                                    DWORD _four;
-                                    DWORD _tris;
-                                    DWORD _dner;
-                                    DWORD _03;
-                                    DWORD _04;
-                                    DWORD _vert;
-                                    DWORD _06;
-                                    DWORD _07;
-                                    DWORD _08;
-                                    DWORD _09;
+                                    UINT32 _four;
+                                    UINT32 _tris;
+                                    UINT32 _dner;
+                                    UINT32 _03;
+                                    UINT32 _04;
+                                    UINT32 _vert;
+                                    UINT32 _06;
+                                    UINT32 _07;
+                                    UINT32 _08;
+                                    UINT32 _09;
                                 } data;
                                 break;
                             case 44:
                                 struct
                                 {
-                                    DWORD _four;
-                                    DWORD _01;
-                                    DWORD _tris;
-                                    DWORD _dner;
-                                    DWORD _vert;
-                                    DWORD _05;
-                                    DWORD _06;
-                                    DWORD _07;
-                                    DWORD _08;
-                                    DWORD _09;
-                                    DWORD _10;
+                                    UINT32 _four;
+                                    UINT32 _01;
+                                    UINT32 _tris;
+                                    UINT32 _dner;
+                                    UINT32 _vert;
+                                    UINT32 _05;
+                                    UINT32 _06;
+                                    UINT32 _07;
+                                    UINT32 _08;
+                                    UINT32 _09;
+                                    UINT32 _10;
                                 } data;
                                 break;
                         }
@@ -354,17 +354,17 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
                             struct
                             {
-                                WORD _a;
-                                WORD _b;
-                                WORD _c;
+                                UINT16 _a;
+                                UINT16 _b;
+                                UINT16 _c;
                             } face[D3DR.data._tris];
                         } data;
 
@@ -375,9 +375,9 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
@@ -387,31 +387,31 @@ struct
                                 case 40:
                                     struct
                                     {
-                                        DWORD   _00;
+                                        UINT32   _00;
                                         FLOAT  _01;
                                         FLOAT  _02;
                                         FLOAT  _03;
-                                        WORD _04;
-                                        WORD _05;
-                                        WORD _06;
-                                        WORD _07;
-                                        WORD _08;
-                                        DWORD   _09;
-                                        WORD _10;
+                                        UINT16 _04;
+                                        UINT16 _05;
+                                        UINT16 _06;
+                                        UINT16 _07;
+                                        UINT16 _08;
+                                        UINT32   _09;
+                                        UINT16 _10;
                                     } dner[D3DR.data._dner];
                                     break;
                                 case 44:
                                     struct
                                     {
-                                        DWORD   _00;
+                                        UINT32   _00;
                                         FLOAT  _01;
                                         FLOAT  _02;
                                         FLOAT  _03;
-                                        WORD _04;
-                                        WORD _05;
-                                        WORD _06;
-                                        WORD _07;
-                                        DWORD   _08;
+                                        UINT16 _04;
+                                        UINT16 _05;
+                                        UINT16 _06;
+                                        UINT16 _07;
+                                        UINT32   _08;
                                     } dner[D3DR.data._dner];
                                     break;
                             }
@@ -424,9 +424,9 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
@@ -482,16 +482,16 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
                             struct
                             {
-                                DWORD _00;
-                                DWORD _01;
+                                UINT32 _00;
+                                UINT32 _01;
                             } unk[size / 8];
                         } data;
 
@@ -502,28 +502,28 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
-                            DWORD _00; // [0 .. 14795], 513
-                            DWORD _01; // [0 .. 15226], 730
-                            DWORD _02; // [0 .. 46], 35
-                            DWORD _03; // [0 .. 29589], 513
-                            DWORD _04; // {0}
-                            DWORD _05; // {0}
-                            DWORD _06; // {0}
-                            DWORD _07; // {0}
-                            DWORD _08; // [0 .. 1562], 188
-                            DWORD _09; // [0 .. 1020], 163
-                            DWORD _10; // {0, 1, 2}
-                            DWORD _11; // [0 .. 3123], 188
-                            DWORD _12; // {0}
-                            DWORD _13; // {0}
-                            DWORD _14; // {0}
-                            DWORD _15; // {0}
+                            UINT32 _00; // [0 .. 14795], 513
+                            UINT32 _01; // [0 .. 15226], 730
+                            UINT32 _02; // [0 .. 46], 35
+                            UINT32 _03; // [0 .. 29589], 513
+                            UINT32 _04; // {0}
+                            UINT32 _05; // {0}
+                            UINT32 _06; // {0}
+                            UINT32 _07; // {0}
+                            UINT32 _08; // [0 .. 1562], 188
+                            UINT32 _09; // [0 .. 1020], 163
+                            UINT32 _10; // {0, 1, 2}
+                            UINT32 _11; // [0 .. 3123], 188
+                            UINT32 _12; // {0}
+                            UINT32 _13; // {0}
+                            UINT32 _14; // {0}
+                            UINT32 _15; // {0}
                         } data;
 
                         ALIGN(4);
@@ -533,19 +533,19 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
                             struct
                             {
-                                DWORD _00;
-                                DWORD _01;
-                                DWORD _02;
-                                DWORD _03;
-                                DWORD _04;
+                                UINT32 _00;
+                                UINT32 _01;
+                                UINT32 _02;
+                                UINT32 _03;
+                                UINT32 _04;
                             } unk[size / 20];
                         } data;
 
@@ -556,17 +556,17 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
                             struct
                             {
-                                DWORD _00;
-                                DWORD _01;
-                                DWORD _02;
+                                UINT32 _00;
+                                UINT32 _01;
+                                UINT32 _02;
                             } unk[size / 12];
                         } data;
 
@@ -577,18 +577,18 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
                             struct
                             {
-                                DWORD _00;
-                                DWORD _01;
-                                DWORD _02;
-                                DWORD _03;
+                                UINT32 _00;
+                                UINT32 _01;
+                                UINT32 _02;
+                                UINT32 _03;
                             } unk[size / 16];
                         } data;
 
@@ -599,9 +599,9 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
@@ -611,9 +611,9 @@ struct
                                 FLOAT  _01;
                                 FLOAT  _02;
                                 FLOAT  _03;
-                                DWORD   _04;
-                                WORD _05;
-                                WORD _06;
+                                UINT32   _04;
+                                UINT16 _05;
+                                UINT16 _06;
                             } unk [size / 24];
                         } data;
 
@@ -624,18 +624,18 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
                             struct
                             {
-                                DWORD _00;
-                                DWORD _01;
-                                DWORD _02;
-                                DWORD _03;
+                                UINT32 _00;
+                                UINT32 _01;
+                                UINT32 _02;
+                                UINT32 _03;
                             } unk[size / 16];
                         } data;
 
@@ -646,40 +646,40 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
-                            DWORD _00; // {25}
-                            DWORD _01; // {26}
-                            DWORD _02; // {0}
-                            DWORD _03; // {1}
-                            DWORD _04; // {2}
-                            DWORD _05; // {3}
-                            DWORD _06; // {4}
-                            DWORD _07; // {5}
-                            DWORD _08; // {6}
-                            DWORD _09; // {7}
-                            DWORD _10; // {8}
-                            DWORD _11; // {9}
-                            DWORD _12; // {10}
-                            DWORD _13; // {11}
-                            DWORD _14; // {12}
-                            DWORD _15; // {13}
-                            DWORD _16; // {14}
-                            DWORD _17; // {15}
-                            DWORD _18; // {16}
-                            DWORD _19; // {17}
-                            DWORD _20; // {18}
-                            DWORD _21; // {19}
-                            DWORD _22; // {20}
-                            DWORD _23; // {21}
-                            DWORD _24; // {22}
-                            DWORD _25; // {23}
-                            DWORD _26; // {24}
-                            DWORD _27; // {25}
+                            UINT32 _00; // {25}
+                            UINT32 _01; // {26}
+                            UINT32 _02; // {0}
+                            UINT32 _03; // {1}
+                            UINT32 _04; // {2}
+                            UINT32 _05; // {3}
+                            UINT32 _06; // {4}
+                            UINT32 _07; // {5}
+                            UINT32 _08; // {6}
+                            UINT32 _09; // {7}
+                            UINT32 _10; // {8}
+                            UINT32 _11; // {9}
+                            UINT32 _12; // {10}
+                            UINT32 _13; // {11}
+                            UINT32 _14; // {12}
+                            UINT32 _15; // {13}
+                            UINT32 _16; // {14}
+                            UINT32 _17; // {15}
+                            UINT32 _18; // {16}
+                            UINT32 _19; // {17}
+                            UINT32 _20; // {18}
+                            UINT32 _21; // {19}
+                            UINT32 _22; // {20}
+                            UINT32 _23; // {21}
+                            UINT32 _24; // {22}
+                            UINT32 _25; // {23}
+                            UINT32 _26; // {24}
+                            UINT32 _27; // {25}
                         } data;
 
                         ALIGN(4);
@@ -689,21 +689,21 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
                             struct
                             {
-                                DWORD _00;
-                                DWORD _01;
-                                DWORD _02;
-                                DWORD _03;
-                                DWORD _04;
-                                DWORD _05;
-                                DWORD _06;
+                                UINT32 _00;
+                                UINT32 _01;
+                                UINT32 _02;
+                                UINT32 _03;
+                                UINT32 _04;
+                                UINT32 _05;
+                                UINT32 _06;
                             } unk[size / 28];
                         } data;
 
@@ -714,17 +714,17 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
                             struct
                             {
-                                DWORD _00;
-                                DWORD _01;
-                                DWORD _02;
+                                UINT32 _00;
+                                UINT32 _01;
+                                UINT32 _02;
                             } unk[size / 12];
                         } data;
 
@@ -735,25 +735,25 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
                             struct
                             {
-                                DWORD _00;
-                                DWORD _01;
-                                DWORD _02;
-                                DWORD _03;
+                                UINT32 _00;
+                                UINT32 _01;
+                                UINT32 _02;
+                                UINT32 _03;
                                 FLOAT _04;
                                 FLOAT _05;
                                 FLOAT _06;
-                                DWORD _07;
-                                DWORD _08;
-                                DWORD _09;
-                                DWORD _10;
+                                UINT32 _07;
+                                UINT32 _08;
+                                UINT32 _09;
+                                UINT32 _10;
                                 FLOAT _11;
                                 FLOAT _12;
                                 FLOAT _13;
@@ -767,16 +767,16 @@ struct
                     struct
                     {
                         CHAR Signature[4];
-                        DWORD size;
-                        DWORD align;
-                        DWORD next;
+                        UINT32 size;
+                        UINT32 align;
+                        UINT32 next;
 
                         struct
                         {
                             struct
                             {
-                                DWORD _00;
-                                DWORD _01;
+                                UINT32 _00;
+                                UINT32 _01;
                             } unk[size / 8];
                         } data;
 

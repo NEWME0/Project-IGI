@@ -1,7 +1,12 @@
+#ifndef H_ALIGN_BT
+#define H_ALIGN_BT
 
 
-void ALIGN(DWORD modulus)
+void ALIGN(UINT32 modulus)
 {
     while(FTell() % modulus != 0)
-        BYTE Padding <hidden=true>;
+        BYTE padding <hidden=true>;
 }
+
+
+#endif

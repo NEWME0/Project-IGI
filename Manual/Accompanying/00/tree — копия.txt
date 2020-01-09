@@ -1,0 +1,179 @@
+{language} = [danish | english | finnish | french | german | italian | norwegian | spanish | swedish | usa]
+{car}      = [apc | buggy | cutscene_truck | limo | t80 | truck]
+{heli}     = [bell | mil]
+{missile}  = [cgm2 | hind | rpg18 | rpg7]
+{plane}    = [cutscenemissile | jsf | su27]
+{location} = [location1 | location2 | location3 | multiplayer]
+{level}    = [level1 | level2 | level3 | level4 | level5 | level6 | level7 | chinesetemple | forestraid | jungle | redstone | sandstorm | timberland]
+
+ROOT/
+    lod.qvm
+    config.qvm
+    magicobjconfig.qvm
+    editormagicobjconfig.qvm
+
+    ANIMTRIGGER/
+        animtrigger.qvm
+
+    COMMON/
+        common.dat
+        common.mtp
+        new.dat
+        new.mtp
+        ai/
+            default.qvm
+            settings.qvm
+            squaddefault.qvm
+        fonts/
+            fonts_hi.res
+            fonts_lo.res
+            fonts_med.res
+            loadfontbig1024.fnt
+            loadfontbig1280.fnt
+            loadfontbig640.fnt
+            loadfontbig800.fnt
+            loadfontsmall1024.fnt
+            loadfontsmall1280.fnt
+            loadfontsmall640.fnt
+            loadfontsmall800.fnt
+        models/
+            common.res
+            new.res
+        sounds/
+            sounds.qvm
+            sounds.res
+            {soundslang}/
+                sounds.res
+        sprites/
+            sprites.res
+        textures/
+            common.res
+            new.res
+            textures.res
+            drop.tga
+
+    COMPUTER/
+        computer.res
+
+    HUMANPLAYER/
+        humanplayer.qvm
+
+    LANGUAGE/
+        {language}/
+            computer.res
+            menusystem.res
+            messages.res
+            missions.res
+            objectives.res
+
+    MATERIAL/
+        material.qvm
+
+    MENUSYSTEM/
+        ingamemenu.qvm
+        ingamemenu.res
+        loadingscreen.res
+        mainmenu.qvm
+        menusystem.dat
+        menusystem.mtp
+        menusystem.res
+        missionsprites.res
+        models/
+            menusystem.res
+        sound/
+            sounds.res
+        textures/
+            menusystem.res
+
+    MISSIONS/
+        igi2.qvm
+        {location}/
+            common/
+                {location}.dat
+                {location}.mtp
+                models/
+                    {location}.res
+                sounds/
+                    sounds.qvm
+                    sounds.res
+                textures/
+                    {location}.res
+                    *.tex
+
+            {level}/
+                {level}.dat
+                {level}.mtp
+                mission.qvm
+                objects.qvm
+                lod.qvm
+                forest_****.dat
+
+                ai/
+                    ***.qvm         // >= 500
+                    squad_***.qvm   // >= 700
+
+                envmaps/
+                    water_****.res
+
+                graphs/
+                    graph*.dat
+                    graphcover*.dat
+
+                heightmaps/
+                    heightmaps.res
+
+                lightmaps/
+                    lightmaps.res
+
+                models/
+                    {level}.res
+
+                sounds/
+                    **_music.mp3     // location nr + level nr
+                    sounds.qvm
+                    sounds.res
+                    {language}/
+                        sounds.res
+
+                textures/
+                    {level}.res
+                    *.tga
+                    *.jpg
+                    *.tex
+
+    PHYSICSOBJ/
+        physicsobj.qvm
+
+        cars/
+            {car}/
+                car.qvm
+        helis/
+            {heli}/
+                heli.qvm
+        missiles/
+            {missile}/
+                missile.qvm
+        planes/
+            {plane}/
+                plane.qvm
+        trains/
+            train.qvm
+        weapons/
+            physicsobj.qvm
+
+    SCREENS/
+        game/
+            status/
+                status.res
+        intro/
+            codemasters.jpg
+            congratulations.jpg
+            innerloop.jpg
+            panvision.jpg
+            {language}/
+                splashscreen_end.jpg
+
+    WEAPONS/
+        ammo.qvm
+        weapon.qvm
+        weapons.res

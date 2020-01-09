@@ -11,189 +11,315 @@
 //   History: 
 //------------------------------------------------
 
-struct CString;
-struct QVM;
-struct Node;
-struct Task;
+/*
+opcodes from gconvapi
 
-typedef struct TYPE2 { uBYTE value[1]; };
-typedef struct TYPE3 { uBYTE value[2]; };
-typedef struct TYPE4 { uBYTE value[3]; };
-typedef struct TYPE6 { uBYTE value[5]; };
-typedef struct TYPEN (DWORD minlen){
-    local int last = -1;
-    
-    while(last < minlen)
-    {
-        uBYTE value;
-        last += 1;
-    }
-    
-    while(true)
-    {
-        if(value[last] == 0)
-        {
-            Printf("%u\n", last + 1);
-            break;
-        }
+ILLEGAL   |       |
+BLK       |       |
+NOT       |  yes  |
+INV       |  yes  |
+MINUS     |  yes  |
+PLUS      |  yes  |
+ASSIGN    |  yes  |
+GE        |  yes  |
+GT        |  yes  |
+LE        |  yes  |
+LT        |  yes  |
+NE        |  yes  |
+EQ        |  yes  |
+LOR       |  yes  |
+LAND      |  yes  |
+XOR       |  yes  |
+OR        |  yes  |
+AND       |  yes  |
+SHR       |  yes  |
+SHL       |  yes  |
+DIV       |  yes  |
+MUL       |  yes  |
+SUB       |  yes  |
+ADD       |  yes  |
+CALL      |  yes  |
+JSR       |       |
+BT        |       |
+BF        |  yes  |
+BRA       |  yes  |
+RET       |       |
+POP       |  yes  |
+PUSHM     |       |
+PUSH1     |  yes  |
+PUSH0     |  yes  |
+PUSHIIW   |       |
+PUSHIIB   |       |
+PUSHII    |       |
+PUSHI     |       |
+PUSHSIW   |       |
+PUSHSIB   |       |
+PUSHSI    |       |
+PUSHS     |       |
+PUSHA     |       |
+PUSHF     |  yes  |
+PUSHW     |       |
+PUSHB     |       |
+PUSH      |       |
+NOP       |       |
+BRK       |  yes  |
+*/
 
-        uBYTE value;
-        last += 1;
-    }
+
+
+#include "COMMON/CSTRING.bt";
+
+
+struct
+{
+    CHAR   signature[4]; // LOOP
+
+    UINT32 _0; // 7
+    UINT32 _1; // 8
+
+    UINT32 offset_identifiers_offsets;
+    UINT32 offset_identifiers;
+    UINT32 size_identifiers_offsets;
+    UINT32 size_identifiers;
+    UINT32 offset_strings_offsets;
+    UINT32 offset_strings;
+    UINT32 size_strings_offsets;
+    UINT32 size_strings;
+    UINT32 offset_opcodes;
+    UINT32 size_opcodes;
+
+    UINT32 _2;
+    UINT32 _3;
+
+    UINT32 offset_tail;
+} header;
+
+
+if(header.size_identifiers_offsets > 0)
+struct
+{
+    UINT32 identifier_offset[header.size_identifiers_offsets / 4];
+} identifiers_offsets;
+
+
+if(header.size_identifiers > 0)
+struct
+{
+    CSTRING identifier[header.size_identifiers_offsets / 4] <optimize=false>;
+} identifiers;
+
+
+if(header.size_strings_offsets > 0)
+struct
+{
+    UINT32 string_offset[header.size_strings_offsets / 4];
+} strings_offsets;
+
+
+if(header.size_strings > 0)
+struct
+{
+    CSTRING string_[header.size_strings_offsets / 4] <optimize=false>;
+} strings;
+
+
+typedef struct
+{
+    UBYTE identifier_id;
+} PUSHI_8 <read=READ_PUSHI_8>;
+
+
+string READ_PUSHI_8(PUSHI_8 &o)
+{
+    return identifiers.identifier[o.identifier_id].value;
 };
 
-string ReadCString(CString &o)
-{
-    return o.value;
-}
-
 
 typedef struct
 {
-    string value;
-} CString <read=ReadCString>;
+    UINT16 identifier_id;
+} PUSHI_16 <read=READ_PUSHI_16>;
 
-typedef struct
+
+string READ_PUSHI_16(PUSHI_16 &o)
 {
-    CHAR Signatureature[4];
-    DWORD unknow0;
-    DWORD unknow1;
-
-    struct
-    {
-        DWORD offsetTaskIndices;
-        DWORD offsetTaskValues;
-        DWORD sizeTaskIndices;
-        DWORD sizeTaskValues;
-    } TaskHeader;
-
-    struct
-    {
-        DWORD offsetCStringIndices;
-        DWORD offsetCStringValues;
-        DWORD sizeCStringIndices;
-        DWORD sizeCStringValues;
-    } CStringHeader;
-
-    struct
-    {
-        DWORD offsetTaskTree;
-        DWORD sizeTaskTree;
-    } TaskTreeHeader;
-
-    DWORD unknow2;
-    DWORD unknow3;
-    DWORD unknow4;
-
-    struct
-    {
-        local DWORD count = TaskHeader.sizeTaskIndices / 4;
-        DWORD offset[count] <optimize=true>;
-    } TaskIndices;
-
-    struct
-    {
-        local DWORD count = TaskIndices.count;
-        CString value[count] <optimize=false>;
-    } TaskValues;
-
-    struct
-    {
-        local DWORD count = CStringHeader.sizeCStringIndices / 4;
-        DWORD offset[count] <optimize=true>;
-    } CStringIndices;
-
-    struct
-    {
-        local DWORD count = CStringIndices.count;
-        CString value[count] <optimize=false>;
-    } CStringValues;
-
-    struct
-    {
-        while(ReadBYTE() != 0)
-            Node node <optimize=false>;
-
-        BYTE pad;
-    } TaskTree;
-} QVM;
-
-
-typedef struct
-{
-    uBYTE type;
-
-    if(ReadBYTE() == 7)
-    struct
-    {
-        uBYTE type;
-        DWORD count;
-        DWORD array[count];
-    } offsets;
-
-    if(ReadBYTE() == 3)
-    struct
-    {
-        uBYTE type;
-        DWORD size;
-
-        local long i;
-        local long offset = qvm.TaskTreeHeader.offsetTaskTree;
-
-        for(i = 0; i < offsets.count; i++)
-        {
-            FSeek(offset + offsets.array[i]);
-            Node node;
-        }
-    } values;
-
-    uBYTE unknow6;
-} Task;
-
-enum <uBYTE> NODETYPE
-{
-    NT_DWORD64   = 8,
-    NT_WORD   = 9,
-    NT_DWORD24   = 10,
-    NT_REAL32   = 11,
-    NT_STRING   = 15,
-    NT_STRING_2 = 16,
-    NT_TASK     = 19,
-    NT_DWORD8    = 21,
-    NT_UNKNOWN  = 22,
+    return identifiers.identifier[o.identifier_id].value;
 };
 
+
 typedef struct
 {
-    NODETYPE type;
+    UINT32 identifier_id;
+} PUSHI_32 <read=READ_PUSHI_32>;
+
+
+string READ_PUSHI_32(PUSHI_32 &o)
+{
+    return identifiers.identifier[o.identifier_id].value;
+};
+
+
+typedef struct
+{
+    UBYTE string_id;
+} PUSHS_8 <read=READ_PUSHS_8>;
+
+
+string READ_PUSHS_8(PUSHS_8 &o)
+{
+    return strings.string_[o.string_id].value;
+};
+
+
+typedef struct
+{
+    UINT16 string_id;
+} PUSHS_16 <read=READ_PUSHS_16>;
+
+
+string READ_PUSHS_16(PUSHS_16 &o)
+{
+    return strings.string_[o.string_id].value;
+};
+
+
+
+typedef struct
+{
+    UBYTE type;
 
     switch(type)
     {
-        case 8:  TYPE6  value; break;
-        case 9:  struct {WORD value; }          value; break;
-        case 10: TYPE4  value; break;
-        case 11: struct { FLOAT value; BYTE pad;} value; break;
-        case 15: struct { WORD value;} value; break;
-        case 16: struct { WORD value; BYTE pad; } value; break;
-        case 19: Task  value; break;
-        case 21: TYPE2 value; break;
-        case 22: TYPEN value(2); break;
+        case 0:  break;                  // BRK
+        //case 1:  break;                  // NOP
+        //case 2:  break;                  // RET
+        case 3:  INT32    value; break;  // BRA
+        case 4:  UINT32   value; break;  // BF
+        //case 5:  break;                  // BT
+        //case 6:  break;                  // JSR
+        case 7: {                        // CALL
+            UINT32 count;
+            if(count > 0)
+                UINT32 arg[count];
+        } break;
+        case 8:  UINT32   value; break;  // PUSH
+        case 9:  UBYTE    value; break;  // PUSHB
+        case 10: UINT16   value; break;  // PUSHW
+        case 11: FLOAT    value; break;  // PUSHF
+        //case 12: break;                  // PUSHA
+        //case 13: break;                  // PUSHS
+        case 14: break;                  // PUSHSI
+        case 15: PUSHS_8  value; break;  // PUSHSIB
+        case 16: PUSHS_16 value; break;  // PUSHSIW
+        //case 17: break;                  // PUSHI
+        case 18: PUSHI_32 value; break;  // PUSHII
+        case 19: PUSHI_8  value; break;  // PUSHIIB
+        case 20: PUSHI_16 value; break;  // PUSHIIW
+        case 21: break;                  // PUSH0
+        case 22: break;                  // PUSH1
+        case 23: break;                  // PUSHM
+        case 24: break;                  // POP
+        case 25: break;                  // ADD +
+        case 26: break;                  // SUB -
+        case 27: break;                  // MUL *
+        case 28: break;                  // DIV /
+        case 29: break;                  // SHL <<
+        case 30: break;                  // SHR >>
+        case 31: break;                  // AND &
+        case 32: break;                  // OR |
+        case 33: break;                  // XOR ^
+        case 34: break;                  // LAND &&
+        case 35: break;                  // LOR ||
+        case 36: break;                  // EQ ==
+        case 37: break;                  // NE !=
+        case 38: break;                  // LT <
+        case 39: break;                  // LE <=
+        case 40: break;                  // GT >
+        case 41: break;                  // GE >=
+        case 42: break;                  // ASSIGN =
+        case 43: break;                  // PLUS +
+        case 44: break;                  // MINUS -
+        case 45: break;                  // INV ~
+        case 46: break;                  // NOT !
+        //case 47: break;                  // BLK
+        //case 48: break;                  // ILLEGAL
+
+        default: {
+            Printf("SKIP at %u with TYPE %u\n", FTell(), type);
+        }
     }
-} Node;
+} OPCODE <read=READ_OPCODE>;
 
 
-/*
-(8,  {6})
-(9,  {3, 4})
-(10, {4})
-(11, {6, 7})
-(15, {3})
-(16, {4})
-(19, {...})
-(21, {2})
-(22, {2, 3})
-*/
+string READ_OPCODE(OPCODE &o)
+{
+    switch(o.type)
+    {
+        case 0:  return "BRK";
+        //case 1:  return "NOP";
+        //case 2:  return "RET";
+        case 3:  return "BRA";
+        case 4:  return "BF";
+        //case 5:  return "BT";
+        //case 6:  return "JSR";
+        case 7:  return "CALL";
+        case 8:  return "PUSH";
+        case 9:  return "PUSHB";
+        case 10: return "PUSHW";
+        case 11: return "PUSHF";
+        //case 12: return "PUSHA";
+        //case 13: return "PUSHS";
+        case 14: return "PUSHSI";
+        case 15: return "PUSHSIB";
+        case 16: return "PUSHSIW";
+        //case 17: return "PUSHI";
+        case 18: return "PUSHII";
+        case 19: return "PUSHIIB";
+        case 20: return "PUSHIIW";
+        case 21: return "PUSH0";
+        case 22: return "PUSH1";
+        case 23: return "PUSHM"; // MAX
+        case 24: return "POP";
+        case 25: return "ADD";
+        case 26: return "SUB";
+        case 27: return "MUL";
+        case 28: return "DIV";
+        case 29: return "SHL";
+        case 30: return "SHR";
+        case 31: return "AND";
+        case 32: return "OR";
+        case 33: return "XOR";
+        case 34: return "LAND";
+        case 35: return "LOR";
+        case 36: return "EQ";
+        case 37: return "NE";
+        case 38: return "LT";
+        case 39: return "LE";
+        case 40: return "GT";
+        case 41: return "GE";
+        case 42: return "ASSIGN";
+        case 43: return "PLUS";
+        case 44: return "MINUS";
+        case 45: return "INV";
+        case 46: return "NOT";
+        //case 47: return "BLK";
+        //case 48: return "ILLEGAL";
 
-QVM qvm;
+        default: return "__UNKNOWN__";
+    }
+}
 
 
+if(header.size_opcodes > 0)
+struct
+{
+    while(FTell() < header.offset_opcodes + header.size_opcodes)
+        OPCODE opcode;
+} opcodes;
+
+
+if(header.offset_tail > 0)
+struct
+{
+    UBYTE _0[FileSize() - header.offset_tail];
+} tail;

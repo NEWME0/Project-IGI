@@ -1,9 +1,14 @@
+#ifndef H_RGBA_8888
+#define H_RGBA_8888
 
 
 typedef struct RGBA_8888
 {
-    BYTE R;
-    BYTE G;
-    BYTE B;
-    BYTE A;
+    BYTE r;
+    BYTE g;
+    BYTE b;
+    BYTE a;
 };
+
+
+#endif

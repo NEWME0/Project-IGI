@@ -1,9 +1,17 @@
-typedef struct (DWORD length)
+#ifndef H_FSTRING_BT
+#define H_FSTRING_BT
+
+
+typedef struct (UINT32 length)
 {
 	CHAR value[length];
-} FSTRING <read=ReadFSTRING>;
+} FSTRING <read=READ_FSTRING>;
 
-string ReadFSTRING(FSTRING &o)
+
+string READ_FSTRING(FSTRING &o)
 {
 	return o.value;
 }
+
+
+#endif

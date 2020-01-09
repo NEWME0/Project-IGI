@@ -18,19 +18,19 @@ struct
     struct
     {
         LittleEndian();
-        DWORD _1; Assert(_1 == 1008981770);
-        DWORD creations_year;
-        DWORD creations_month;
-        DWORD creations_day;
-        DWORD creations_hour;
-        DWORD creations_minute;
-        DWORD creations_second;
-        DWORD creations_milisecond;
-        DWORD _2; Assert(_2 == 2);
-        DWORD _3; Assert(_3 == 0);
-        DWORD _4; Assert(_4 == 1065353216);
-        DWORD resolution_x;
-        DWORD resolution_y;
+        UINT32 _1; Assert(_1 == 1008981770);
+        UINT32 creations_year;
+        UINT32 creations_month;
+        UINT32 creations_day;
+        UINT32 creations_hour;
+        UINT32 creations_minute;
+        UINT32 creations_second;
+        UINT32 creations_milisecond;
+        UINT32 _2; Assert(_2 == 2);
+        UINT32 _3; Assert(_3 == 0);
+        UINT32 _4; Assert(_4 == 1065353216);
+        UINT32 resolution_x;
+        UINT32 resolution_y;
     } header;
 
     struct

@@ -1,0 +1,2948 @@
+           PUSHI   A
+           PUSHI   B
+           ADD     
+           PUSHI   C
+           PUSHI   D
+           MUL     
+           PUSHI   E
+           DIV     
+           SUB     
+           PUSHI   F
+           GE      
+           BF      EL02B725D4
+           PUSHI   VA
+           PUSH    100
+           PUSH    2
+           SHL     
+           ASSIGN  
+           POP     
+           PUSHI   VB
+           PUSH    100
+           PUSH    2
+           SHR     
+           ASSIGN  
+           POP     
+           PUSHI   VC
+           PUSH    1
+           PUSH    2
+           AND     
+           ASSIGN  
+           POP     
+           PUSHI   VD
+           PUSH    2
+           PUSH    2
+           OR      
+           ASSIGN  
+           POP     
+           PUSHI   VE
+           PUSH    2
+           PUSH    4
+           XOR     
+           ASSIGN  
+           POP     
+           BRA     IF02B725D4
+EL02B725D4:
+           PUSHI   TA
+           PUSHI   TB
+           LAND    
+           PUSHI   TC
+           LOR     
+           BF      EL02B73434
+           PUSHI   XA
+           PUSHI   XB
+           PUSHI   XD
+           LT      
+           PUSHI   XE
+           LE      
+           PUSHI   XF
+           GT      
+           PUSHI   XG
+           GE      
+           NE      
+           BF      EL02B7368C
+           PUSHI   WA
+           PUSHI   WB
+           INV     
+           ASSIGN  
+           POP     
+           PUSHI   WC
+           PUSHI   WD
+           NOT     
+           ASSIGN  
+           POP     
+           BRA     IF02B7368C
+EL02B7368C:
+IF02B7368C:
+           BRA     IF02B73434
+EL02B73434:
+IF02B73434:
+IF02B725D4:
+           PUSHI   GOVersion
+           CALL    (Arg02B7CF04)
+           BRA     AC02B7CFEC
+Arg02B7CF04:
+           PUSH    5
+           MINUS   
+           BRK     
+AC02B7CFEC:
+           POP     
+           PUSHI   BreakScript
+           CALL    ()
+           BRA     AC02B7D144
+AC02B7D144:
+           POP     
+           PUSHI   GOStart
+           CALL    (Arg02B7D254)
+           BRA     AC02B7D33C
+Arg02B7D254:
+           PUSHF   0.010000
+           MINUS   
+           BRK     
+AC02B7D33C:
+           POP     
+           PUSHI   GOContentControlPW
+           CALL    (Arg02B7D45C)
+           BRA     AC02B7D4EC
+Arg02B7D45C:
+           PUSHS   ""
+           BRK     
+AC02B7D4EC:
+           POP     
+           PUSHI   GOPlayer
+           CALL    (Arg02B7D60C)
+           BRA     AC02B7D6AC
+Arg02B7D60C:
+           PUSHS   "David Jones"
+           BRK     
+AC02B7D6AC:
+           POP     
+           PUSHI   GOActiveMission
+           CALL    (Arg02B7D7CC, Arg02B7D824)
+           BRA     AC02B7D90C
+Arg02B7D7CC:
+           PUSH    0
+           BRK     
+Arg02B7D824:
+           PUSH    4
+           PLUS    
+           BRK     
+AC02B7D90C:
+           POP     
+           PUSHI   GOActiveMission
+           CALL    (Arg02B7DA2C, Arg02B7DA84)
+           BRA     AC02B7DB6C
+Arg02B7DA2C:
+           PUSH    1
+           BRK     
+Arg02B7DA84:
+           PUSH    4
+           PLUS    
+           BRK     
+AC02B7DB6C:
+           POP     
+           PUSHI   GOActiveMission
+           CALL    (Arg02B7DC8C, Arg02B7DD3C)
+           BRA     AC02B7DDCC
+Arg02B7DC8C:
+           PUSH    2
+           PLUS    
+           BRK     
+Arg02B7DD3C:
+           PUSH    0
+           BRK     
+AC02B7DDCC:
+           POP     
+           PUSHI   GOInMouInv
+           CALL    (Arg02B7DF44)
+           BRA     AC02B7E02C
+Arg02B7DF44:
+           PUSH    1
+           PUSH    0
+           EQ      
+           BRK     
+AC02B7E02C:
+           POP     
+           PUSHI   GOInMouSens
+           CALL    (Arg02B7E14C)
+           BRA     AC02B7E1DC
+Arg02B7E14C:
+           PUSHF   0.000000
+           BRK     
+AC02B7E1DC:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7E2FC, Arg02B7E364, Arg02B7E3DC)
+           BRA     AC02B7E46C
+Arg02B7E2FC:
+           PUSHI   MoveForwards
+           BRK     
+Arg02B7E364:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7E3DC:
+           PUSHI   KEY_W
+           BRK     
+AC02B7E46C:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7E58C, Arg02B7E5F4, Arg02B7E66C)
+           BRA     AC02B7E6FC
+Arg02B7E58C:
+           PUSHI   MoveForwards
+           BRK     
+Arg02B7E5F4:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7E66C:
+           PUSHI   KEY_UP
+           BRK     
+AC02B7E6FC:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7E81C, Arg02B7E884, Arg02B7E8FC)
+           BRA     AC02B7E98C
+Arg02B7E81C:
+           PUSHI   MoveBackwards
+           BRK     
+Arg02B7E884:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7E8FC:
+           PUSHI   KEY_S
+           BRK     
+AC02B7E98C:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7EAAC, Arg02B7EB14, Arg02B7EB8C)
+           BRA     AC02B7EC2C
+Arg02B7EAAC:
+           PUSHI   MoveBackwards
+           BRK     
+Arg02B7EB14:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7EB8C:
+           PUSHI   KEY_DOWN
+           BRK     
+AC02B7EC2C:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7ED4C, Arg02B7EDB4, Arg02B7EE2C)
+           BRA     AC02B7EEBC
+Arg02B7ED4C:
+           PUSHI   MoveLeft
+           BRK     
+Arg02B7EDB4:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7EE2C:
+           PUSHI   KEY_A
+           BRK     
+AC02B7EEBC:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7EFDC, Arg02B7F044, Arg02B7F0BC)
+           BRA     AC02B7F15C
+Arg02B7EFDC:
+           PUSHI   MoveLeft
+           BRK     
+Arg02B7F044:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7F0BC:
+           PUSHI   KEY_LEFT
+           BRK     
+AC02B7F15C:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7F27C, Arg02B7F2E4, Arg02B7F35C)
+           BRA     AC02B7F3EC
+Arg02B7F27C:
+           PUSHI   MoveRight
+           BRK     
+Arg02B7F2E4:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7F35C:
+           PUSHI   KEY_D
+           BRK     
+AC02B7F3EC:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7F50C, Arg02B7F574, Arg02B7F5EC)
+           BRA     AC02B7F68C
+Arg02B7F50C:
+           PUSHI   MoveRight
+           BRK     
+Arg02B7F574:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7F5EC:
+           PUSHI   KEY_RIGHT
+           BRK     
+AC02B7F68C:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7F7AC, Arg02B7F814, Arg02B7F88C)
+           BRA     AC02B7F91C
+Arg02B7F7AC:
+           PUSHI   TurnLeft
+           BRK     
+Arg02B7F814:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7F88C:
+           PUSHI   KEY_X
+           BRK     
+AC02B7F91C:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7FA3C, Arg02B7FAA4, Arg02B7FB1C)
+           BRA     AC02B7FBAC
+Arg02B7FA3C:
+           PUSHI   TurnRight
+           BRK     
+Arg02B7FAA4:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7FB1C:
+           PUSHI   KEY_C
+           BRK     
+AC02B7FBAC:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7FCCC, Arg02B7FD24, Arg02B7FD9C)
+           BRA     AC02B7FE3C
+Arg02B7FCCC:
+           PUSHI   Jump
+           BRK     
+Arg02B7FD24:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7FD9C:
+           PUSHI   KEY_SPACE
+           BRK     
+AC02B7FE3C:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7FF5C, Arg02B7FFB4, Arg02B8002C)
+           BRA     AC02B800CC
+Arg02B7FF5C:
+           PUSHI   Jump
+           BRK     
+Arg02B7FFB4:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B8002C:
+           PUSHI   KEY_NUMPAD0
+           BRK     
+AC02B800CC:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B801EC, Arg02B80244, Arg02B802BC)
+           BRA     AC02B8035C
+Arg02B801EC:
+           PUSHI   Crouch
+           BRK     
+Arg02B80244:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B802BC:
+           PUSHI   KEY_LEFT_SHIFT
+           BRK     
+AC02B8035C:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B8047C, Arg02B804D4, Arg02B8054C)
+           BRA     AC02B805EC
+Arg02B8047C:
+           PUSHI   Crouch
+           BRK     
+Arg02B804D4:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B8054C:
+           PUSHI   KEY_RIGHT_CTRL
+           BRK     
+AC02B805EC:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B8070C, Arg02B80774, Arg02B807EC)
+           BRA     AC02B8087C
+Arg02B8070C:
+           PUSHI   RaiseStance
+           BRK     
+Arg02B80774:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B807EC:
+           PUSHI   KEY_Q
+           BRK     
+AC02B8087C:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B8099C, Arg02B80A04, Arg02B80A7C)
+           BRA     AC02B80B1C
+Arg02B8099C:
+           PUSHI   RaiseStance
+           BRK     
+Arg02B80A04:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B80A7C:
+           PUSHI   KEY_INSERT
+           BRK     
+AC02B80B1C:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B80C3C, Arg02B80CA4, Arg02B80D1C)
+           BRA     AC02B80DAC
+Arg02B80C3C:
+           PUSHI   LowerStance
+           BRK     
+Arg02B80CA4:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B80D1C:
+           PUSHI   KEY_Z
+           BRK     
+AC02B80DAC:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B80ECC, Arg02B80F34, Arg02B80FAC)
+           BRA     AC02B8104C
+Arg02B80ECC:
+           PUSHI   LowerStance
+           BRK     
+Arg02B80F34:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B80FAC:
+           PUSHI   KEY_DELETE
+           BRK     
+AC02B8104C:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B8116C, Arg02B811D4, Arg02B8124C)
+           BRA     AC02B812EC
+Arg02B8116C:
+           PUSHI   ToggleWalkRun
+           BRK     
+Arg02B811D4:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B8124C:
+           PUSHI   KEY_CAPITAL
+           BRK     
+AC02B812EC:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B8140C, Arg02B81474, Arg02B814EC)
+           BRA     AC02B8157C
+Arg02B8140C:
+           PUSHI   ToggleWalkRun
+           BRK     
+Arg02B81474:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B814EC:
+           PUSHI   KEY_END
+           BRK     
+AC02B8157C:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B8169C, Arg02B81704, Arg02B8177C)
+           BRA     AC02B8180C
+Arg02B8169C:
+           PUSHI   Activate
+           BRK     
+Arg02B81704:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B8177C:
+           PUSHI   KEY_E
+           BRK     
+AC02B8180C:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B8192C, Arg02B81994, Arg02B81A0C)
+           BRA     AC02B81AAC
+Arg02B8192C:
+           PUSHI   Activate
+           BRK     
+Arg02B81994:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B81A0C:
+           PUSHI   KEY_RIGHT_SHIFT
+           BRK     
+AC02B81AAC:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B81BCC, Arg02B81C24, Arg02B81C9C)
+           BRA     AC02B81D3C
+Arg02B81BCC:
+           PUSHI   Peek
+           BRK     
+Arg02B81C24:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B81C9C:
+           PUSHI   KEY_ANGLE
+           BRK     
+AC02B81D3C:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B81E5C, Arg02B81EB4, Arg02B81F2C)
+           BRA     AC02B81FCC
+Arg02B81E5C:
+           PUSHI   Peek
+           BRK     
+Arg02B81EB4:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B81F2C:
+           PUSHI   KEY_DECIMAL
+           BRK     
+AC02B81FCC:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B8A02C, Arg02B8A094, Arg02B8A10C)
+           BRA     AC02B8A19C
+Arg02B8A02C:
+           PUSHI   Binoculars
+           BRK     
+Arg02B8A094:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B8A10C:
+           PUSHI   KEY_B
+           BRK     
+AC02B8A19C:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B8A2BC, Arg02B8A324, Arg02B8A39C)
+           BRA     AC02B8A43C
+Arg02B8A2BC:
+           PUSHI   Binoculars
+           BRK     
+Arg02B8A324:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B8A39C:
+           PUSHI   KEY_HOME
+           BRK     
+AC02B8A43C:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B8A55C, Arg02B8A5B4, Arg02B8A62C)
+           BRA     AC02B8A6BC
+Arg02B8A55C:
+           PUSHI   ZoomIn
+           BRK     
+Arg02B8A5B4:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B8A62C:
+           PUSHI   KEY_H
+           BRK     
+AC02B8A6BC:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B8A7DC, Arg02B8A834, Arg02B8A89C)
+           BRA     AC02B8A93C
+Arg02B8A7DC:
+           PUSHI   ZoomIn
+           BRK     
+Arg02B8A834:
+           PUSHI   INPUTPORT_DEVICE_MOUSE
+           BRK     
+Arg02B8A89C:
+           PUSHI   MOUSE_WHEEL_UP
+           BRK     
+AC02B8A93C:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B8AA5C, Arg02B8AAB4, Arg02B8AB2C)
+           BRA     AC02B8ABBC
+Arg02B8AA5C:
+           PUSHI   ZoomOut
+           BRK     
+Arg02B8AAB4:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B8AB2C:
+           PUSHI   KEY_N
+           BRK     
+AC02B8ABBC:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B8ACDC, Arg02B8AD34, Arg02B8AD9C)
+           BRA     AC02B8AE3C
+Arg02B8ACDC:
+           PUSHI   ZoomOut
+           BRK     
+Arg02B8AD34:
+           PUSHI   INPUTPORT_DEVICE_MOUSE
+           BRK     
+Arg02B8AD9C:
+           PUSHI   MOUSE_WHEEL_DOWN
+           BRK     
+AC02B8AE3C:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B8AF5C, Arg02B74FC4, Arg02B7503C)
+           BRA     AC02B75094
+Arg02B8AF5C:
+           PUSHI   Thermal
+           BRK     
+Arg02B74FC4:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7503C:
+           PUSHI   KEY_T
+           BRK     
+AC02B75094:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B751B4, Arg02B7520C, Arg02B75284)
+           BRA     AC02B75324
+Arg02B751B4:
+           PUSHI   Thermal
+           BRK     
+Arg02B7520C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B75284:
+           PUSHI   KEY_PAGEUP
+           BRK     
+AC02B75324:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B75444, Arg02B754AC, Arg02B75524)
+           BRA     AC02B755B4
+Arg02B75444:
+           PUSHI   ComputerMap
+           BRK     
+Arg02B754AC:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B75524:
+           PUSHI   KEY_M
+           BRK     
+AC02B755B4:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B756D4, Arg02B7573C, Arg02B757B4)
+           BRA     AC02B75854
+Arg02B756D4:
+           PUSHI   ComputerMap
+           BRK     
+Arg02B7573C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B757B4:
+           PUSHI   KEY_NUMPADENTER
+           BRK     
+AC02B75854:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B75974, Arg02B759DC, Arg02B75A54)
+           BRA     AC02B75AE4
+Arg02B75974:
+           PUSHI   ComputerLog
+           BRK     
+Arg02B759DC:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B75A54:
+           PUSHI   KEY_L
+           BRK     
+AC02B75AE4:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B75C04, Arg02B75C6C, Arg02B75CE4)
+           BRA     AC02B75D74
+Arg02B75C04:
+           PUSHI   ComputerObjectives
+           BRK     
+Arg02B75C6C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B75CE4:
+           PUSHI   KEY_O
+           BRK     
+AC02B75D74:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B75E94, Arg02B75EFC, Arg02B75F74)
+           BRA     AC02B76004
+Arg02B75E94:
+           PUSHI   ComputerIGIHQ
+           BRK     
+Arg02B75EFC:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B75F74:
+           PUSHI   KEY_I
+           BRK     
+AC02B76004:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B76124, Arg02B7618C, Arg02B76204)
+           BRA     AC02B76294
+Arg02B76124:
+           PUSHI   QuickLoad
+           BRK     
+Arg02B7618C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B76204:
+           PUSHI   KEY_F7
+           BRK     
+AC02B76294:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B763B4, Arg02B7640C, Arg02B76484)
+           BRA     AC02B76524
+Arg02B763B4:
+           PUSHI   Fire
+           BRK     
+Arg02B7640C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B76484:
+           PUSHI   KEY_LEFT_CTRL
+           BRK     
+AC02B76524:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B76644, Arg02B7669C, Arg02B76704)
+           BRA     AC02B767A4
+Arg02B76644:
+           PUSHI   Fire
+           BRK     
+Arg02B7669C:
+           PUSHI   INPUTPORT_DEVICE_MOUSE
+           BRK     
+Arg02B76704:
+           PUSHI   MOUSE_BUTTON_1
+           BRK     
+AC02B767A4:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B768C4, Arg02B7692C, Arg02B76994)
+           BRA     AC02B76A34
+Arg02B768C4:
+           PUSHI   AlternateFire
+           BRK     
+Arg02B7692C:
+           PUSHI   INPUTPORT_DEVICE_MOUSE
+           BRK     
+Arg02B76994:
+           PUSHI   MOUSE_BUTTON_2
+           BRK     
+AC02B76A34:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B76B54, Arg02B76BBC, Arg02B76C34)
+           BRA     AC02B76CC4
+Arg02B76B54:
+           PUSHI   NextWeapon
+           BRK     
+Arg02B76BBC:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B76C34:
+           PUSHI   KEY_F
+           BRK     
+AC02B76CC4:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B76DE4, Arg02B76E4C, Arg02B76EC4)
+           BRA     AC02B76F64
+Arg02B76DE4:
+           PUSHI   NextWeapon
+           BRK     
+Arg02B76E4C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B76EC4:
+           PUSHI   KEY_RIGHT_BRACKET
+           BRK     
+AC02B76F64:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B77084, Arg02B770EC, Arg02B77164)
+           BRA     AC02B771F4
+Arg02B77084:
+           PUSHI   PrevWeapon
+           BRK     
+Arg02B770EC:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B77164:
+           PUSHI   KEY_V
+           BRK     
+AC02B771F4:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B77314, Arg02B7737C, Arg02B773F4)
+           BRA     AC02B77494
+Arg02B77314:
+           PUSHI   PrevWeapon
+           BRK     
+Arg02B7737C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B773F4:
+           PUSHI   KEY_BACKSLASH
+           BRK     
+AC02B77494:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B775B4, Arg02B7760C, Arg02B77684)
+           BRA     AC02B77714
+Arg02B775B4:
+           PUSHI   Reload
+           BRK     
+Arg02B7760C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B77684:
+           PUSHI   KEY_R
+           BRK     
+AC02B77714:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B77834, Arg02B7788C, Arg02B77904)
+           BRA     AC02B779A4
+Arg02B77834:
+           PUSHI   Reload
+           BRK     
+Arg02B7788C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B77904:
+           PUSHI   KEY_RETURN
+           BRK     
+AC02B779A4:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B77AC4, Arg02B77B2C, Arg02B77BA4)
+           BRA     AC02B77C34
+Arg02B77AC4:
+           PUSHI   DropWeapon
+           BRK     
+Arg02B77B2C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B77BA4:
+           PUSHI   KEY_G
+           BRK     
+AC02B77C34:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B77D54, Arg02B77DBC, Arg02B77E34)
+           BRA     AC02B77ED4
+Arg02B77D54:
+           PUSHI   DropWeapon
+           BRK     
+Arg02B77DBC:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B77E34:
+           PUSHI   KEY_PAGEDOWN
+           BRK     
+AC02B77ED4:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B77FF4, Arg02B7805C, Arg02B780D4)
+           BRA     AC02B78164
+Arg02B77FF4:
+           PUSHI   WeaponCategory3
+           BRK     
+Arg02B7805C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B780D4:
+           PUSHI   KEY_1
+           BRK     
+AC02B78164:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B78284, Arg02B782EC, Arg02B78364)
+           BRA     AC02B78404
+Arg02B78284:
+           PUSHI   WeaponCategory3
+           BRK     
+Arg02B782EC:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B78364:
+           PUSHI   KEY_NUMPAD1
+           BRK     
+AC02B78404:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B78524, Arg02B7858C, Arg02B78604)
+           BRA     AC02B78694
+Arg02B78524:
+           PUSHI   WeaponCategory2
+           BRK     
+Arg02B7858C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B78604:
+           PUSHI   KEY_2
+           BRK     
+AC02B78694:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B787B4, Arg02B7881C, Arg02B78894)
+           BRA     AC02B78934
+Arg02B787B4:
+           PUSHI   WeaponCategory2
+           BRK     
+Arg02B7881C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B78894:
+           PUSHI   KEY_NUMPAD2
+           BRK     
+AC02B78934:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B78A54, Arg02B78ABC, Arg02B78B34)
+           BRA     AC02B78BC4
+Arg02B78A54:
+           PUSHI   WeaponCategory1
+           BRK     
+Arg02B78ABC:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B78B34:
+           PUSHI   KEY_3
+           BRK     
+AC02B78BC4:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B78CE4, Arg02B78D4C, Arg02B78DC4)
+           BRA     AC02B78E64
+Arg02B78CE4:
+           PUSHI   WeaponCategory1
+           BRK     
+Arg02B78D4C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B78DC4:
+           PUSHI   KEY_NUMPAD3
+           BRK     
+AC02B78E64:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B78F84, Arg02B78FEC, Arg02B79064)
+           BRA     AC02B790F4
+Arg02B78F84:
+           PUSHI   WeaponCategory4
+           BRK     
+Arg02B78FEC:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B79064:
+           PUSHI   KEY_4
+           BRK     
+AC02B790F4:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B79214, Arg02B7927C, Arg02B792F4)
+           BRA     AC02B79394
+Arg02B79214:
+           PUSHI   WeaponCategory4
+           BRK     
+Arg02B7927C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B792F4:
+           PUSHI   KEY_NUMPAD4
+           BRK     
+AC02B79394:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B794B4, Arg02B7951C, Arg02B79594)
+           BRA     AC02B79624
+Arg02B794B4:
+           PUSHI   WeaponCategory5
+           BRK     
+Arg02B7951C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B79594:
+           PUSHI   KEY_5
+           BRK     
+AC02B79624:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B79744, Arg02B797AC, Arg02B79824)
+           BRA     AC02B798C4
+Arg02B79744:
+           PUSHI   WeaponCategory5
+           BRK     
+Arg02B797AC:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B79824:
+           PUSHI   KEY_NUMPAD5
+           BRK     
+AC02B798C4:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B799E4, Arg02B79A4C, Arg02B79AC4)
+           BRA     AC02B79B54
+Arg02B799E4:
+           PUSHI   WeaponCategory6
+           BRK     
+Arg02B79A4C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B79AC4:
+           PUSHI   KEY_6
+           BRK     
+AC02B79B54:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B79C74, Arg02B79CDC, Arg02B79D54)
+           BRA     AC02B79DF4
+Arg02B79C74:
+           PUSHI   WeaponCategory6
+           BRK     
+Arg02B79CDC:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B79D54:
+           PUSHI   KEY_NUMPAD6
+           BRK     
+AC02B79DF4:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B79F14, Arg02B79F7C, Arg02B79FF4)
+           BRA     AC02B7A084
+Arg02B79F14:
+           PUSHI   WeaponCategory7
+           BRK     
+Arg02B79F7C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B79FF4:
+           PUSHI   KEY_7
+           BRK     
+AC02B7A084:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7A1A4, Arg02B7A20C, Arg02B7A284)
+           BRA     AC02B7A324
+Arg02B7A1A4:
+           PUSHI   WeaponCategory7
+           BRK     
+Arg02B7A20C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7A284:
+           PUSHI   KEY_NUMPAD7
+           BRK     
+AC02B7A324:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7A444, Arg02B7A4AC, Arg02B7A524)
+           BRA     AC02B7A5B4
+Arg02B7A444:
+           PUSHI   WeaponCategory9
+           BRK     
+Arg02B7A4AC:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7A524:
+           PUSHI   KEY_9
+           BRK     
+AC02B7A5B4:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7A6D4, Arg02B7A73C, Arg02B7A7B4)
+           BRA     AC02B7A854
+Arg02B7A6D4:
+           PUSHI   WeaponCategory9
+           BRK     
+Arg02B7A73C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7A7B4:
+           PUSHI   KEY_NUMPAD9
+           BRK     
+AC02B7A854:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7A974, Arg02B7A9DC, Arg02B7AA54)
+           BRA     AC02B7AAE4
+Arg02B7A974:
+           PUSHI   Inventory
+           BRK     
+Arg02B7A9DC:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7AA54:
+           PUSHI   KEY_0
+           BRK     
+AC02B7AAE4:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7AC04, Arg02B7AC6C, Arg02B7ACE4)
+           BRA     AC02B7AD84
+Arg02B7AC04:
+           PUSHI   Inventory
+           BRK     
+Arg02B7AC6C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7ACE4:
+           PUSHI   KEY_DIVIDE
+           BRK     
+AC02B7AD84:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7AEA4, Arg02B7AEFC, Arg02B7AF74)
+           BRA     AC02B7B004
+Arg02B7AEA4:
+           PUSHI   Shop
+           BRK     
+Arg02B7AEFC:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7AF74:
+           PUSHI   KEY_J
+           BRK     
+AC02B7B004:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7B124, Arg02B7B17C, Arg02B7B1F4)
+           BRA     AC02B7B284
+Arg02B7B124:
+           PUSHI   Shop
+           BRK     
+Arg02B7B17C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7B1F4:
+           PUSHI   KEY_ADD
+           BRK     
+AC02B7B284:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7B3A4, Arg02B7B3FC, Arg02B7B474)
+           BRA     AC02B7B504
+Arg02B7B3A4:
+           PUSHI   Radio
+           BRK     
+Arg02B7B3FC:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7B474:
+           PUSHI   KEY_Y
+           BRK     
+AC02B7B504:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7B624, Arg02B7B67C, Arg02B7B6F4)
+           BRA     AC02B7B794
+Arg02B7B624:
+           PUSHI   Radio
+           BRK     
+Arg02B7B67C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7B6F4:
+           PUSHI   KEY_MULTIPLY
+           BRK     
+AC02B7B794:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7B8B4, Arg02B7B91C, Arg02B7B994)
+           BRA     AC02B7BA24
+Arg02B7B8B4:
+           PUSHI   SquadRadio
+           BRK     
+Arg02B7B91C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7B994:
+           PUSHI   KEY_U
+           BRK     
+AC02B7BA24:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7BB44, Arg02B7BBAC, Arg02B7BC24)
+           BRA     AC02B7BCC4
+Arg02B7BB44:
+           PUSHI   SquadRadio
+           BRK     
+Arg02B7BBAC:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7BC24:
+           PUSHI   KEY_SUBTRACT
+           BRK     
+AC02B7BCC4:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7BDE4, Arg02B7BE3C, Arg02B7BEB4)
+           BRA     AC02B7BF54
+Arg02B7BDE4:
+           PUSHI   Say
+           BRK     
+Arg02B7BE3C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7BEB4:
+           PUSHI   KEY_SEPARATOR
+           BRK     
+AC02B7BF54:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7C074, Arg02B7C0CC, Arg02B7C144)
+           BRA     AC02B7C1E4
+Arg02B7C074:
+           PUSHI   TeamSay
+           BRK     
+Arg02B7C0CC:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7C144:
+           PUSHI   KEY_SLASH
+           BRK     
+AC02B7C1E4:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7C304, Arg02B7C36C, Arg02B7C3E4)
+           BRA     AC02B7C474
+Arg02B7C304:
+           PUSHI   ChangeTeams
+           BRK     
+Arg02B7C36C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7C3E4:
+           PUSHI   KEY_K
+           BRK     
+AC02B7C474:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7C594, Arg02B7C5EC, Arg02B7C664)
+           BRA     AC02B7C6F4
+Arg02B7C594:
+           PUSHI   Scores
+           BRK     
+Arg02B7C5EC:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7C664:
+           PUSHI   KEY_TAB
+           BRK     
+AC02B7C6F4:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7C814, Arg02B7C86C, Arg02B7C8E4)
+           BRA     AC02B7C984
+Arg02B7C814:
+           PUSHI   Scores
+           BRK     
+Arg02B7C86C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7C8E4:
+           PUSHI   KEY_BACKSPACE
+           BRK     
+AC02B7C984:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7CAA4, Arg02B7CAFC, Arg02B7CB74)
+           BRA     AC02B7CC14
+Arg02B7CAA4:
+           PUSHI   Console
+           BRK     
+Arg02B7CAFC:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7CB74:
+           PUSHI   KEY_GRAVE
+           BRK     
+AC02B7CC14:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B7CD34, Arg02B7CD9C, Arg02B7CE14)
+           BRA     AC02B7CEA4
+Arg02B7CD34:
+           PUSHI   BuyPrimaryAmmo
+           BRK     
+Arg02B7CD9C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B7CE14:
+           PUSHI   KEY_F1
+           BRK     
+AC02B7CEA4:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B93014, Arg02B9307C, Arg02B930F4)
+           BRA     AC02B93184
+Arg02B93014:
+           PUSHI   BuyPrimaryAmmo
+           BRK     
+Arg02B9307C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B930F4:
+           PUSHI   KEY_F11
+           BRK     
+AC02B93184:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B932A4, Arg02B9330C, Arg02B93384)
+           BRA     AC02B93414
+Arg02B932A4:
+           PUSHI   BuySecondaryAmmo
+           BRK     
+Arg02B9330C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B93384:
+           PUSHI   KEY_F2
+           BRK     
+AC02B93414:
+           POP     
+           PUSHI   GOInRemap
+           CALL    (Arg02B93534, Arg02B9359C, Arg02B93614)
+           BRA     AC02B936A4
+Arg02B93534:
+           PUSHI   BuySecondaryAmmo
+           BRK     
+Arg02B9359C:
+           PUSHI   INPUTPORT_DEVICE_KEYBOARD
+           BRK     
+Arg02B93614:
+           PUSHI   KEY_F12
+           BRK     
+AC02B936A4:
+           POP     
+           PUSHI   GOGfxDisp
+           CALL    (Arg02B937C4, Arg02B9381C, Arg02B93874)
+           BRA     AC02B93904
+Arg02B937C4:
+           PUSH    1600
+           BRK     
+Arg02B9381C:
+           PUSH    900
+           BRK     
+Arg02B93874:
+           PUSH    32
+           BRK     
+AC02B93904:
+           POP     
+           PUSHI   GOGfxDevice
+           CALL    (Arg02B93A24)
+           BRA     AC02B93AC4
+Arg02B93A24:
+           PUSHS   "nvldumd.dll"
+           BRK     
+AC02B93AC4:
+           POP     
+           PUSHI   GOGfxGamma
+           CALL    (Arg02B93BE4)
+           BRA     AC02B93C74
+Arg02B93BE4:
+           PUSHF   0.000000
+           BRK     
+AC02B93C74:
+           POP     
+           PUSHI   GOGfxCrossHairAlpha
+           CALL    (Arg02B93D94)
+           BRA     AC02B93E24
+Arg02B93D94:
+           PUSHF   1.000000
+           BRK     
+AC02B93E24:
+           POP     
+           PUSHI   GoGfxCrossHairThickness
+           CALL    (Arg02B93F44)
+           BRA     AC02B820EC
+Arg02B93F44:
+           PUSHF   1.000000
+           BRK     
+AC02B820EC:
+           POP     
+           PUSHI   GoGfxCrossHairColour
+           CALL    (Arg02B8220C, Arg02B82264, Arg02B822BC)
+           BRA     AC02B8234C
+Arg02B8220C:
+           PUSHF   1.000000
+           BRK     
+Arg02B82264:
+           PUSHF   0.250000
+           BRK     
+Arg02B822BC:
+           PUSHF   0.000000
+           BRK     
+AC02B8234C:
+           POP     
+           PUSHI   GOGfxForceSoftwareVP
+           CALL    (Arg02B8246C)
+           BRA     AC02B824FC
+Arg02B8246C:
+           PUSHI   FALSE
+           BRK     
+AC02B824FC:
+           POP     
+           PUSHI   GfxOptions_SetDetailLevelFromConfigFile
+           CALL    (Arg02B8262C)
+           BRA     AC02B826CC
+Arg02B8262C:
+           PUSHI   GFXOPTIONS_DETAIL_HIGH
+           BRK     
+AC02B826CC:
+           POP     
+           PUSHI   GfxOptions_SetTextureDetailFromScript
+           CALL    (Arg02B827FC)
+           BRA     AC02B828AC
+Arg02B827FC:
+           PUSHI   GFXOPTIONS_TEXTUREDETAIL_HIGH
+           BRK     
+AC02B828AC:
+           POP     
+           PUSHI   GfxOptions_SetModelDetail
+           CALL    (Arg02B829DC)
+           BRA     AC02B82A6C
+Arg02B829DC:
+           PUSHF   1.000000
+           BRK     
+AC02B82A6C:
+           POP     
+           PUSHI   GfxOptions_SetStencilShadows
+           CALL    (Arg02B82B9C)
+           BRA     AC02B82C2C
+Arg02B82B9C:
+           PUSHI   TRUE
+           BRK     
+AC02B82C2C:
+           POP     
+           PUSHI   GfxOptions_SetTextureCompression
+           CALL    (Arg02B82D5C)
+           BRA     AC02B82DEC
+Arg02B82D5C:
+           PUSHI   FALSE
+           BRK     
+AC02B82DEC:
+           POP     
+           PUSHI   GfxOptions_SetHighQualityForests
+           CALL    (Arg02B82F1C)
+           BRA     AC02B82FAC
+Arg02B82F1C:
+           PUSHI   TRUE
+           BRK     
+AC02B82FAC:
+           POP     
+           PUSHI   GfxOptions_SetWindOnForests
+           CALL    (Arg02B830DC)
+           BRA     AC02B8316C
+Arg02B830DC:
+           PUSHI   TRUE
+           BRK     
+AC02B8316C:
+           POP     
+           PUSHI   GfxOptions_SetLensFlares
+           CALL    (Arg02B8329C)
+           BRA     AC02B8332C
+Arg02B8329C:
+           PUSHI   TRUE
+           BRK     
+AC02B8332C:
+           POP     
+           PUSHI   GfxOptions_SetBulletHitEffects
+           CALL    (Arg02B8345C)
+           BRA     AC02B834EC
+Arg02B8345C:
+           PUSHI   TRUE
+           BRK     
+AC02B834EC:
+           POP     
+           PUSHI   GfxOptions_SetWaterQualityLevel
+           CALL    (Arg02B8361C)
+           BRA     AC02B836CC
+Arg02B8361C:
+           PUSHI   WATERRENDER_QUALITY_HIGH
+           BRK     
+AC02B836CC:
+           POP     
+           PUSHI   GfxOptions_SetTerrainDetailLevel
+           CALL    (Arg02B837FC)
+           BRA     AC02B8388C
+Arg02B837FC:
+           PUSHF   0.750000
+           BRK     
+AC02B8388C:
+           POP     
+           PUSHI   GfxOptions_ConfigSetAntialiasingMode
+           CALL    (Arg02B839BC)
+           BRA     AC02B83A6C
+Arg02B839BC:
+           PUSHI   GFXOPTIONS_ANTIALIASING_DISABLED
+           BRK     
+AC02B83A6C:
+           POP     
+           PUSHI   GfxOptions_ConfigSetTextureFilteringMode
+           CALL    (Arg02B83BAC)
+           BRA     AC02B83C5C
+Arg02B83BAC:
+           PUSHI   DIRECT3DRENDER_FILTERINGTYPE_TRILINEAR
+           BRK     
+AC02B83C5C:
+           POP     
+           PUSHI   GfxOptions_ApplyCurrentOptionsToLastPlayerProfile
+           CALL    ()
+           BRA     AC02B83DD4
+AC02B83DD4:
+           POP     
+           PUSHI   GOGameLang
+           CALL    (Arg02B83EF4)
+           BRA     AC02B83F84
+Arg02B83EF4:
+           PUSHI   ENGLISH
+           BRK     
+AC02B83F84:
+           POP     
+           PUSHI   GOGameDiff
+           CALL    (Arg02B840A4)
+           BRA     AC02B84134
+Arg02B840A4:
+           PUSHI   GD_2
+           BRK     
+AC02B84134:
+           POP     
+           PUSHI   GOIsBlood
+           CALL    (Arg02B84254)
+           BRA     AC02B842E4
+Arg02B84254:
+           PUSHI   TRUE
+           BRK     
+AC02B842E4:
+           POP     
+           PUSHI   GOGameIsHideInventory
+           CALL    (Arg02B84404)
+           BRA     AC02B84494
+Arg02B84404:
+           PUSHI   FALSE
+           BRK     
+AC02B84494:
+           POP     
+           PUSHI   GOSoundSpeech
+           CALL    (Arg02B845B4, Arg02B8460C)
+           BRA     AC02B8469C
+Arg02B845B4:
+           PUSH    1
+           BRK     
+Arg02B8460C:
+           PUSHF   1.000000
+           BRK     
+AC02B8469C:
+           POP     
+           PUSHI   GOSoundMusic
+           CALL    (Arg02B847BC, Arg02B84814)
+           BRA     AC02B848A4
+Arg02B847BC:
+           PUSH    1
+           BRK     
+Arg02B84814:
+           PUSHF   0.800000
+           BRK     
+AC02B848A4:
+           POP     
+           PUSHI   GOSoundFX
+           CALL    (Arg02B849C4, Arg02B84A1C)
+           BRA     AC02B84AAC
+Arg02B849C4:
+           PUSH    1
+           BRK     
+Arg02B84A1C:
+           PUSHF   1.000000
+           BRK     
+AC02B84AAC:
+           POP     
+           PUSHI   GO3DSoundProvider
+           CALL    (Arg02B84BCC)
+           BRA     AC02B84C5C
+Arg02B84BCC:
+           PUSH    4
+           BRK     
+AC02B84C5C:
+           POP     
+           PUSHI   GOSpeakerSetup
+           CALL    (Arg02B84D7C)
+           BRA     AC02B84E0C
+Arg02B84D7C:
+           PUSH    0
+           BRK     
+AC02B84E0C:
+           POP     
+           PUSHI   GOPlayerMissionStats
+           CALL    (Arg02B84F2C, Arg02B84F84, Arg02B84FDC, Arg02B85034, Arg02B8508C, 
+                    Arg02B850E4, Arg02B8513C, Arg02B85194, Arg02B851EC, Arg02B85244, 
+                    Arg02B8529C, Arg02B852F4, Arg02B8534C, Arg02B853A4, Arg02B853FC, 
+                    Arg02B85454, Arg02B854AC, Arg02B85504, Arg02B8555C, Arg02B855B4, 
+                    Arg02B8560C, Arg02B85664, Arg02B856BC, Arg02B85714, Arg02B8576C)
+           BRA     AC02B8585C
+Arg02B84F2C:
+           PUSH    11
+           BRK     
+Arg02B84F84:
+           PUSH    1
+           BRK     
+Arg02B84FDC:
+           PUSH    0
+           BRK     
+Arg02B85034:
+           PUSH    74
+           BRK     
+Arg02B8508C:
+           PUSH    23
+           BRK     
+Arg02B850E4:
+           PUSH    9
+           BRK     
+Arg02B8513C:
+           PUSH    30
+           BRK     
+Arg02B85194:
+           PUSH    3
+           BRK     
+Arg02B851EC:
+           PUSH    18630
+           BRK     
+Arg02B85244:
+           PUSH    0
+           BRK     
+Arg02B8529C:
+           PUSHF   1440.000000
+           BRK     
+Arg02B852F4:
+           PUSHF   6.000000
+           BRK     
+Arg02B8534C:
+           PUSHF   5.000000
+           BRK     
+Arg02B853A4:
+           PUSHF   40.000000
+           BRK     
+Arg02B853FC:
+           PUSHF   40.000000
+           BRK     
+Arg02B85454:
+           PUSHF   810.000000
+           BRK     
+Arg02B854AC:
+           PUSHF   3.000000
+           BRK     
+Arg02B85504:
+           PUSHF   2.000000
+           BRK     
+Arg02B8555C:
+           PUSHF   65.000000
+           BRK     
+Arg02B855B4:
+           PUSHF   60.000000
+           BRK     
+Arg02B8560C:
+           PUSHF   270.000000
+           BRK     
+Arg02B85664:
+           PUSHF   0.000000
+           BRK     
+Arg02B856BC:
+           PUSHF   0.000000
+           BRK     
+Arg02B85714:
+           PUSHF   90.000000
+           BRK     
+Arg02B8576C:
+           PUSHF   85.000000
+           BRK     
+AC02B8585C:
+           POP     
+           PUSHI   GOPlayerMissionStats
+           CALL    (Arg02B8597C, Arg02B859D4, Arg02B85A2C, Arg02B85A84, Arg02B85ADC, 
+                    Arg02B85B34, Arg02B85B8C, Arg02B85BE4, Arg02B85C3C, Arg02B85C94, 
+                    Arg02B85CEC, Arg02B85D44, Arg02B85D9C, Arg02B85DF4, Arg02B85E4C, 
+                    Arg02B85EA4, Arg02B85EFC, Arg02B85F54, Arg02B85FAC, Arg02B86004, 
+                    Arg02B8605C, Arg02B860B4, Arg02B8610C, Arg02B86164, Arg02B861BC)
+           BRA     AC02B862AC
+Arg02B8597C:
+           PUSH    15
+           BRK     
+Arg02B859D4:
+           PUSH    1
+           BRK     
+Arg02B85A2C:
+           PUSH    0
+           BRK     
+Arg02B85A84:
+           PUSH    0
+           BRK     
+Arg02B85ADC:
+           PUSH    0
+           BRK     
+Arg02B85B34:
+           PUSH    0
+           BRK     
+Arg02B85B8C:
+           PUSH    0
+           BRK     
+Arg02B85BE4:
+           PUSH    0
+           BRK     
+Arg02B85C3C:
+           PUSH    0
+           BRK     
+Arg02B85C94:
+           PUSH    0
+           BRK     
+Arg02B85CEC:
+           PUSHF   1500.000000
+           BRK     
+Arg02B85D44:
+           PUSHF   6.000000
+           BRK     
+Arg02B85D9C:
+           PUSHF   5.000000
+           BRK     
+Arg02B85DF4:
+           PUSHF   40.000000
+           BRK     
+Arg02B85E4C:
+           PUSHF   40.000000
+           BRK     
+Arg02B85EA4:
+           PUSHF   600.000000
+           BRK     
+Arg02B85EFC:
+           PUSHF   3.000000
+           BRK     
+Arg02B85F54:
+           PUSHF   2.000000
+           BRK     
+Arg02B85FAC:
+           PUSHF   65.000000
+           BRK     
+Arg02B86004:
+           PUSHF   60.000000
+           BRK     
+Arg02B8605C:
+           PUSHF   180.000000
+           BRK     
+Arg02B860B4:
+           PUSHF   0.000000
+           BRK     
+Arg02B8610C:
+           PUSHF   0.000000
+           BRK     
+Arg02B86164:
+           PUSHF   90.000000
+           BRK     
+Arg02B861BC:
+           PUSHF   85.000000
+           BRK     
+AC02B862AC:
+           POP     
+           PUSHI   GOPlayerMissionStats
+           CALL    (Arg02B863CC, Arg02B86424, Arg02B8647C, Arg02B864D4, Arg02B8652C, 
+                    Arg02B86584, Arg02B865DC, Arg02B86634, Arg02B8668C, Arg02B866E4, 
+                    Arg02B8673C, Arg02B86794, Arg02B867EC, Arg02B86844, Arg02B8689C, 
+                    Arg02B868F4, Arg02B8694C, Arg02B869A4, Arg02B869FC, Arg02B86A54, 
+                    Arg02B86AAC, Arg02B86B04, Arg02B86B5C, Arg02B86BB4, Arg02B86C0C)
+           BRA     AC02B86CFC
+Arg02B863CC:
+           PUSH    23
+           BRK     
+Arg02B86424:
+           PUSH    1
+           BRK     
+Arg02B8647C:
+           PUSH    0
+           BRK     
+Arg02B864D4:
+           PUSH    0
+           BRK     
+Arg02B8652C:
+           PUSH    0
+           BRK     
+Arg02B86584:
+           PUSH    0
+           BRK     
+Arg02B865DC:
+           PUSH    0
+           BRK     
+Arg02B86634:
+           PUSH    0
+           BRK     
+Arg02B8668C:
+           PUSH    0
+           BRK     
+Arg02B866E4:
+           PUSH    0
+           BRK     
+Arg02B8673C:
+           PUSHF   1500.000000
+           BRK     
+Arg02B86794:
+           PUSHF   6.000000
+           BRK     
+Arg02B867EC:
+           PUSHF   5.000000
+           BRK     
+Arg02B86844:
+           PUSHF   40.000000
+           BRK     
+Arg02B8689C:
+           PUSHF   40.000000
+           BRK     
+Arg02B868F4:
+           PUSHF   1080.000000
+           BRK     
+Arg02B8694C:
+           PUSHF   3.000000
+           BRK     
+Arg02B869A4:
+           PUSHF   2.000000
+           BRK     
+Arg02B869FC:
+           PUSHF   65.000000
+           BRK     
+Arg02B86A54:
+           PUSHF   60.000000
+           BRK     
+Arg02B86AAC:
+           PUSHF   600.000000
+           BRK     
+Arg02B86B04:
+           PUSHF   0.000000
+           BRK     
+Arg02B86B5C:
+           PUSHF   0.000000
+           BRK     
+Arg02B86BB4:
+           PUSHF   90.000000
+           BRK     
+Arg02B86C0C:
+           PUSHF   85.000000
+           BRK     
+AC02B86CFC:
+           POP     
+           PUSHI   GOPlayerMissionStats
+           CALL    (Arg02B86E1C, Arg02B86E74, Arg02B86ECC, Arg02B86F24, Arg02B86F7C, 
+                    Arg02B86FD4, Arg02B8702C, Arg02B87084, Arg02B870DC, Arg02B87134, 
+                    Arg02B8718C, Arg02B871E4, Arg02B8723C, Arg02B87294, Arg02B872EC, 
+                    Arg02B87344, Arg02B8739C, Arg02B873F4, Arg02B8744C, Arg02B874A4, 
+                    Arg02B874FC, Arg02B87554, Arg02B875AC, Arg02B87604, Arg02B8765C)
+           BRA     AC02B8774C
+Arg02B86E1C:
+           PUSH    31
+           BRK     
+Arg02B86E74:
+           PUSH    1
+           BRK     
+Arg02B86ECC:
+           PUSH    0
+           BRK     
+Arg02B86F24:
+           PUSH    0
+           BRK     
+Arg02B86F7C:
+           PUSH    0
+           BRK     
+Arg02B86FD4:
+           PUSH    0
+           BRK     
+Arg02B8702C:
+           PUSH    0
+           BRK     
+Arg02B87084:
+           PUSH    0
+           BRK     
+Arg02B870DC:
+           PUSH    0
+           BRK     
+Arg02B87134:
+           PUSH    0
+           BRK     
+Arg02B8718C:
+           PUSHF   1500.000000
+           BRK     
+Arg02B871E4:
+           PUSHF   6.000000
+           BRK     
+Arg02B8723C:
+           PUSHF   5.000000
+           BRK     
+Arg02B87294:
+           PUSHF   40.000000
+           BRK     
+Arg02B872EC:
+           PUSHF   40.000000
+           BRK     
+Arg02B87344:
+           PUSHF   900.000000
+           BRK     
+Arg02B8739C:
+           PUSHF   3.000000
+           BRK     
+Arg02B873F4:
+           PUSHF   2.000000
+           BRK     
+Arg02B8744C:
+           PUSHF   65.000000
+           BRK     
+Arg02B874A4:
+           PUSHF   60.000000
+           BRK     
+Arg02B874FC:
+           PUSHF   420.000000
+           BRK     
+Arg02B87554:
+           PUSHF   0.000000
+           BRK     
+Arg02B875AC:
+           PUSHF   0.000000
+           BRK     
+Arg02B87604:
+           PUSHF   90.000000
+           BRK     
+Arg02B8765C:
+           PUSHF   85.000000
+           BRK     
+AC02B8774C:
+           POP     
+           PUSHI   GOPlayerMissionStats
+           CALL    (Arg02B8786C, Arg02B878C4, Arg02B8791C, Arg02B87974, Arg02B879CC, 
+                    Arg02B87A24, Arg02B87A7C, Arg02B87AD4, Arg02B87B2C, Arg02B87B84, 
+                    Arg02B87BDC, Arg02B87C34, Arg02B87C8C, Arg02B87CE4, Arg02B87D3C, 
+                    Arg02B87D94, Arg02B87DEC, Arg02B87E44, Arg02B87E9C, Arg02B87EF4, 
+                    Arg02B87F4C, Arg02B87FA4, Arg02B87FFC, Arg02B88054, Arg02B880AC)
+           BRA     AC02B8819C
+Arg02B8786C:
+           PUSH    14
+           BRK     
+Arg02B878C4:
+           PUSH    1
+           BRK     
+Arg02B8791C:
+           PUSH    0
+           BRK     
+Arg02B87974:
+           PUSH    14
+           BRK     
+Arg02B879CC:
+           PUSH    85
+           BRK     
+Arg02B87A24:
+           PUSH    36
+           BRK     
+Arg02B87A7C:
+           PUSH    327
+           BRK     
+Arg02B87AD4:
+           PUSH    9
+           BRK     
+Arg02B87B2C:
+           PUSH    26999
+           BRK     
+Arg02B87B84:
+           PUSH    3
+           BRK     
+Arg02B87BDC:
+           PUSHF   900.000000
+           BRK     
+Arg02B87C34:
+           PUSHF   6.000000
+           BRK     
+Arg02B87C8C:
+           PUSHF   5.000000
+           BRK     
+Arg02B87CE4:
+           PUSHF   40.000000
+           BRK     
+Arg02B87D3C:
+           PUSHF   40.000000
+           BRK     
+Arg02B87D94:
+           PUSHF   750.000000
+           BRK     
+Arg02B87DEC:
+           PUSHF   3.000000
+           BRK     
+Arg02B87E44:
+           PUSHF   2.000000
+           BRK     
+Arg02B87E9C:
+           PUSHF   65.000000
+           BRK     
+Arg02B87EF4:
+           PUSHF   60.000000
+           BRK     
+Arg02B87F4C:
+           PUSHF   480.000000
+           BRK     
+Arg02B87FA4:
+           PUSHF   0.000000
+           BRK     
+Arg02B87FFC:
+           PUSHF   0.000000
+           BRK     
+Arg02B88054:
+           PUSHF   90.000000
+           BRK     
+Arg02B880AC:
+           PUSHF   85.000000
+           BRK     
+AC02B8819C:
+           POP     
+           PUSHI   GOPlayerMissionStats
+           CALL    (Arg02B882BC, Arg02B88314, Arg02B8836C, Arg02B883C4, Arg02B8841C, 
+                    Arg02B88474, Arg02B884CC, Arg02B88524, Arg02B8857C, Arg02B885D4, 
+                    Arg02B8862C, Arg02B88684, Arg02B886DC, Arg02B88734, Arg02B8878C, 
+                    Arg02B887E4, Arg02B8883C, Arg02B88894, Arg02B888EC, Arg02B88944, 
+                    Arg02B8899C, Arg02B889F4, Arg02B88A4C, Arg02B88AA4, Arg02B88AFC)
+           BRA     AC02B88BEC
+Arg02B882BC:
+           PUSH    22
+           BRK     
+Arg02B88314:
+           PUSH    1
+           BRK     
+Arg02B8836C:
+           PUSH    0
+           BRK     
+Arg02B883C4:
+           PUSH    0
+           BRK     
+Arg02B8841C:
+           PUSH    0
+           BRK     
+Arg02B88474:
+           PUSH    0
+           BRK     
+Arg02B884CC:
+           PUSH    0
+           BRK     
+Arg02B88524:
+           PUSH    0
+           BRK     
+Arg02B8857C:
+           PUSH    0
+           BRK     
+Arg02B885D4:
+           PUSH    0
+           BRK     
+Arg02B8862C:
+           PUSHF   1800.000000
+           BRK     
+Arg02B88684:
+           PUSHF   6.000000
+           BRK     
+Arg02B886DC:
+           PUSHF   5.000000
+           BRK     
+Arg02B88734:
+           PUSHF   40.000000
+           BRK     
+Arg02B8878C:
+           PUSHF   40.000000
+           BRK     
+Arg02B887E4:
+           PUSHF   1320.000000
+           BRK     
+Arg02B8883C:
+           PUSHF   3.000000
+           BRK     
+Arg02B88894:
+           PUSHF   2.000000
+           BRK     
+Arg02B888EC:
+           PUSHF   65.000000
+           BRK     
+Arg02B88944:
+           PUSHF   60.000000
+           BRK     
+Arg02B8899C:
+           PUSHF   600.000000
+           BRK     
+Arg02B889F4:
+           PUSHF   0.000000
+           BRK     
+Arg02B88A4C:
+           PUSHF   0.000000
+           BRK     
+Arg02B88AA4:
+           PUSHF   90.000000
+           BRK     
+Arg02B88AFC:
+           PUSHF   85.000000
+           BRK     
+AC02B88BEC:
+           POP     
+           PUSHI   GOPlayerMissionStats
+           CALL    (Arg02B88D0C, Arg02B88D64, Arg02B88DBC, Arg02B88E14, Arg02B88E6C, 
+                    Arg02B88EC4, Arg02B88F1C, Arg02B88F74, Arg02B88FCC, Arg02B89024, 
+                    Arg02B8907C, Arg02B890D4, Arg02B8912C, Arg02B89184, Arg02B891DC, 
+                    Arg02B89234, Arg02B8928C, Arg02B892E4, Arg02B8933C, Arg02B89394, 
+                    Arg02B893EC, Arg02B89444, Arg02B8949C, Arg02B894F4, Arg02B8954C)
+           BRA     AC02B8963C
+Arg02B88D0C:
+           PUSH    26
+           BRK     
+Arg02B88D64:
+           PUSH    1
+           BRK     
+Arg02B88DBC:
+           PUSH    0
+           BRK     
+Arg02B88E14:
+           PUSH    0
+           BRK     
+Arg02B88E6C:
+           PUSH    0
+           BRK     
+Arg02B88EC4:
+           PUSH    0
+           BRK     
+Arg02B88F1C:
+           PUSH    0
+           BRK     
+Arg02B88F74:
+           PUSH    0
+           BRK     
+Arg02B88FCC:
+           PUSH    0
+           BRK     
+Arg02B89024:
+           PUSH    0
+           BRK     
+Arg02B8907C:
+           PUSHF   1800.000000
+           BRK     
+Arg02B890D4:
+           PUSHF   7.000000
+           BRK     
+Arg02B8912C:
+           PUSHF   5.000000
+           BRK     
+Arg02B89184:
+           PUSHF   40.000000
+           BRK     
+Arg02B891DC:
+           PUSHF   40.000000
+           BRK     
+Arg02B89234:
+           PUSHF   1200.000000
+           BRK     
+Arg02B8928C:
+           PUSHF   4.000000
+           BRK     
+Arg02B892E4:
+           PUSHF   2.000000
+           BRK     
+Arg02B8933C:
+           PUSHF   65.000000
+           BRK     
+Arg02B89394:
+           PUSHF   60.000000
+           BRK     
+Arg02B893EC:
+           PUSHF   570.000000
+           BRK     
+Arg02B89444:
+           PUSHF   1.000000
+           BRK     
+Arg02B8949C:
+           PUSHF   0.000000
+           BRK     
+Arg02B894F4:
+           PUSHF   90.000000
+           BRK     
+Arg02B8954C:
+           PUSHF   85.000000
+           BRK     
+AC02B8963C:
+           POP     
+           PUSHI   GOPlayerMissionStats
+           CALL    (Arg02B8975C, Arg02B897B4, Arg02B8980C, Arg02B89864, Arg02B898BC, 
+                    Arg02B89914, Arg02B8996C, Arg02B899C4, Arg02B89A1C, Arg02B89A74, 
+                    Arg02B89ACC, Arg02B89B24, Arg02B89B7C, Arg02B89BD4, Arg02B89C2C, 
+                    Arg02B89C84, Arg02B89CDC, Arg02B89D34, Arg02B89D8C, Arg02B89DE4, 
+                    Arg02B89E3C, Arg02B89E94, Arg02B89EEC, Arg02B89F44, Arg02B89F9C)
+           BRA     AC02B89FF4
+Arg02B8975C:
+           PUSH    13
+           BRK     
+Arg02B897B4:
+           PUSH    1
+           BRK     
+Arg02B8980C:
+           PUSH    0
+           BRK     
+Arg02B89864:
+           PUSH    0
+           BRK     
+Arg02B898BC:
+           PUSH    0
+           BRK     
+Arg02B89914:
+           PUSH    0
+           BRK     
+Arg02B8996C:
+           PUSH    0
+           BRK     
+Arg02B899C4:
+           PUSH    0
+           BRK     
+Arg02B89A1C:
+           PUSH    0
+           BRK     
+Arg02B89A74:
+           PUSH    0
+           BRK     
+Arg02B89ACC:
+           PUSHF   1800.000000
+           BRK     
+Arg02B89B24:
+           PUSHF   6.000000
+           BRK     
+Arg02B89B7C:
+           PUSHF   5.000000
+           BRK     
+Arg02B89BD4:
+           PUSHF   40.000000
+           BRK     
+Arg02B89C2C:
+           PUSHF   40.000000
+           BRK     
+Arg02B89C84:
+           PUSHF   1140.000000
+           BRK     
+Arg02B89CDC:
+           PUSHF   3.000000
+           BRK     
+Arg02B89D34:
+           PUSHF   2.000000
+           BRK     
+Arg02B89D8C:
+           PUSHF   65.000000
+           BRK     
+Arg02B89DE4:
+           PUSHF   60.000000
+           BRK     
+Arg02B89E3C:
+           PUSHF   420.000000
+           BRK     
+Arg02B89E94:
+           PUSHF   0.000000
+           BRK     
+Arg02B89EEC:
+           PUSHF   0.000000
+           BRK     
+Arg02B89F44:
+           PUSHF   90.000000
+           BRK     
+Arg02B89F9C:
+           PUSHF   85.000000
+           BRK     
+AC02B89FF4:
+           POP     
+           PUSHI   GOPlayerMissionStats
+           CALL    (Arg02B94154, Arg02B941AC, Arg02B94204, Arg02B9425C, Arg02B942B4, 
+                    Arg02B9430C, Arg02B94364, Arg02B943BC, Arg02B94414, Arg02B9446C, 
+                    Arg02B944C4, Arg02B9451C, Arg02B94574, Arg02B945CC, Arg02B94624, 
+                    Arg02B9467C, Arg02B946D4, Arg02B9472C, Arg02B94784, Arg02B947DC, 
+                    Arg02B94834, Arg02B9488C, Arg02B948E4, Arg02B9493C, Arg02B94994)
+           BRA     AC02B94A84
+Arg02B94154:
+           PUSH    21
+           BRK     
+Arg02B941AC:
+           PUSH    1
+           BRK     
+Arg02B94204:
+           PUSH    0
+           BRK     
+Arg02B9425C:
+           PUSH    0
+           BRK     
+Arg02B942B4:
+           PUSH    0
+           BRK     
+Arg02B9430C:
+           PUSH    0
+           BRK     
+Arg02B94364:
+           PUSH    0
+           BRK     
+Arg02B943BC:
+           PUSH    0
+           BRK     
+Arg02B94414:
+           PUSH    0
+           BRK     
+Arg02B9446C:
+           PUSH    0
+           BRK     
+Arg02B944C4:
+           PUSHF   1500.000000
+           BRK     
+Arg02B9451C:
+           PUSHF   6.000000
+           BRK     
+Arg02B94574:
+           PUSHF   5.000000
+           BRK     
+Arg02B945CC:
+           PUSHF   40.000000
+           BRK     
+Arg02B94624:
+           PUSHF   40.000000
+           BRK     
+Arg02B9467C:
+           PUSHF   780.000000
+           BRK     
+Arg02B946D4:
+           PUSHF   3.000000
+           BRK     
+Arg02B9472C:
+           PUSHF   2.000000
+           BRK     
+Arg02B94784:
+           PUSHF   65.000000
+           BRK     
+Arg02B947DC:
+           PUSHF   60.000000
+           BRK     
+Arg02B94834:
+           PUSHF   360.000000
+           BRK     
+Arg02B9488C:
+           PUSHF   0.000000
+           BRK     
+Arg02B948E4:
+           PUSHF   0.000000
+           BRK     
+Arg02B9493C:
+           PUSHF   90.000000
+           BRK     
+Arg02B94994:
+           PUSHF   85.000000
+           BRK     
+AC02B94A84:
+           POP     
+           PUSHI   GOPlayerMissionStats
+           CALL    (Arg02B94BA4, Arg02B94BFC, Arg02B94C54, Arg02B94CAC, Arg02B94D04, 
+                    Arg02B94D5C, Arg02B94DB4, Arg02B94E0C, Arg02B94E64, Arg02B94EBC, 
+                    Arg02B94F14, Arg02B94F6C, Arg02B94FC4, Arg02B9501C, Arg02B95074, 
+                    Arg02B950CC, Arg02B95124, Arg02B9517C, Arg02B951D4, Arg02B9522C, 
+                    Arg02B95284, Arg02B952DC, Arg02B95334, Arg02B9538C, Arg02B953E4)
+           BRA     AC02B954D4
+Arg02B94BA4:
+           PUSH    17
+           BRK     
+Arg02B94BFC:
+           PUSH    1
+           BRK     
+Arg02B94C54:
+           PUSH    0
+           BRK     
+Arg02B94CAC:
+           PUSH    0
+           BRK     
+Arg02B94D04:
+           PUSH    0
+           BRK     
+Arg02B94D5C:
+           PUSH    0
+           BRK     
+Arg02B94DB4:
+           PUSH    0
+           BRK     
+Arg02B94E0C:
+           PUSH    0
+           BRK     
+Arg02B94E64:
+           PUSH    0
+           BRK     
+Arg02B94EBC:
+           PUSH    0
+           BRK     
+Arg02B94F14:
+           PUSHF   1500.000000
+           BRK     
+Arg02B94F6C:
+           PUSHF   6.000000
+           BRK     
+Arg02B94FC4:
+           PUSHF   5.000000
+           BRK     
+Arg02B9501C:
+           PUSHF   40.000000
+           BRK     
+Arg02B95074:
+           PUSHF   40.000000
+           BRK     
+Arg02B950CC:
+           PUSHF   720.000000
+           BRK     
+Arg02B95124:
+           PUSHF   3.000000
+           BRK     
+Arg02B9517C:
+           PUSHF   2.000000
+           BRK     
+Arg02B951D4:
+           PUSHF   65.000000
+           BRK     
+Arg02B9522C:
+           PUSHF   60.000000
+           BRK     
+Arg02B95284:
+           PUSHF   330.000000
+           BRK     
+Arg02B952DC:
+           PUSHF   0.000000
+           BRK     
+Arg02B95334:
+           PUSHF   0.000000
+           BRK     
+Arg02B9538C:
+           PUSHF   90.000000
+           BRK     
+Arg02B953E4:
+           PUSHF   85.000000
+           BRK     
+AC02B954D4:
+           POP     
+           PUSHI   GOPlayerMissionStats
+           CALL    (Arg02B955F4, Arg02B9564C, Arg02B956A4, Arg02B956FC, Arg02B95754, 
+                    Arg02B957AC, Arg02B95804, Arg02B9585C, Arg02B958B4, Arg02B9590C, 
+                    Arg02B95964, Arg02B959BC, Arg02B95A6C, Arg02B95AC4, Arg02B95B1C, 
+                    Arg02B95BCC, Arg02B95C24, Arg02B95CD4, Arg02B95D2C, Arg02B95D84, 
+                    Arg02B95E34, Arg02B95E8C, Arg02B95F3C, Arg02B95F94, Arg02B95FEC)
+           BRA     AC02B96134
+Arg02B955F4:
+           PUSH    25
+           BRK     
+Arg02B9564C:
+           PUSH    1
+           BRK     
+Arg02B956A4:
+           PUSH    0
+           BRK     
+Arg02B956FC:
+           PUSH    0
+           BRK     
+Arg02B95754:
+           PUSH    0
+           BRK     
+Arg02B957AC:
+           PUSH    0
+           BRK     
+Arg02B95804:
+           PUSH    0
+           BRK     
+Arg02B9585C:
+           PUSH    0
+           BRK     
+Arg02B958B4:
+           PUSH    0
+           BRK     
+Arg02B9590C:
+           PUSH    0
+           BRK     
+Arg02B95964:
+           PUSHF   1080.000000
+           BRK     
+Arg02B959BC:
+           PUSHF   1.000000
+           MINUS   
+           BRK     
+Arg02B95A6C:
+           PUSHF   5.000000
+           BRK     
+Arg02B95AC4:
+           PUSHF   40.000000
+           BRK     
+Arg02B95B1C:
+           PUSHF   1.000000
+           MINUS   
+           BRK     
+Arg02B95BCC:
+           PUSHF   720.000000
+           BRK     
+Arg02B95C24:
+           PUSHF   1.000000
+           MINUS   
+           BRK     
+Arg02B95CD4:
+           PUSHF   2.000000
+           BRK     
+Arg02B95D2C:
+           PUSHF   65.000000
+           BRK     
+Arg02B95D84:
+           PUSHF   1.000000
+           MINUS   
+           BRK     
+Arg02B95E34:
+           PUSHF   390.000000
+           BRK     
+Arg02B95E8C:
+           PUSHF   1.000000
+           MINUS   
+           BRK     
+Arg02B95F3C:
+           PUSHF   0.000000
+           BRK     
+Arg02B95F94:
+           PUSHF   90.000000
+           BRK     
+Arg02B95FEC:
+           PUSHF   1.000000
+           MINUS   
+           BRK     
+AC02B96134:
+           POP     
+           PUSHI   GOPlayerMissionStats
+           CALL    (Arg02B96254, Arg02B962AC, Arg02B96304, Arg02B9635C, Arg02B963B4, 
+                    Arg02B9640C, Arg02B96464, Arg02B964BC, Arg02B96514, Arg02B9656C, 
+                    Arg02B965C4, Arg02B9661C, Arg02B96674, Arg02B966CC, Arg02B96724, 
+                    Arg02B9677C, Arg02B967D4, Arg02B9682C, Arg02B96884, Arg02B968DC, 
+                    Arg02B96934, Arg02B9698C, Arg02B969E4, Arg02B96A3C, Arg02B96A94)
+           BRA     AC02B96B84
+Arg02B96254:
+           PUSH    33
+           BRK     
+Arg02B962AC:
+           PUSH    1
+           BRK     
+Arg02B96304:
+           PUSH    0
+           BRK     
+Arg02B9635C:
+           PUSH    0
+           BRK     
+Arg02B963B4:
+           PUSH    0
+           BRK     
+Arg02B9640C:
+           PUSH    0
+           BRK     
+Arg02B96464:
+           PUSH    0
+           BRK     
+Arg02B964BC:
+           PUSH    0
+           BRK     
+Arg02B96514:
+           PUSH    0
+           BRK     
+Arg02B9656C:
+           PUSH    0
+           BRK     
+Arg02B965C4:
+           PUSHF   2100.000000
+           BRK     
+Arg02B9661C:
+           PUSHF   6.000000
+           BRK     
+Arg02B96674:
+           PUSHF   5.000000
+           BRK     
+Arg02B966CC:
+           PUSHF   40.000000
+           BRK     
+Arg02B96724:
+           PUSHF   40.000000
+           BRK     
+Arg02B9677C:
+           PUSHF   1200.000000
+           BRK     
+Arg02B967D4:
+           PUSHF   3.000000
+           BRK     
+Arg02B9682C:
+           PUSHF   2.000000
+           BRK     
+Arg02B96884:
+           PUSHF   65.000000
+           BRK     
+Arg02B968DC:
+           PUSHF   60.000000
+           BRK     
+Arg02B96934:
+           PUSHF   600.000000
+           BRK     
+Arg02B9698C:
+           PUSHF   0.000000
+           BRK     
+Arg02B969E4:
+           PUSHF   0.000000
+           BRK     
+Arg02B96A3C:
+           PUSHF   90.000000
+           BRK     
+Arg02B96A94:
+           PUSHF   85.000000
+           BRK     
+AC02B96B84:
+           POP     
+           PUSHI   GOPlayerMissionStats
+           CALL    (Arg02B96CA4, Arg02B96CFC, Arg02B96D54, Arg02B96DAC, Arg02B96E04, 
+                    Arg02B96E5C, Arg02B96EB4, Arg02B96F0C, Arg02B96F64, Arg02B96FBC, 
+                    Arg02B97014, Arg02B9706C, Arg02B970C4, Arg02B9711C, Arg02B97174, 
+                    Arg02B971CC, Arg02B97224, Arg02B9727C, Arg02B972D4, Arg02B9732C, 
+                    Arg02B97384, Arg02B973DC, Arg02B97434, Arg02B9748C, Arg02B974E4)
+           BRA     AC02B975D4
+Arg02B96CA4:
+           PUSH    12
+           BRK     
+Arg02B96CFC:
+           PUSH    1
+           BRK     
+Arg02B96D54:
+           PUSH    0
+           BRK     
+Arg02B96DAC:
+           PUSH    0
+           BRK     
+Arg02B96E04:
+           PUSH    0
+           BRK     
+Arg02B96E5C:
+           PUSH    0
+           BRK     
+Arg02B96EB4:
+           PUSH    0
+           BRK     
+Arg02B96F0C:
+           PUSH    0
+           BRK     
+Arg02B96F64:
+           PUSH    0
+           BRK     
+Arg02B96FBC:
+           PUSH    0
+           BRK     
+Arg02B97014:
+           PUSHF   1500.000000
+           BRK     
+Arg02B9706C:
+           PUSHF   6.000000
+           BRK     
+Arg02B970C4:
+           PUSHF   5.000000
+           BRK     
+Arg02B9711C:
+           PUSHF   40.000000
+           BRK     
+Arg02B97174:
+           PUSHF   40.000000
+           BRK     
+Arg02B971CC:
+           PUSHF   900.000000
+           BRK     
+Arg02B97224:
+           PUSHF   3.000000
+           BRK     
+Arg02B9727C:
+           PUSHF   2.000000
+           BRK     
+Arg02B972D4:
+           PUSHF   65.000000
+           BRK     
+Arg02B9732C:
+           PUSHF   60.000000
+           BRK     
+Arg02B97384:
+           PUSHF   300.000000
+           BRK     
+Arg02B973DC:
+           PUSHF   0.000000
+           BRK     
+Arg02B97434:
+           PUSHF   0.000000
+           BRK     
+Arg02B9748C:
+           PUSHF   90.000000
+           BRK     
+Arg02B974E4:
+           PUSHF   85.000000
+           BRK     
+AC02B975D4:
+           POP     
+           PUSHI   GOPlayerMissionStats
+           CALL    (Arg02B976F4, Arg02B9774C, Arg02B977A4, Arg02B977FC, Arg02B97854, 
+                    Arg02B978AC, Arg02B97904, Arg02B9795C, Arg02B979B4, Arg02B97A0C, 
+                    Arg02B97A64, Arg02B97ABC, Arg02B97B14, Arg02B97B6C, Arg02B97BC4, 
+                    Arg02B97C1C, Arg02B97C74, Arg02B97CCC, Arg02B97D24, Arg02B97D7C, 
+                    Arg02B97DD4, Arg02B97E2C, Arg02B97E84, Arg02B97EDC, Arg02B97F34)
+           BRA     AC02B98024
+Arg02B976F4:
+           PUSH    16
+           BRK     
+Arg02B9774C:
+           PUSH    1
+           BRK     
+Arg02B977A4:
+           PUSH    0
+           BRK     
+Arg02B977FC:
+           PUSH    0
+           BRK     
+Arg02B97854:
+           PUSH    0
+           BRK     
+Arg02B978AC:
+           PUSH    0
+           BRK     
+Arg02B97904:
+           PUSH    0
+           BRK     
+Arg02B9795C:
+           PUSH    0
+           BRK     
+Arg02B979B4:
+           PUSH    0
+           BRK     
+Arg02B97A0C:
+           PUSH    0
+           BRK     
+Arg02B97A64:
+           PUSHF   2100.000000
+           BRK     
+Arg02B97ABC:
+           PUSHF   6.000000
+           BRK     
+Arg02B97B14:
+           PUSHF   5.000000
+           BRK     
+Arg02B97B6C:
+           PUSHF   40.000000
+           BRK     
+Arg02B97BC4:
+           PUSHF   40.000000
+           BRK     
+Arg02B97C1C:
+           PUSHF   1500.000000
+           BRK     
+Arg02B97C74:
+           PUSHF   3.000000
+           BRK     
+Arg02B97CCC:
+           PUSHF   2.000000
+           BRK     
+Arg02B97D24:
+           PUSHF   65.000000
+           BRK     
+Arg02B97D7C:
+           PUSHF   60.000000
+           BRK     
+Arg02B97DD4:
+           PUSHF   780.000000
+           BRK     
+Arg02B97E2C:
+           PUSHF   0.000000
+           BRK     
+Arg02B97E84:
+           PUSHF   0.000000
+           BRK     
+Arg02B97EDC:
+           PUSHF   90.000000
+           BRK     
+Arg02B97F34:
+           PUSHF   85.000000
+           BRK     
+AC02B98024:
+           POP     
+           PUSHI   GOPlayerMissionStats
+           CALL    (Arg02B98144, Arg02B9819C, Arg02B981F4, Arg02B9824C, Arg02B982A4, 
+                    Arg02B982FC, Arg02B98354, Arg02B983AC, Arg02B98404, Arg02B9845C, 
+                    Arg02B984B4, Arg02B9850C, Arg02B98564, Arg02B985BC, Arg02B98614, 
+                    Arg02B9866C, Arg02B986C4, Arg02B9871C, Arg02B98774, Arg02B987CC, 
+                    Arg02B98824, Arg02B9887C, Arg02B988D4, Arg02B9892C, Arg02B98984)
+           BRA     AC02B98A74
+Arg02B98144:
+           PUSH    24
+           BRK     
+Arg02B9819C:
+           PUSH    1
+           BRK     
+Arg02B981F4:
+           PUSH    0
+           BRK     
+Arg02B9824C:
+           PUSH    0
+           BRK     
+Arg02B982A4:
+           PUSH    0
+           BRK     
+Arg02B982FC:
+           PUSH    0
+           BRK     
+Arg02B98354:
+           PUSH    0
+           BRK     
+Arg02B983AC:
+           PUSH    0
+           BRK     
+Arg02B98404:
+           PUSH    0
+           BRK     
+Arg02B9845C:
+           PUSH    0
+           BRK     
+Arg02B984B4:
+           PUSHF   1800.000000
+           BRK     
+Arg02B9850C:
+           PUSHF   6.000000
+           BRK     
+Arg02B98564:
+           PUSHF   5.000000
+           BRK     
+Arg02B985BC:
+           PUSHF   40.000000
+           BRK     
+Arg02B98614:
+           PUSHF   40.000000
+           BRK     
+Arg02B9866C:
+           PUSHF   1200.000000
+           BRK     
+Arg02B986C4:
+           PUSHF   3.000000
+           BRK     
+Arg02B9871C:
+           PUSHF   2.000000
+           BRK     
+Arg02B98774:
+           PUSHF   65.000000
+           BRK     
+Arg02B987CC:
+           PUSHF   60.000000
+           BRK     
+Arg02B98824:
+           PUSHF   540.000000
+           BRK     
+Arg02B9887C:
+           PUSHF   0.000000
+           BRK     
+Arg02B988D4:
+           PUSHF   0.000000
+           BRK     
+Arg02B9892C:
+           PUSHF   90.000000
+           BRK     
+Arg02B98984:
+           PUSHF   85.000000
+           BRK     
+AC02B98A74:
+           POP     
+           PUSHI   GOPlayerMissionStats
+           CALL    (Arg02B98B94, Arg02B98BEC, Arg02B98C44, Arg02B98C9C, Arg02B98CF4, 
+                    Arg02B98D4C, Arg02B98DA4, Arg02B98DFC, Arg02B98E54, Arg02B98EAC, 
+                    Arg02B98F04, Arg02B98F5C, Arg02B98FB4, Arg02B9900C, Arg02B99064, 
+                    Arg02B990BC, Arg02B99114, Arg02B9916C, Arg02B991C4, Arg02B9921C, 
+                    Arg02B99274, Arg02B992CC, Arg02B99324, Arg02B9937C, Arg02B993D4)
+           BRA     AC02B994C4
+Arg02B98B94:
+           PUSH    32
+           BRK     
+Arg02B98BEC:
+           PUSH    1
+           BRK     
+Arg02B98C44:
+           PUSH    0
+           BRK     
+Arg02B98C9C:
+           PUSH    0
+           BRK     
+Arg02B98CF4:
+           PUSH    0
+           BRK     
+Arg02B98D4C:
+           PUSH    0
+           BRK     
+Arg02B98DA4:
+           PUSH    0
+           BRK     
+Arg02B98DFC:
+           PUSH    0
+           BRK     
+Arg02B98E54:
+           PUSH    0
+           BRK     
+Arg02B98EAC:
+           PUSH    0
+           BRK     
+Arg02B98F04:
+           PUSHF   1200.000000
+           BRK     
+Arg02B98F5C:
+           PUSHF   6.000000
+           BRK     
+Arg02B98FB4:
+           PUSHF   5.000000
+           BRK     
+Arg02B9900C:
+           PUSHF   40.000000
+           BRK     
+Arg02B99064:
+           PUSHF   40.000000
+           BRK     
+Arg02B990BC:
+           PUSHF   720.000000
+           BRK     
+Arg02B99114:
+           PUSHF   3.000000
+           BRK     
+Arg02B9916C:
+           PUSHF   2.000000
+           BRK     
+Arg02B991C4:
+           PUSHF   65.000000
+           BRK     
+Arg02B9921C:
+           PUSHF   60.000000
+           BRK     
+Arg02B99274:
+           PUSHF   360.000000
+           BRK     
+Arg02B992CC:
+           PUSHF   0.000000
+           BRK     
+Arg02B99324:
+           PUSHF   0.000000
+           BRK     
+Arg02B9937C:
+           PUSHF   90.000000
+           BRK     
+Arg02B993D4:
+           PUSHF   85.000000
+           BRK     
+AC02B994C4:
+           POP     
+           PUSHI   GOComplete
+           CALL    ()
+           BRA     AC02B9961C
+AC02B9961C:
+           POP     
+           BRK     

@@ -15,53 +15,53 @@
 struct
 {
     LittleEndian();
-    DWORD _00;
-    DWORD _01;
+    UINT32 _00;
+    UINT32 _01;
 
-    DWORD _year;
-    DWORD _moon;
-    DWORD _day;
-    DWORD _hour;
-    DWORD _minute;
-    DWORD _second;
-    DWORD _milisecond;
+    UINT32 _year;
+    UINT32 _moon;
+    UINT32 _day;
+    UINT32 _hour;
+    UINT32 _minute;
+    UINT32 _second;
+    UINT32 _milisecond;
 
-    DWORD _09;
-    DWORD _10;
-    DWORD _11;    //count
-    DWORD _12;
-    DWORD _13;
-    DWORD _14;
+    UINT32 _09;
+    UINT32 _10;
+    UINT32 _11;    //count
+    UINT32 _12;
+    UINT32 _13;
+    UINT32 _14;
 
 
     struct
     {
-        WORD _00;
-        WORD _01;
-        WORD _02;
-        WORD _03;
-        WORD _04;
-        WORD _05;
-        WORD _06;
-        WORD _07;
-        WORD _08;
-        WORD _09;
-        WORD _10;
-        WORD _11;
-        WORD _12;
-        WORD _13;
-        WORD _14;
-        WORD _15;
-        WORD _16;
-        WORD _17;
-        WORD _18;
-        WORD _19;
-        WORD _20;
-        WORD _21;
-        WORD _22;
-        WORD _23;
-        WORD _24;
-        WORD _25;
+        UINT16 _00;
+        UINT16 _01;
+        UINT16 _02;
+        UINT16 _03;
+        UINT16 _04;
+        UINT16 _05;
+        UINT16 _06;
+        UINT16 _07;
+        UINT16 _08;
+        UINT16 _09;
+        UINT16 _10;
+        UINT16 _11;
+        UINT16 _12;
+        UINT16 _13;
+        UINT16 _14;
+        UINT16 _15;
+        UINT16 _16;
+        UINT16 _17;
+        UINT16 _18;
+        UINT16 _19;
+        UINT16 _20;
+        UINT16 _21;
+        UINT16 _22;
+        UINT16 _23;
+        UINT16 _24;
+        UINT16 _25;
     } texhead [_11];
 
 

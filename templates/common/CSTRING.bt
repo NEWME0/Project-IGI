@@ -1,3 +1,7 @@
+#ifndef H_CSTRING_BT
+#define H_CSTRING_BT
+
+
 typedef struct
 {
 	string value;
@@ -8,3 +12,6 @@ string ReadCSTRING(CSTRING &o)
 {
 	return o.value;
 }
+
+
+#endif

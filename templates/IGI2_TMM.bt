@@ -13,7 +13,7 @@
 
 #define PIXEL_SIZE 1
 
-#include "common/DATETIME.bt";
+#include "COMMON/DATETIME.bt";
 
 
 struct
@@ -22,11 +22,11 @@ struct
     {
         LittleEndian();
 
-        DWORD    _1;
+        UINT32    _1;
         DATETIME DateTime;
-        DWORD    _2;
-        DWORD    resolution_x;
-        DWORD    resolution_y;
+        UINT32    _2;
+        UINT32    resolution_x;
+        UINT32    resolution_y;
     } header;
 
     struct

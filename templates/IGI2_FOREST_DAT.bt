@@ -12,27 +12,27 @@
 //------------------------------------------------
 
 
-#include "common/VECTOR_FLOAT_3.bt";
+#include "COMMON/FLOAT_3.bt";
 
 
 struct
 {
     struct
     {
-        DWORD VersionStringLength;
+        UINT32 VersionStringLength;
         CHAR  VersionString[VersionStringLength];
     } Version;
 
 
-    local DWORD TreeItemCount = (FileSize() - FTell()) / 40;
+    local UINT32 TreeItemCount = (FileSize() - FTell()) / 40;
 
     struct
     {
-        VECTOR_FLOAT_3 Position;
-        VECTOR_FLOAT_3 Rotation;
-        VECTOR_FLOAT_3 Scale;
-        WORD  _0;
-        WORD  _1;
+        FLOAT_3 Position;
+        FLOAT_3 Rotation;
+        FLOAT_3 Scale;
+        UINT16  _0;
+        UINT16  _1;
     } TreeItem[TreeItemCount];
 } IGI2_FOREST_DAT;
 

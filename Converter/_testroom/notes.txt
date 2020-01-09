@@ -1,0 +1,55 @@
+Inline comment (//)          yes
+Multiline comment  (/*  */)  no
+
++                            yes
+-                            yes
+*                            yes
+/                            yes
+%  (modulus)                 no
+++ (preincrement)            yes
+-- (predecrement)            yes
+++ (postincrement)           no
+-- (postdecrement)           no
+
+==                           yes
+!=                           yes
+>                            yes
+<                            yes
+>=                           yes
+<=                           yes
+
+&&                           yes
+||                           yes
+!                            yes
+
+&                            yes
+|                            yes
+^                            yes
+~                            yes
+<<                           yes
+>>                           yes
+
+=                            yes
++=                           no
+-=                           no
+*=                           no
+/=                           no
+%=                           no
+<<=                          no
+>>=                          no
+&=                           no
+^=                           no
+|=                           no
+
+sizeof()                     yes
+& (address)                  no
+* (pointer)                  no
+?: (ternary)                 no
+
+True                         yes
+False                        yes
+
+if else                      yes
+while                        yes
+do while                     no
+switch case default          no

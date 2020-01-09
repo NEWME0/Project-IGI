@@ -1,12 +1,17 @@
+#ifndef H_DATETIME_BT
+#define H_DATETIME_BT
 
 
 typedef struct DATETIME
 {
-    DWORD Year;
-    DWORD Month;
-    DWORD Day;
-    DWORD Hour;
-    DWORD Minute;
-    DWORD Second;
-    DWORD Milisecond;
+    UINT32 year;
+    UINT32 month;
+    UINT32 day;
+    UINT32 hour;
+    UINT32 minute;
+    UINT32 second;
+    UINT32 milisecond;
 };
+
+
+#endif

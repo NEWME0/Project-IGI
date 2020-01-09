@@ -12,21 +12,23 @@
 //------------------------------------------------
 
 
-#include "common/ALIGN.bt";
-#include "common/CSTRING.bt";
-#include "common/FSTRING.bt";
-#include "common/VECTOR_FLOAT_3.bt";
+#include "COMMON/ALIGN.bt";
+#include "COMMON/CSTRING.bt";
+#include "COMMON/FSTRING.bt";
+#include "COMMON/FLOAT_3.bt";
 
 
-struct {
+struct
+{
     LittleEndian();
 
     CHAR  Signature[4];
-    DWORD Size;
-    DWORD Align;
-    DWORD Next;
+    UINT32 Size;
+    UINT32 Align;
+    UINT32 Next;
 
-    struct {
+    struct
+    {
         CHAR  Signature[4];
 
         struct
@@ -34,20 +36,20 @@ struct {
             ALIGN(4);
 
             CHAR  Signature[4];
-            DWORD Size;
-            DWORD Align;
-            DWORD Next;
+            UINT32 Size;
+            UINT32 Align;
+            UINT32 Next;
 
             BYTE    Reserved_0[8];
-            DWORD   _0;
-            DWORD   _1;
-            DWORD   _2;
-            DWORD   BoneCount;
+            UINT32   _0;
+            UINT32   _1;
+            UINT32   _2;
+            UINT32   BoneCount;
             BYTE    Reserved_1[4];
-            DWORD   _3;
-            DWORD   _4;
-            DWORD   _5;
-            DWORD   _6;
+            UINT32   _3;
+            UINT32   _4;
+            UINT32   _5;
+            UINT32   _6;
             BYTE    Reserved_2[8];
             CSTRING AnimName;
         } DHNA;
@@ -57,15 +59,15 @@ struct {
             ALIGN(4);
 
             CHAR  Signature[4];
-            DWORD Size;
-            DWORD Align;
-            DWORD Next;
+            UINT32 Size;
+            UINT32 Align;
+            UINT32 Next;
 
             BYTE BoneChildCount[DHNA.BoneCount];
 
             ALIGN(4);
 
-            VECTOR_FLOAT_3 BonePosition[DHNA.BoneCount];
+            FLOAT_3 BonePosition[DHNA.BoneCount];
         } REIH;
 
         struct
@@ -73,9 +75,9 @@ struct {
             ALIGN(4);
 
             CHAR  Signature[4];
-            DWORD Size;
-            DWORD Align;
-            DWORD Next;
+            UINT32 Size;
+            UINT32 Align;
+            UINT32 Next;
 
             FLOAT _0[Size / 4];
         } TNVE;
@@ -86,9 +88,9 @@ struct {
             ALIGN(4);
 
             CHAR  Signature[4];
-            DWORD Size;
-            DWORD Align;
-            DWORD Next;
+            UINT32 Size;
+            UINT32 Align;
+            UINT32 Next;
 
             struct
             {
@@ -106,9 +108,9 @@ struct {
                 FLOAT    _11;
                 FLOAT    _12;
                 CHAR     Reserved_0[4];
-                DWORD    _14;
-                DWORD    _15;
-                DWORD    _16;
+                UINT32    _14;
+                UINT32    _15;
+                UINT32    _16;
             } Attachment[Size / 80];
         } ATTA;
     } MINA;

@@ -18,9 +18,9 @@ struct
     
     // main_block
     CHAR Signature[4]; // signature ILFF
-    DWORD size;
-    DWORD align;   // always 4
-    DWORD next;
+    UINT32 size;
+    UINT32 align;   // always 4
+    UINT32 next;
 
     struct
     {
@@ -36,9 +36,9 @@ struct
                 while(FTell() % 4 != 0) BYTE pad;
 
                 CHAR Signature[4]; // signature
-                DWORD size;
-                DWORD align;
-                DWORD next;
+                UINT32 size;
+                UINT32 align;
+                UINT32 next;
 
                 switch(sign)
                 {

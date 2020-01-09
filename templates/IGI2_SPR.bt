@@ -17,18 +17,18 @@ struct
     CHAR magic[4];
     Assert(magic == "LOOP");
 
-    DWORD _01;
-    DWORD _02;
-    DWORD _03;
-    DWORD _04;
-    DWORD _05;
-    DWORD _06;
-    DWORD _07;
-    DWORD _08;
-    DWORD _09;
-    DWORD _10;
-    DWORD _11;
-    DWORD _12;
+    UINT32 _01;
+    UINT32 _02;
+    UINT32 _03;
+    UINT32 _04;
+    UINT32 _05;
+    UINT32 _06;
+    UINT32 _07;
+    UINT32 _08;
+    UINT32 _09;
+    UINT32 _10;
+    UINT32 _11;
+    UINT32 _12;
 
     switch(_01)
     {
@@ -36,23 +36,23 @@ struct
         {
             struct
             {
-                DWORD _1;
-                DWORD _2;
+                UINT32 _1;
+                UINT32 _2;
 
-                WORD _3;
-                WORD _4;
-                WORD _5;
-                WORD _6;
+                UINT16 _3;
+                UINT16 _4;
+                UINT16 _5;
+                UINT16 _6;
 
-                DWORD _7;
-                DWORD _8;
-                DWORD _9;
-                DWORD _10;
-                DWORD _11;
-                DWORD _12;
+                UINT32 _7;
+                UINT32 _8;
+                UINT32 _9;
+                UINT32 _10;
+                UINT32 _11;
+                UINT32 _12;
             } sprhead[_08];
 
-            local DWORD i;
+            local UINT32 i;
 
             for(i = 0; i < _08; i++)
             {
@@ -66,21 +66,21 @@ struct
         {
             struct
             {
-                DWORD _1;
-                DWORD _2;
+                UINT32 _1;
+                UINT32 _2;
 
-                WORD _3;
-                WORD _4;
-                WORD _5;
-                WORD _6;
+                UINT16 _3;
+                UINT16 _4;
+                UINT16 _5;
+                UINT16 _6;
 
-                DWORD _7;
-                DWORD _8;
-                DWORD _9;
-                DWORD _10;
+                UINT32 _7;
+                UINT32 _8;
+                UINT32 _9;
+                UINT32 _10;
             } sprhead[_08];
 
-            local DWORD i;
+            local UINT32 i;
 
             for(i = 0; i < _08; i++)
             {
@@ -99,18 +99,18 @@ struct
     CHAR magic[4];
     Assert(magic == "LOOP");
 
-    DWORD _1;
-    DWORD _2;
-    DWORD _3;
-    DWORD _4;
-    DWORD _5;
+    UINT32 _1;
+    UINT32 _2;
+    UINT32 _3;
+    UINT32 _4;
+    UINT32 _5;
 
     struct
     {
-        DWORD _1;
-        DWORD _2;
-        DWORD _3;
-        DWORD _4;
+        UINT32 _1;
+        UINT32 _2;
+        UINT32 _3;
+        UINT32 _4;
     } sprwhat[loop_01._08];
 } loop_02;
 
