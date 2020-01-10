@@ -23,7 +23,7 @@ struct
         LittleEndian();
 
         UINT32    _1;
-        DATETIME DateTime;
+        DATETIME  DateTime;
         UINT32    _2;
         UINT32    resolution_x;
         UINT32    resolution_y;
