@@ -1,4 +1,6 @@
 from vm import VirtualMachine
 
-vm = VirtualMachine('D:/Projects/IGI2_Project/Tools/static/config.qvm')
-vm.exec()
+vm = VirtualMachine('/home/artiom/IGI2-Project/Decompiler/share/COMMON/ai/default.qvm')
+
+with open('/home/artiom/IGI2-Project/Decompiler/output', 'w') as output:
+	output.write(vm.exec())

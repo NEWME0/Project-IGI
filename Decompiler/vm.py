@@ -17,96 +17,100 @@ class VirtualMachine:
 		self.opcodes = get_opcode_dict(file.opcodes)
 
 		self.stack_jump = [ENTRY_POINT,]
+		self.stack_node = list()
+		self.stack_pull = [self.stack_node]
 
 
-	def step(self, stack_node):
-		jump = self.stack_jump.pop()
-		code = self.opcodes[jump]
+	def flow(self, debug=False):
+		while True:
+			stack_node = self.stack_pull[-1]
+			jump = self.stack_jump.pop()
+			op = self.opcodes[jump]
 
 
-		if code.code in OP_PUSH_UINT:
-			value = code.data
-			node = NodePushUInt(value)
-			stack_node.append(node)
-			self.stack_jump.append(code.jump)
+			if op.code in OP_PUSH_UINT:
+				value = op.data
+				node = NodePushUInt(value)
+				stack_node.append(node)
+				self.stack_jump.append(op.jump)
 
-		elif code.code in OP_PUSH_UINT_STD:
-			value = code.code
-			node = NodePushUIntStd(value)
-			stack_node.append(node)
-			self.stack_jump.append(code.jump)
+			elif op.code in OP_PUSH_UINT_STD:
+				value = op.code
+				node = NodePushUIntStd(value)
+				stack_node.append(node)
+				self.stack_jump.append(op.jump)
 
-		elif code.code in OP_PUSH_FLOAT:
-			value = code.data
-			node = NodePushFloat(value)
-			stack_node.append(node)
-			self.stack_jump.append(code.jump)
+			elif op.code in OP_PUSH_FLOAT:
+				value = op.data
+				node = NodePushFloat(value)
+				stack_node.append(node)
+				self.stack_jump.append(op.jump)
 
-		elif code.code in OP_PUSH_STRING:
-			value = code.data
-			node = NodePushString(value)
-			stack_node.append(node)
-			self.stack_jump.append(code.jump)
+			elif op.code in OP_PUSH_STRING:
+				value = op.data
+				node = NodePushString(value)
+				stack_node.append(node)
+				self.stack_jump.append(op.jump)
 
-		elif code.code in OP_PUSH_IDENTIFIER:
-			value = code.data
-			node = NodePushIdentifier(value)
-			stack_node.append(node)
-			self.stack_jump.append(code.jump)
+			elif op.code in OP_PUSH_IDENTIFIER:
+				value = op.data
+				node = NodePushIdentifier(value)
+				stack_node.append(node)
+				self.stack_jump.append(op.jump)
 
-		elif code.code in OP_OPERATOR_UNARY:
-			roperand = stack_node.pop()
-			operator = code.code
-			node = NodeOperatorUnary(operator, roperand)
-			stack_node.append(node)
-			self.stack_jump.append(code.jump)
+			elif op.code in OP_OPERATOR_UNARY:
+				roperand = stack_node.pop()
+				operator = op.code
+				node = NodeOperatorUnary(operator, roperand)
+				stack_node.append(node)
+				self.stack_jump.append(op.jump)
 
-		elif code.code in OP_OPERATOR_BINARY:
-			loperand = stack_node.pop()
-			roperand = stack_node.pop()
-			operator = code.code
-			node = NodeOperatorBinary(operator, loperand, roperand)
-			stack_node.append(node)
-			self.stack_jump.append(code.jump)
+			elif op.code in OP_OPERATOR_BINARY:
+				loperand = stack_node.pop()
+				roperand = stack_node.pop()
+				operator = op.code
+				node = NodeOperatorBinary(operator, loperand, roperand)
+				stack_node.append(node)
+				self.stack_jump.append(op.jump)
 
-		elif code.code == CALL:
-			func = stack_node.pop()
-
-			self.stack_jump.extend(code.data)
-			arguments = [self.flow() for jump in code.data]
-
-			node = NodeCall(func, arguments)
-			stack_node.append(node)
-			self.stack_jump.append(code.jump)
+			elif op.code == BRA:
+				jump = op.jump + op.data
+				self.stack_jump.append(op.jump)
+				self.stack_jump.append(jump)
 
 
-
-		if code.code == BRK:
-			return code.code
-
-		elif code.code == BRA:
-			jump = code.jump + code.data
-			self.stack_jump.append(code.jump)
-			self.stack_jump.append(jump)
+			elif op.code == POP:
+				self.stack_jump.pop()
+				self.stack_jump.append(op.jump)
 
 
-		elif code.code == POP:
-			self.stack_jump.pop()
-			self.stack_jump.append(code.jump)
+			elif op.code == BF:
+				condition = stack_node.pop()
+				node = NodeConditionalJump(condition)
+				stack_node.append(node)
+				self.stack_jump.append(op.jump)
 
 
-		elif code.code == BT:
-			self.stack_jump.append(code.jump)
+			elif op.code == CALL:
+				func = stack_node.pop()
+				arguments = [list() for jump in op.data]
+				node = NodeCall(func, arguments)
+				stack_node.append(node)
 
+				self.stack_jump.append(op.jump)
+				self.stack_jump.extend(op.data)
+				self.stack_pull.extend(arguments)
 
-	def flow(self):
-		stack_node = list()
+			elif op.code == BRK:
+				if len(self.stack_pull) == 1:
+					break
 
-		while self.step(stack_node) != BRK:
-			pass
+				self.stack_pull.pop()
 
-		return stack_node
+			else:
+				raise ValueError()
 
+			if debug:
+				print(op)
 
-	def exec(self):
-		print(*self.flow(), sep='\n')
+		return self.stack_node

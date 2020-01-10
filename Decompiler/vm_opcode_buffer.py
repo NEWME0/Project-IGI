@@ -13,6 +13,9 @@ class Opcode:
 	data: Any
 	jump: int
 
+	def __repr__(self):
+		return '{0:<7} ad={1:<5} jm={2:<5} dt={3}'.format(self.name, self.addr, self.jump, self.data)
+
 
 def get_opcode(stream):
 	addr = stream.tell()
