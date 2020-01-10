@@ -86,9 +86,14 @@ class VirtualMachine:
 
 			elif op.code == BF:
 				condition = stack_node.pop()
-				node = NodeConditionalJump(condition)
+				tfl = list()
+				ffl = list()
+				node = NodeConditionalJump(condition, tfl, ffl)
 				stack_node.append(node)
 				self.stack_jump.append(op.jump)
+				self.stack_jump.append(op.data + op.jump)
+				self.stack_pull.append(tfl)
+				self.stack_pull.append(ffl)
 
 
 			elif op.code == CALL:
