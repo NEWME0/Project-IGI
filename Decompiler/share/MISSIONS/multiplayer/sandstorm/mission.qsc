@@ -1,0 +1,1 @@
+DefineMission(3, "M", "U", "L", "T", "Sandstorm", "Mission 03 Desc", "", "missions/multiplayer/sandstorm", "missions/multiplayer/common", "missions/multiplayer/sandstorm", "multiplayer", "sandstorm", "sandstorm.spr");

@@ -1,0 +1,14 @@
+Task_DeclareParameters("ModelLODSettings", "Model", "String16", "Distance to LOD 2", "Real32", "Distance to LOD 3", "Real32", "Distance to LOD 4", "Real32", "Distance to LOD 5", "Real32", "Distance to cutoff", "Real32");
+Task_DeclareParameters("LocalModelLODSettingsContainer", "Path", "String256");
+Task_New(-1, "ModelLODSettings", "940_01_1", "940_01_1", 40, 60, 140, 160, 100000);
+Task_New(-1, "ModelLODSettings", "940_02_1", "940_02_1", 20, 40, 60, 75, 100000);
+Task_New(-1, "ModelLODSettings", "940_03_1", "940_03_1", 20, 40, 60, 75, 100000);
+Task_New(-1, "ModelLODSettings", "940_07_1", "940_07_1", 20, 40, 60, 75, 100000);
+Task_New(-1, "ModelLODSettings", "940_11_1", "940_11_1", 20, 30, 40, 50, 100000);
+Task_New(-1, "ModelLODSettings", "940_14_1", "940_14_1", 20, 40, 60, 75, 100000);
+Task_New(-1, "ModelLODSettings", "940_21_1", "940_21_1", 20, 40, 80, 90, 10000);
+Task_New(-1, "ModelLODSettings", "940_22_1", "940_22_1", 20, 40, 80, 90, 100000);
+Task_New(-1, "ModelLODSettings", "940_23_1", "940_23_1", 20, 40, 80, 90, 100000);
+Task_New(-1, "ModelLODSettings", "660_03_1", "660_03_1", 30, 60, 100, 250, 400);
+Task_New(-1, "ModelLODSettings", "261_05_1", "261_05_1", 10, 15, 20, 25, 75);
+Task_New(-1, "ModelLODSettings", "forest_tower_1", "forest_tower_1", 15, 30, 45, 60, 225);

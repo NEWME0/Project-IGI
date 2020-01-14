@@ -1,0 +1,18 @@
+#ifndef H_USTRING_BT
+#define H_USTRING_BT
+
+
+typedef struct
+{
+	UBYTE length;
+	CHAR  value[length];
+} USTRING <read=READ_USTRING>;
+
+
+string READ_USTRING(USTRING &o)
+{
+	return o.value;
+}
+
+
+#endif

@@ -1,0 +1,14 @@
+AIFunction_GetCurrentEventTypeAIFunction_DefaultHandler();
+AIFunction_SetAccuracy(100);
+AIFunction_SetHitPoints(10);
+AIFunction_SetCombatViewCone1Alpha(45);
+AIFunction_SetCombatViewCone1Length(15);
+AIFunction_SetCombatViewCone2Alpha(45);
+AIFunction_SetCombatViewCone2Length(15);
+AIFunction_SetIdleViewCone1Alpha(45);
+AIFunction_SetIdleViewCone1Length(15);
+AIFunction_SetIdleViewCone2Alpha(30);
+AIFunction_SetIdleViewCone2Length(15);
+AIFunction_SetInstantDeath(FALSE);
+AIFunction_SetSideKick(1);
+AIFunction_SetInvulnerability(1);

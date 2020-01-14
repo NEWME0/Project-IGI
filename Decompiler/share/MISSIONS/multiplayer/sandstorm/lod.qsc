@@ -1,0 +1,14 @@
+Task_DeclareParameters("ModelLODSettings", "Model", "String16", "Distance to LOD 2", "Real32", "Distance to LOD 3", "Real32", "Distance to LOD 4", "Real32", "Distance to LOD 5", "Real32", "Distance to cutoff", "Real32");
+Task_DeclareParameters("LocalModelLODSettingsContainer", "Path", "String256");
+Task_New(-1, "ModelLODSettings", "432_27_1 - Exterior of sewer models", "432_27_1", 150, 150, 150, 150, 150);
+Task_New(-1, "ModelLODSettings", "261_44_1 - Light model", "261_44_1", 10, 25, 50, 100, 100);
+Task_New(-1, "ModelLODSettings", "432_28_1 - Exterior of sewer models", "432_28_1", 150, 150, 150, 150, 150);
+Task_New(-1, "ModelLODSettings", "432_29_1 - Exterior of sewer models", "432_29_1", 150, 150, 150, 150, 150);
+Task_New(-1, "ModelLODSettings", "432_30_1 - Exterior of sewer models", "432_30_1", 150, 150, 150, 150, 150);
+Task_New(-1, "ModelLODSettings", "432_31_1 - Exterior of sewer models", "432_31_1", 150, 150, 150, 150, 150);
+Task_New(-1, "ModelLODSettings", "405_03_1", "405_03_1", 50, 75, 150, 200, 650);
+Task_New(-1, "ModelLODSettings", "300_04_1", "300_04_1", 50, 75, 75, 75, 150);
+Task_New(-1, "ModelLODSettings", "432_12_1", "432_12_1", 10, 10, 10, 10, 150);
+Task_New(-1, "ModelLODSettings", "432_07_1", "432_07_1", 0, 0, 0, 0, 100);
+Task_New(-1, "ModelLODSettings", "410_20_1", "410_20_1", 75, 100, 150, 200, 800);
+Task_New(-1, "ModelLODSettings", "", "230_08_1", 75, 75, 75, 75, 475);

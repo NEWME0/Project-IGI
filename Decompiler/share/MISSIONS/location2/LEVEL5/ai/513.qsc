@@ -1,0 +1,7 @@
+AIFunction_GetCurrentEventTypeAIFunction_SetIdleViewCone1Alpha(120);
+AIFunction_SetIdleViewCone1Length(200);
+AIFunction_SetIdleViewCone2Alpha(120);
+AIFunction_SetIdleViewCone2Length(200);
+AIFunction_SetCombatViewCone1Alpha(120);
+AIFunction_SetCombatViewCone1Length(200);
+AIFunction_DefaultHandler();

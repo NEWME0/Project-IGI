@@ -1,0 +1,12 @@
+DefineGroup("ENVIRONMENT", 
+	DefineSound("07_amb_nature", "07_amb_nature", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("07_amb_room", "07_amb_room", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("07_amb_water", "07_amb_water", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("frogs_loop_02", "frogs_loop_02", 0, 0, 0, 0.5, 10.0, 100.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("mcreak_01", "mcreak_01", 0, 0, 0, 0.8500000238418579, 10.0, 100.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("mcreak_02", "mcreak_02", 0, 0, 0, 0.8500000238418579, 10.0, 100.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("wcreak_01", "wcreak_01", 0, 0, 0, 1, 10.0, 100.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("wcreak_02", "wcreak_02", 0, 0, 0, 1, 10.0, 100.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("wcreak_03", "wcreak_03", 0, 0, 0, 0.800000011920929, 10.0, 100.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("wcreak_04", "wcreak_04", 0, 0, 0, 0.699999988079071, 10.0, 100.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("terminal_sfx", "tech_comput_01", 0, 0, 0, 0.699999988079071, 0.5, 15.0, -1, -1, -1, -1, TRUE));

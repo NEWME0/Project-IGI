@@ -1,0 +1,2 @@
+AISquad_GetStateAISquadState_Idle == ()AISquad_Patrol(600);
+AISquad_GetStateAISquadState_Patrol == ()AISquadState_Idle == () || AISquad_GetStateAISquad_Patrol(603);

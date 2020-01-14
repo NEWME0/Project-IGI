@@ -14,22 +14,15 @@
 
 struct
 {
-    CHAR   Signature[4];   // signature            {ILSF}
-    UINT16 _0;             //                      {1}
-    UINT16 SampleWidth;    // smample size in bits {16}
-    UINT16 NumChannels;    // channels count       {1, 2}
-    UINT16 _1;             //                      {0, 4097}
-    UINT32 SampleRate;     // sample rate          {11025, 22050, 44100}
-    UINT32 SampleCount;    // sample count         {...}
-
-
-    Assert(Signature == "ILSF", "Wrong Signature");
-    Assert(SampleWidth == 16, "Wrong SampleWidth");
-    Assert(NumChannels == 1 || NumChannels == 2, "Wrong NumChannels");
-
-
-    UINT16   SampleData[NumChannels * SampleCount];  // sample data
-} IGI2_WAV;
+    CHAR   signature[4];                              // {ILSF}
+    UINT16 _0;                                        // {1}
+    UINT16 sample_width;                              // {16}
+    UINT16 chanel_count;                              // {1, 2}
+    UINT16 _1;                                        // {0, 4097}
+    UINT32 sample_rate;                               // {11025, 22050, 44100}
+    UINT32 sample_count;                              // {...}
+    UINT16 sample_data[chanel_count * sample_count];  // {...}
+} igi2_wav;
 
 
 Assert(FEof());

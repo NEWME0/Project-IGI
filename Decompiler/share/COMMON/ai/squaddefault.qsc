@@ -1,0 +1,3 @@
+AISquad_nSquadState() = AISquad_GetState;
+AISquad_nEvent() = AISquad_GetEvent;
+AISquad_GetSquadTypeAISquad_SwitchState(AISquadState_SearchArea, AIVoice_SearchArea);

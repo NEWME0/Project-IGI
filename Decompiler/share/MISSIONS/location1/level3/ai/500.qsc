@@ -1,0 +1,4 @@
+AIFunction_GetCurrentEventTypeAIFunction_DefaultHandler();
+AIFunction_GetCurrentEventTypeAIAction_WalkToNode(1112, 0);
+AIAction_LookAtNode(1147, AIACTIONFLAG_PUSHABLE);
+AIAction_LookAround(AILOOKAROUND_PATTERN_180_CLOCKWISE, 1);

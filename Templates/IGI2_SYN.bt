@@ -15,4 +15,4 @@
 struct
 {
 	FLOAT unk[FileSize() / 4];
-} IGI2_SYN;
+} igi2_syn;

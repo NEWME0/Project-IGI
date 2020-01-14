@@ -22,7 +22,7 @@ struct
 {
     LittleEndian();
 
-    CHAR  Signature[4];
+    CHAR   Signature[4];
     UINT32 Size;
     UINT32 Align;
     UINT32 Next;

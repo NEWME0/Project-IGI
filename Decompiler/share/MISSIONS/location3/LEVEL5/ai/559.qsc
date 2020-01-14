@@ -1,0 +1,2 @@
+AIFunction_GetCurrentEventTypeAIFunction_DefaultHandler();
+AIFunction_GetCurrentEventTypeAIAction_Patrol(612, 30, 1);

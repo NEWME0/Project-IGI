@@ -1,0 +1,48 @@
+//------------------------------------------------
+//--- 010 Editor v9.0.1 Binary Template
+//
+//      File: IGI2_GRAPHCOVER_DAT.bt
+//   Authors: Rotari Artiom
+//   Version: 1.0
+//   Purpose: 
+//  Category: Game
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+
+
+struct AICN
+{
+	CHAR   signature[4];
+	UINT32 chunk_data;
+	UINT32 chunk_padd;
+	UINT32 chunk_size;
+
+	UINT32 data[36];
+};
+
+
+struct AICH
+{
+	CHAR   signature[4];
+	UINT32 chunk_data;
+	UINT32 chunk_padd;
+	UINT32 chunk_size;
+
+	UINT32 aicn_count;
+	UINT32 data_1;
+};
+
+
+struct
+{
+	CHAR   signature[4];
+	UINT32 file_size;
+	UINT32 file_padd;
+	UINT32 size2;
+	CHAR   signature_data[4];
+
+	AICH   aich;
+	AICN   aicn[aich.aicn_count];
+} igi2_graph_cover;

@@ -1,0 +1,26 @@
+DefineGroup("ENVIRONMENT", 
+	DefineSound("wind", "wind", 0, 0, 0, 0.6499999761581421, 199.99998474121094, 10000.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("helicopter", "helicopter", 0, 0, 0, 1, 17.0, 150.0, -1, -1, -1, -1, TRUE));
+DefineGroup("VOICE", 
+	DefineSound("cv25_intro_01_jones", "cv25_intro_01_jones", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("cv25_intro_02_priboi", "cv25_intro_02_priboi", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("cv25_intro_03_jones", "cv25_intro_03_jones", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("cv25_intro_04_priboi", "cv25_intro_04_priboi", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("cv25_outro_01_priboi", "cv25_outro_01_priboi", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("cv25_outro_02_jones", "cv25_outro_02_jones", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("cv25_outro_03_priboi", "cv25_outro_03_priboi", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("cv25_outro_04_jones", "cv25_outro_04_jones", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("cv25_outro_05_priboi", "cv25_outro_05_priboi", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("cv25_outro_06_jones", "cv25_outro_06_jones", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("cv25_outro_07_priboi", "cv25_outro_07_priboi", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("cv25_outro_08_jones", "cv25_outro_08_jones", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, FALSE));
+DefineGroup("CS SFX", 
+	DefineSound("cs25_heliaway", "cs25_heliaway", 0, 0, 0, 1, 0.019999999552965164, 1, -1, -1, -1, -1, FALSE), 
+	DefineSound("cs25_helicockpit", "cs25_helicockpit", 0, 0, 0, 1, 0.019999999552965164, 1, -1, -1, -1, -1, TRUE), 
+	DefineSound("cs25_heliext", "cs25_heliext", 0, 0, 0, 1, 0.019999999552965164, 1, -1, -1, -1, -1, TRUE), 
+	DefineSound("cs25_heliint", "cs25_heliint", 0, 0, 0, 1, 0.019999999552965164, 1, -1, -1, -1, -1, TRUE), 
+	DefineSound("cs25_roomtone", "cs25_roomtone", 0, 0, 0, 1, 0.019999999552965164, 1, -1, -1, -1, -1, TRUE), 
+	DefineSound("cs25_paperclose", "cs25_paperclose", 0, 0, 0, 0.550000011920929, 0.019999999552965164, 1, -1, -1, -1, -1, TRUE), 
+	DefineSound("cs25_paperaway", "cs25_paperaway", 0, 0, 0, 0.699999988079071, 0.019999999552965164, 1, -1, -1, -1, -1, TRUE));
+DefineGroup("MUSIC", 
+	DefineSound("25_music", "25_music", 0, 0, 0, 1, 19.9999942779541, 1000.0, -1, -1, -1, -1, TRUE));

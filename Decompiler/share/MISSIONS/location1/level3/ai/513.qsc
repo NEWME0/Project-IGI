@@ -1,0 +1,3 @@
+AIFunction_GetCurrentEventTypeAIFunction_DefaultHandler();
+AIFunction_SetViewLength(10);
+AIFunction_GetCurrentEventTypeAIFunction_DefaultHandler();

@@ -1,0 +1,1 @@
+DefineMission(1, "M", "U", "L", "T", "Redstone", "Mission 01 Desc", "", "missions/multiplayer/redstone", "missions/multiplayer/common", "missions/multiplayer/redstone", "multiplayer", "redstone", "redstone.spr");

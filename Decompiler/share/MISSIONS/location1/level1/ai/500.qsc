@@ -1,0 +1,4 @@
+AIFunction_GetCurrentEventTypeAIFunction_DefaultHandler();
+AIFunction_GetCurrentEventTypeAIAction_WalkToNode(100, 1);
+AIAction_LookAtNode(69, 1);
+AIFunction_PassEventOnToSquad();

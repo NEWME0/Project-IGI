@@ -1,0 +1,13 @@
+AIFunction_GetCurrentEventTypeAIFunction_DefaultHandler();
+AIFunction_SetMinRangeAccuracy(0);
+AIFunction_SetMaxRangeAccuracy(0);
+AIFunction_SetMinDelayBetweenFiring(59);
+AIFunction_SetCloseCombatDamage(0);
+AIFunction_SetHitPoints(0);
+AIFunction_SetCombatViewCone1Alpha(0);
+AIFunction_SetCombatViewCone1Length(0);
+AIFunction_SetIdleViewCone1Alpha(0);
+AIFunction_SetIdleViewCone1Length(0);
+AIFunction_SetInvestigateViewCone1Alpha(0);
+AIFunction_SetInvestigateViewCone1Length(0);
+AIFunction_SetStandActionAnimation("priboi_sit_bed");

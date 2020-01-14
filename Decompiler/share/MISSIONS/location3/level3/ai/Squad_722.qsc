@@ -1,0 +1,2 @@
+AISquad_DefaultHandler();
+AISquad_GetStateAISquadState_Idle == ()AISquad_Patrol(633);

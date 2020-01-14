@@ -1,0 +1,5 @@
+AIFunction_GetCurrentEventTypeAIFunction_DefaultHandler();
+AIFunction_SetInstantDeath(FALSE);
+AIFunction_SetSideKick(TRUE);
+AIFunction_SetHitPoints(10);
+AIFunction_GetCurrentEventTypeAIAction_RunToNode(9, 1);

@@ -1,0 +1,21 @@
+DefineGroup("ENVIRONMENT", 
+	DefineSound("04_amb_nature", "04_amb_nature", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, TRUE));
+DefineGroup("INGAME", 
+	DefineSound("helicopter_01", "helicopter_01", 0, 0, 0, 1, 5.0, 50.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("helicopter_02", "helicopter_02", 0, 0, 0, 1, 5.0, 50.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("sandstorm_wind", "sandstorm_wind", 0, 0, 0, 0.8999999761581421, 8.0, 80.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("inside", "inside", 0, 0, 0, 1, 10.0, 100.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("sewer_tone", "sewer_tone", 0, 0, 0, 1, 10.0, 100.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("generator_ss", "generator_04", 0, 0, 0, 0.6000000238418579, 3.0, 60.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("computer_ss", "tech_comput_01", 0, 0, 0, 0.699999988079071, 1, 30.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("sandstorm_gen", "sandstorm_gen", 0, 0, 0, 0.800000011920929, 4.0, 50.0, -1, -1, -1, -1, TRUE));
+DefineGroup("AMBFX", 
+	DefineSound("drip_01", "drip_01", 0, 0, 0, 1, 100.0, 10.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("drip_02", "drip_02", 0, 0, 0, 1, 100.0, 10.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("river_01", "river_01", 0, 0, 0, 0.5, 100.0, 10.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("metal_fx_01", "metal_fx_01", 0, 0, 0, 0.800000011920929, 100.0, 10.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("metal_fx_02", "metal_fx_02", 0, 0, 0, 0.800000011920929, 100.0, 10.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("metal_fx_04", "metal_fx_04", 0, 0, 0, 0.6000000238418579, 100.0, 10.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("metal_fx_08", "metal_fx_08", 0, 0, 0, 0.6000000238418579, 100.0, 10.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("aircraft_03", "aircraft_03", 0, 0, 0, 0.800000011920929, 100.0, 10.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("aircraft_05", "aircraft_05", 0, 0, 0, 0.6499999761581421, 100.0, 10.0, -1, -1, -1, -1, FALSE));

@@ -1,0 +1,38 @@
+//------------------------------------------------
+//--- 010 Editor v9.0.1 Binary Template
+//
+//      File: IGI2_FOREST_DAT.bt
+//   Authors: Rotari Artiom
+//   Version: 1.0
+//   Purpose: 
+//  Category: Game
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+
+
+#include "COMMON/PSTRING.bt";
+#include "COMMON/FLOAT_3.bt";
+#include "COMMON/RGBA_8888.bt"
+
+
+struct TREE_DEF
+{
+    FLOAT_3   position;
+    FLOAT_3   rotation;
+    FLOAT_3   scale;
+    RGBA_8888 color;
+};
+
+
+struct
+{
+    PSTRING version;  // \nVer. 3.0\n
+
+    while(FTell() < FileSize())
+        TREE_DEF tree;
+} igi2_forest;
+
+
+Assert(FEof());

@@ -1,0 +1,29 @@
+DefineGroup("AMBIENCE", 
+	DefineSound("nature", "nature", 0, 0, 0, 1, 10.0, 100.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("base_amb", "base_amb", 0, 0, 0, 1, 10.0, 100.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("river", "river", 0, 0, 0, 0.800000011920929, 10.0, 100.0, -1, -1, -1, -1, TRUE));
+DefineGroup("VOICE", 
+	DefineSound("cv15_intro_01_quest", "cv15_intro_01_quest", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("cv15_intro_02_jones", "cv15_intro_02_jones", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("cv15_intro_03_quest", "cv15_intro_03_quest", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, FALSE));
+DefineGroup("CS SFX", 
+	DefineSound("cs15_helicockpit", "cs15_helicockpit", 0, 0, 0, 1, 0.019999999552965164, 1, -1, -1, -1, -1, TRUE), 
+	DefineSound("cs15_helifollow", "cs15_helifollow", 0, 0, 0, 1, 0.019999999552965164, 1, -1, -1, -1, -1, FALSE));
+DefineGroup("MUSIC", 
+	DefineSound("15_music", "15_music", 0, 0, 0, 1, 2.0, 100.0, -1, -1, -1, -1, TRUE));
+DefineGroup("INGAME", 
+	DefineSound("15_helicopter", "helicopter_1", 0, 0, 0, 1, 55.0, 1000.0, -1, -1, -1, -1, TRUE));
+DefineGroup("AMBFX", 
+	DefineSound("bird_01", "bird_01", 0, 0, 0, 0.800000011920929, 10.0, 1000.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("bird_03", "bird_03", 0, 0, 0, 1, 10.0, 1000.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("bird_05", "bird_05", 0, 0, 0, 0.6499999761581421, 10.0, 1000.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("bird_11", "bird_11", 0, 0, 0, 1, 10.0, 1000.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("dogs_03", "dogs_03", 0, 0, 0, 1, 10.0, 1000.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("dogs_06", "dogs_06", 0, 0, 0, 1, 10.0, 1000.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("hammer_03", "hammer_03", 0, 0, 0, 0.550000011920929, 10.0, 1000.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("flies_01", "flies_01", 0, 0, 0, 0.75, 10.0, 1000.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("frogs_loop_01", "frogs_loop_01", 0, 0, 0, 0.5, 10.0, 1000.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("metal_creak_01", "metal_creak_01", 0, 0, 0, 1, 10.0, 1000.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("metal_creak_02", "metal_creak_02", 0, 0, 0, 1, 10.0, 1000.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("metal_fx_01", "metal_fx_01", 0, 0, 0, 1, 10.0, 1000.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("metal_fx_02", "metal_fx_02", 0, 0, 0, 1, 10.0, 1000.0, -1, -1, -1, -1, FALSE));

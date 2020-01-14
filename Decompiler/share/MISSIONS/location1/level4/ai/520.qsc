@@ -1,0 +1,3 @@
+AIFunction_GetCurrentEventTypeAIFunction_DefaultHandler();
+AIFunction_SetIdleViewCone1Alpha(40);
+AIFunction_SetIdleViewCone1Length(35);

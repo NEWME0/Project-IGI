@@ -1,0 +1,2 @@
+AISquad_GetStateAISquadState_Idle == ()AISquad_MoveToNode(724);
+AISquad_MoveToNode(566);

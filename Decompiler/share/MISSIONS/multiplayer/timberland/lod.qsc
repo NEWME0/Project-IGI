@@ -1,0 +1,12 @@
+Task_DeclareParameters("ModelLODSettings", "Model", "String16", "Distance to LOD 2", "Real32", "Distance to LOD 3", "Real32", "Distance to LOD 4", "Real32", "Distance to LOD 5", "Real32", "Distance to cutoff", "Real32");
+Task_DeclareParameters("LocalModelLODSettingsContainer", "Path", "String256");
+Task_New(-1, "ModelLODSettings", "500_15_1", "500_15_1", 0, 0, 0, 0, 150);
+Task_New(-1, "ModelLODSettings", "525_01_1", "525_01_1", 0, 0, 0, 0, 150);
+Task_New(-1, "ModelLODSettings", "600_00_1", "600_00_1", 20, 30, 50, 60, 250);
+Task_New(-1, "ModelLODSettings", "420_01_1", "420_01_1", 20, 60, 75, 100, 500);
+Task_New(-1, "ModelLODSettings", "432_10_1", "432_10_1", 0, 0, 0, 0, 300);
+Task_New(-1, "ModelLODSettings", "", "400_27_1", 50, 100, 175, 250, 500);
+Task_New(-1, "ModelLODSettings", "", "400_10_1", 100, 150, 200, 250, 750);
+Task_New(-1, "ModelLODSettings", "", "940_11_1", 30, 60, 75, 90, 100000);
+Task_New(-1, "ModelLODSettings", "940_22_1", "940_22_1", 5, 10, 15, 15, 100000);
+Task_New(-1, "ModelLODSettings", "414_02_1", "414_02_1", 100, 100, 100, 100, 400);

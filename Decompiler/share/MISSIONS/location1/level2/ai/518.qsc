@@ -1,0 +1,5 @@
+AIFunction_GetCurrentEventTypeAIFunction_DefaultHandler();
+AIFunction_SetViewGamma(270);
+AIFunction_SetViewLength(50);
+AIFunction_SetMaxRangeAccuracy(2);
+AIFunction_SetAccuracyMaxRange(50);
