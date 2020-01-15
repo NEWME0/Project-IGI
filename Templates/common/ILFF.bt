@@ -1,0 +1,14 @@
+#ifndef ILFF_BT
+#define ILFF_BT
+
+
+typedef struct ILFF_HEADER
+{
+	CHAR   signature[4];
+	UINT32 size;
+	UINT32 padding;
+	UINT32 data_size;
+};
+
+
+#endif

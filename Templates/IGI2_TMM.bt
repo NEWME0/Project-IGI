@@ -12,54 +12,49 @@
 //------------------------------------------------
 
 
-#define PIXEL_SIZE 1
-
 #include "COMMON/DATETIME.bt";
+#include "COMMON/LOD.bt";
 
 
 struct
 {
-    struct
-    {
-        LittleEndian();
+    LittleEndian();
 
-        UINT32    _1;
-        DATETIME  DateTime;
-        UINT32    _2;
-        UINT32    resolution_x;
-        UINT32    resolution_y;
-    } header;
+    UINT32   _1;          // 
+    DATETIME creation;    // 
+    UINT32   _2;          // 
+    UINT32   width;       // 
+    UINT32   height;      // 
 
-    struct
-    {
-        if(!FEof())
-            BYTE lod_0[(header.resolution_x / (1 << 0)) * (header.resolution_y / (1 << 0)) * PIXEL_SIZE];
+    local uint depth = 1;
 
-        if(!FEof())
-            BYTE lod_1[(header.resolution_x / (1 << 1)) * (header.resolution_y / (1 << 1)) * PIXEL_SIZE];
+    if(!FEof())
+        BYTE lod_0[LodBytesCalc(0, width, height, depth)];
 
-        if(!FEof())
-            BYTE lod_2[(header.resolution_x / (1 << 2)) * (header.resolution_y / (1 << 2)) * PIXEL_SIZE];
+    if(!FEof())
+        BYTE lod_1[LodBytesCalc(1, width, height, depth)];
 
-        if(!FEof())
-            BYTE lod_3[(header.resolution_x / (1 << 3)) * (header.resolution_y / (1 << 3)) * PIXEL_SIZE];
+    if(!FEof())
+        BYTE lod_2[LodBytesCalc(2, width, height, depth)];
 
-        if(!FEof())
-            BYTE lod_4[(header.resolution_x / (1 << 4)) * (header.resolution_y / (1 << 4)) * PIXEL_SIZE];
+    if(!FEof())
+        BYTE lod_3[LodBytesCalc(3, width, height, depth)];
 
-        if(!FEof())
-            BYTE lod_5[(header.resolution_x / (1 << 5)) * (header.resolution_y / (1 << 5)) * PIXEL_SIZE];
+    if(!FEof())
+        BYTE lod_4[LodBytesCalc(4, width, height, depth)];
 
-        if(!FEof())
-            BYTE lod_6[(header.resolution_x / (1 << 6)) * (header.resolution_y / (1 << 6)) * PIXEL_SIZE];
+    if(!FEof())
+        BYTE lod_5[LodBytesCalc(5, width, height, depth)];
 
-        if(!FEof())
-            BYTE lod_7[(header.resolution_x / (1 << 7)) * (header.resolution_y / (1 << 7)) * PIXEL_SIZE];
+    if(!FEof())
+        BYTE lod_6[LodBytesCalc(6, width, height, depth)];
 
-        if(!FEof())
-            BYTE lod_8[(header.resolution_x / (1 << 8)) * (header.resolution_y / (1 << 8)) * PIXEL_SIZE];
-    } lods;
-} IGI2_TMM;
+    if(!FEof())
+        BYTE lod_7[LodBytesCalc(7, width, height, depth)];
+
+    if(!FEof())
+        BYTE lod_8[LodBytesCalc(8, width, height, depth)];
+} igi2_tmm;
 
 
 Assert(FEof());

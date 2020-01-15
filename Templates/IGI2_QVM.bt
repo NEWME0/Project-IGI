@@ -70,118 +70,40 @@ BRK       |  yes  |
 #include "COMMON/CSTRING.bt";
 
 
-struct
+typedef struct
 {
-    CHAR   signature[4]; // LOOP
-
-    UINT32 _0; // 7
-    UINT32 _1; // 8
-
-    UINT32 offset_identifiers_offsets;
-    UINT32 offset_identifiers;
-    UINT32 size_identifiers_offsets;
-    UINT32 size_identifiers;
-    UINT32 offset_strings_offsets;
-    UINT32 offset_strings;
-    UINT32 size_strings_offsets;
-    UINT32 size_strings;
-    UINT32 offset_opcodes;
-    UINT32 size_opcodes;
-
-    UINT32 _2;
-    UINT32 _3;
-
-    UINT32 offset_tail;
-} header;
-
-
-if(header.size_identifiers_offsets > 0)
-struct
-{
-    UINT32 identifier_offset[header.size_identifiers_offsets / 4];
-} identifiers_offsets;
-
-
-if(header.size_identifiers > 0)
-struct
-{
-    CSTRING identifier[header.size_identifiers_offsets / 4] <optimize=false>;
-} identifiers;
-
-
-if(header.size_strings_offsets > 0)
-struct
-{
-    UINT32 string_offset[header.size_strings_offsets / 4];
-} strings_offsets;
-
-
-if(header.size_strings > 0)
-struct
-{
-    CSTRING string_[header.size_strings_offsets / 4] <optimize=false>;
-} strings;
+    UBYTE value;
+} PUSHIIB <read=READ_PUSHIIB>;
 
 
 typedef struct
 {
-    UBYTE identifier_id;
-} PUSHI_8 <read=READ_PUSHI_8>;
-
-
-string READ_PUSHI_8(PUSHI_8 &o)
-{
-    return identifiers.identifier[o.identifier_id].value;
-};
+    UINT16 value;
+} PUSHIIW <read=READ_PUSHIIW>;
 
 
 typedef struct
 {
-    UINT16 identifier_id;
-} PUSHI_16 <read=READ_PUSHI_16>;
-
-
-string READ_PUSHI_16(PUSHI_16 &o)
-{
-    return identifiers.identifier[o.identifier_id].value;
-};
+    UINT32 value;
+} PUSHII <read=READ_PUSHII>;
 
 
 typedef struct
 {
-    UINT32 identifier_id;
-} PUSHI_32 <read=READ_PUSHI_32>;
-
-
-string READ_PUSHI_32(PUSHI_32 &o)
-{
-    return identifiers.identifier[o.identifier_id].value;
-};
+    UBYTE value;
+} PUSHSIB <read=READ_PUSHSIB>;
 
 
 typedef struct
 {
-    UBYTE string_id;
-} PUSHS_8 <read=READ_PUSHS_8>;
-
-
-string READ_PUSHS_8(PUSHS_8 &o)
-{
-    return strings.string_[o.string_id].value;
-};
+    UINT16 value;
+} PUSHSIW <read=READ_PUSHSIW>;
 
 
 typedef struct
 {
-    UINT16 string_id;
-} PUSHS_16 <read=READ_PUSHS_16>;
-
-
-string READ_PUSHS_16(PUSHS_16 &o)
-{
-    return strings.string_[o.string_id].value;
-};
-
+    UINT32 value;
+} PUSHSI <read=READ_PUSHSI>;
 
 
 typedef struct
@@ -200,7 +122,7 @@ typedef struct
         case 7: {                        // CALL
             UINT32 count;
             if(count > 0)
-                UINT32 arg[count];
+                UINT32 value[count];
         } break;
         case 8:  UINT32   value; break;  // PUSH
         case 9:  UBYTE    value; break;  // PUSHB
@@ -208,13 +130,13 @@ typedef struct
         case 11: FLOAT    value; break;  // PUSHF
         //case 12: break;                  // PUSHA
         //case 13: break;                  // PUSHS
-        case 14: break;                  // PUSHSI
-        case 15: PUSHS_8  value; break;  // PUSHSIB
-        case 16: PUSHS_16 value; break;  // PUSHSIW
+        case 14: PUSHSI   value  break;  // PUSHSI
+        case 15: PUSHSIB  value; break;  // PUSHSIB
+        case 16: PUSHSIW  value; break;  // PUSHSIW
         //case 17: break;                  // PUSHI
-        case 18: PUSHI_32 value; break;  // PUSHII
-        case 19: PUSHI_8  value; break;  // PUSHIIB
-        case 20: PUSHI_16 value; break;  // PUSHIIW
+        case 18: PUSHII   value; break;  // PUSHII
+        case 19: PUSHIIB  value; break;  // PUSHIIB
+        case 20: PUSHIIW  value; break;  // PUSHIIW
         case 21: break;                  // PUSH0
         case 22: break;                  // PUSH1
         case 23: break;                  // PUSHM
@@ -251,8 +173,83 @@ typedef struct
 } OPCODE <read=READ_OPCODE>;
 
 
-string READ_OPCODE(OPCODE &o)
+struct
 {
+    CHAR   magic[4]; // LOOP
+    UINT32 _0; // 7
+    UINT32 _1; // 8
+    UINT32 offset_identifiers_offsets;
+    UINT32 offset_identifiers;
+    UINT32 size_identifiers_offsets;
+    UINT32 size_identifiers;
+    UINT32 offset_strings_offsets;
+    UINT32 offset_strings;
+    UINT32 size_strings_offsets;
+    UINT32 size_strings;
+    UINT32 offset_opcodes;
+    UINT32 size_opcodes;
+    UINT32 _2;
+    UINT32 _3;
+    UINT32 offset_tail;
+
+
+    if(size_identifiers_offsets > 0)
+    UINT32 identifiers_offset[size_identifiers_offsets / 4];
+
+
+    if(size_identifiers > 0)
+    CSTRING identifiers[size_identifiers_offsets / 4] <optimize=false>;
+
+
+    if(size_strings_offsets > 0)
+    UINT32 strings_offsets[size_strings_offsets / 4];
+
+
+    if(size_strings > 0)
+    CSTRING strings[size_strings_offsets / 4] <optimize=false>;
+
+
+    if(size_opcodes > 0)
+    struct
+    {
+        while(FTell() < offset_opcodes + size_opcodes)
+            OPCODE opcode;
+    } opcodes;
+
+
+    if(offset_tail > 0)
+    UBYTE tail[FileSize() - offset_tail];
+} igi2_qvm;
+
+
+Assert(FEof());
+
+
+string READ_PUSHIIB(PUSHIIB &o) {
+    return igi2_qvm.identifiers[o.value].value;
+};
+
+string READ_PUSHIIW(PUSHIIW &o) {
+    return igi2_qvm.identifiers[o.value].value;
+};
+
+string READ_PUSHII(PUSHII &o) {
+    return igi2_qvm.identifiers[o.value].value;
+};
+
+string READ_PUSHSIB(PUSHSIB &o) {
+    return igi2_qvm.strings[o.value].value;
+};
+
+string READ_PUSHSIW(PUSHSIW &o) {
+    return igi2_qvm.strings[o.value].value;
+};
+
+string READ_PUSHSI(PUSHSI &o) {
+    return igi2_qvm.strings[o.value].value;
+};
+
+string READ_OPCODE(OPCODE &o) {
     switch(o.type)
     {
         case 0:  return "BRK";
@@ -308,18 +305,3 @@ string READ_OPCODE(OPCODE &o)
         default: return "__UNKNOWN__";
     }
 }
-
-
-if(header.size_opcodes > 0)
-struct
-{
-    while(FTell() < header.offset_opcodes + header.size_opcodes)
-        OPCODE opcode;
-} opcodes;
-
-
-if(header.offset_tail > 0)
-struct
-{
-    UBYTE _0[FileSize() - header.offset_tail];
-} tail;

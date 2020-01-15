@@ -1,0 +1,11 @@
+#ifndef LOD_BT
+#define LOD_BT
+
+
+UINT32 LodBytesCalc(uint lod, uint width, uint height, uint depth)
+{
+	return (width / (1 << lod)) * (height / (1 << lod)) * depth;
+}
+
+
+#endif

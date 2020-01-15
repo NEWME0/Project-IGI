@@ -12,91 +12,55 @@
 //------------------------------------------------
 
 
+#include "COMMON/LOD.bt";
+
+
 struct
 {
-    CHAR magic[4];
+    LitleEndian();
 
-    UINT32 _0;  // unknown always 11
-    UINT32 _1;  // pixel format {2: argb1555, 67: bgra8888, 3: ?}
-    UINT32 _2;  // unknown {0, 524288} 524288 for multi.txt
-    UINT32 _3;  // unknown always 0
+    CHAR   magic[4];    // LOOP
+    UINT32 _0;          // 11
+    UINT32 _1;          // {2: argb1555, 67: bgra8888, 3: ?}
+    UINT32 _2;          // [0, 524288] 524288 for multi.tex
+    UINT32 _3;          // 0
+    UINT16 _4;          // [2, 3, 4, 5, 6, 7, 8]
+    UINT16 same_width;
+    UINT16 same_height;
+    UINT16 width;
+    UINT16 height;
+    UINT16 depth;
 
-    UINT16 _4;  // unknown {2, 3, 4, 5, 6, 7, 8}
-    UINT16 _5;  // width0
-    UINT16 _6;  // heigth0
-    UINT16 _7;  // width1
-    UINT16 _8;  // height1
-    UINT16 _9;  // pixel stride
+    if(!FEof())
+        BYTE lod_0[LodBytesCalc(0, width, height, depth)];
 
-    switch(head._9)
-    {
-        case 2:
-        {
-            if(!FEof())
-                UINT16 img[(head._7 * head._8)] <format=binary>;
+    if(!FEof())
+        BYTE lod_1[LodBytesCalc(1, width, height, depth)];
 
-            if(!FEof())
-                UINT16 lod_0[(head._7 / (2 << 0)) * (head._8 / (2 << 0))];
+    if(!FEof())
+        BYTE lod_2[LodBytesCalc(2, width, height, depth)];
 
-            if(!FEof())
-                UINT16 lod_1[(head._7 / (2 << 1)) * (head._8 / (2 << 1))];
+    if(!FEof())
+        BYTE lod_3[LodBytesCalc(3, width, height, depth)];
 
-            if(!FEof())
-                UINT16 lod_2[(head._7 / (2 << 2)) * (head._8 / (2 << 2))];
+    if(!FEof())
+        BYTE lod_4[LodBytesCalc(4, width, height, depth)];
 
-            if(!FEof())
-                UINT16 lod_3[(head._7 / (2 << 3)) * (head._8 / (2 << 3))];
+    if(!FEof())
+        BYTE lod_5[LodBytesCalc(5, width, height, depth)];
 
-            if(!FEof())
-                UINT16 lod_4[(head._7 / (2 << 4)) * (head._8 / (2 << 4))];
+    if(!FEof())
+        BYTE lod_6[LodBytesCalc(6, width, height, depth)];
 
-            if(!FEof())
-                UINT16 lod_5[(head._7 / (2 << 5)) * (head._8 / (2 << 5))];
+    if(!FEof())
+        BYTE lod_7[LodBytesCalc(7, width, height, depth)];
 
-            if(!FEof())
-                UINT16 lod_6[(head._7 / (2 << 6)) * (head._8 / (2 << 6))];
+    if(!FEof())
+        BYTE lod_8[LodBytesCalc(8, width, height, depth)];
 
-            if(!FEof())
-                UINT16 lod_7[(head._7 / (2 << 7)) * (head._8 / (2 << 7))];
-
-            if(!FEof())
-                UINT16 lod_8[(head._7 / (2 << 8)) * (head._8 / (2 << 8))];
-        }; break;
-
-        case 4:
-        {
-            if(!FEof())
-                UINT32 img[((head._7 / 1) * (head._8 / 1))] <format=binary>;
-
-            if(!FEof())
-                UINT32 lod_0[(head._7 / (2 << 0)) * (head._8 / (2 << 0))];
-
-            if(!FEof())
-                UINT32 lod_1[(head._7 / (2 << 1)) * (head._8 / (2 << 1))];
-
-            if(!FEof())
-                UINT32 lod_2[(head._7 / (2 << 2)) * (head._8 / (2 << 2))];
-
-            if(!FEof())
-                UINT32 lod_3[(head._7 / (2 << 3)) * (head._8 / (2 << 3))];
-
-            if(!FEof())
-                UINT32 lod_4[(head._7 / (2 << 4)) * (head._8 / (2 << 4))];
-
-            if(!FEof())
-                UINT32 lod_5[(head._7 / (2 << 5)) * (head._8 / (2 << 5))];
-
-            if(!FEof())
-                UINT32 lod_6[(head._7 / (2 << 6)) * (head._8 / (2 << 6))];
-
-            if(!FEof())
-                UINT32 lod_7[(head._7 / (2 << 7)) * (head._8 / (2 << 7))];
-
-            if(!FEof())
-                UINT32 lod_8[(head._7 / (2 << 8)) * (head._8 / (2 << 8))];
-        }; break;
-    }
-} IGI2_TEX;
+    if(!FEof())
+        BYTE lod_9[LodBytesCalc(9, width, height, depth)];
+} igi2_tex;
 
 
 Assert(FEof());

@@ -12,15 +12,15 @@
 //------------------------------------------------
 
 
+LittleEndian();
+
+
+#include "common/ILFF.bt";
+
+
 struct
 {
-    LittleEndian();
-    
-    // main_block
-    CHAR Signature[4]; // signature ILFF
-    UINT32 size;
-    UINT32 align;   // always 4
-    UINT32 next;
+    ILFF_HEADER header;
 
     struct
     {

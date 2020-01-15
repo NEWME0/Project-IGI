@@ -17,7 +17,7 @@
 #include "COMMON/RGBA_8888.bt"
 
 
-struct TREE_DEF
+typedef struct TREE_DEF
 {
     FLOAT_3   position;
     FLOAT_3   rotation;
@@ -26,13 +26,15 @@ struct TREE_DEF
 };
 
 
-struct
+typedef struct IGI2_FOREST
 {
     PSTRING version;  // \nVer. 3.0\n
 
     while(FTell() < FileSize())
         TREE_DEF tree;
-} igi2_forest;
+};
 
+
+IGI2_FOREST igi2_forest;
 
 Assert(FEof());

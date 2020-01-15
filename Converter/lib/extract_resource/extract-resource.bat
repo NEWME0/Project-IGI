@@ -1,1 +1,0 @@
-..\bin\gconv.exe extract-resource.qsc -InputPath=export/ -OutputPath=output/
