@@ -17,7 +17,7 @@
 
 struct
 {
-    LitleEndian();
+    LittleEndian();
 
     CHAR   magic[4];    // LOOP
     UINT32 _0;          // 11
