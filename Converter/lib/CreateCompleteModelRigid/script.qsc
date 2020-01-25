@@ -1,0 +1,27 @@
+// Script for converting common models //////////////////////////////////////
+
+// Script directories ///////////////////////////////////////////////////////
+
+SetModelDirectory("models");
+SetTextureDirectory("textures");
+SetPaletteDirectory("palettes");
+
+// Model settings ///////////////////////////////////////////////////////////
+
+SetScale(1.0);
+SetTargetPlatform("PC");
+
+// Texture settings /////////////////////////////////////////////////////////
+
+StartTexScript("MyTexScript");
+
+SetLightmapResolution(1);
+
+CreateCompleteModelLightmap("371_02_1");
+CreateCompleteModelRigid("407_21_1");
+
+// End script ///////////////////////////////////////////////////////////////
+
+EndTexScript();
+
+BuildStatic("MyStaticName");
