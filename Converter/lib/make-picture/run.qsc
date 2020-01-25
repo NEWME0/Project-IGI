@@ -1,0 +1,5 @@
+MakePicture("clouds1.tga", "clouds1.pic");
+MakePicture("kjetil_sand.tga", "kjetil_sand.pic");
+MakePicture("sea.tga", "sea.pic");
+MakePicture("waterenv.tga", "waterenv.pic");
+MakePicture("watertest1.tga", "watertest1.pic");

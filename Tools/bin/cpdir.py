@@ -12,7 +12,7 @@ def cpdir(srcdir, dstdir, pattern='*'):
 			srcpath = os.path.join(root, fn)
 			dstpath = srcpath.replace(srcdir, dstdir)
 
-			dstdir = os.path.dirname(dstpath)
+			dirs = os.path.dirname(dstpath)
 
-			os.makedirs(dstdir, exist_ok=True)
+			os.makedirs(dirs, exist_ok=True)
 			shutil.copyfile(srcpath, dstpath)

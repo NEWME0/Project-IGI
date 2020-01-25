@@ -1,0 +1,5 @@
+MakePalette("clouds1.tga", "clouds1.spr");
+MakePalette("kjetil_sand.tga", "kjetil_sand.spr");
+MakePalette("sea.tga", "sea.spr");
+MakePalette("waterenv.tga", "waterenv.spr");
+MakePalette("watertest1.tga", "watertest1.spr");

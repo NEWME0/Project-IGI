@@ -1,26 +1,66 @@
 from dataclasses import dataclass
-from struct import unpack
-from numpy import frombuffer, uint32
+from typing import Any
+from struct import unpack, calcsize
+from array import array
+from io import BytesIO
+
+from lib.opcode import OP_NAME, OP_UNSUPORTED, OP_PUSH_FMT, OP_JUMP_RELATIVE, CALL
+
+
+@dataclass
+class Opcode:
+	code: bytes
+	data: Any
+	lenght: int
+	address: int
+
+	@staticmethod
+	def parse(stream):
+		address = stream.tell()
+		data = None
+		code = stream.read(1)
+
+		if not code in OP_NAME:
+			raise ValueError()
+
+		if code in OP_UNSUPORTED:
+			raise ValueError()
+
+		if code in OP_PUSH_FMT:
+			fmt = OP_PUSH_FMT[code]
+			size = calcsize(fmt)
+			data = unpack(fmt, stream.read(size))[0]
+
+		elif code in OP_JUMP_RELATIVE:
+			data = unpack('i', stream.read(4))[0]
+
+		elif code == CALL:
+			count = unpack('I', stream.read(4))[0]
+			data = [unpack('i', stream.read(4))[0] for i in range(count)]
+
+		lenght = stream.tell() - address
+
+		return Opcode(code, data, lenght, address)
 
 
 @dataclass
 class QVMHeader:
 	signature: str
-	unk_0: int
-	unk_1: int
-	of_identifiers_addresses: int
-	of_identifiers: int
-	sz_identifiers_addresses: int
-	sz_identifiers: int
-	of_strings_addresses: int
-	of_strings: int
-	sz_strings_addresses: int
-	sz_strings: int
-	of_opcodes: int
-	sz_opcodes: int
+	version_major: int
+	version_minor: int
+	start_symbols_addresses: int
+	start_symbols_values: int
+	size_symbols_addresses: int
+	size_symbols_values: int
+	start_strings_addresses: int
+	start_strings_values: int
+	size_strings_addresses: int
+	size_strings_values: int
+	start_opcodes: int
+	size_opcodes: int
 	unk_2: int
 	unk_3: int
-	of_tail: int
+	start_tail: int
 
 	@classmethod
 	def parse(cls, stream):
@@ -30,36 +70,57 @@ class QVMHeader:
 @dataclass
 class QVM:
 	header: QVMHeader
-	identifiers_addresses: list
-	identifiers: list
+	symbols_addresses: list
+	symbols_values: list
 	strings_addresses: list
-	strings: list
+	strings_values: list
 	opcodes: bytes
 	tail: bytes
 
 	@classmethod
 	def parse(cls, stream):
-		header = QVMHeader.parse(stream)
+		h = header = QVMHeader.parse(stream)
 
-		assert stream.tell() == header.of_identifiers_addresses
-		identifiers_addresses = frombuffer(dtype=uint32, buffer=stream.read(header.sz_identifiers_addresses))
+		assert stream.tell() == h.start_symbols_addresses
+		symadr = array('I')
+		symadr.frombytes(stream.read(h.size_symbols_addresses))
 
-		assert stream.tell() == header.of_identifiers
-		identifiers = [string.decode('utf-8') for string in stream.read(header.sz_identifiers).split(b'\x00')[:-1]]
 
-		assert stream.tell() == header.of_strings_addresses
-		strings_addresses = frombuffer(dtype=uint32, buffer=stream.read(header.sz_strings_addresses))
+		assert stream.tell() == h.start_symbols_values
+		symval = stream.read(h.size_symbols_values).split(b'\x00')[:-1]
+		symval = [s.decode('utf-8') for s in symval]
+		symval = [s.replace('\n', '\\n') for s in symval]
+		symval = [s.replace('\"', '\\"') for s in symval]
 
-		assert stream.tell() == header.of_strings
-		strings = [string.decode('utf-8') for string in stream.read(header.sz_strings).split(b'\x00')[:-1]]
 
-		assert stream.tell() == header.of_opcodes
-		opcodes = stream.read(header.sz_opcodes)
+		assert stream.tell() == h.start_strings_addresses
+		stradr = array('I')
+		stradr.frombytes(stream.read(h.size_strings_addresses))
 
-		assert stream.tell() == header.of_tail or header.of_tail == 0
+
+		assert stream.tell() == h.start_strings_values
+		strval = stream.read(h.size_strings_values).split(b'\x00')[:-1]
+		strval = [s.decode('utf-8') for s in strval]
+		strval = [s.replace('\n', '\\n') for s in strval]
+		strval = [s.replace('\"', '\\"') for s in strval]
+
+
+		assert stream.tell() == h.start_opcodes
+		opcodes = stream.read(h.size_opcodes)
+
+		with BytesIO(opcodes) as opstream:
+			lenght = len(opcodes)
+			opcodes = list()
+
+			while opstream.tell() < lenght:
+				opcodes.append(Opcode.parse(opstream))
+
+
+		assert stream.tell() == h.start_tail or h.start_tail == 0
 		tail = stream.read()
 
-		return cls(header, identifiers_addresses, identifiers, strings_addresses, strings, opcodes, tail)
+
+		return QVM(header, symadr, symval, stradr, strval, opcodes, tail)
 
 
 def parse_file(srcpath):

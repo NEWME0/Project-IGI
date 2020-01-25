@@ -17,3 +17,4 @@ DIR_WEAPONS = os.path.join(DIR_GAME, 'WEAPONS')
 
 
 DIR_DESTINATION = 'D:/Projects/IGI2_Project/Tools/share'
+DIR_RESOURCES = 'D:/Projects/IGI2_Project/Resources'

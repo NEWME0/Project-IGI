@@ -1,0 +1,5 @@
+MakeSprite("clouds1.tga", "clouds1.spr");
+MakeSprite("kjetil_sand.tga", "kjetil_sand.spr");
+MakeSprite("sea.tga", "sea.spr");
+MakeSprite("waterenv.tga", "waterenv.spr");
+MakeSprite("watertest1.tga", "watertest1.spr");

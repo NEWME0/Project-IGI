@@ -1,8 +1,8 @@
-#ifndef H_ALIGN_BT
-#define H_ALIGN_BT
+#ifndef ALIGN_H
+#define ALIGN_H
 
 
-void ALIGN(UINT32 modulus)
+void Align(UINT32 modulus)
 {
     while(FTell() % modulus != 0)
         BYTE padding <hidden=true>;

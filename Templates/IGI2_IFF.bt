@@ -12,106 +12,97 @@
 //------------------------------------------------
 
 
+#include "COMMON/ILFF.bt";
 #include "COMMON/ALIGN.bt";
-#include "COMMON/CSTRING.bt";
-#include "COMMON/FSTRING.bt";
-#include "COMMON/FLOAT_3.bt";
+#include "COMMON/STRINGS.bt";
+#include "COMMON/FVECTORS.bt";
 
 
-struct
+LittleEndian();
+
+
+typedef struct ATTACHMENT
 {
-    LittleEndian();
+    CHAR   model_name[16];
+    FLOAT  _1;
+    FLOAT  _2;
+    FLOAT  _3;
+    FLOAT  _4;
+    FLOAT  _5;
+    FLOAT  _6;
+    FLOAT  _7;
+    FLOAT  _8;
+    FLOAT  _9;
+    FLOAT  _10;
+    FLOAT  _11;
+    FLOAT  _12;
+    CHAR   reserved0[4];
+    UINT32 _14;
+    UINT32 _15;
+    UINT32 _16;
+};
 
-    CHAR   Signature[4];
-    UINT32 Size;
-    UINT32 Align;
-    UINT32 Next;
 
-    struct
-    {
-        CHAR  Signature[4];
+typedef struct DHNA
+{
+    ALIGN(4);
+    ILFF_HEADER header;
 
-        struct
-        {
-            ALIGN(4);
+    BYTE    reserved0[8];
+    UINT32  _0;
+    UINT32  _1;
+    UINT32  _2;
+    UINT32  bone_count;
+    BYTE    reserved1[4];
+    UINT32  _3;
+    UINT32  _4;
+    UINT32  _5;
+    UINT32  _6;
+    BYTE    reserved2[8];
+    CSTRING animation_name;
+};
 
-            CHAR  Signature[4];
-            UINT32 Size;
-            UINT32 Align;
-            UINT32 Next;
 
-            BYTE    Reserved_0[8];
-            UINT32   _0;
-            UINT32   _1;
-            UINT32   _2;
-            UINT32   BoneCount;
-            BYTE    Reserved_1[4];
-            UINT32   _3;
-            UINT32   _4;
-            UINT32   _5;
-            UINT32   _6;
-            BYTE    Reserved_2[8];
-            CSTRING AnimName;
-        } DHNA;
+typedef struct REIH
+{
+    ALIGN(4);
+    ILFF_HEADER header;
 
-        struct
-        {
-            ALIGN(4);
+    BYTE bone_hierarchy[parentof(this).dhna.bone_count];
+    ALIGN(4);
+    FVECTOR3 bone_position[parentof(this).dhna.bone_count];
+};
 
-            CHAR  Signature[4];
-            UINT32 Size;
-            UINT32 Align;
-            UINT32 Next;
 
-            BYTE BoneChildCount[DHNA.BoneCount];
+typedef struct TNVE
+{
+    ALIGN(4);
+    ILFF_HEADER header;
 
-            ALIGN(4);
+    FLOAT _0[header.data_size / 4];
+};
 
-            FLOAT_3 BonePosition[DHNA.BoneCount];
-        } REIH;
 
-        struct
-        {
-            ALIGN(4);
+typedef struct ATTA
+{
+    ALIGN(4);
+    ILFF_HEADER header;
 
-            CHAR  Signature[4];
-            UINT32 Size;
-            UINT32 Align;
-            UINT32 Next;
+    ATTACHMENT attachment[header.data_size / 80];
+};
 
-            FLOAT _0[Size / 4];
-        } TNVE;
 
-        if(!FEof())
-        struct
-        {
-            ALIGN(4);
+struct {
+    ILFF_HEADER header;
+    CHAR signature[4]; // MINA
 
-            CHAR  Signature[4];
-            UINT32 Size;
-            UINT32 Align;
-            UINT32 Next;
+    DHNA dhna;
+    REIH reih;
+    TNVE tnve;
 
-            struct
-            {
-                FSTRING  ModelName(16);
-                FLOAT    _1;
-                FLOAT    _2;
-                FLOAT    _3;
-                FLOAT    _4;
-                FLOAT    _5;
-                FLOAT    _6;
-                FLOAT    _7;
-                FLOAT    _8;
-                FLOAT    _9;
-                FLOAT    _10;
-                FLOAT    _11;
-                FLOAT    _12;
-                CHAR     Reserved_0[4];
-                UINT32    _14;
-                UINT32    _15;
-                UINT32    _16;
-            } Attachment[Size / 80];
-        } ATTA;
-    } MINA;
-} ILFF;
+    if(!FEof())
+    ATTA atta;
+} igi2_iff;
+
+
+Assert(FEof(), "Parsing error: expected end of file");

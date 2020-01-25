@@ -11,297 +11,371 @@
 //   History: 
 //------------------------------------------------
 
-/*
-opcodes from gconvapi
-
-ILLEGAL   |       |
-BLK       |       |
-NOT       |  yes  |
-INV       |  yes  |
-MINUS     |  yes  |
-PLUS      |  yes  |
-ASSIGN    |  yes  |
-GE        |  yes  |
-GT        |  yes  |
-LE        |  yes  |
-LT        |  yes  |
-NE        |  yes  |
-EQ        |  yes  |
-LOR       |  yes  |
-LAND      |  yes  |
-XOR       |  yes  |
-OR        |  yes  |
-AND       |  yes  |
-SHR       |  yes  |
-SHL       |  yes  |
-DIV       |  yes  |
-MUL       |  yes  |
-SUB       |  yes  |
-ADD       |  yes  |
-CALL      |  yes  |
-JSR       |       |
-BT        |       |
-BF        |  yes  |
-BRA       |  yes  |
-RET       |       |
-POP       |  yes  |
-PUSHM     |       |
-PUSH1     |  yes  |
-PUSH0     |  yes  |
-PUSHIIW   |       |
-PUSHIIB   |       |
-PUSHII    |       |
-PUSHI     |       |
-PUSHSIW   |       |
-PUSHSIB   |       |
-PUSHSI    |       |
-PUSHS     |       |
-PUSHA     |       |
-PUSHF     |  yes  |
-PUSHW     |       |
-PUSHB     |       |
-PUSH      |       |
-NOP       |       |
-BRK       |  yes  |
-*/
-
-
 
 #include "COMMON/CSTRING.bt";
 
 
-typedef struct
-{
-    UBYTE value;
-} PUSHIIB <read=READ_PUSHIIB>;
+#define BRK     0
+#define NOP     1
+#define RET     2
+#define BRA     3
+#define BF      4
+#define BT      5
+#define JSR     6
+#define CALL    7
+#define PUSH    8
+#define PUSHB   9
+#define PUSHW   10
+#define PUSHF   11
+#define PUSHA   12
+#define PUSHS   13
+#define PUSHSI  14
+#define PUSHSIB 15
+#define PUSHSIW 16
+#define PUSHI   17
+#define PUSHII  18
+#define PUSHIIB 19
+#define PUSHIIW 20
+#define PUSH0   21
+#define PUSH1   22
+#define PUSHM   23
+#define POP     24
+#define ADD     25
+#define SUB     26
+#define MUL     27
+#define DIV     28
+#define SHL     29
+#define SHR     30
+#define AND     31
+#define OR      32
+#define XOR     33
+#define LAND    34
+#define LOR     35
+#define EQ      36
+#define NE      37
+#define LT      38
+#define LE      39
+#define GT      40
+#define GE      41
+#define ASSIGN  42
+#define PLUS    43
+#define MINUS   44
+#define INV     45
+#define NOT     46
+#define BLK     47
+#define ILLEGAL 48
 
 
 typedef struct
 {
-    UINT16 value;
-} PUSHIIW <read=READ_PUSHIIW>;
+    local long address = FTell() - igi2_qvm.start_opcodes;
 
-
-typedef struct
-{
-    UINT32 value;
-} PUSHII <read=READ_PUSHII>;
-
-
-typedef struct
-{
-    UBYTE value;
-} PUSHSIB <read=READ_PUSHSIB>;
-
-
-typedef struct
-{
-    UINT16 value;
-} PUSHSIW <read=READ_PUSHSIW>;
-
-
-typedef struct
-{
-    UINT32 value;
-} PUSHSI <read=READ_PUSHSI>;
-
-
-typedef struct
-{
     UBYTE type;
 
     switch(type)
     {
-        case 0:  break;                  // BRK
-        //case 1:  break;                  // NOP
-        //case 2:  break;                  // RET
-        case 3:  INT32    value; break;  // BRA
-        case 4:  UINT32   value; break;  // BF
-        //case 5:  break;                  // BT
-        //case 6:  break;                  // JSR
-        case 7: {                        // CALL
+        case BRK:
+            break;
+        case NOP:
+            break;
+        case RET:
+            break;
+        case BRA:
+            INT32 value;
+            break;
+        case BF:
+            INT32 value;
+            break;
+        case BT:
+            INT32 value;
+        case JSR:
+            break;
+        case CALL:{
             UINT32 count;
             if(count > 0)
                 UINT32 value[count];
         } break;
-        case 8:  UINT32   value; break;  // PUSH
-        case 9:  UBYTE    value; break;  // PUSHB
-        case 10: UINT16   value; break;  // PUSHW
-        case 11: FLOAT    value; break;  // PUSHF
-        //case 12: break;                  // PUSHA
-        //case 13: break;                  // PUSHS
-        case 14: PUSHSI   value  break;  // PUSHSI
-        case 15: PUSHSIB  value; break;  // PUSHSIB
-        case 16: PUSHSIW  value; break;  // PUSHSIW
-        //case 17: break;                  // PUSHI
-        case 18: PUSHII   value; break;  // PUSHII
-        case 19: PUSHIIB  value; break;  // PUSHIIB
-        case 20: PUSHIIW  value; break;  // PUSHIIW
-        case 21: break;                  // PUSH0
-        case 22: break;                  // PUSH1
-        case 23: break;                  // PUSHM
-        case 24: break;                  // POP
-        case 25: break;                  // ADD +
-        case 26: break;                  // SUB -
-        case 27: break;                  // MUL *
-        case 28: break;                  // DIV /
-        case 29: break;                  // SHL <<
-        case 30: break;                  // SHR >>
-        case 31: break;                  // AND &
-        case 32: break;                  // OR |
-        case 33: break;                  // XOR ^
-        case 34: break;                  // LAND &&
-        case 35: break;                  // LOR ||
-        case 36: break;                  // EQ ==
-        case 37: break;                  // NE !=
-        case 38: break;                  // LT <
-        case 39: break;                  // LE <=
-        case 40: break;                  // GT >
-        case 41: break;                  // GE >=
-        case 42: break;                  // ASSIGN =
-        case 43: break;                  // PLUS +
-        case 44: break;                  // MINUS -
-        case 45: break;                  // INV ~
-        case 46: break;                  // NOT !
-        //case 47: break;                  // BLK
-        //case 48: break;                  // ILLEGAL
+        case PUSH:
+            UINT32 value;
+            break;
+        case PUSHB:
+            UBYTE value;
+            break;
+        case PUSHW:
+            UINT16 value;
+            break;
+        case PUSHF:
+            FLOAT value;
+            break;
+        case PUSHA:
+            break;
+        case PUSHS:
+            break;
+        case PUSHSI:
+            UINT32 value;
+            break;
+        case PUSHSIB:
+            UBYTE value;
+            break;
+        case PUSHSIW:
+            UINT16 value;
+            break;
+        case PUSHI:
+            break;
+        case PUSHII:
+            UINT32 value;
+            break;
+        case PUSHIIB:
+            UBYTE value;
+            break;
+        case PUSHIIW:
+            UINT16 value;
+            break;
+        case PUSH0:
+            break;
+        case PUSH1:
+            break;
+        case PUSHM:
+            break;
+        case POP:
+            break;
+        case ADD:
+            break;
+        case SUB:
+            break;
+        case MUL:
+            break;
+        case DIV:
+            break;
+        case SHL:
+            break;
+        case SHR:
+            break;
+        case AND:
+            break;
+        case OR:
+            break;
+        case XOR:
+            break;
+        case LAND:
+            break;
+        case LOR:
+            break;
+        case EQ:
+            break;
+        case NE:
+            break;
+        case LT:
+            break;
+        case LE:
+            break;
+        case GT:
+            break;
+        case GE:
+            break;
+        case ASSIGN:
+            break;
+        case PLUS:
+            break;
+        case MINUS:
+            break;
+        case INV:
+            break;
+        case NOT:
+            break;
+        case BLK:
+            break;
+        case ILLEGAL:
+            break;
 
-        default: {
-            Printf("SKIP at %u with TYPE %u\n", FTell(), type);
-        }
+        default: Assert(false, "Unhandled opcode");
     }
-} OPCODE <read=READ_OPCODE>;
+} OPCODE <read=ReadOpcode>;
+
+
+string ReadOpcode(OPCODE &o) {
+    local string s = "";
+
+    switch(o.type)
+    {
+        case BRK:
+            SPrintf(s, "%u BRK", o.address); break;
+        case NOP:
+            SPrintf(s, "%u NOP", o.address); break;
+        case RET:
+            SPrintf(s, "%u RET", o.address); break;
+        case BRA:
+            SPrintf(s, "%u BRA %u", o.address, o.value); break;
+        case BF:
+            SPrintf(s, "%u BF %u", o.address, o.value); break;
+        case BT:
+            SPrintf(s, "%u BT %u", o.address, o.value); break;
+        case JSR:
+            SPrintf(s, "%u JSR", o.address); break;
+        case CALL:
+            {
+                SPrintf(s, "%u CALL %u (", o.address, o.count);
+                local string a = "";
+                local long i = 0;
+
+                while(exists(o.value[i]))
+                {
+                    SPrintf(a, "%u, ", o.value[i]);
+                    s += a;
+                    i += 1;
+                }
+
+                s += ")";
+            } break;
+        case PUSH:
+            SPrintf(s, "%u PUSH %u", o.address, o.value); break;
+        case PUSHB:
+            SPrintf(s, "%u PUSHB %u", o.address, o.value); break;
+        case PUSHW:
+            SPrintf(s, "%u PUSHW %u", o.address, o.value); break;
+        case PUSHF:
+            SPrintf(s, "%u PUSHF %f", o.address, o.value); break;
+        case PUSHA:
+            SPrintf(s, "%u PUSHA", o.address); break;
+        case PUSHS:
+            SPrintf(s, "%u PUSHS", o.address); break;
+        case PUSHSI:
+            SPrintf(s, "%u PUSHSI \"%s\"", o.address, igi2_qvm.section_strings_values.string_value[o.value].value); break;
+        case PUSHSIB:
+            SPrintf(s, "%u PUSHSIB \"%s\"", o.address, igi2_qvm.section_strings_values.string_value[o.value].value); break;
+        case PUSHSIW:
+            SPrintf(s, "%u PUSHSIW \"%s\"", o.address, igi2_qvm.section_strings_values.string_value[o.value].value); break;
+        case PUSHI:
+            SPrintf(s, "%u PUSHI", o.address); break;
+        case PUSHII:
+            SPrintf(s, "%u PUSHII %s", o.address, igi2_qvm.section_symbols_values.symbol_value[o.value].value); break;
+        case PUSHIIB:
+            SPrintf(s, "%u PUSHIIB %s", o.address, igi2_qvm.section_symbols_values.symbol_value[o.value].value); break;
+        case PUSHIIW:
+            SPrintf(s, "%u PUSHIIW %s", o.address, igi2_qvm.section_symbols_values.symbol_value[o.value].value); break;
+        case PUSH0:
+            SPrintf(s, "%u PUSH0 0", o.address); break;
+        case PUSH1:
+            SPrintf(s, "%u PUSH1 1", o.address); break;
+        case PUSHM:
+            SPrintf(s, "%u PUSHM MAX_UINT", o.address); break;
+        case POP:
+            SPrintf(s, "%u POP", o.address); break;
+        case ADD:
+            SPrintf(s, "%u ADD +", o.address); break;
+        case SUB:
+            SPrintf(s, "%u SUB -", o.address); break;
+        case MUL:
+            SPrintf(s, "%u MUL *", o.address); break;
+        case DIV:
+            SPrintf(s, "%u DIV /", o.address); break;
+        case SHL:
+            SPrintf(s, "%u SHL <<", o.address); break;
+        case SHR:
+            SPrintf(s, "%u SHR >>", o.address); break;
+        case AND:
+            SPrintf(s, "%u AND &", o.address); break;
+        case OR:
+            SPrintf(s, "%u OR |", o.address); break;
+        case XOR:
+            SPrintf(s, "%u XOR ^", o.address); break;
+        case LAND:
+            SPrintf(s, "%u LAND &&", o.address); break;
+        case LOR:
+            SPrintf(s, "%u LOR ||", o.address); break;
+        case EQ:
+            SPrintf(s, "%u EQ ==", o.address); break;
+        case NE:
+            SPrintf(s, "%u NE !=", o.address); break;
+        case LT:
+            SPrintf(s, "%u LT <", o.address); break;
+        case LE:
+            SPrintf(s, "%u LE <=", o.address); break;
+        case GT:
+            SPrintf(s, "%u GT >", o.address); break;
+        case GE:
+            SPrintf(s, "%u GE >=", o.address); break;
+        case ASSIGN:
+            SPrintf(s, "%u ASSIGN =", o.address); break;
+        case PLUS:
+            SPrintf(s, "%u PLUS +", o.address); break;
+        case MINUS:
+            SPrintf(s, "%u MINUS -", o.address); break;
+        case INV:
+            SPrintf(s, "%u INV ~", o.address); break;
+        case NOT:
+            SPrintf(s, "%u NOT !", o.address); break;
+        case BLK:
+            SPrintf(s, "%u BLK", o.address); break;
+        case ILLEGAL: 
+            SPrintf(s, "%u ILLEGAL", o.address); break;
+    }
+
+    return s;
+}
 
 
 struct
 {
-    CHAR   magic[4]; // LOOP
-    UINT32 _0; // 7
-    UINT32 _1; // 8
-    UINT32 offset_identifiers_offsets;
-    UINT32 offset_identifiers;
-    UINT32 size_identifiers_offsets;
-    UINT32 size_identifiers;
-    UINT32 offset_strings_offsets;
-    UINT32 offset_strings;
-    UINT32 size_strings_offsets;
-    UINT32 size_strings;
-    UINT32 offset_opcodes;
+    CHAR   signature[4];             // LOOP
+    UINT32 varsion_major;            // 7
+    UINT32 varsion_minor;            // 8
+    UINT32 start_symbols_addresses;
+    UINT32 start_symbols_values;
+    UINT32 size_symbols_addresses;
+    UINT32 size_symbols_values;
+    UINT32 start_strings_addresses;
+    UINT32 start_strings_values;
+    UINT32 size_strings_addresses;
+    UINT32 size_strings_values;
+    UINT32 start_opcodes;
     UINT32 size_opcodes;
-    UINT32 _2;
-    UINT32 _3;
-    UINT32 offset_tail;
+    UINT32 _2;                       // 0
+    UINT32 _3;                       // 0
+    UINT32 start_tail;               // mostly 0
 
 
-    if(size_identifiers_offsets > 0)
-    UINT32 identifiers_offset[size_identifiers_offsets / 4];
+    if(size_symbols_addresses > 0)
+    struct
+    {
+        UINT32 symbol_address[size_symbols_addresses / 4];
+    } section_symbols_addresses;
 
 
-    if(size_identifiers > 0)
-    CSTRING identifiers[size_identifiers_offsets / 4] <optimize=false>;
+    if(size_symbols_values > 0)
+    struct
+    {
+        CSTRING symbol_value[size_symbols_addresses / 4] <optimize=false>;
+    } section_symbols_values;
 
 
-    if(size_strings_offsets > 0)
-    UINT32 strings_offsets[size_strings_offsets / 4];
+    if(size_strings_addresses > 0)
+    struct
+    {
+        UINT32 string_address[size_strings_addresses / 4];
+    } section_strings_addresses;
 
 
-    if(size_strings > 0)
-    CSTRING strings[size_strings_offsets / 4] <optimize=false>;
+    if(size_strings_addresses > 0)
+    struct
+    {
+        CSTRING string_value[size_strings_addresses / 4] <optimize=false>;
+    } section_strings_values;
 
 
     if(size_opcodes > 0)
     struct
     {
-        while(FTell() < offset_opcodes + size_opcodes)
+        while(FTell() < start_opcodes + size_opcodes)
             OPCODE opcode;
-    } opcodes;
+    } section_opcodes;
 
 
-    if(offset_tail > 0)
-    UBYTE tail[FileSize() - offset_tail];
-} igi2_qvm;
-
-
-Assert(FEof());
-
-
-string READ_PUSHIIB(PUSHIIB &o) {
-    return igi2_qvm.identifiers[o.value].value;
-};
-
-string READ_PUSHIIW(PUSHIIW &o) {
-    return igi2_qvm.identifiers[o.value].value;
-};
-
-string READ_PUSHII(PUSHII &o) {
-    return igi2_qvm.identifiers[o.value].value;
-};
-
-string READ_PUSHSIB(PUSHSIB &o) {
-    return igi2_qvm.strings[o.value].value;
-};
-
-string READ_PUSHSIW(PUSHSIW &o) {
-    return igi2_qvm.strings[o.value].value;
-};
-
-string READ_PUSHSI(PUSHSI &o) {
-    return igi2_qvm.strings[o.value].value;
-};
-
-string READ_OPCODE(OPCODE &o) {
-    switch(o.type)
+    if(start_tail > 0)
+    struct
     {
-        case 0:  return "BRK";
-        //case 1:  return "NOP";
-        //case 2:  return "RET";
-        case 3:  return "BRA";
-        case 4:  return "BF";
-        //case 5:  return "BT";
-        //case 6:  return "JSR";
-        case 7:  return "CALL";
-        case 8:  return "PUSH";
-        case 9:  return "PUSHB";
-        case 10: return "PUSHW";
-        case 11: return "PUSHF";
-        //case 12: return "PUSHA";
-        //case 13: return "PUSHS";
-        case 14: return "PUSHSI";
-        case 15: return "PUSHSIB";
-        case 16: return "PUSHSIW";
-        //case 17: return "PUSHI";
-        case 18: return "PUSHII";
-        case 19: return "PUSHIIB";
-        case 20: return "PUSHIIW";
-        case 21: return "PUSH0";
-        case 22: return "PUSH1";
-        case 23: return "PUSHM"; // MAX
-        case 24: return "POP";
-        case 25: return "ADD";
-        case 26: return "SUB";
-        case 27: return "MUL";
-        case 28: return "DIV";
-        case 29: return "SHL";
-        case 30: return "SHR";
-        case 31: return "AND";
-        case 32: return "OR";
-        case 33: return "XOR";
-        case 34: return "LAND";
-        case 35: return "LOR";
-        case 36: return "EQ";
-        case 37: return "NE";
-        case 38: return "LT";
-        case 39: return "LE";
-        case 40: return "GT";
-        case 41: return "GE";
-        case 42: return "ASSIGN";
-        case 43: return "PLUS";
-        case 44: return "MINUS";
-        case 45: return "INV";
-        case 46: return "NOT";
-        //case 47: return "BLK";
-        //case 48: return "ILLEGAL";
+        UBYTE tail[FileSize() - start_tail];
+    } section_tail;
 
-        default: return "__UNKNOWN__";
-    }
-}
+    Assert(FEof());
+} igi2_qvm;

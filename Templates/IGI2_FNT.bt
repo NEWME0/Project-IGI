@@ -80,9 +80,9 @@ struct
         CHAR   csign[4];  //TRN2
         UINT32 csize;
         UINT32 calign;
-        UINT32 cskip;
+        UINT32  cskip;
 
-        WCHAR  charset[fnth.char_count];
+        WSTRING  charset[fnth.char_count];
     } trn2;
 
 

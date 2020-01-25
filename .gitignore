@@ -1,1 +1,4 @@
 __pycache__/
+Resources/
+Media/
+Converter/lib/*/output

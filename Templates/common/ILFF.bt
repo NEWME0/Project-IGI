@@ -5,9 +5,9 @@
 typedef struct ILFF_HEADER
 {
 	CHAR   signature[4];
-	UINT32 size;
-	UINT32 padding;
 	UINT32 data_size;
+	UINT32 alignement;
+	UINT32 block_size;
 };
 
 
