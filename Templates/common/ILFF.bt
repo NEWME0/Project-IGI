@@ -1,5 +1,5 @@
-#ifndef ILFF_BT
-#define ILFF_BT
+#ifndef ILFF_H
+#define ILFF_H
 
 
 typedef struct ILFF_HEADER
