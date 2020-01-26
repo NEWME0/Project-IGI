@@ -1,0 +1,15 @@
+ 
+#ifndef FORM_H
+#define FORM_H
+
+
+typedef struct FORM_HEADER
+{
+  BigEndian();
+
+	CHAR   signature[4];
+	UINT32 data_size;
+};
+
+
+#endif
