@@ -11,20 +11,12 @@
 //   History: 
 //------------------------------------------------
 
-
+#include "common/FORM.bt";
 #include "common/ALIGNEMENT.bt";
 #include "common/STRINGS.bt";
 
 
-typedef struct FORM_HEADER
-{
-	BigEndian();
-
-	CHAR   signature[4];
-	UINT32 data_size;
-};
-
-
+// ANIMATIONS
 typedef struct BANM
 {
 	FORM_HEADER header;
