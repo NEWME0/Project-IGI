@@ -1,5 +1,5 @@
-#ifndef H_DATETIME_BT
-#define H_DATETIME_BT
+#ifndef DATETIME_H
+#define DATETIME_H
 
 
 typedef struct DATETIME
