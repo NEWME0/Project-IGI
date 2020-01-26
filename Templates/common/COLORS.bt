@@ -1,5 +1,5 @@
-#ifndef LOD_BT
-#define LOD_BT
+#ifndef COLORS_H
+#define COLORS_H
 
 
 long LodBytesCalc(uint lod, uint width, uint height, uint depth)
