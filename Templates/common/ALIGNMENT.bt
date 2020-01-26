@@ -1,5 +1,5 @@
-#ifndef ALIGN_H
-#define ALIGN_H
+#ifndef ALIGNMENT_H
+#define ALIGNMENT_H
 
 
 void Align(UINT32 modulus)
