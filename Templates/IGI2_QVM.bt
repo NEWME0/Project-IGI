@@ -12,7 +12,7 @@
 //------------------------------------------------
 
 
-#include "COMMON/CSTRING.bt";
+#include "COMMON/STRINGS.bt";
 
 
 #define BRK     0
@@ -64,6 +64,9 @@
 #define NOT     46
 #define BLK     47
 #define ILLEGAL 48
+
+
+LittleEndian();
 
 
 typedef struct
@@ -379,3 +382,6 @@ struct
 
     Assert(FEof());
 } igi2_qvm;
+
+
+Assert(FEof(), "Parsing error: expected end of file");

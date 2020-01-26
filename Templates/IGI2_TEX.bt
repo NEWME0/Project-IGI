@@ -12,21 +12,22 @@
 //------------------------------------------------
 
 
-#include "COMMON/LOD.bt";
+#include "COMMON/COLORS.bt";
+
+
+LittleEndian();
 
 
 struct
 {
-    LittleEndian();
-
-    CHAR   magic[4];    // LOOP
-    UINT32 _0;          // 11
-    UINT32 _1;          // {2: argb1555, 67: bgra8888, 3: ?}
-    UINT32 _2;          // [0, 524288] 524288 for multi.tex
-    UINT32 _3;          // 0
-    UINT16 _4;          // [2, 3, 4, 5, 6, 7, 8]
-    UINT16 same_width;
-    UINT16 same_height;
+    CHAR   signature[4]; // LOOP
+    UINT32 _0;           // 11
+    UINT32 _1;           // {2: argb1555, 67: bgra8888, 3: ?}
+    UINT32 _2;           // [0, 524288] 524288 for multi.tex
+    UINT32 _3;           // 0
+    UINT16 _4;           // [2, 3, 4, 5, 6, 7, 8]
+    UINT16 entry_x;
+    UINT16 entry_y;
     UINT16 width;
     UINT16 height;
     UINT16 depth;
@@ -63,4 +64,4 @@ struct
 } igi2_tex;
 
 
-Assert(FEof());
+Assert(FEof(), "Parsing error: expected end of file");

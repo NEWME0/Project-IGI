@@ -13,9 +13,9 @@
 
 
 #include "COMMON/ILFF.bt";
-#include "COMMON/ALIGN.bt";
+#include "COMMON/ALIGNMENT.bt";
 #include "COMMON/STRINGS.bt";
-#include "COMMON/FVECTORS.bt";
+#include "COMMON/VECTORS.bt";
 
 
 LittleEndian();
@@ -45,7 +45,6 @@ typedef struct ATTACHMENT
 
 typedef struct DHNA
 {
-    ALIGN(4);
     ILFF_HEADER header;
 
     BYTE    reserved0[8];
@@ -60,35 +59,40 @@ typedef struct DHNA
     UINT32  _6;
     BYTE    reserved2[8];
     CSTRING animation_name;
+
+    Padding();
 };
 
 
 typedef struct REIH
 {
-    ALIGN(4);
     ILFF_HEADER header;
 
     BYTE bone_hierarchy[parentof(this).dhna.bone_count];
-    ALIGN(4);
+    Align(4);
     FVECTOR3 bone_position[parentof(this).dhna.bone_count];
+
+    Padding();
 };
 
 
 typedef struct TNVE
 {
-    ALIGN(4);
     ILFF_HEADER header;
 
     FLOAT _0[header.data_size / 4];
+
+    Padding();
 };
 
 
 typedef struct ATTA
 {
-    ALIGN(4);
     ILFF_HEADER header;
 
     ATTACHMENT attachment[header.data_size / 80];
+
+    Padding();
 };
 
 

@@ -1,0 +1,23 @@
+#ifndef ALIGN_H
+#define ALIGN_H
+
+
+void Align(UINT32 modulus)
+{
+	while(FTell() % modulus != 0)
+		BYTE padding <hidden=true>;
+}
+
+
+void Padding(){
+	local UINT32 padding_length = 0;
+
+	if(header.block_size > 0)
+		padding_length = header.block_size - header.data_size - 16;
+
+	if(padding_length > 0)
+		BYTE padding[padding_length] <hidden=true>;
+}
+
+
+#endif

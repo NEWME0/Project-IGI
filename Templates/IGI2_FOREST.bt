@@ -12,29 +12,30 @@
 //------------------------------------------------
 
 
-#include "COMMON/PSTRING.bt";
-#include "COMMON/FLOAT_3.bt";
-#include "COMMON/RGBA_8888.bt"
+#include "COMMON/STRINGS.bt";
+#include "COMMON/VECTORS.bt";
+#include "COMMON/COLORS.bt"
 
 
-typedef struct TREE_DEF
+LittleEndian();
+
+
+typedef struct TREE
 {
-    FLOAT_3   position;
-    FLOAT_3   rotation;
-    FLOAT_3   scale;
-    RGBA_8888 color;
+	FVECTOR3  position;
+	FVECTOR3  rotation;
+	FVECTOR3  scale;
+	RGBA_8888 color;
 };
 
 
-typedef struct IGI2_FOREST
+struct
 {
-    PSTRING version;  // \nVer. 3.0\n
+	ISTRING version;            // \nVer. 3.0\n
 
-    while(FTell() < FileSize())
-        TREE_DEF tree;
-};
+	while(FTell() < FileSize())
+		TREE tree;
+} igi2_forest;
 
 
-IGI2_FOREST igi2_forest;
-
-Assert(FEof());
+Assert(FEof(), "Parsing error: expected end of file");

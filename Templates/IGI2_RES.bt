@@ -12,53 +12,71 @@
 //------------------------------------------------
 
 
+#include "common/ILFF.bt";
+#include "common/ALIGNEMENT.bt";
+
+
 LittleEndian();
 
 
-#include "common/ILFF.bt";
+typedef struct NAME
+{
+    ILFF_HEADER header;
+
+    BYTE data[header.data_size];
+
+    Padding();
+};
+
+
+typedef struct BODY
+{
+    ILFF_HEADER header;
+
+    BYTE data[header.data_size];
+
+    Padding();
+};
+
+
+typedef struct CSTR
+{
+    ILFF_HEADER header;
+
+    BYTE data[header.data_size];
+
+    Padding();
+};
+
+
+typedef struct PATH
+{
+    ILFF_HEADER header;
+
+    BYTE data[header.data_size];
+
+    Padding();
+};
 
 
 struct
 {
     ILFF_HEADER header;
+    CHAR signature[4];   // IRES
 
-    struct
+
+    while(FTell() < FileSize())
     {
-        // type_block
-        CHAR Signature[4]; // signature IRES
+        NAME name;
 
-        // list of blocks
-        while(FTell() < FileSize())
+        switch(ReadString(FTell(), 4))
         {
-            struct
-            {
-                // Align block
-                while(FTell() % 4 != 0) BYTE pad;
-
-                CHAR Signature[4]; // signature
-                UINT32 size;
-                UINT32 align;
-                UINT32 next;
-
-                switch(sign)
-                {
-                    case "NAME":
-                        BYTE data[size];
-                        break;
-
-                    case "BODY":
-                        BYTE data[size];
-                        break;
-
-                    case "CSTR":
-                        BYTE data[size];
-                        break;
-
-                    case "PATH":
-                        BYTE data[size];
-                        break;
-                }
-            } DATA;
+            case "BODY": BODY body; break;
+            case "CSTR": CSTR cstr; break;
+            case "PATH": PATH path; break;
         }
-    } IRES;
-} IGI2_RES;
+    }
+} igi2_res;
+
+
+Assert(FEof(), "Parsing error: expected end of file");

@@ -13,13 +13,14 @@
 
 
 #include "COMMON/DATETIME.bt";
-#include "COMMON/LOD.bt";
+#include "COMMON/COLORS.bt";
+
+
+LittleEndian();
 
 
 struct
 {
-    LittleEndian();
-
     UINT32   _1;          // 1008981770
     DATETIME creation;    // 
     UINT32   _2;          // 2
@@ -59,4 +60,4 @@ struct
 } igi2_thm;
 
 
-Assert(FEof());
+Assert(FEof(), "Parsing error: expected end of file");

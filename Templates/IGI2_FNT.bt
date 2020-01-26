@@ -12,113 +12,102 @@
 //------------------------------------------------
 
 
-#include "COMMON/ALIGN.bt";
-#include "COMMON/RGBA_8888.bt";
+#include "COMMON/ALIGNMENT.bt";
+#include "COMMON/ILFF.bt";
+#include "COMMON/STRINGS.bt";
+#include "COMMON/VECTORS.bt";
+#include "COMMON/COLORS.bt";
 
 
-typedef wchar_t WCHAR;
+LittleEndian();
+
+// FONT HEADER
+typedef struct FNTH
+{
+    ILFF_HEADER header;
+
+    UINT32 _0;         // 1
+    UINT32 char_count; // {158. 154}
+    UINT32 _1;         // {11, 14, 16}
+    UINT32 _2;         // {3, 4 ,6}
+    UINT32 _3;         // 1
+    UINT32 _4;         // {11, 14, 16}
+
+    Padding();
+};
+
+// FONT CHAR MAPPING
+typedef struct ANMF
+{
+    ILFF_HEADER header;
+
+    struct
+    {
+        UINT32    _0;
+        FTEXCOORD upper_left;
+        FTEXCOORD lower_right;
+        UINT16    _1;
+        UINT16    pixel_width;
+        UINT16    pixel_height;
+        UINT16    _4;
+        UINT32    _5;
+        UINT32    _6;
+        UINT32    _7;
+    } charmap[igi2_fnt.fnth.char_count] <optimize=true>;
+
+    Padding();
+};
+
+// FONT CHARSET
+typedef struct TRN2
+{
+    ILFF_HEADER header;
+
+    WCHAR charset[igi2_fnt.fnth.char_count];
+
+    Padding();
+};
+
+// FONT TEXTURE HEADER
+typedef struct TEXH
+{
+    ILFF_HEADER header;
+
+    UINT16 _0;      // 3
+    UINT32 _1;      // 0
+    UINT32 _2;      // 0
+    UINT32 _3;      // 0
+    UINT16 entry_x;
+    UINT16 entry_y;
+    UINT16 width;
+    UINT16 heigth;
+    UINT16 depth;
+
+    Padding();
+};
+
+// FONT TEXTURE
+typedef struct BODY
+{
+    ILFF_HEADER header;
+
+    RGBA_8888 pixel[igi2_fnt.texh.width * 1 * igi2_fnt.texh.heigth] <optimize=true>;
+
+    Padding();
+};
 
 
 struct
 {
-    CHAR   fsign[4];  //ILFF
-    UINT32 fsize;
-    UINT32 falign;
-    UINT32 fskip;
-    CHAR   dsign[4];  //FONT
+    ILFF_HEADER header;
+    CHAR signature[4];  //FONT
+
+    FNTH fnth;
+    ANMF anmf;
+    TRN2 trn2;
+    TEXH texh;
+    BODY body;
+} igi2_fnt;
 
 
-    struct
-    {
-        ALIGN(4);
-
-        CHAR   csign[4];  //FNTH
-        UINT32 csize;
-        UINT32 calign;
-        UINT32 cskip;
-
-        UINT32 _0;
-        UINT32 char_count;
-        UINT32 _1;
-        UINT32 _2;
-        UINT32 _3;
-        UINT32 _4;
-    } fnth;
-
-
-    struct
-    {
-        ALIGN(4);
-
-        CHAR   csign[4];  //ANMF
-        UINT32 csize;
-        UINT32 calign;
-        UINT32 cskip;
-
-        struct
-        {
-            UINT32 _0;
-            FLOAT  ul_u;
-            FLOAT  ul_v;
-            FLOAT  lr_u;
-            FLOAT  lr_v;
-            UINT16 _1;
-            UINT16 px_w;
-            UINT16 px_h;
-            UINT16 _4;
-            UINT32 _5;
-            UINT32 _6;
-            UINT32 _7;
-        } char_mapping[fnth.char_count] <optimize=true>;
-    } anmf;
-
-
-    struct
-    {
-        ALIGN(4);
-
-        CHAR   csign[4];  //TRN2
-        UINT32 csize;
-        UINT32 calign;
-        UINT32  cskip;
-
-        WSTRING  charset[fnth.char_count];
-    } trn2;
-
-
-    struct
-    {
-        ALIGN(4);
-
-        CHAR   csign[4];  //TEXH
-        UINT32 csize;
-        UINT32 calign;
-        UINT32 cskip;
-
-        UINT16 _0;
-        UINT32 _1;
-        UINT32 _2;
-        UINT32 _3;
-        UINT16 _img_width;
-        UINT16 _img_heigth;
-        UINT16 img_width;
-        UINT16 img_heigth;
-        UINT16 pixel_width;
-    } texh;
-
-
-    struct
-    {
-        ALIGN(4);
-
-        CHAR   csign[4];  //BODY
-        UINT32 csize;
-        UINT32 calign;
-        UINT32 cskip;
-
-        RGBA_8888 pixel[texh.img_width * 1 * texh.img_heigth] <optimize=true>;
-    } body;
-} fnt;
-
-
-Assert(FEof());
+Assert(FEof(), "Parsing error: expected end of file");

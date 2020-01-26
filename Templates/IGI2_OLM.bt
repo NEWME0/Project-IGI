@@ -12,19 +12,18 @@
 //------------------------------------------------
 
 
+#include "common/DATETIME.bt";
+
+
+LittleEndian();
+
+
 struct
 {
-    LittleEndian();
     UINT32 _00;
     UINT32 _01;
 
-    UINT32 _year;
-    UINT32 _moon;
-    UINT32 _day;
-    UINT32 _hour;
-    UINT32 _minute;
-    UINT32 _second;
-    UINT32 _milisecond;
+    DATETIME datetime;
 
     UINT32 _09;
     UINT32 _10;

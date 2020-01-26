@@ -12,7 +12,13 @@
 //------------------------------------------------
 
 
+LittleEndian();
+
+
 struct
 {
 	FLOAT unk[FileSize() / 4];
 } igi2_syn;
+
+
+Assert(FEof(), "Parsing error: expected end of file");

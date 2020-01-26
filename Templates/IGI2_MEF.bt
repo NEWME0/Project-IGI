@@ -13,23 +13,17 @@
 
 
 #include "COMMON/ILFF.bt";
-#include "COMMON/ALIGN.bt";
+#include "COMMON/ALIGNMENT.bt";
 #include "COMMON/STRINGS.bt";
-#include "COMMON/FVECTORS.bt";
+#include "COMMON/VECTORS.bt";
 #include "COMMON/DATETIME.bt";
-#include "COMMON/TOOLS.bt";
 
-
-struct HBONE;
-
-
-void Padding(){
-    if(header.block_size > 0)
-        BYTE padding[header.block_size - header.data_size - 16] <hidden=true>;
-}
 
 
 LittleEndian();
+
+
+struct HBONE;
 
 
 enum <UINT32> MODELTYPE
@@ -692,7 +686,6 @@ struct
 
 
 Assert(FEof(), "Parsing error: expected end of file");
-
 
 
 string Read_HBONE(HBONE &o)

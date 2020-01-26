@@ -2,6 +2,9 @@
 #define STRINGS_H
 
 
+typedef wchar_t WCHAR;
+
+
 struct CSTRING;
 struct WSTRING;
 struct BSTRING;

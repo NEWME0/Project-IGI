@@ -12,13 +12,17 @@
 //------------------------------------------------
 
 
-#include "common/USTRING.bt";
+#include "common/STRINGS.bt";
 
 
-UINT32 sign;  // CC DD EE FF
+// node = 8 expressions
+// link = 3 expressions
 
 
-struct FLOAT6
+LittleEndian();
+
+
+typedef struct FLOAT6
 {
 	UINT32 a1; // <format=binary>
 	FLOAT  a2;
@@ -31,8 +35,8 @@ struct FLOAT6
 
 typedef struct
 {
-	UINT32 addrid;
-	switch(addrid)
+	UINT32 codeid;
+	switch(codeid)
 	{
 		case 0x0D3AE604: break;   // FL1
 		case 0x0735CE04: break;   // NODE_ID
@@ -46,7 +50,7 @@ typedef struct
 		case 0x09104A04: break;   // LINK_A
 		case 0x0918F604: break;   // LINK_B
 		case 0x0DA92304: break;   // LINK_1
-		default: Assert(false, "UNKNOWN ADDRID");
+		default: Assert(false, "UNKNOWN CODEID");
 	}
 
 
@@ -56,31 +60,42 @@ typedef struct
 		case 0x05050000: UINT32  value; break;
 		case 0x06060000: FLOAT   value; break;
 		case 0x08080000: FLOAT6  value; break;
-		case 0x09090000: USTRING value; break;
+		case 0x09090000: BSTRING value; break;
 		default: Assert(false, "UNKNOWN TYPEID");
 	}
-} EXPRESSION <read=READ_EXPRESSION>;
+} EXPRESSION <read=Read_EXPRESSION>;
 
 
-
-string READ_EXPRESSION(EXPRESSION &o)
+struct
 {
-	local string addrid_string;
+	UINT32 signature;  // CC DD EE FF
 
-	switch(o.addrid)
+	while(FTell() < FileSize())
+		EXPRESSION expression;
+} igi2_graph;
+
+
+Assert(FEof(), "Parsing error: expected end of file");
+
+
+string Read_EXPRESSION(EXPRESSION &o)
+{
+	local string codeid_string;
+
+	switch(o.codeid)
 	{
-		case 0x0D3AE604: addrid_string = "FL1"; break;
-		case 0x0735CE04: addrid_string = "ND1"; break;
-		case 0x1D429504: addrid_string = "ND2"; break;
-		case 0x0F7E9C04: addrid_string = "ND3"; break;
-		case 0x14302304: addrid_string = "ND4"; break;
-		case 0x1BB62904: addrid_string = "ND5"; break;
-		case 0x2654DE04: addrid_string = "ND6"; break;
-		case 0x214E0004: addrid_string = "ND7"; break;
-		case 0x1BD3E504: addrid_string = "ND8"; break;
-		case 0x09104A04: addrid_string = "LK1"; break;
-		case 0x0918F604: addrid_string = "LK2"; break;
-		case 0x0DA92304: addrid_string = "LK3"; break;
+		case 0x0D3AE604: codeid_string = "FL1"; break;
+		case 0x0735CE04: codeid_string = "ND1"; break;
+		case 0x1D429504: codeid_string = "ND2"; break;
+		case 0x0F7E9C04: codeid_string = "ND3"; break;
+		case 0x14302304: codeid_string = "ND4"; break;
+		case 0x1BB62904: codeid_string = "ND5"; break;
+		case 0x2654DE04: codeid_string = "ND6"; break;
+		case 0x214E0004: codeid_string = "ND7"; break;
+		case 0x1BD3E504: codeid_string = "ND8"; break;
+		case 0x09104A04: codeid_string = "LK1"; break;
+		case 0x0918F604: codeid_string = "LK2"; break;
+		case 0x0DA92304: codeid_string = "LK3"; break;
 		default: Assert(false);
 	}
 
@@ -97,16 +112,7 @@ string READ_EXPRESSION(EXPRESSION &o)
 
 	local string s;
 
-	SPrintf(s, "%s   %s", addrid_string, typeid_string);
+	SPrintf(s, "%s   %s", codeid_string, typeid_string);
 
 	return s;
 }
-
-
-while(FTell() < FileSize())
-	EXPRESSION ex;
-
-
-
-// node = 8 expressions
-// link = 3 expressions
