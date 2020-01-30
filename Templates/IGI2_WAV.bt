@@ -17,12 +17,12 @@ LittleEndian();
 
 struct
 {
-    CHAR   signature[4];                              // ILSF
-    UINT16 _0;                                        // 1
-    UINT16 sample_width;                              // 16
-    UINT16 channel_count;                             // {1, 2}
-    UINT16 _1;                                        // {0, 4097}
-    UINT32 sample_rate;                               // {11025, 22050, 44100}
+    CHAR   fourcc[4];       // ILSF
+    UINT16 _0;              // 1
+    UINT16 sample_width;    // 16
+    UINT16 channel_count;   // {1, 2}
+    UINT16 _1;              // {0, 4097}
+    UINT32 sample_rate;     // {11025, 22050, 44100}
     UINT32 sample_count;
     UINT16 sample_data[chanell_count * sample_count];
 } igi2_wav;
