@@ -96,9 +96,8 @@ def load_render_mesh(reader):
     return [meshobject]
 
 
-def load_colide_mesh(reader):
-    pass
-    pass
+def load_collision_mesh(reader):
+    NotImplemented
 
 
 def load_shadow_mesh(reader):

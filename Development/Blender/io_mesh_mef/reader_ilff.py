@@ -74,18 +74,6 @@ class ILFFReader:
         # check if nothing remained
         assert not self._stream.read(), "parsing failed"
 
-    @staticmethod
-    def open(source):
-        if isinstance(source, str):
-            # is path
-            return ILFFReader(builtins.open(source, 'rb'))
-
-        if isinstance(source, io.BytesIO):
-            # is binary stream
-            return ILFFReader(source)
-
-        raise ValueError("source expected str or BytesIO")
-
     def close(self):
         self._stream.close()
 
@@ -138,5 +126,10 @@ class ILFFReader:
                 return ChunkInfo(item)
 
 
-def open(source, mode=None):
-    return ILFFReader.open(source)
+def open(file, mode=None):
+    if isinstance(file, str):
+        return ILFFReader(builtins.open(file, 'rb'))
+    elif isinstance(file, io.BytesIO):
+        return ILFFReader(file)
+    else:
+        raise ValueError("file expected str or BytesIO")
