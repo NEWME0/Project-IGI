@@ -109,7 +109,7 @@ typedef struct MANB
 {
     ILFF_HEADER header;
 
-    FSTRING bone_name(16)[header.data_size / 16];
+    FSTRING bone_name(16)[header.datasize / 16];
 
     Padding();
 };
@@ -138,7 +138,7 @@ typedef struct ATTA
         FLOAT _8;  // [-1.0 .. 1.0], 93
         int   _9;  // {0, 2880154539}
         int   _10;  // {0, 4, -1, 15}
-    } attachment[header.data_size / 72];
+    } attachment[header.datasize / 72];
 
     Padding();
 };
@@ -156,7 +156,7 @@ typedef struct XTVM
         FLOAT py;
         FLOAT pz;
         INT32 _0;  // {0, -1}
-    } vertex[header.data_size / 16];
+    } vertex[header.datasize / 16];
 
     Padding();
 };
@@ -175,7 +175,7 @@ typedef struct TROP
         UINT32 o_face;
         UINT32 n_face;
         UINT32 id;
-    } portal[header.data_size / 20];
+    } portal[header.datasize / 20];
 
     Padding();
 };
@@ -190,7 +190,7 @@ typedef struct XVTP
         FLOAT px;
         FLOAT py;
         FLOAT pz;
-    } vertex[header.data_size / 12];
+    } vertex[header.datasize / 12];
 
     Padding();
 };
@@ -205,7 +205,7 @@ typedef struct CFTP
         UINT32 a;
         UINT32 b;
         UINT32 c;
-    } face[header.data_size / 12];
+    } face[header.datasize / 12];
 
     Padding();
 };
@@ -227,7 +227,7 @@ typedef struct WOLG
         FLOAT  _2;  // (0.0 - 1.0)
         FLOAT  _3;  // (0.0 - 1.0)
         BYTE   reserved[4];
-    } glow[header.data_size / 32];
+    } glow[header.datasize / 32];
 
     Padding();
 };
@@ -239,7 +239,7 @@ typedef struct D3DR
 {
     ILFF_HEADER header;
 
-    switch(header.data_size)
+    switch(header.datasize)
     {
         case 36:
             UINT32 _0;         // 4
@@ -304,7 +304,7 @@ typedef struct DNER
 {
     ILFF_HEADER header;
 
-    switch(parentof(this).d3dr.header.data_size)
+    switch(parentof(this).d3dr.header.datasize)
     {
         case 36:
         case 40:
@@ -408,7 +408,7 @@ typedef struct PMTL
         UINT16 _1;  // {1 - 904}
         UINT16 _2;  // 0
         UINT16 _3;  // 0
-    } unk[header.data_size / 8];
+    } unk[header.datasize / 8];
 
     Padding();
 };
@@ -452,7 +452,7 @@ typedef struct XTVC
         FLOAT z;
         FLOAT _0;  // (-0.055376388 - 0.9995117)
         FLOAT _1;  // (-17044.03 - 228048.89)
-    } vertex[header.data_size / 20];
+    } vertex[header.datasize / 20];
 
     Padding();
 };
@@ -470,7 +470,7 @@ typedef struct ECFC
         UINT16 _0;
         UINT16 _1;
         UINT16 _2;
-    } face[header.data_size / 12];
+    } face[header.datasize / 12];
 
     Padding();
 };
@@ -490,7 +490,7 @@ typedef struct TAMC
         INT16 _5;
         INT16 _6;
         INT16 _7;
-    } unk[header.data_size / 16];
+    } unk[header.datasize / 16];
 
     Padding();
 };
@@ -510,7 +510,7 @@ typedef struct HPSC
         INT16 _5;  //  {0, 1}
         INT16 _6;  //  0          29588      23207
         INT16 _7;  //  0          29586      21872
-    } unk [header.data_size / 24];
+    } unk [header.datasize / 24];
 
     Padding();
 };
@@ -600,7 +600,7 @@ typedef struct SEMS
         INT32 n_vertex;
         INT32 n_edge;
         INT32 _0;           // {-1}
-    } shadowmesh[header.data_size / 28];
+    } shadowmesh[header.datasize / 28];
 
     Padding();
 };
@@ -615,7 +615,7 @@ typedef struct XTVS
         FLOAT px;
         FLOAT py;
         FLOAT pz;
-    } vertex[header.data_size / 12];
+    } vertex[header.datasize / 12];
 
     Padding();
 };
@@ -634,7 +634,7 @@ typedef struct CAFS
         FLOAT  x;
         FLOAT  y;
         FLOAT  z;
-    } face[header.data_size / 28];
+    } face[header.datasize / 28];
 
     Padding();
 };
@@ -648,7 +648,7 @@ typedef struct EGDE
     {
         UINT32 a;
         UINT32 b;
-    } edge[header.data_size / 8];
+    } edge[header.datasize / 8];
 
     Padding();
 };
@@ -658,7 +658,7 @@ typedef struct EGDE
 struct
 {
     ILFF_HEADER header;
-    CHAR signature[4];  // OCEM
+    CHAR formatid[4];  // OCEM
 
     while(FTell() < FileSize())
     {

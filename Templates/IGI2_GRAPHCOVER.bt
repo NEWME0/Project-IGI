@@ -78,7 +78,7 @@ typedef struct AICH
 struct
 {
 	ILFF_HEADER header;
-	CHAR signature[4];
+	CHAR formatid[4]; // AICC
 
 	AICH aich;
 

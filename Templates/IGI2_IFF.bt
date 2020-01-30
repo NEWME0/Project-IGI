@@ -80,7 +80,7 @@ typedef struct TNVE
 {
     ILFF_HEADER header;
 
-    FLOAT _0[header.data_size / 4];
+    FLOAT _0[header.datasize / 4];
 
     Padding();
 };
@@ -90,7 +90,7 @@ typedef struct ATTA
 {
     ILFF_HEADER header;
 
-    ATTACHMENT attachment[header.data_size / 80];
+    ATTACHMENT attachment[header.datasize / 80];
 
     Padding();
 };
@@ -98,7 +98,7 @@ typedef struct ATTA
 
 struct {
     ILFF_HEADER header;
-    CHAR signature[4]; // MINA
+    CHAR formatid[4]; // MINA
 
     DHNA dhna;
     REIH reih;

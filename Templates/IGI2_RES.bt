@@ -23,7 +23,7 @@ typedef struct NAME
 {
     ILFF_HEADER header;
 
-    BYTE data[header.data_size];
+    BYTE data[header.datasize];
 
     Padding();
 };
@@ -33,7 +33,7 @@ typedef struct BODY
 {
     ILFF_HEADER header;
 
-    BYTE data[header.data_size];
+    BYTE data[header.datasize];
 
     Padding();
 };
@@ -43,7 +43,7 @@ typedef struct CSTR
 {
     ILFF_HEADER header;
 
-    BYTE data[header.data_size];
+    BYTE data[header.datasize];
 
     Padding();
 };
@@ -53,7 +53,7 @@ typedef struct PATH
 {
     ILFF_HEADER header;
 
-    BYTE data[header.data_size];
+    BYTE data[header.datasize];
 
     Padding();
 };
@@ -62,7 +62,7 @@ typedef struct PATH
 struct
 {
     ILFF_HEADER header;
-    CHAR signature[4];   // IRES
+    CHAR formatid[4];   // IRES
 
 
     while(FTell() < FileSize())

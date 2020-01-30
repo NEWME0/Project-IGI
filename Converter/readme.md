@@ -126,134 +126,122 @@ GConv
 Описание функций
 ----------------
 
-CompileScript()
-CompileScriptsRecursive()
-MakeTexture()
-
-UseVQdll
-ForceVQ
-BumpHeight
-AutoVQ
-TempPath
-InputPath
-OutputPath
-
-RemapImage
-LoadPalette
-EndPalette
-AddPaletteImage
-BeginPalette
-ReduceColours
-WritePalette
-CheckPalette
-GfxImage_CreateAlphaChannel
-LoadImage
-
-NewFont
-Font
-GfxImage_CreateEmpty
-WriteHSIRaw
-SetRawFileSize
-TransparencySource
-gcCopyGrabImage
-CreateAnim
-GrabImage
-
-WriteROMPalette
-MakeCLUT
-gcTest
-LoadScript
-Exec
-MakeTGARecursive
-MakeTGA
-MakeSprite
-MakePalette
-FlipTileCheck
-EqualTileCheck
-SemiTransparency
-Debug
-AutoMipMap
-
-ErrorLevel
-Verbosity
-TextureScaleFactor
-UpToDateCheck
-IncludePalette
-HalfSize
-Transparency
-Dither
-TransparentColour
-ConversionMode
-OutputMode
-Dreamcast
-PC_Software
-PC_Glide
-Bumpmap
-Intensity8
-ARGB8888
-ARGB32
-RGB565
-ARGB4444
-ARGB1555
-ARGB16
-RGB16
-Palette4
-Palette8
-
-CreateROMAnim
-EndAnim
-MakeAnim
-AddAnimFrame
-BeginSwappedAnim
-BeginAnim
-NewAnim
-BeginAnim
-BeginSwappedAnim
-AddAnimFrame
-EndAnim
-
-FontAutoScan
-SetCharSpacing
-AdjustCharPosition
-AdjustCharSpacing
-SetCharParts
-SetFontTable
-MakeFont
-DumpFont
-FIXEDSIZE
-PROPORTIONAL
-FontTileHeight
-FontTileWidth
-FontWhiteSpace
-VerticalFontSpacing
-FontSpacing
-FontType
-MakeFont
-
-Fixedsize
-Proportional
-
-DumpFont
-MakeOutline
-SetTileSize
-MakePicture
-MakeTexture
-gcSetTextureFormat
-gcSetOutputMode
-TGA_Load
-gcReadTGA
-gcWriteTGA
-
-Script_SetSymbolContext
-BreakScript
-
-SCRIPT_WARNINGLEVEL_HIGH
-SCRIPT_WARNINGLEVEL_NORMAL
-SCRIPT_WARNINGLEVEL_NO_WARNINGS
-FALSE
-TRUE
-
-Resource_GetFilenameByPointer
-Resource_GetOriginalFilename
-Mem_Alloc
-BeginResource
+- CompileScript()
+- CompileScriptsRecursive()
+- MakeTexture()
+- UseVQdll
+- ForceVQ
+- BumpHeight
+- AutoVQ
+- TempPath
+- InputPath
+- OutputPath
+- RemapImage
+- LoadPalette
+- EndPalette
+- AddPaletteImage
+- BeginPalette
+- ReduceColours
+- WritePalette
+- CheckPalette
+- GfxImage_CreateAlphaChannel
+- LoadImage
+- NewFont
+- Font
+- GfxImage_CreateEmpty
+- WriteHSIRaw
+- SetRawFileSize
+- TransparencySource
+- gcCopyGrabImage
+- CreateAnim
+- GrabImage
+- WriteROMPalette
+- MakeCLUT
+- gcTest
+- LoadScript
+- Exec
+- MakeTGARecursive
+- MakeTGA
+- MakeSprite
+- MakePalette
+- FlipTileCheck
+- EqualTileCheck
+- SemiTransparency
+- Debug
+- AutoMipMap
+- ErrorLevel
+- Verbosity
+- TextureScaleFactor
+- UpToDateCheck
+- IncludePalette
+- HalfSize
+- Transparency
+- Dither
+- TransparentColour
+- ConversionMode
+- OutputMode
+- Dreamcast
+- PC_Software
+- PC_Glide
+- Bumpmap
+- Intensity8
+- ARGB8888
+- ARGB32
+- RGB565
+- ARGB4444
+- ARGB1555
+- ARGB16
+- RGB16
+- Palette4
+- Palette8
+- CreateROMAnim
+- EndAnim
+- MakeAnim
+- AddAnimFrame
+- BeginSwappedAnim
+- BeginAnim
+- NewAnim
+- BeginAnim
+- BeginSwappedAnim
+- AddAnimFrame
+- EndAnim
+- FontAutoScan
+- SetCharSpacing
+- AdjustCharPosition
+- AdjustCharSpacing
+- SetCharParts
+- SetFontTable
+- MakeFont
+- DumpFont
+- FIXEDSIZE
+- PROPORTIONAL
+- FontTileHeight
+- FontTileWidth
+- FontWhiteSpace
+- VerticalFontSpacing
+- FontSpacing
+- FontType
+- MakeFont
+- Fixedsize
+- Proportional
+- DumpFont
+- MakeOutline
+- SetTileSize
+- MakePicture
+- MakeTexture
+- gcSetTextureFormat
+- gcSetOutputMode
+- TGA_Load
+- gcReadTGA
+- gcWriteTGA
+- Script_SetSymbolContext
+- BreakScript
+- SCRIPT_WARNINGLEVEL_HIGH
+- SCRIPT_WARNINGLEVEL_NORMAL
+- SCRIPT_WARNINGLEVEL_NO_WARNINGS
+- FALSE
+- TRUE
+- Resource_GetFilenameByPointer
+- Resource_GetOriginalFilename
+- Mem_Alloc
+- BeginResource

@@ -12,8 +12,8 @@ void Align(UINT32 modulus)
 void Padding(){
 	local UINT32 padding_length = 0;
 
-	if(header.block_size > 0)
-		padding_length = header.block_size - header.data_size - 16;
+	if(header.chunksize > 0)
+		padding_length = header.chunksize - 16 - header.datasize;
 
 	if(padding_length > 0)
 		BYTE padding[padding_length] <hidden=true>;

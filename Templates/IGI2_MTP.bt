@@ -34,7 +34,7 @@ typedef struct SNDS
 	FORM_HEADER header;
 
 	LittleEndian();
-	BYTE data[header.data_size];
+	BYTE data[header.datasize];
 
 	Align(4);
 };
@@ -82,7 +82,7 @@ typedef struct INST
 	FORM_HEADER header;
 
 	LittleEndian();
-	UINT32 unk[header.data_size / 4];
+	UINT32 unk[header.datasize / 4];
 
 	Align(4);
 };
@@ -105,7 +105,7 @@ typedef struct PALF
 	FORM_HEADER header;
 
 	LittleEndian();
-	BYTE data[header.data_size];
+	BYTE data[header.datasize];
 
 	Align(4);
 };
@@ -130,7 +130,7 @@ typedef struct GTT
 struct
 {
 	FORM_HEADER header;
-	CHAR signature[4];  // MTP 
+	CHAR formatid[4];  // MTP 
 
 	BANM banm;
 	SNDS snds;

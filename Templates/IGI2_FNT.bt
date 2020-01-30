@@ -100,7 +100,7 @@ typedef struct BODY
 struct
 {
     ILFF_HEADER header;
-    CHAR signature[4];  //FONT
+    CHAR formatid[4];  //FONT
 
     FNTH fnth;
     ANMF anmf;

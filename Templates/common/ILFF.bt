@@ -4,10 +4,10 @@
 
 typedef struct ILFF_HEADER
 {
-	CHAR   signature[4];
-	UINT32 data_size;
+	CHAR   fourcc[4];  // ILFF
+	UINT32 datasize;
 	UINT32 alignement;
-	UINT32 block_size;
+	UINT32 chunksize;
 };
 
 
