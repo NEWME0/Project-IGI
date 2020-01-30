@@ -593,12 +593,12 @@ typedef struct SEMS
 
     struct
     {
-        INT32 face_offset;
-        INT32 vertex_offset;
-        INT32 edge_offset;
+        INT32 o_face;
+        INT32 o_vertex;
+        INT32 o_edge;
         INT32 n_face;
         INT32 n_vertex;
-        INT32 edge_count;
+        INT32 n_edge;
         INT32 _0;           // {-1}
     } shadowmesh[header.data_size / 28];
 
@@ -612,9 +612,9 @@ typedef struct XTVS
 
     struct
     {
-        FLOAT x;
-        FLOAT y;
-        FLOAT z;
+        FLOAT px;
+        FLOAT py;
+        FLOAT pz;
     } vertex[header.data_size / 12];
 
     Padding();
