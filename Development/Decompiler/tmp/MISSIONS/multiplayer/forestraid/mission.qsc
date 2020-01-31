@@ -1,1 +1,0 @@
-DefineMission(2, "M", "U", "L", "T", "Forestraid", "Mission 02 Desc", "", "missions/multiplayer/forestraid", "missions/multiplayer/common", "missions/multiplayer/forestraid", "multiplayer", "forestraid", "forestraid.spr");

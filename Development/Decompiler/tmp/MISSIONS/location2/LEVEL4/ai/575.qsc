@@ -1,9 +1,0 @@
-AIFunction_GetCurrentEventTypeAIFunction_DefaultHandler();
-AIFunction_SetIdleViewCone1Length(0);
-AIFunction_SetIdleViewCone2Length(0);
-AIFunction_SetCombatViewCone1Length(0);
-AIFunction_SetCombatViewCone2Length(0);
-AIFunction_SetInvestigateViewCone1Length(0);
-AIFunction_SetInvestigateViewCone2Length(0);
-AIFunction_SetInvulnerability(TRUE);
-AIFunction_SetStandActionAnimation("jones_at_ease_looking_left");

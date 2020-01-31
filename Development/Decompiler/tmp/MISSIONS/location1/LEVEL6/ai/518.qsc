@@ -1,4 +1,0 @@
-AIFunction_GetCurrentEventTypeAIFunction_DefaultHandler();
-AIFunction_SetIdleViewCone1Length(100);
-AIFunction_SetCombatViewCone1Length(100);
-AIFunction_SetInvestigateViewCone1Length(100);

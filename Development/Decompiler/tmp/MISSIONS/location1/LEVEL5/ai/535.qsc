@@ -1,3 +1,0 @@
-AIFunction_GetCurrentEventTypeAIFunction_DefaultHandler();
-AIFunction_SetCombatViewCone1Alpha(15);
-AIFunction_SetCombatViewCone1Length(100);

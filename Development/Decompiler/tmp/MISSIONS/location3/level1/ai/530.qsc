@@ -1,3 +1,0 @@
-AIFunction_GetCurrentEventTypeAIFunction_DefaultHandler();
-AIFunction_GetCurrentEventTypeAIAction_WalkToNode(87, AIACTIONFLAG_PUSHABLE);
-AIAction_LookAtNode(127, AIACTIONFLAG_PUSHABLE);

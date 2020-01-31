@@ -1,3 +1,0 @@
-AIFunction_GetCurrentEventTypeAIFunction_DefaultHandler();
-AIFunction_GetCurrentEventTypeAIAction_Patrol(600, 0, 0);
-AIFunction_PassEventOnToSquad();

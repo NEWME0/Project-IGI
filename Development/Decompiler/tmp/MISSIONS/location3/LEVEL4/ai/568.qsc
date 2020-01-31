@@ -1,5 +1,0 @@
-AIFunction_GetCurrentEventTypeAIFunction_DefaultHandler();
-AIFunction_SetMinRangeAccuracy(100);
-AIFunction_SetMaxRangeAccuracy(15);
-AIFunction_SetAccuracyMaxRange(70);
-AIFunction_SetIdleViewCone1Length(0);

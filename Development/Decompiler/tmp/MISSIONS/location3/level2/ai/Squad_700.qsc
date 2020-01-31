@@ -1,2 +1,0 @@
-AISquad_GetStateAISquad_GetEventAISquad_SwitchState(AISquadState_HoldArea);
-AISquad_ManStationaryGun();

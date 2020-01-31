@@ -1,1 +1,0 @@
-AISquad_GetStateAISquad_GetEventAIEVENT_GUNSHOT == ()AIEVENT_FRIENDLY_GUNSHOT == () || AISquad_GetEventAIEVENT_DEATH_CRY == () || AISquad_GetEventAIEVENT_WOUNDED_CRY == () || AISquad_GetEventAIEVENT_TAKINGDAMAGE == () || AISquad_GetEventAIEVENT_GUNSHOTMISS == () || AISquad_GetEventAISquad_SwitchState(AISquadState_HoldArea);

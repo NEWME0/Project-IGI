@@ -1,2 +1,0 @@
-Task_DeclareParameters("MagicObjConfigContainer");
-Task_New(-1, "MagicObjConfigContainer", "editormagicobjconfig.qsc");

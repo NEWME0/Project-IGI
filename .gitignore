@@ -3,5 +3,5 @@ Resources/
 Media/
 Converter/lib/*/output
 Editor/igi2-editor
-Development/QVMDecompiler/tmp
-Development/WAVConverter/tmp
+Development/QVMDecompiler/tmp/*
+Development/WAVConverter/tmp/*

@@ -1,2 +1,0 @@
-AISquad_GetStateAISquadState_Idle == ()AISquad_ManStationaryGun();
-AISquad_SwitchState(AISquadState_HoldArea);

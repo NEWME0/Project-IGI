@@ -1,9 +1,0 @@
-DefineGroup("INGAME", 
-	DefineSound("amb_nature", "amb_nature", 0, 0, 0, 0.699999988079071, 1, 10.0, -1, -1, -1, -1, TRUE), 
-	DefineSound("waterfall", "waterfall", 0, 0, 0, 1, 16.0, 170.0, -1, -1, -1, -1, TRUE), 
-	DefineSound("b01", "bird_ex_01", 0, 0, 0, 0.699999988079071, 20.0, 400.0, -1, -1, -1, -1, FALSE), 
-	DefineSound("b02", "bird_ex_02", 0, 0, 0, 0.699999988079071, 20.0, 400.0, -1, -1, -1, -1, FALSE), 
-	DefineSound("b03", "bird_ex_03", 0, 0, 0, 0.699999988079071, 20.0, 400.0, -1, -1, -1, -1, FALSE), 
-	DefineSound("b04", "bird_ex_04", 0, 0, 0, 0.699999988079071, 20.0, 400.0, -1, -1, -1, -1, FALSE), 
-	DefineSound("river", "river", 0, 0, 0, 0.6200000047683716, 16.0, 170.0, -1, -1, -1, -1, TRUE), 
-	DefineSound("inside", "inside", 0, 0, 0, 0.699999988079071, 16.0, 170.0, -1, -1, -1, -1, TRUE));

@@ -1,2 +1,0 @@
-HumanAI_nEvent() = AIFunction_GetCurrentEventType;
-AIAction_CombatIdle(AIACTIONFLAG_NONE);
