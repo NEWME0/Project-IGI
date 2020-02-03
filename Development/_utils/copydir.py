@@ -3,14 +3,14 @@ import shutil
 import fnmatch
 
 
-def cpdir(srcdir, dstdir, pattern='*'):
-	for root, dirs, files in os.walk(srcdir):
+def copydir(srcpath, dstpath, pattern='*'):
+	for root, dirs, files in os.walk(srcpath):
 		for fn in files:
 			if not fnmatch.fnmatch(fn, pattern):
 				continue
 
 			srcpath = os.path.join(root, fn)
-			dstpath = srcpath.replace(srcdir, dstdir)
+			dstpath = srcpath.replace(srcpath, dstpath)
 
 			dirs = os.path.dirname(dstpath)
 
