@@ -1,10 +1,11 @@
-from dataclasses import dataclass
-from typing import Any
-from struct import unpack, calcsize
-from array import array
+import builtins
+import array
+import struct
 from io import BytesIO
+from typing import Any
+from dataclasses import dataclass
 
-from lib.opcode import OP_NAME, OP_UNSUPORTED, OP_PUSH_FMT, OP_JUMP_RELATIVE, CALL
+from .ctable import OP_NAME, OP_UNSUPORTED, OP_PUSH_FMT, OP_JUMP_RELATIVE, CALL
 
 
 @dataclass
@@ -15,10 +16,10 @@ class Opcode:
 	address: int
 
 	@staticmethod
-	def parse(stream):
-		address = stream.tell()
+	def parse(file):
+		address = file.tell()
 		data = None
-		code = stream.read(1)
+		code = file.read(1)
 
 		if not code in OP_NAME:
 			raise ValueError()
@@ -29,100 +30,94 @@ class Opcode:
 		if code in OP_PUSH_FMT:
 			fmt = OP_PUSH_FMT[code]
 			size = calcsize(fmt)
-			data = unpack(fmt, stream.read(size))[0]
+			data = unpack(fmt, file.read(size))[0]
 
 		elif code in OP_JUMP_RELATIVE:
-			data = unpack('i', stream.read(4))[0]
+			data = unpack('i', file.read(4))[0]
 
 		elif code == CALL:
-			count = unpack('I', stream.read(4))[0]
-			data = [unpack('i', stream.read(4))[0] for i in range(count)]
+			count = unpack('I', file.read(4))[0]
+			data = [unpack('i', file.read(4))[0] for i in range(count)]
 
-		lenght = stream.tell() - address
+		lenght = file.tell() - address
 
 		return Opcode(code, data, lenght, address)
 
 
-@dataclass
-class QVMHeader:
-	signature: str
-	version_major: int
-	version_minor: int
-	start_symbols_addresses: int
-	start_symbols_values: int
-	size_symbols_addresses: int
-	size_symbols_values: int
-	start_strings_addresses: int
-	start_strings_values: int
-	size_strings_addresses: int
-	size_strings_values: int
-	start_opcodes: int
-	size_opcodes: int
-	unk_2: int
-	unk_3: int
-	start_tail: int
-
-	@classmethod
-	def parse(cls, stream):
-		return cls(*unpack('4s15I', stream.read(64)))
-
-
-@dataclass
 class QVM:
-	header: QVMHeader
-	symbols_addresses: list
-	symbols_values: list
-	strings_addresses: list
-	strings_values: list
-	opcodes: bytes
+	signature: str
+	ver_major: int
+	ver_minor: int
+	of_itable: int
+	of_ivalue: int
+	sz_itable: int
+	sz_ivalue: int
+	of_stable: int
+	of_svalue: int
+	sz_stable: int
+	sz_svalue: int
+	of_ctable: int
+	sz_ctable: int
+	unknown_2: int
+	unknown_3: int
+	of_tail: int
+
+	itable: list
+	ivalue: list
+	stable: list
+	svalue: list
+	ctable: list
 	tail: bytes
 
-	@classmethod
-	def parse(cls, stream):
-		h = header = QVMHeader.parse(stream)
-
-		assert stream.tell() == h.start_symbols_addresses
-		symadr = array('I')
-		symadr.frombytes(stream.read(h.size_symbols_addresses))
-
-
-		assert stream.tell() == h.start_symbols_values
-		symval = stream.read(h.size_symbols_values).split(b'\x00')[:-1]
-		symval = [s.decode('utf-8') for s in symval]
-		symval = [s.replace('\n', '\\n') for s in symval]
-		symval = [s.replace('\"', '\\"') for s in symval]
-
-
-		assert stream.tell() == h.start_strings_addresses
-		stradr = array('I')
-		stradr.frombytes(stream.read(h.size_strings_addresses))
-
-
-		assert stream.tell() == h.start_strings_values
-		strval = stream.read(h.size_strings_values).split(b'\x00')[:-1]
-		strval = [s.decode('utf-8') for s in strval]
-		strval = [s.replace('\n', '\\n') for s in strval]
-		strval = [s.replace('\"', '\\"') for s in strval]
+	def from_file(self, file):
+		(
+			self.signature,
+			self.ver_major,
+			self.ver_minor,
+			self.of_itable,
+			self.of_ivalue,
+			self.sz_itable,
+			self.sz_ivalue,
+			self.of_stable,
+			self.of_svalue,
+			self.sz_stable,
+			self.sz_svalue,
+			self.of_ctable,
+			self.sz_ctable,
+			self.unknown_2,
+			self.unknown_3,
+			self.of_tail,
+		) = struct.unpack('4s15I', file.read(64))
 
 
-		assert stream.tell() == h.start_opcodes
-		opcodes = stream.read(h.size_opcodes)
+		self.itable = array.array('I')
+		self.itable.frombytes(file.read(self.sz_itable))
 
-		with BytesIO(opcodes) as opstream:
-			lenght = len(opcodes)
-			opcodes = list()
+		self.ivalue = file.read(self.sz_ivalue).split(b'\x00')[:-1]
+		self.ivalue = [s.decode('utf-8') for s in self.ivalue]
+		self.ivalue = [s.replace('\n', '\\n') for s in self.ivalue]
+		self.ivalue = [s.replace('\"', '\\"') for s in self.ivalue]
 
-			while opstream.tell() < lenght:
-				opcodes.append(Opcode.parse(opstream))
+		self.stable = array.array('I')
+		self.stable.frombytes(file.read(self.sz_stable))
+
+		self.svalue = file.read(self.sz_svalue).split(b'\x00')[:-1]
+		self.svalue = [s.decode('utf-8') for s in self.svalue]
+		self.svalue = [s.replace('\n', '\\n') for s in self.svalue]
+		self.svalue = [s.replace('\"', '\\"') for s in self.svalue]
+
+		self.ctable = list()
+
+		with BytesIO(file.read(self.sz_ctable)) as opfile:
+			lenght = len(ctable)
+
+			while opfile.tell() < lenght:
+				ctable.append(Opcode.parse(opfile))
 
 
-		assert stream.tell() == h.start_tail or h.start_tail == 0
-		tail = stream.read()
+		self.tail = file.read()
 
 
-		return QVM(header, symadr, symval, stradr, strval, opcodes, tail)
-
-
-def parse_file(srcpath):
-	with open(srcpath, 'rb') as stream:
-		return QVM.parse(stream)
+def open(srcpath, mode=None):
+	with builtins.open(srcpath, 'rb') as srcfile:
+		return QVM().from_file(srcfile)

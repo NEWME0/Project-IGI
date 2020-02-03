@@ -2,13 +2,8 @@ import os
 import argparse
 import fnmatch
 
-
-def _disassamble(srcfile, dstfile):
-	print(dstfile)
-
-
-def _decompile(srcfile, dstfile):
-	print(dstfile)
+import disassambler
+import decompiler
 
 
 def listdir(srcpath, pattern='*'):
@@ -31,10 +26,10 @@ def main():
 	subparsers.require = True
 
 	dis_parser = subparsers.add_parser('disassamble', help='Disassamble qvm files')
-	dis_parser.set_defaults(func=_disassamble, ext='.asm')
+	dis_parser.set_defaults(func=disassambler.disasamble, ext='.asm')
 
 	dec_parser = subparsers.add_parser('decompile', help='Decompile qvm files')
-	dec_parser.set_defaults(func=_decompile, ext='.qsc')
+	dec_parser.set_defaults(func=decompiler.decompile, ext='.qsc')
 
 	for subparser in (dis_parser, dec_parser):
 		subparser.add_argument('src', help='Input path')
