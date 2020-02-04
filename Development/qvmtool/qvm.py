@@ -1,75 +1,112 @@
-import builtins
+""" Stuf for parsing "IGI 2: Covert Strike" qvm files. """
+
+
 import array
 import struct
-from io import BytesIO
-from typing import Any
-from dataclasses import dataclass
+import builtins
+import collections
 
-from .ctable import OP_NAME, OP_UNSUPORTED, OP_PUSH_FMT, OP_JUMP_RELATIVE, CALL
+from .opcode import (PUSH, PUSHB, PUSHW, PUSHF,
+					 PUSHSI, PUSHSIB, PUSHSIW,
+					 PUSHII, PUSHIIB, PUSHIIW,
+					 BRA, BF, CALL,
+					 NOP, RET, BT, JSR, PUSHA,
+					 PUSHS, PUSHI, BLK, ILLEGAL)
 
 
-@dataclass
-class Opcode:
-	code: bytes
-	data: Any
-	lenght: int
-	address: int
+OPCODE_UNSUPORTED = (
+	NOP,
+	RET,
+	BT,
+	JSR,
+	PUSHA,
+	PUSHS,
+	PUSHI,
+	BLK,
+	ILLEGAL,
+	)
 
-	@staticmethod
-	def parse(file):
-		address = file.tell()
-		data = None
-		code = file.read(1)
 
-		if not code in OP_NAME:
-			raise ValueError()
+OPCODE_FMT = {
+	PUSH:    '<I',
+	PUSHB:   '<B',
+	PUSHW:   '<H',
+	PUSHF:   '<f',
+	PUSHSI:  '<I',
+	PUSHSIB: '<B',
+	PUSHSIW: '<H',
+	PUSHII:  '<I',
+	PUSHIIB: '<B',
+	PUSHIIW: '<H',
+	BRA:     '<i',
+	BF:      '<i',
+	BT:      '<i',
+	CALL:    '<I',
+}
 
-		if code in OP_UNSUPORTED:
-			raise ValueError()
 
-		if code in OP_PUSH_FMT:
-			fmt = OP_PUSH_FMT[code]
-			size = calcsize(fmt)
-			data = unpack(fmt, file.read(size))[0]
+OpCode = collections.namedtuple('OpCode', ['code', 'data', 'length', 'address'])
 
-		elif code in OP_JUMP_RELATIVE:
-			data = unpack('i', file.read(4))[0]
 
-		elif code == CALL:
-			count = unpack('I', file.read(4))[0]
-			data = [unpack('i', file.read(4))[0] for i in range(count)]
+def _read_opcodes(file, size, offset):
+	opcodes = list()
 
-		lenght = file.tell() - address
+	while file.tell() < offset + size:
+		a = file.tell() - offset
+		c = file.read(1)
 
-		return Opcode(code, data, lenght, address)
+		if not c:
+			raise EOFError
+
+		d = None
+
+		if c > b'\x30':
+			raise ValueError("Unhandled opcode")
+
+		if c in OPCODE_UNSUPORTED:
+			raise ValueError("Unsupported opcode")
+
+		if c in OPCODE_FMT:
+			dfmt = OPCODE_FMT[c]
+			dlen = struct.calcsize(dfmt)
+			d = struct.unpack(dfmt, file.read(dlen))[0]
+
+		if c == CALL:
+			d = struct.unpack('i' * d, file.read(4 * d))
+
+		l = file.tell() - offset - a
+
+		opcodes.append(OpCode(c, d, l, a))
+
+	return opcodes
+
+
+def _read_offsets(file, size, offset):
+	offsets = array.array('I')
+	offsets.frombytes(file.read(size))
+	return offsets
+
+
+def _read_strings(file, size, offset):
+	strings = file.read(size).split(b'\x00')[:-1]
+	strings = [s.decode('utf-8') for s in strings]
+	strings = [s.replace('\n', '\\n') for s in strings]
+	strings = [s.replace('\"', '\\"') for s in strings]
+	return strings
 
 
 class QVM:
-	signature: str
-	ver_major: int
-	ver_minor: int
-	of_itable: int
-	of_ivalue: int
-	sz_itable: int
-	sz_ivalue: int
-	of_stable: int
-	of_svalue: int
-	sz_stable: int
-	sz_svalue: int
-	of_ctable: int
-	sz_ctable: int
-	unknown_2: int
-	unknown_3: int
-	of_tail: int
+	__slots__ = (
+		'signature', 'ver_major', 'ver_minor',
+		'of_itable', 'of_ivalue', 'sz_itable', 'sz_ivalue',
+		'of_stable', 'of_svalue', 'sz_stable', 'sz_svalue',
+		'of_ctable', 'sz_ctable',
+		'unknown_1', 'unknown_2', 'of_tvalue',
+		'itable', 'ivalue', 'stable', 'svalue',
+		'ctable', 'tvalue',
+	)
 
-	itable: list
-	ivalue: list
-	stable: list
-	svalue: list
-	ctable: list
-	tail: bytes
-
-	def from_file(self, file):
+	def fromfile(self, file):
 		(
 			self.signature,
 			self.ver_major,
@@ -84,40 +121,24 @@ class QVM:
 			self.sz_svalue,
 			self.of_ctable,
 			self.sz_ctable,
+			self.unknown_1,
 			self.unknown_2,
-			self.unknown_3,
-			self.of_tail,
+			self.of_tvalue,
 		) = struct.unpack('4s15I', file.read(64))
 
 
-		self.itable = array.array('I')
-		self.itable.frombytes(file.read(self.sz_itable))
-
-		self.ivalue = file.read(self.sz_ivalue).split(b'\x00')[:-1]
-		self.ivalue = [s.decode('utf-8') for s in self.ivalue]
-		self.ivalue = [s.replace('\n', '\\n') for s in self.ivalue]
-		self.ivalue = [s.replace('\"', '\\"') for s in self.ivalue]
-
-		self.stable = array.array('I')
-		self.stable.frombytes(file.read(self.sz_stable))
-
-		self.svalue = file.read(self.sz_svalue).split(b'\x00')[:-1]
-		self.svalue = [s.decode('utf-8') for s in self.svalue]
-		self.svalue = [s.replace('\n', '\\n') for s in self.svalue]
-		self.svalue = [s.replace('\"', '\\"') for s in self.svalue]
-
-		self.ctable = list()
-
-		with BytesIO(file.read(self.sz_ctable)) as opfile:
-			lenght = len(ctable)
-
-			while opfile.tell() < lenght:
-				ctable.append(Opcode.parse(opfile))
+		self.itable = _read_offsets(file, self.sz_itable, self.of_itable)
+		self.ivalue = _read_strings(file, self.sz_ivalue, self.of_ivalue)
+		self.stable = _read_offsets(file, self.sz_stable, self.of_stable)
+		self.svalue = _read_strings(file, self.sz_svalue, self.of_svalue)
+		self.ctable = _read_opcodes(file, self.sz_ctable, self.of_ctable)
 
 
-		self.tail = file.read()
+		self.tvalue = file.read()
 
 
 def open(srcpath, mode=None):
-	with builtins.open(srcpath, 'rb') as srcfile:
-		return QVM().from_file(srcfile)
+	with builtins.open(srcpath, 'rb') as file:
+		qvmfile = QVM()
+		qvmfile.fromfile(file)
+		return qvmfile
