@@ -2,6 +2,7 @@ import os
 import argparse
 import fnmatch
 
+import dumper
 import disassambler
 import decompiler
 
@@ -25,13 +26,16 @@ def main():
 	subparsers = parser.add_subparsers()
 	subparsers.require = True
 
+	dmp_parser = subparsers.add_parser('dump', help='Dump qvm files')
+	dmp_parser.set_defaults(func=dumper.dump, ext='.dmp')
+
 	dis_parser = subparsers.add_parser('disassamble', help='Disassamble qvm files')
-	dis_parser.set_defaults(func=disassambler.disasamble, ext='.asm')
+	dis_parser.set_defaults(func=disassambler.disassamble, ext='.qas')
 
 	dec_parser = subparsers.add_parser('decompile', help='Decompile qvm files')
 	dec_parser.set_defaults(func=decompiler.decompile, ext='.qsc')
 
-	for subparser in (dis_parser, dec_parser):
+	for subparser in (dmp_parser, dis_parser, dec_parser):
 		subparser.add_argument('src', help='Input path')
 		subparser.add_argument('dst', help='Output path')
 		subparser.add_argument('--folder', '-f', action='store_true', help='Action on files in folder')
