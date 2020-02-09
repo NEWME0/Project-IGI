@@ -1,35 +1,43 @@
 import qvm
 import ast
+import ast2
 from opcode import *
 
 
 
-def _simplification(qvmfile):
+def _reduction(qvmfile):
+	""" Reduce opcodes and return bytecode as dict """
 	bytecode = dict()
 
 	for op in qvmfile.ctable:
 		# bytecode simplification
 		if op.code in (PUSH, PUSHB, PUSHW):
+			# Replace push int8 int16 int32 with int32
 			code = PUSH
 			data = op.data
 
 		elif op.code == PUSH0:
+			# Replace push 0 with int32 0
 			code = PUSH
 			data = 0
 
 		elif op.code == PUSH1:
+			# Replace push 1 with int32 1
 			code = PUSH
 			data = 1
 
 		elif op.code == PUSHM:
+			# Replace push max with int32 0xffffffff
 			code = PUSH
 			data = 0xffffffff
 
 		elif op.code in (PUSHSI, PUSHSIB, PUSHSIW):
+			# Replace push string id with value
 			code = PUSHS
 			data = qvmfile.svalue[op.data]
 
 		elif op.code in (PUSHII, PUSHIIB, PUSHIIW):
+			# Replace push identifier id with value
 			code = PUSHI
 			data = qvmfile.ivalue[op.data]
 
@@ -38,6 +46,8 @@ def _simplification(qvmfile):
 			data = op.data
 
 		bytecode[op.addr] = qvm.Opcode(code, data, op.size, op.addr)
+
+	return bytecode
 
 
 
@@ -110,12 +120,11 @@ def _builder(ast, ivalue, svalue):
 def decompile(srcfile, dstfile):
 	qvmfile = qvm.fromfile(srcfile)
 
-	bytecode = _simplification(qvmfile)
+	bytecode = _reduction(qvmfile)
 
-	ex, qvmast = ast.walk(bytecode)
+	qvmast = ast2.Block()
+	ex = qvmast.parse(bytecode)
 
 	if ex.code != BRK:
 		raise ValueError("Unexpected exit opcode")
-
-	text = _builder(qvmast, qvm.ivalue, qvm.svalue)
 
