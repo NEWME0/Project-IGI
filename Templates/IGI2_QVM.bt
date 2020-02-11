@@ -208,11 +208,11 @@ string ReadOpcode(OPCODE &o) {
         case RET:
             SPrintf(s, "%u RET", o.address); break;
         case BRA:
-            SPrintf(s, "%u BRA %u", o.address, o.value); break;
+            SPrintf(s, "%u BRA %i", o.address, o.value + o.address + 5); break;
         case BF:
-            SPrintf(s, "%u BF %u", o.address, o.value); break;
+            SPrintf(s, "%u BF %i", o.address, o.value + o.address + 5); break;
         case BT:
-            SPrintf(s, "%u BT %u", o.address, o.value); break;
+            SPrintf(s, "%u BT %i", o.address, o.value + o.address + 5); break;
         case JSR:
             SPrintf(s, "%u JSR", o.address); break;
         case CALL:

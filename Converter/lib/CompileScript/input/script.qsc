@@ -1,62 +1,24 @@
-Task("string");
-Task(IDENTIFIER, "SomeString");
-Task(234.345);
-Task(48790093, 0, 0);
-Task(32423);
-Task(1645);
-Task(48);
-Task(1);
-Task(0);
-
-
-
-if(CONDITION)
+while(expression)
 {
-    Task();
+	A = B + C;
+}
+
+A = B + C;
+
+if(expression)
+{
+	A = B / C;
+}
+
+A = B * C;
+
+if(expression)
+{
+	A = B - C;
 }
 else
 {
-    Task();
+	A = B & C;
 }
 
-EXPRESSION = 10 + 10;
-
-
-// TaskNew();
-// TaskNew();
-// TaskNew();
-// TaskNew();
-// TaskNew();
-// TaskNew();
-// TaskNew();
-// TaskNew();
-// TaskNew();
-// 
-// 
-// 
-// if(CONDITION)
-// {
-//     IfBody(13, 14, 15);
-// }
-// else
-// {
-//     ElseBody(16, 17, 0);
-// }
-// 
-// 
-// TaskOld();
-// TaskOld();
-// TaskOld();
-// TaskOld();
-// TaskOld();
-// TaskOld();
-// TaskOld();
-// TaskOld();
-// TaskOld();
-// 
-// 
-// while(CONDITION)
-// {
-//     Loop(20, TRUE, -1);
-//     Do();
-// }
+A = B & C;
