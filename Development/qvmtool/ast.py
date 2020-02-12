@@ -122,8 +122,8 @@ def walk(bytecode, address=0, until=None):
         elif op.code in ExpressionBinary.ops:
             expression = ExpressionBinary()
             expression.operator = OPERATOR[op.code]
-            expression.left = statements.pop()
             expression.right = statements.pop()
+            expression.left = statements.pop()
             statements.append(expression)
             address = op.addr + op.size
 
