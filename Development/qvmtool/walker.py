@@ -9,7 +9,7 @@ class Walker:
 
     def step(self):
         self.earlier = self.current
-        self.address += self.current.addr + self.current.size
+        self.address = self.current.addr + self.current.size
         self.current = self.opcodes[self.address]
 
     def jump(self, address):

@@ -1,113 +1,78 @@
-from collections import namedtuple
 from opcode import *
 
 
-Number = namedtuple('Number', ['a'])
-String = namedtuple('String', ['a'])
-Identifier = namedtuple('Identifier', ['a'])
+STRING = None
+IDENTIFIER = None
 
-OpUnary = namedtuple('OpUnary', ['op', 'a'])
-OpBinary = namedtuple('OpBinary', ['op', 'a', 'b'])
+OPERATOR = {
+    ADD:    '+',
+    SUB:    '-',
+    MUL:    '*',
+    DIV:    '/',
+    SHL:    '<<',
+    SHR:    '>>',
+    AND:    '&',
+    OR:     '|',
+    XOR:    '^',
+    LAND:   '&&',
+    LOR:    '||',
+    EQ:     '==',
+    NE:     '!=',
+    LT:     '<',
+    LE:     '<=',
+    GT:     '>',
+    GE:     '>=',
+    ASSIGN: '=',
+    PLUS:   '+',
+    MINUS:  '-',
+    INV:    '~',
+    NOT:    '!'
+}
 
-Call = namedtuple('Call', ['i', 'a'])
-While = namedtuple('While', ['c', 't'])
-IfThen = namedtuple('IfThen', ['c', 't'])
-IfThenElse = namedtuple('IfThenElse', ['c', 't', 'f'])
 
 
-OPCODE_OP_UNARY = (PLUS, MINUS, INV, NOT)
-OPCODE_OP_BINARY = (ADD, SUB, MUL, DIV, SHL, SHR, AND, OR, XOR, LAND, LOR, EQ, NE, LT, LE, GT, GE, ASSIGN)
+class LiteralNumber:
+    __slots__ = ('value')
+    ops = (PUSH, PUSHB, PUSHW, PUSHF)
 
+class LiteralConst:
+    __slots__ = ('value')
+    ops = {PUSH0: 0, PUSH1: 1, PUSHM: 0xffffffff}
 
+class LiteralString:
+    __slots__ = ('value')
+    ops = (PUSHSI, PUSHSIB, PUSHSIW)
 
-def _bf(op, ast, bytecode):
-    c = ast.pop()
-    bra, t = walk(bytecode, op.addr + op.size)
+class LiteralIdentifier:
+    __slots__ = ('value')
+    ops = (PUSHII, PUSHIIB, PUSHIIW)
 
-    if bra.code != BRA:
-        raise ValueError("Unexpected exit code in BF")
+class ExpressionUnary:
+    __slots__ = ('operator', 'argument')
+    ops = (PLUS, MINUS, INV, NOT)
 
-    if bra.data < 0:
-        if (bra.addr + bra.size) != (op.addr + op.size + op.data):
-            raise ValueError("Unexpected jump address in BF While")
+class ExpressionBinary:
+    __slots__ = ('operator', 'left', 'right')
+    ops = (ADD, SUB, MUL, DIV, SHL, SHR, AND, OR, XOR,
+           LAND, LOR, EQ, NE, LT, LE, GT, GE, ASSIGN)
 
-        n = While(c, t)
-        ast.append(n)
-        return op.addr + op.size + op.data
+class ExpressionCall:
+    __slots__ = ('callee', 'arguments')
+    ops = (CALL,)
 
-    if bra.data == 0:
-        if (bra.addr + bra.size) != (op.addr + op.size + op.data):
-            raise ValueError("Unexpected jump address in BF IfThen")
+class StatementWhile:
+    __slots__ = ('test', 'body')
 
-        n = IfThen(c, t)
-        ast.append(n)
-        return op.addr + op.size + op.data
+class StatementIf:
+    __slots__ = ('test', 'true', 'false')
 
-    if bra.data > 0:
-        if (bra.addr + bra.size) != (op.addr + op.size + op.data):
-            raise ValueError("Unexpected jump address in BF IfThenElse")
+class StatementBlock:
+    __slots__ = ('body')
 
-        els, f = walk(bytecode, op.addr + op.size + op.data, bra.addr + bra.size + bra.data)
-
-        n = IfThenElse(c, t, f)
-        ast.append(n)
-        return bra.addr + bra.size + bra.data
-
-    raise ValueError()
-
-def _call(op, ast, bytecode):
-    i = ast.pop()
-    a = list()
-
-    for jmp in op.data:
-        ex, arg = walk(bytecode, jmp)
-
-        if ex.code != BRK:
-            raise ValueError()
-
-        a.append(arg)
-
-    n = Call(i, a)
-    ast.append(n)
-
-    ex, arg = walk(bytecode, op.addr + op.size)
-
-    if ex.code != BRA or arg:
-        raise ValueError()
-
-    return ex.addr + ex.data + ex.size
-
-def _op_unary(op, ast):
-    a = ast.pop()
-    n = OpUnary(op.code, a)
-    ast.append(n)
-    return op.addr + op.size
-
-def _op_binary(op, ast):
-    a = ast.pop()
-    b = ast.pop()
-    n = OpBinary(op.code, a, b)
-    ast.append(n)
-    return op.addr + op.size
-
-def _number(op, ast):
-    n = Number(op.data)
-    ast.append(n)
-    return op.addr + op.size
-
-def _string(op, ast):
-    n = String(op.data)
-    ast.append(n)
-    return op.addr + op.size
-
-def _identifier(op, ast):
-    n = Identifier(op.data)
-    ast.append(n)
-    return op.addr + op.size
 
 
 def walk(bytecode, address=0, until=None):
-    ast = list()
+    statements = list()
 
     while True:
         op = bytecode[address]
@@ -116,37 +81,104 @@ def walk(bytecode, address=0, until=None):
             if op.addr == until:
                 break
 
-        if op.code in (PUSH, PUSHF):
-            address = _number(op, ast)
-
-        elif op.code == PUSHS:
-            address = _string(op, ast)
-
-        elif op.code == PUSHI:
-            address = _identifier(op, ast)
-
-        elif op.code in OPCODE_OP_UNARY:
-            address = _op_unary(op, ast)
-
-        elif op.code in OPCODE_OP_BINARY:
-            address = _op_binary(op, ast)
-
-        elif op.code == CALL:
-            address = _call(op, ast, bytecode)
-
-        elif op.code == BF:
-            address = _bf(op, ast, bytecode)
+        if op.code in (BRK, BRA):
+            break
 
         elif op.code == POP:
             address = op.addr + op.size
 
-        elif op.code == BRA:
-            break
+        elif op.code in LiteralNumber.ops:
+            literal = LiteralNumber()
+            literal.value = op.data
+            statements.append(literal)
+            address = op.addr + op.size
 
-        elif op.code == BRK:
-            break
+        elif op.code in LiteralConst.ops:
+            literal = LiteralConst()
+            literal.value = LiteralConst.ops[op.code]
+            statements.append(literal)
+            address = op.addr + op.size
+
+        elif op.code in LiteralString.ops:
+            literal = LiteralString()
+            literal.value = STRING[op.data]
+            statements.append(literal)
+            address = op.addr + op.size
+
+        elif op.code in LiteralIdentifier.ops:
+            literal = LiteralIdentifier()
+            literal.value = IDENTIFIER[op.data]
+            statements.append(literal)
+            address = op.addr + op.size
+
+
+        elif op.code in ExpressionUnary.ops:
+            expression = ExpressionUnary()
+            expression.operator = OPERATOR[op.code]
+            expression.argument = statements.pop()
+            statements.append(expression)
+            address = op.addr + op.size
+
+        elif op.code in ExpressionBinary.ops:
+            expression = ExpressionBinary()
+            expression.operator = OPERATOR[op.code]
+            expression.left = statements.pop()
+            expression.right = statements.pop()
+            statements.append(expression)
+            address = op.addr + op.size
+
+        elif op.code in ExpressionCall.ops:
+            expression = ExpressionCall()
+            expression.callee = statements.pop()
+            expression.arguments = list()
+
+            for jump in op.data:
+                argument = walk(bytecode, jump)
+                expression.arguments.append(argument)
+
+            statements.append(expression)
+
+            ex = bytecode[op.addr + op.size]
+            address = ex.addr + ex.size + ex.data
+
+
+        elif op.code == BF:
+            ex = bytecode[op.addr + op.size + op.data - 5]
+
+            if ex.data < 0:
+                statement = StatementWhile()
+                statement.test = statements.pop()
+                statement.body = walk(bytecode, op.addr + op.size)
+                address = op.addr + op.size + op.data
+
+            else:
+                statement = StatementIf()
+                statement.test = statements.pop()
+                statement.true = walk(bytecode, op.addr + op.size)
+                address = op.addr + op.size + op.data
+
+                if ex.data > 0:
+                    statement.false = walk(bytecode, op.addr + op.size + op.data, ex.addr + ex.size + ex.data)
+                    address = ex.addr + ex.size + ex.data
+
+            statements.append(statement)
 
         else:
-            raise ValueError(OPCODE_NAME[op.code])
+            raise ValueError("Unhandled opcode")
 
-    return op, ast
+
+    return statements
+
+
+
+def fromfile(qvmfile):
+    global STRING
+    global IDENTIFIER
+
+    STRING = qvmfile.svalue
+    IDENTIFIER = qvmfile.ivalue
+
+    bytecode = {op.addr: op for op in qvmfile.ctable}
+    qvmtree = walk(bytecode, 0)
+
+    return qvmtree
