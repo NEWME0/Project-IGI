@@ -11,9 +11,9 @@
 //   History: 
 //------------------------------------------------
 
-#include "common/FORM.bt";
-#include "common/ALIGNEMENT.bt";
-#include "common/STRINGS.bt";
+#include "../COMMON/FORM.bt";
+#include "../COMMON/ALIGNEMENT.bt";
+#include "../COMMON/STRINGS.bt";
 
 
 // ANIMATIONS

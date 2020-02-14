@@ -12,9 +12,9 @@
 //------------------------------------------------
 
 
-#include "COMMON/STRINGS.bt";
-#include "COMMON/VECTORS.bt";
-#include "COMMON/COLORS.bt"
+#include "../COMMON/STRINGS.bt";
+#include "../COMMON/VECTORS.bt";
+#include "../COMMON/COLORS.bt"
 
 
 LittleEndian();

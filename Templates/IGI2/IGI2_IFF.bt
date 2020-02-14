@@ -12,10 +12,10 @@
 //------------------------------------------------
 
 
-#include "COMMON/ILFF.bt";
-#include "COMMON/ALIGNMENT.bt";
-#include "COMMON/STRINGS.bt";
-#include "COMMON/VECTORS.bt";
+#include "../COMMON/ILFF.bt";
+#include "../COMMON/ALIGNMENT.bt";
+#include "../COMMON/STRINGS.bt";
+#include "../COMMON/VECTORS.bt";
 
 
 LittleEndian();

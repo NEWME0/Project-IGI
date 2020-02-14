@@ -12,7 +12,7 @@
 //------------------------------------------------
 
 
-#include "common/DATETIME.bt";
+#include "../COMMON/DATETIME.bt";
 
 
 LittleEndian();

@@ -68,13 +68,13 @@ def strepr(st, tabs=0):
 
 		for sst in st.true:
 			if isinstance(sst, StatementIf) or isinstance(st, StatementWhile):
-				text += '{0}\n'.format(strepr(sst, tabs+1))
+				text += '{0}'.format(strepr(sst, tabs+1))
 			else:
 				text += '{0}{1};\n'.format((tabs+1)*'\t', strepr(sst, tabs+1))
 
 		text += '{0}}}\n'.format(tabs*'\t')
 
-		if st.false:
+		if hasattr(st, 'false'):
 			text += '{0}else\n'.format(tabs*'\t')
 			text += '{0}{{\n'.format(tabs*'\t')
 

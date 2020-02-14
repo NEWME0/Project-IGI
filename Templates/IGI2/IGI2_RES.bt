@@ -12,8 +12,8 @@
 //------------------------------------------------
 
 
-#include "common/ILFF.bt";
-#include "common/ALIGNEMENT.bt";
+#include "../COMMON/ILFF.bt";
+#include "../COMMON/ALIGNEMENT.bt";
 
 
 LittleEndian();

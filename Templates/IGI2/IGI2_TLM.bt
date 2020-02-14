@@ -1,18 +1,19 @@
 //------------------------------------------------
 //--- 010 Editor v9.0.1 Binary Template
 //
-//      File: IGI2_TEX.bt
+//      File: IGI2_TLM.bt
 //   Authors: Rotari Artiom
 //   Version: 1.0
 //   Purpose: 
 //  Category: Game
-// File Mask: LOOP
+// File Mask: 
 //  ID BYTEs: 
 //   History: 
 //------------------------------------------------
 
 
-#include "COMMON/COLORS.bt";
+#include "../COMMON/DATETIME.bt";
+#include "../COMMON/COLORS.bt";
 
 
 LittleEndian();
@@ -20,17 +21,13 @@ LittleEndian();
 
 struct
 {
-    CHAR   signature[4]; // LOOP
-    UINT32 _0;           // 11
-    UINT32 _1;           // {2: argb1555, 67: bgra8888, 3: ?}
-    UINT32 _2;           // [0, 524288] 524288 for multi.tex
-    UINT32 _3;           // 0
-    UINT16 _4;           // [2, 3, 4, 5, 6, 7, 8]
-    UINT16 entry_x;
-    UINT16 entry_y;
-    UINT16 width;
-    UINT16 height;
-    UINT16 depth;
+    UINT32   _1;          // 
+    DATETIME creation;    // 
+    UINT32   _2;          // 
+    UINT32   width;       // 
+    UINT32   height;      // 
+
+    local uint depth = 4;
 
     if(!FEof())
         BYTE lod_0[LodBytesCalc(0, width, height, depth)];
@@ -58,10 +55,7 @@ struct
 
     if(!FEof())
         BYTE lod_8[LodBytesCalc(8, width, height, depth)];
-
-    if(!FEof())
-        BYTE lod_9[LodBytesCalc(9, width, height, depth)];
-} igi2_tex;
+} igi2_tlm;
 
 
 Assert(FEof(), "Parsing error: expected end of file");

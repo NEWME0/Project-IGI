@@ -1,7 +1,7 @@
 //------------------------------------------------
 //--- 010 Editor v9.0.1 Binary Template
 //
-//      File: IGI2_THM.bt
+//      File: IGI2_TMM.bt
 //   Authors: Rotari Artiom
 //   Version: 1.0
 //   Purpose: 
@@ -12,8 +12,8 @@
 //------------------------------------------------
 
 
-#include "COMMON/DATETIME.bt";
-#include "COMMON/COLORS.bt";
+#include "../COMMON/DATETIME.bt";
+#include "../COMMON/COLORS.bt";
 
 
 LittleEndian();
@@ -21,15 +21,13 @@ LittleEndian();
 
 struct
 {
-    UINT32   _1;          // 1008981770
+    UINT32   _1;          // 
     DATETIME creation;    // 
-    UINT32   _2;          // 2
-    UINT32   _3;          // 0
-    UINT32   _4;          // 1065353216
+    UINT32   _2;          // 
     UINT32   width;       // 
     UINT32   height;      // 
 
-    local uint depth = 4;
+    local uint depth = 1;
 
     if(!FEof())
         BYTE lod_0[LodBytesCalc(0, width, height, depth)];
@@ -57,7 +55,7 @@ struct
 
     if(!FEof())
         BYTE lod_8[LodBytesCalc(8, width, height, depth)];
-} igi2_thm;
+} igi2_tmm;
 
 
 Assert(FEof(), "Parsing error: expected end of file");

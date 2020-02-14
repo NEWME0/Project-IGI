@@ -12,58 +12,58 @@
 //------------------------------------------------
 
 
-#include "COMMON/STRINGS.bt";
+#include "../COMMON/STRINGS.bt";
 
 
-#define BRK     0
-#define NOP     1
-#define RET     2
-#define BRA     3
-#define BF      4
-#define BT      5
-#define JSR     6
-#define CALL    7
-#define PUSH    8
-#define PUSHB   9
-#define PUSHW   10
-#define PUSHF   11
-#define PUSHA   12
-#define PUSHS   13
-#define PUSHSI  14
-#define PUSHSIB 15
-#define PUSHSIW 16
-#define PUSHI   17
-#define PUSHII  18
-#define PUSHIIB 19
-#define PUSHIIW 20
-#define PUSH0   21
-#define PUSH1   22
-#define PUSHM   23
-#define POP     24
-#define ADD     25
-#define SUB     26
-#define MUL     27
-#define DIV     28
-#define SHL     29
-#define SHR     30
-#define AND     31
-#define OR      32
-#define XOR     33
-#define LAND    34
-#define LOR     35
-#define EQ      36
-#define NE      37
-#define LT      38
-#define LE      39
-#define GT      40
-#define GE      41
-#define ASSIGN  42
-#define PLUS    43
-#define MINUS   44
-#define INV     45
-#define NOT     46
-#define BLK     47
-#define ILLEGAL 48
+#define BRK     0x00
+#define NOP     0x01
+#define RET     0x02
+#define BRA     0x03
+#define BF      0x04
+#define BT      0x05
+#define JSR     0x06
+#define CALL    0x07
+#define PUSH    0x08
+#define PUSHB   0x09
+#define PUSHW   0x0a
+#define PUSHF   0x0b
+#define PUSHA   0x0c
+#define PUSHS   0x0d
+#define PUSHSI  0x0e
+#define PUSHSIB 0x0f
+#define PUSHSIW 0x10
+#define PUSHI   0x11
+#define PUSHII  0x12
+#define PUSHIIB 0x13
+#define PUSHIIW 0x14
+#define PUSH0   0x15
+#define PUSH1   0x16
+#define PUSHM   0x17
+#define POP     0x18
+#define ADD     0x19
+#define SUB     0x1a
+#define MUL     0x1b
+#define DIV     0x1c
+#define SHL     0x1d
+#define SHR     0x1e
+#define AND     0x1f
+#define OR      0x20
+#define XOR     0x21
+#define LAND    0x22
+#define LOR     0x23
+#define EQ      0x24
+#define NE      0x25
+#define LT      0x26
+#define LE      0x27
+#define GT      0x28
+#define GE      0x29
+#define ASSIGN  0x2a
+#define PLUS    0x2b
+#define MINUS   0x2c
+#define INV     0x2d
+#define NOT     0x2e
+#define BLK     0x2f
+#define ILLEGAL 0x30
 
 
 LittleEndian();

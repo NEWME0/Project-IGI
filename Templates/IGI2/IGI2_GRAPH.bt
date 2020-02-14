@@ -12,7 +12,7 @@
 //------------------------------------------------
 
 
-#include "common/STRINGS.bt";
+#include "../COMMON/STRINGS.bt";
 
 
 // node = 8 expressions

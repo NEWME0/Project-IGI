@@ -1,1 +1,1 @@
-CompileScript("script.qsc");
+CompileScriptsRecursive("D:/Projects/IGI2_Project/Scripts");
