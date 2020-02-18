@@ -12,56 +12,155 @@
 //------------------------------------------------
 
 
+#include "../COMMON/TYPES.bt";
 #include "../COMMON/COLORS.bt";
 
 
 LittleEndian();
 
 
-struct
+typedef struct BITMAP(long lod, long width, long height, long depth)
 {
-    CHAR   signature[4]; // LOOP
-    UINT32 _0;           // 11
-    UINT32 _1;           // {2: argb1555, 67: bgra8888, 3: ?}
-    UINT32 _2;           // [0, 524288] 524288 for multi.tex
-    UINT32 _3;           // 0
-    UINT16 _4;           // [2, 3, 4, 5, 6, 7, 8]
-    UINT16 entry_x;
-    UINT16 entry_y;
-    UINT16 width;
-    UINT16 height;
-    UINT16 depth;
+    local long w = (width / (1 << lod));
+    local long h = (height / (1 << lod));
+    BYTE bitmap[w * h * depth];
+};
 
-    if(!FEof())
-        BYTE lod_0[LodBytesCalc(0, width, height, depth)];
 
-    if(!FEof())
-        BYTE lod_1[LodBytesCalc(1, width, height, depth)];
 
-    if(!FEof())
-        BYTE lod_2[LodBytesCalc(2, width, height, depth)];
+typedef struct LOOP_02
+{
+    CH signature[4]; // LOOP
+    U4 version;      // 2
 
-    if(!FEof())
-        BYTE lod_3[LodBytesCalc(3, width, height, depth)];
+    U4 _1;
+    U4 _2;
+    U2 line_width;
+    U2 width;
+    U2 height;
+    U2 depth;
 
-    if(!FEof())
-        BYTE lod_4[LodBytesCalc(4, width, height, depth)];
+    BITMAP img(0, width, height, depth);
+};
 
-    if(!FEof())
-        BYTE lod_5[LodBytesCalc(5, width, height, depth)];
 
-    if(!FEof())
-        BYTE lod_6[LodBytesCalc(6, width, height, depth)];
+typedef struct LOOP_06
+{
+    CH signature[4]; // LOOP
+    U4 version;      // 6
 
-    if(!FEof())
-        BYTE lod_7[LodBytesCalc(7, width, height, depth)];
+    U4 _0;
+    U4 _1;
+    U4 count;
+    U4 _3;
 
-    if(!FEof())
-        BYTE lod_8[LodBytesCalc(8, width, height, depth)];
+    struct
+    {
+        U4 _0;
+        U4 _1;
+        U4 _2;
+        U4 _3;
+    } item[count];
+};
 
-    if(!FEof())
-        BYTE lod_9[LodBytesCalc(9, width, height, depth)];
-} igi2_tex;
+
+typedef struct LOOP_07
+{
+    CH signature[4]; // LOOP
+    U4 version;      // 7
+
+    U4 spr_bitmap_offset;
+    U4 line_width;
+    U2 width;
+    U2 _0;                 // 0
+    U2 height;
+    U2 _1;                 // 0
+    U4 _2;                 // 0
+    U4 _3;                 // 0
+    U4 _4;                 // 0
+    U4 _5;                 // 0
+    U4 _6;                 // 0
+    U4 _7;                 // 0
+
+    struct
+    {
+        U4 offset;
+        U4 depth;
+        U2 line_width;
+        U2 width;
+        U2 height;
+        U1  reserved[18];
+    } item[count];
+
+    BITMAP img(0, width, height, depth)[count];
+    LOOP_06 tail;
+};
+
+
+typedef struct LOOP_09
+{
+    CH signature[4]; // LOOP
+    U4 version;      // 9
+
+    U4 _1;
+    U4 _2;
+    U4 _3;
+    U4 _4;
+    U4 _5;
+    U4 tail_offset;
+    U4 count;
+    U4 _8;
+    U4 width;
+    U4 height;
+    U4 depth;
+
+    struct
+    {
+        U4 offset;
+        U4 depth;
+        U2 line_width;
+        U2 width;
+        U2 height;
+        U1 reserved[18];
+    } item[count];
+
+    BITMAP img(0, width, height, depth)[count];
+    LOOP_06 tail;
+};
+
+
+typedef struct LOOP_11
+{
+    CH signature[4]; // LOOP
+    U4 version;      // 11
+
+    U4 _mode;        // {2: argb1555, 67: bgra8888, 3: ?}
+    U4 _multi;       // [0, 524288] 524288 for multi.tex
+    U4 _1;           // 0
+    U2 _2;           // [2, 3, 4, 5, 6, 7, 8]
+    U2 width1;
+    U2 height1;
+    U2 width;
+    U2 height;
+    U2 depth;
+
+    local long lod = 0;
+
+    while(!FEof())
+    {
+        BITMAP img(0, width, height, depth);
+        lod = lod + 1;
+    }
+};
+
+
+switch(ReadUInt(4))
+{
+    case 2:  LOOP_02 igi2_tex; break;
+    case 7:  LOOP_07 igi2_tex; break;
+    case 9:  LOOP_09 igi2_tex; break;
+    case 11: LOOP_11 igi2_tex; break;
+}
 
 
 Assert(FEof(), "Parsing error: expected end of file");

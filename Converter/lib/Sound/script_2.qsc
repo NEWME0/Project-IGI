@@ -1,0 +1,2 @@
+ConvertSoundFile("sound_1.wav", "sound_1_adpcm.wav");
+ConvertSoundFile("sound_2.wav", "sound_2_adpcm.wav");
