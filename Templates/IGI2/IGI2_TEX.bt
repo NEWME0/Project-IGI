@@ -19,8 +19,17 @@
 LittleEndian();
 
 
-typedef struct BITMAP(long lod, long width, long height, long depth)
+typedef struct BITMAP(long lod, long width, long height, long mode)
 {
+    local long depth = 0;
+
+    switch(mode)
+    {
+        case 2: depth = 2; break;
+        case 3: depth = 4; break;
+        case 67: depth = 4; break;
+    }
+
     local long w = (width / (1 << lod));
     local long h = (height / (1 << lod));
     BYTE bitmap[w * h * depth];
@@ -32,10 +41,9 @@ typedef struct LOOP_02
 {
     CH signature[4]; // LOOP
     U4 version;      // 2
-
+    U4 _0;
     U4 _1;
-    U4 _2;
-    U2 line_width;
+    U2 width_line;
     U2 width;
     U2 height;
     U2 depth;
@@ -52,7 +60,7 @@ typedef struct LOOP_06
     U4 _0;
     U4 _1;
     U4 count;
-    U4 _3;
+    U4 _2;
 
     struct
     {
@@ -68,31 +76,29 @@ typedef struct LOOP_07
 {
     CH signature[4]; // LOOP
     U4 version;      // 7
-
-    U4 spr_bitmap_offset;
-    U4 line_width;
-    U2 width;
-    U2 _0;                 // 0
-    U2 height;
-    U2 _1;                 // 0
-    U4 _2;                 // 0
-    U4 _3;                 // 0
-    U4 _4;                 // 0
-    U4 _5;                 // 0
-    U4 _6;                 // 0
-    U4 _7;                 // 0
+    U4 _0;
+    U4 _1;
+    U4 _2;
+    U4 _3;
+    U4 _4;
+    U4 offset;
+    U4 count;
+    U4 _5;
+    U4 width;
+    U4 height;
+    U4 mode;
 
     struct
     {
         U4 offset;
-        U4 depth;
-        U2 line_width;
+        U4 width_line;
         U2 width;
+        U2 _0;
         U2 height;
-        U1  reserved[18];
+        U1 reserved[26];
     } item[count];
 
-    BITMAP img(0, width, height, depth)[count];
+    BITMAP img(0, width, height, mode)[count];
     LOOP_06 tail;
 };
 
@@ -101,30 +107,30 @@ typedef struct LOOP_09
 {
     CH signature[4]; // LOOP
     U4 version;      // 9
-
+    U4 _0;
     U4 _1;
     U4 _2;
     U4 _3;
     U4 _4;
-    U4 _5;
-    U4 tail_offset;
+    U4 offset;
     U4 count;
-    U4 _8;
+    U4 _5;
     U4 width;
     U4 height;
-    U4 depth;
+    U4 mode;
 
     struct
     {
         U4 offset;
-        U4 depth;
-        U2 line_width;
+        U4 mode;
+        U2 width_line;
         U2 width;
         U2 height;
-        U1 reserved[18];
+        U2 _0;
+        U1 reserved[16];
     } item[count];
 
-    BITMAP img(0, width, height, depth)[count];
+    BITMAP img(0, width, height, mode)[count];
     LOOP_06 tail;
 };
 
@@ -133,11 +139,10 @@ typedef struct LOOP_11
 {
     CH signature[4]; // LOOP
     U4 version;      // 11
-
-    U4 _mode;        // {2: argb1555, 67: bgra8888, 3: ?}
-    U4 _multi;       // [0, 524288] 524288 for multi.tex
-    U4 _1;           // 0
-    U2 _2;           // [2, 3, 4, 5, 6, 7, 8]
+    U4 mode;         // {2: argb1555, 67: bgra8888, 3: ?}
+    U4 multi;        // [0, 524288] 524288 for multi.tex
+    U4 _0;           // 0
+    U2 _1;           // [2, 3, 4, 5, 6, 7, 8]
     U2 width1;
     U2 height1;
     U2 width;
@@ -148,7 +153,7 @@ typedef struct LOOP_11
 
     while(!FEof())
     {
-        BITMAP img(0, width, height, depth);
+        BITMAP img(lod, width, height, mode);
         lod = lod + 1;
     }
 };
