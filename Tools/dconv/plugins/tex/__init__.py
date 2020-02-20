@@ -55,9 +55,24 @@ def convert(args):
         dstpath = srcpath.replace(args.src, args.dst, 1)
         texfile = tex.fromfile(srcpath)
 
+        os.makedirs(os.path.dirname(args.dst), exist_ok=True)
+
         if texfile.version == 2:
             name, ext = os.path.splitext(dstpath)
+
+            tgafile = tga.TGA()
+
+            tgafile.setImageType(2)
+            tgafile.setTGALines(
+                texfile.bitmaps[0],
+                texfile.width,
+                texfile.height,
+                tex.DEPTH[texfile.mode] * 8)
+            tgafile.setOrigin(texfile.width, texfile.height)
+
             dstpath = name + '.tga'
+            tga.tofile(tgafile, dstpath)
+
 
         elif texfile.version == 7:
             name, ext = os.path.splitext(dstpath)

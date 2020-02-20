@@ -9,7 +9,10 @@ def discover_plugins():
     plugins = dict()
 
     for _, name, _ in pkgutil.iter_modules(path):
-        plugins[name] = importlib.import_module('plugins.' + name)
+        try:
+            plugins[name] = importlib.import_module('plugins.' + name)
+        except:
+            pass
 
     return plugins
 
@@ -17,6 +20,7 @@ def discover_plugins():
 def main():
     cli = argparse.ArgumentParser()
     sub = cli.add_subparsers()
+    sub.require = True
 
     plugins = discover_plugins()
 
