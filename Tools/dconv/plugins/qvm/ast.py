@@ -1,4 +1,4 @@
-from ops import *
+from .ops import *
 
 
 STRING = None

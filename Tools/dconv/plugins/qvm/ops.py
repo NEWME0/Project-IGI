@@ -1,209 +1,209 @@
 
 
 class Op:
-	__slots__ = ('data', 'size', 'addr')
+    __slots__ = ('data', 'size', 'addr')
 
-	def __init__(self, data, size, addr):
-		self.data = data
-		self.size = size
-		self.addr = addr
+    def __init__(self, data, size, addr):
+        self.data = data
+        self.size = size
+        self.addr = addr
 
 
 class BRK(Op):
-	code = None
-	name = 'BRK'
+    code = None
+    name = 'BRK'
 
 class NOP(Op):
-	code = None
-	name = 'NOP'
+    code = None
+    name = 'NOP'
 
 class RET(Op):
-	code = None
-	name = 'RET'
+    code = None
+    name = 'RET'
 
 class BRA(Op):
-	code = None
-	name = 'BRA'
+    code = None
+    name = 'BRA'
 
 class BF(Op):
-	code = None
-	name = 'BF'
+    code = None
+    name = 'BF'
 
 class BT(Op):
-	code = None
-	name = 'BT'
+    code = None
+    name = 'BT'
 
 class JSR(Op):
-	code = None
-	name = 'JSR'
+    code = None
+    name = 'JSR'
 
 class CALL(Op):
-	code = None
-	name = 'CALL'
+    code = None
+    name = 'CALL'
 
 class PUSH(Op):
-	code = None
-	name = 'PUSH'
+    code = None
+    name = 'PUSH'
 
 class PUSHB(Op):
-	code = None
-	name = 'PUSHB'
+    code = None
+    name = 'PUSHB'
 
 class PUSHW(Op):
-	code = None
-	name = 'PUSHW'
+    code = None
+    name = 'PUSHW'
 
 class PUSHF(Op):
-	code = None
-	name = 'PUSHF'
+    code = None
+    name = 'PUSHF'
 
 class PUSHA(Op):
-	code = None
-	name = 'PUSHA'
+    code = None
+    name = 'PUSHA'
 
 class PUSHS(Op):
-	code = None
-	name = 'PUSHS'
+    code = None
+    name = 'PUSHS'
 
 class PUSHSI(Op):
-	code = None
-	name = 'PUSHSI'
+    code = None
+    name = 'PUSHSI'
 
 class PUSHSIB(Op):
-	code = None
-	name = 'PUSHSIB'
+    code = None
+    name = 'PUSHSIB'
 
 class PUSHSIW(Op):
-	code = None
-	name = 'PUSHSIW'
+    code = None
+    name = 'PUSHSIW'
 
 class PUSHI(Op):
-	code = None
-	name = 'PUSHI'
+    code = None
+    name = 'PUSHI'
 
 class PUSHII(Op):
-	code = None
-	name = 'PUSHII'
+    code = None
+    name = 'PUSHII'
 
 class PUSHIIB(Op):
-	code = None
-	name = 'PUSHIIB'
+    code = None
+    name = 'PUSHIIB'
 
 class PUSHIIW(Op):
-	code = None
-	name = 'PUSHIIW'
+    code = None
+    name = 'PUSHIIW'
 
 class PUSH0(Op):
-	code = None
-	name = 'PUSH0'
+    code = None
+    name = 'PUSH0'
 
 class PUSH1(Op):
-	code = None
-	name = 'PUSH1'
+    code = None
+    name = 'PUSH1'
 
 class PUSHM(Op):
-	code = None
-	name = 'PUSHM'
+    code = None
+    name = 'PUSHM'
 
 class POP(Op):
-	code = None
-	name = 'POP'
+    code = None
+    name = 'POP'
 
 class ADD(Op):
-	code = None
-	name = 'ADD'
+    code = None
+    name = 'ADD'
 
 class SUB(Op):
-	code = None
-	name = 'SUB'
+    code = None
+    name = 'SUB'
 
 class MUL(Op):
-	code = None
-	name = 'MUL'
+    code = None
+    name = 'MUL'
 
 class DIV(Op):
-	code = None
-	name = 'DIV'
+    code = None
+    name = 'DIV'
 
 class SHL(Op):
-	code = None
-	name = 'SHL'
+    code = None
+    name = 'SHL'
 
 class SHR(Op):
-	code = None
-	name = 'SHR'
+    code = None
+    name = 'SHR'
 
 class AND(Op):
-	code = None
-	name = 'AND'
+    code = None
+    name = 'AND'
 
 class OR(Op):
-	code = None
-	name = 'OR'
+    code = None
+    name = 'OR'
 
 class XOR(Op):
-	code = None
-	name = 'XOR'
+    code = None
+    name = 'XOR'
 
 class LAND(Op):
-	code = None
-	name = 'LAND'
+    code = None
+    name = 'LAND'
 
 class LOR(Op):
-	code = None
-	name = 'LOR'
+    code = None
+    name = 'LOR'
 
 class EQ(Op):
-	code = None
-	name = 'EQ'
+    code = None
+    name = 'EQ'
 
 class NE(Op):
-	code = None
-	name = 'NE'
+    code = None
+    name = 'NE'
 
 class LT(Op):
-	code = None
-	name = 'LT'
+    code = None
+    name = 'LT'
 
 class LE(Op):
-	code = None
-	name = 'LE'
+    code = None
+    name = 'LE'
 
 class GT(Op):
-	code = None
-	name = 'GT'
+    code = None
+    name = 'GT'
 
 class GE(Op):
-	code = None
-	name = 'GE'
+    code = None
+    name = 'GE'
 
 class ASSIGN(Op):
-	code = None
-	name = 'ASSIGN'
+    code = None
+    name = 'ASSIGN'
 
 class PLUS(Op):
-	code = None
-	name = 'PLUS'
+    code = None
+    name = 'PLUS'
 
 class MINUS(Op):
-	code = None
-	name = 'MINUS'
+    code = None
+    name = 'MINUS'
 
 class INV(Op):
-	code = None
-	name = 'INV'
+    code = None
+    name = 'INV'
 
 class NOT(Op):
-	code = None
-	name = 'NOT'
+    code = None
+    name = 'NOT'
 
 class BLK(Op):
-	code = None
-	name = 'BLK'
+    code = None
+    name = 'BLK'
 
 class ILLEGAL(Op):
-	code = None
-	name = 'ILLEGAL'
+    code = None
+    name = 'ILLEGAL'
 
 
 

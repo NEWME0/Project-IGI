@@ -6,7 +6,7 @@ import struct
 import builtins
 import collections
 
-from ops import (PUSH, PUSHB, PUSHW, PUSHF,
+from .ops import (PUSH, PUSHB, PUSHW, PUSHF,
                  PUSHSI, PUSHSIB, PUSHSIW,
                  PUSHII, PUSHIIB, PUSHIIW,
                  BRA, BF, CALL,

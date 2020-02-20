@@ -15,15 +15,16 @@ def discover_plugins():
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    subparsers = parser.add_subparsers()
+    cli = argparse.ArgumentParser()
+    sub = cli.add_subparsers()
 
     plugins = discover_plugins()
 
     for name, plugin in plugins.items():
-        plugin.register_parser(subparsers)
+        plugin.register_parser(sub)
 
-    args = parser.parse_args()
+    args = cli.parse_args()
+    args.func(args)
 
 
 

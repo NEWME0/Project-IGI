@@ -1,5 +1,5 @@
 import os
-import fnt
+from . import fnt
 
 
 def check(args):
@@ -12,8 +12,8 @@ def check(args):
 
 
 def register_parser(cli):
-    fnt = cli.add_parser('fnt')
-    sub = fnt.add_subparsers()
+    cmd = cli.add_parser('fnt')
+    sub = cmd.add_subparsers()
     sub.require = True
 
     sub_check = sub.add_parser('check')
