@@ -53,38 +53,29 @@ def convert(args):
 
     for srcpath in fs.walkdir(args.src, ('*.tex', '*.spr', '*.pic')):
         dstpath = srcpath.replace(args.src, args.dst, 1)
+        os.makedirs(os.path.dirname(dstpath), exist_ok=True)
+
         texfile = tex.fromfile(srcpath)
 
-        os.makedirs(os.path.dirname(args.dst), exist_ok=True)
+        for i in range(len(texfile.bitmaps)):
+            ext = '.tga'
 
-        if texfile.version == 2:
-            name, ext = os.path.splitext(dstpath)
+            if texfile.version in (7, 9):
+                ext = '.num{0:0<2}.tga'.format(i)
+
+            elif texfile.version == 11 and i > 0:
+                ext = '.lod{0:0<2}.tga'.format(i)
 
             tgafile = tga.TGA()
-
             tgafile.setImageType(2)
             tgafile.setTGALines(
-                texfile.bitmaps[0],
+                texfile.bitmaps[i],
                 texfile.width,
                 texfile.height,
                 tex.DEPTH[texfile.mode] * 8)
             tgafile.setOrigin(texfile.width, texfile.height)
 
-            dstpath = name + '.tga'
-            tga.tofile(tgafile, dstpath)
-
-
-        elif texfile.version == 7:
-            name, ext = os.path.splitext(dstpath)
-            dstpath = name + '.tga'
-
-        elif texfile.version == 9:
-            name, ext = os.path.splitext(dstpath)
-            dstpath = name + '.tga'
-
-        elif texfile.version == 11:
-            name, ext = os.path.splitext(dstpath)
-            dstpath = name + '.tga'
+            tga.tofile(tgafile, dstpath.replace('.tex', ext))
 
         count += 1
 
@@ -92,19 +83,19 @@ def convert(args):
 
 
 def register_parser(cli):
-    cmd = cli.add_parser('tex')
+    cmd = cli.add_parser('tex', help="")
     sub = cmd.add_subparsers()
     sub.require = True
 
     sub_modes = sub.add_parser('modes', help="")
-    sub_modes.add_argument('--src', default=PATHS, help="")
+    sub_modes.add_argument('src', help="")
     sub_modes.set_defaults(func=modes)
 
     sub_version = sub.add_parser('version', help="")
-    sub_version.add_argument('--src', default=PATHS, help="")
+    sub_version.add_argument('src', help="")
     sub_version.set_defaults(func=version)
 
     sub_convert = sub.add_parser('convert', help="")
-    sub_convert.add_argument('--src', default="D:/Projects/IGI1_Project/Resources", help="")
-    sub_convert.add_argument('--dst', default="D:/Projects/IGI1_Project/Texutres", help="")
+    sub_convert.add_argument('src', help="")
+    sub_convert.add_argument('dst', help="")
     sub_convert.set_defaults(func=convert)

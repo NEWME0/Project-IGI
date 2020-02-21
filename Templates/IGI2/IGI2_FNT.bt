@@ -4,14 +4,15 @@
 //      File: IGI2_FNT.bt
 //   Authors: Rotari Artiom
 //   Version: 1.0
-//   Purpose: 
+//   Purpose:
 //  Category: Game
 // File Mask: ILFF
-//  ID BYTEs: 
-//   History: 
+//  ID BYTEs:
+//   History:
 //------------------------------------------------
 
 
+#include "../COMMON/TYPES.bt";
 #include "../COMMON/ALIGNMENT.bt";
 #include "../COMMON/ILFF.bt";
 #include "../COMMON/STRINGS.bt";
@@ -26,12 +27,12 @@ typedef struct FNTH
 {
     ILFF_HEADER header;
 
-    UINT32 _0;         // 1
-    UINT32 char_count; // {158. 154}
-    UINT32 _1;         // {11, 14, 16}
-    UINT32 _2;         // {3, 4 ,6}
-    UINT32 _3;         // 1
-    UINT32 _4;         // {11, 14, 16}
+    U4 _0;         // 1
+    U4 char_count; // {158. 154}
+    U4 _1;         // {11, 14, 16}
+    U4 _2;         // {3, 4 ,6}
+    U4 _3;         // 1
+    U4 _4;         // {11, 14, 16}
 
     Padding();
 };
@@ -43,16 +44,16 @@ typedef struct ANMF
 
     struct
     {
-        UINT32    _0;
+        U4    _0;
         FTEXCOORD upper_left;
         FTEXCOORD lower_right;
-        UINT16    _1;
-        UINT16    pixel_width;
-        UINT16    pixel_height;
-        UINT16    _4;
-        UINT32    _5;
-        UINT32    _6;
-        UINT32    _7;
+        U2    _1;
+        U2    pixel_width;
+        U2    pixel_height;
+        U2    _4;
+        U4    _5;
+        U4    _6;
+        U4    _7;
     } charmap[igi2_fnt.fnth.char_count] <optimize=true>;
 
     Padding();
@@ -73,15 +74,15 @@ typedef struct TEXH
 {
     ILFF_HEADER header;
 
-    UINT16 _0;      // 3
-    UINT32 _1;      // 0
-    UINT32 _2;      // 0
-    UINT32 _3;      // 0
-    UINT16 entry_x;
-    UINT16 entry_y;
-    UINT16 width;
-    UINT16 heigth;
-    UINT16 depth;
+    U2 _0;      // 3
+    U4 _1;      // 0
+    U4 _2;      // 0
+    U4 _3;      // 0
+    U2 entry_x;
+    U2 entry_y;
+    U2 width;
+    U2 heigth;
+    U2 depth;
 
     Padding();
 };
