@@ -12,7 +12,7 @@ def discover_plugins():
         try:
             plugins[name] = importlib.import_module('plugins.' + name)
         except:
-            pass
+            raise
 
     return plugins
 

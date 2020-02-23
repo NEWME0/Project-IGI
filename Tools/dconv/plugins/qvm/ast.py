@@ -30,6 +30,32 @@ OPERATOR = {
 }
 
 
+PRIORITY = {
+    '+':  4,
+    '-':  4,
+    '*':  3,
+    '/':  3,
+    '<<': 5,
+    '>>': 5,
+    '&':  8,
+    '|':  10,
+    '^':  9,
+    '&&': 11,
+    '||': 12,
+    '==': 7,
+    '!=': 7,
+    '<':  6,
+    '<=': 6,
+    '>':  6,
+    '>=': 6,
+    '=':  14,
+    '+':  2,
+    '-':  2,
+    '~':  2,
+    '!':  2,
+}
+
+
 
 
 class LiteralNumber:
@@ -66,6 +92,10 @@ class ExpressionBinary:
 class ExpressionCall:
     __slots__ = ('callee', 'arguments')
     ops = (CALL,)
+
+
+class StatementParenthese:
+    __slots__ = ('body')
 
 
 class StatementWhile:
@@ -126,6 +156,12 @@ def walk(bytecode, address=0, until=None):
             expression = ExpressionUnary()
             expression.operator = OPERATOR[op.code]
             expression.argument = statements.pop()
+
+            if isinstance(expression.argument, (ExpressionUnary, ExpressionBinary)):
+                argument = StatementParenthese()
+                argument.body = expression.argument
+                expression.argument = argument
+
             statements.append(expression)
             address = op.addr + op.size
 
@@ -134,6 +170,19 @@ def walk(bytecode, address=0, until=None):
             expression.operator = OPERATOR[op.code]
             expression.right = statements.pop()
             expression.left = statements.pop()
+
+            if isinstance(expression.right, ExpressionBinary):
+                if PRIORITY[expression.operator] < PRIORITY[expression.right.operator]:
+                    right = StatementParenthese()
+                    right.body = expression.right
+                    expression.right = right
+
+            if isinstance(expression.left, ExpressionBinary):
+                if PRIORITY[expression.operator] < PRIORITY[expression.left.operator]:
+                    left = StatementParenthese()
+                    left.body = expression.left
+                    expression.left = left
+
             statements.append(expression)
             address = op.addr + op.size
 

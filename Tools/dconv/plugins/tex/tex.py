@@ -8,6 +8,13 @@ DEPTH = {
 }
 
 
+ALPHA = {
+    2:  1,
+    3:  8,
+    67: 8,
+}
+
+
 class Item06:
     __slots__ = (
         '_0',

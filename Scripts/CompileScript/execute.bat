@@ -1,2 +1,2 @@
-..\..\bin\gconv.exe script.qsc -InputPath=input\ -OutputPath=output\ -Verbosity=5 -debug
+..\..\Tools\gconv\gconv.exe script.qsc -InputPath=..\_input\ -OutputPath=..\_output\
 pause

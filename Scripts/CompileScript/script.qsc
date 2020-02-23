@@ -1,1 +1,1 @@
-CompileScriptsRecursive("D:/Projects/IGI2_Project/Scripts");
+CompileScriptsRecursive("./");

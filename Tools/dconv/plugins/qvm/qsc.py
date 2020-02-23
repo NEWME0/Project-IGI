@@ -6,6 +6,7 @@ from .ast import (
     ExpressionUnary,
     ExpressionBinary,
     ExpressionCall,
+    StatementParenthese,
     StatementWhile,
     StatementIf,
 )
@@ -29,13 +30,30 @@ def strepr(st, tabs=0):
 
     if isinstance(st, ExpressionCall):
         c = strepr(st.callee, tabs+1)
+        l = len(c)
         a = list()
 
         for arg in st.arguments:
-            a.append('\n{0}{1}'.format((tabs+1)*'\t', strepr(arg[0], tabs+1)))
+            s = strepr(arg[0], tabs+1)
+
+            if isinstance(arg[0], ExpressionCall):
+                s = '\n' + '\t' * (tabs+1) + s
+                l = len(s) + 2
+            else:
+                if l + len(s) > 300:
+                    s = '\n' + s
+                    l = len(s) + 2
+                else:
+                    l += len(s) + 2
+
+            a.append(s)
 
 
         return '{0}({1})'.format(c, ', '.join(a))
+
+
+    if isinstance(st, StatementParenthese):
+        return '(' + strepr(st.body, tabs+1) + ')'
 
 
     if isinstance(st, StatementWhile):

@@ -1,5 +1,0 @@
-MakeTexture("clouds1.tga", "clouds1.tex");
-MakeTexture("kjetil_sand.tga", "kjetil_sand.tex");
-MakeTexture("sea.tga", "sea.tex");
-MakeTexture("waterenv.tga", "waterenv.tex");
-MakeTexture("watertest1.tga", "watertest1.tex");

@@ -58,24 +58,31 @@ def convert(args):
         texfile = tex.fromfile(srcpath)
 
         for i in range(len(texfile.bitmaps)):
+            fxt = srcpath[-4:]
             ext = '.tga'
+            wid = texfile.width
+            hei = texfile.height
 
-            if texfile.version in (7, 9):
-                ext = '.num{0:0<2}.tga'.format(i)
+            if texfile.version in (7, 9) and len(texfile.bitmaps) > 1:
+                ext = '.#{0:0>2}.tga'.format(i)
 
             elif texfile.version == 11 and i > 0:
-                ext = '.lod{0:0<2}.tga'.format(i)
+                ext = '.%{0:0>2}.tga'.format(i)
+                wid = texfile.width // (1 << i)
+                hei = texfile.height // (1 << i)
 
             tgafile = tga.TGA()
             tgafile.setImageType(2)
             tgafile.setTGALines(
                 texfile.bitmaps[i],
-                texfile.width,
-                texfile.height,
+                wid,
+                hei,
                 tex.DEPTH[texfile.mode] * 8)
-            tgafile.setOrigin(texfile.width, texfile.height)
+            tgafile.setImageDescriptor(True, True, tex.ALPHA[texfile.mode])
 
-            tga.tofile(tgafile, dstpath.replace('.tex', ext))
+            tga.tofile(tgafile, dstpath.replace(fxt, ext))
+
+        print(texfile.version, texfile.mode, srcpath)
 
         count += 1
 
