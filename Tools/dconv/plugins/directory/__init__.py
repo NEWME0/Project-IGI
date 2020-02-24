@@ -1,6 +1,7 @@
-from . import extensions
-from . import listfiles
 from . import compare
+from . import copyfiles
+from . import listfiles
+from . import extensions
 
 
 def register_parser(cli):
@@ -21,3 +22,10 @@ def register_parser(cli):
     sub_compare.add_argument('src', help="")
     sub_compare.add_argument('dst', help="")
     sub_compare.set_defaults(func=compare.func)
+
+    sub_copyfiles = sub.add_parser('copyfiles', help="")
+    sub_copyfiles.add_argument('src', help="")
+    sub_copyfiles.add_argument('dst', help="")
+    sub_copyfiles.add_argument('pattern', help="")
+    sub_copyfiles.set_defaults(func=copyfiles.func)
+

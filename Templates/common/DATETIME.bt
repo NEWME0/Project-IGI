@@ -14,4 +14,7 @@ typedef struct DATETIME
 };
 
 
+typedef DATETIME DT;
+
+
 #endif

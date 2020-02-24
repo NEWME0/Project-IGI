@@ -1,0 +1,468 @@
+//------------------------------------------------
+//--- 010 Editor v9.0.1 Binary Template
+//
+//      File: IGI2_MEF.bt
+//   Authors: Rotari Artiom
+//   Version: 1.0
+//   Purpose: 
+//  Category: Game
+// File Mask: ILFF
+//  ID BYTEs: 
+//   History: 
+//------------------------------------------------
+
+
+#include "../COMMON/TYPES.bt";
+#include "../COMMON/ILFF.bt";
+#include "../COMMON/ALIGNMENT.bt";
+#include "../COMMON/STRINGS.bt";
+#include "../COMMON/VECTORS.bt";
+#include "../COMMON/DATETIME.bt";
+
+
+
+LittleEndian();
+
+
+enum <UINT32> MT
+{
+    MODEL_RIGID    = 0,
+    MODEL_BONE     = 1,
+    MODEL_LIGHTMAP = 3,
+};
+
+
+typedef struct SPHERE
+{
+    FVECTOR3 origin;
+    FLOAT    radius;
+};
+
+
+
+
+typedef struct HSEM
+{
+    ILFF_HEADER header;
+
+    F4 _0;           // 
+    DT dt;           // 
+    MT mt;           // 
+    U4 _1;           // 0
+    U4 _2;           // 0
+    U4 _3;           // 0
+    F4 f00;          //
+    F4 f01;          //
+    F4 f02;          //
+    F4 f03;          //
+    F4 f04;          //
+    F4 f05;          //
+    F4 f06;          //
+    F4 f07;          //
+    F4 f08;          //
+    F4 f09;          //
+    F4 f10;          //
+    F4 f11;          //
+    U4 _4;           //
+    U4 _5;           //
+    U4 _6;           //
+    U4 _7;           //
+    U4 _8;           //
+    U4 _9;           //
+    F4 f12;          //
+    U4 _10;          //
+    U4 _11;          //
+    U4 _12;          //
+    U1 reserved[20];
+
+    Padding();
+};
+
+// ATTACHMENT DEFINE
+typedef struct ATTA
+{
+    ILFF_HEADER header;
+
+    struct
+    {
+        CHAR  name[16];
+        FLOAT px;
+        FLOAT py;
+        FLOAT pz;
+        FLOAT _0;  // [-1.0 .. 1.0], 229
+        FLOAT _1;  // [-1.0 .. 1.0], 297
+        FLOAT _2;  // [-1.0 .. 1.0], 219
+        FLOAT _3;  // [-1.0 .. 1.0], 304
+        FLOAT _4;  // [-1.0 .. 1.0], 245
+        FLOAT _5;  // [-1.0 .. 1.0], 191
+        FLOAT _6;  // [-1.0 .. 1.0], 255
+        FLOAT _7;  // [-1.0 .. 1.0], 244
+        FLOAT _8;  // [-1.0 .. 1.0], 93
+        int   _9;  // {0, 2880154539}
+        int   _10;  // {0, 4, -1, 15}
+    } attachment[header.datasize / 72];
+
+    Padding();
+};
+
+// MAGIC VERTICES
+typedef struct XTVM
+{
+    ILFF_HEADER header;
+
+    struct
+    {
+        FLOAT px;
+        FLOAT py;
+        FLOAT pz;
+        INT32 _0;  // {0, -1}
+    } vertex[header.datasize / 16];
+
+    Padding();
+};
+
+// PORTAL DEFINE
+typedef struct TROP
+{
+    ILFF_HEADER header;
+
+    struct
+    {
+        UINT32 o_vertex;
+        UINT32 n_vertex;
+        UINT32 o_face;
+        UINT32 n_face;
+        UINT32 id;
+    } portal[header.datasize / 20];
+
+    Padding();
+};
+
+// PORTAL VERTICES
+typedef struct XVTP
+{
+    ILFF_HEADER header;
+
+    struct
+    {
+        FLOAT px;
+        FLOAT py;
+        FLOAT pz;
+    } vertex[header.datasize / 12];
+
+    Padding();
+};
+
+// PORTAL FACES
+typedef struct CFTP
+{
+    ILFF_HEADER header;
+
+    struct
+    {
+        UINT32 a;
+        UINT32 b;
+        UINT32 c;
+    } face[header.datasize / 12];
+
+    Padding();
+};
+
+// RENDER MESH HEADER
+typedef struct D3DR
+{
+    ILFF_HEADER header;
+
+    switch(header.datasize)
+    {
+        case 48:
+            UINT32 _0;
+            UINT32 _1;
+            UINT32 mc;
+            UINT32 _3;
+            UINT32 _4;
+            UINT32 _5;
+            UINT32 _6;
+            UINT32 _7;
+            UINT32 _8;
+            UINT32 _9;
+            UINT32 _a;
+            UINT32 _b;
+        break;
+
+        case 56:
+            UINT32 _0;
+            UINT32 _1;
+            UINT32 mc;
+            UINT32 _3;
+            UINT32 _4;
+            UINT32 _5;
+            UINT32 _6;
+            UINT32 _7;
+            UINT32 _8;
+            UINT32 _9;
+            UINT32 _a;
+            UINT32 _b;
+            UINT32 _c;
+            UINT32 _d;
+        break;
+    }
+
+    Padding();
+};
+
+// RENDER MESH DEFINE
+typedef struct DNER
+{
+    ILFF_HEADER header;
+
+    switch(igi1_mef.hsem.mt)
+    {
+        case 0:
+        case 1:
+        struct
+        {
+            F4 _0;
+            F4 _1;
+            F4 _2;
+            S2 _3;
+            S2 _4;
+            S2 _5;
+            S2 _6;
+            S2 _7;
+            S2 _8;
+            S2 _9;
+            S2 _a;
+            U2 face[_3];
+        } mesh[igi1_mef.d3dr.mc] <optimize=false>;
+        break;
+
+        case 3:
+        struct
+        {
+            F4 _0;
+            F4 _1;
+            F4 _2;
+            S2 _3;
+            S2 _4;
+            S2 _5;
+            S2 _6;
+            S2 _7;
+            S2 _8;
+            S2 _9;
+            S2 _a;
+            S2 _b;
+            S2 _c;
+            U2 face[_3];
+        } mesh[igi1_mef.d3dr.mc] <optimize=false>;
+        break;
+    }
+
+    Padding();
+};
+
+// RENDER MESH VERTICES
+typedef struct XTRV
+{
+    ILFF_HEADER header;
+
+    switch(igi1_mef.hsem.mt)
+    {
+        case 0:
+        struct
+        {
+            FLOAT _0;
+            FLOAT _1;
+            FLOAT _2;
+            FLOAT _3;
+            FLOAT _4;
+            FLOAT _5;
+            FLOAT _6;
+            FLOAT _7;
+        } vertex[header.datasize / 32];
+        break;
+
+        case 1:
+        case 3:
+        struct
+        {
+            FLOAT _0;
+            FLOAT _1;
+            FLOAT _2;
+            FLOAT _3;
+            FLOAT _4;
+            FLOAT _5;
+            FLOAT _6;
+            FLOAT _7;
+            FLOAT _8;
+            FLOAT _9;
+        } vertex[header.datasize / 40];
+        break;
+    }
+
+    Padding();
+};
+
+// RENDER MESH LIGHTMAPS
+typedef struct PMTL
+{
+    ILFF_HEADER header;
+
+    struct
+    {
+        UINT16 _0;  // {1 - 1024}
+        UINT16 _1;  // {1 - 904}
+        UINT16 _2;  // 0
+        UINT16 _3;  // 0
+    } unk[header.datasize / 8];
+
+    Padding();
+};
+
+// COLLISION MESH HEADER
+typedef struct HSMC
+{`
+    ILFF_HEADER header;
+
+    UINT32 n_face_0;
+    UINT32 n_vertex_0;
+    UINT32 n_material_0;
+    UINT32 n_sph_0;
+    UINT32 _0;           // 0
+    UINT32 _1;           // 0
+    UINT32 _2;           // 0
+    UINT32 _3;           // 0
+    UINT32 n_face_1;
+    UINT32 n_vertex_1;
+    UINT32 n_material_1;
+    UINT32 n_sph_1;
+    UINT32 _4;           // 0
+    UINT32 _5;           // 0
+    UINT32 _6;           // 0
+    UINT32 _7;           // 0
+
+    Padding();
+};
+
+// COLLISION MESH VERTICES
+typedef struct XTVC
+{
+    ILFF_HEADER header;
+
+    UBYTE data[header.datasize];
+
+    Padding();
+};
+
+// COLLISION MESH FACES
+typedef struct ECFC
+{
+    ILFF_HEADER header;
+
+    UBYTE data[header.datasize];
+
+    Padding();
+};
+
+// COLLISION MESH MATERIALS
+typedef struct TAMC
+{
+    ILFF_HEADER header;
+
+    UBYTE data[header.datasize];
+
+    Padding();
+};
+
+// COLLISION MESH SPH
+typedef struct HPSC
+{
+    ILFF_HEADER header;
+
+    struct
+    {
+        FLOAT _0;  // -4300800.0  1645731.8  560655
+        FLOAT _1;  // -1232424.9  2430292.0  536491
+        FLOAT _2;  // -2059984.9  784330.7   499694
+        FLOAT _3;  //  0.0        4270366.5  696317
+        INT16 _4;  // -1          14794      14796
+        INT16 _5;  //  {0, 1}
+        INT16 _6;  //  0          29588      23207
+        INT16 _7;  //  0          29586      21872
+    } unk [header.datasize / 24];
+
+    Padding();
+};
+
+// TXAN
+typedef struct TXAN
+{
+    ILFF_HEADER header;
+
+    UINT32 _00; // {25}
+    UINT32 _01; // {26}
+    UINT32 _02; // {0}
+    UINT32 _03; // {1}
+    UINT32 _04; // {2}
+    UINT32 _05; // {3}
+    UINT32 _06; // {4}
+    UINT32 _07; // {5}
+    UINT32 _08; // {6}
+    UINT32 _09; // {7}
+    UINT32 _10; // {8}
+    UINT32 _11; // {9}
+    UINT32 _12; // {10}
+    UINT32 _13; // {11}
+    UINT32 _14; // {12}
+    UINT32 _15; // {13}
+    UINT32 _16; // {14}
+    UINT32 _17; // {15}
+    UINT32 _18; // {16}
+    UINT32 _19; // {17}
+    UINT32 _20; // {18}
+    UINT32 _21; // {19}
+    UINT32 _22; // {20}
+    UINT32 _23; // {21}
+    UINT32 _24; // {22}
+    UINT32 _25; // {23}
+    UINT32 _26; // {24}
+    UINT32 _27; // {25}
+
+    Padding();
+};
+
+
+
+
+struct
+{
+    ILFF_HEADER header;
+    CHAR formatid[4];  // OCEM
+
+    while(FTell() < FileSize())
+    {
+        switch(ReadString(FTell(), 4))
+        {
+            case "HSEM": HSEM hsem; break;
+            case "ATTA": ATTA atta; break;
+            case "XTVM": XTVM xtvm; break;
+            case "TROP": TROP trop; break;
+            case "XVTP": XVTP xvtp; break;
+            case "CFTP": CFTP cftp; break;
+            case "D3DR": D3DR d3dr; break;
+            case "DNER": DNER dner; break;
+            case "XTRV": XTRV xtrv; break;
+            case "PMTL": PMTL pmtl; break;
+            case "HSMC": HSMC hsmc; break;
+            case "XTVC": XTVC xtvc; break;
+            case "ECFC": ECFC ecfc; break;
+            case "TAMC": TAMC tamc; break;
+            case "HPSC": HPSC hpsc; break;
+            case "TXAN": TXAN txan; break;
+            default: Assert(false, "Parsing error: unhandled block type");
+        }
+    }
+} igi1_mef;
+
+
+Assert(FEof(), "Parsing error: expected end of file");
