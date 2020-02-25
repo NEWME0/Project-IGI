@@ -12,17 +12,17 @@ class ILChunk:
         try:
             (
                 self.fourcc,
-                self.datasize,
-                self.alignment,
-                self.chunksize
+                self.dtsize,
+                self.dtalgn,
+                self.cknext
             ) = struct.unpack('<4s3I', self.file.read(16))
         except struct.error:
             raise EOFError from None
 
-        if self.chunksize > 0:
-            self.chunksize -= 16
+        if self.cknext > 0:
+            self.cknext -= 16
         else:
-            self.chunksize = self.datasize
+            self.cknext = self.dtsize
 
         self.readsize = 0
 
@@ -36,14 +36,14 @@ class ILChunk:
     def getfourcc(self):
         return self.fourcc
 
-    def getdatasize(self):
-        return self.datasize
+    def getdtsize(self):
+        return self.dtsize
 
-    def getalignment(self):
-        return self.alignment
+    def getdtalgn(self):
+        return self.dtalgn
 
-    def getchunksize(self):
-        return self.chunksize
+    def getcknext(self):
+        return self.cknext
 
     def close(self):
         if not self.closed:
@@ -62,9 +62,9 @@ class ILChunk:
         if whence == 1:
             pos = pos + self.readsize
         elif whence == 2:
-            pos = pos + self.datasize
+            pos = pos + self.dtsize
 
-        if pos < 0 or pos > self.datasize:
+        if pos < 0 or pos > self.dtsize:
             raise RuntimeError
 
         self.file.seek(self.offset + pos, 0)
@@ -80,19 +80,19 @@ class ILChunk:
         if self.closed:
             raise ValueError("I/O operation on closed file")
 
-        if self.readsize >= self.datasize:
+        if self.readsize >= self.dtsize:
             return b''
 
         if size < 0:
-            size = self.datasize - self.readsize
+            size = self.dtsize - self.readsize
 
-        if size > self.datasize - self.readsize:
-            size = self.datasize - self.readsize
+        if size > self.dtsize - self.readsize:
+            size = self.dtsize - self.readsize
 
         data = self.file.read(size)
         self.readsize = self.readsize + len(data)
 
-        if self.readsize == self.datasize and (self.datasize & 1):
+        if self.readsize == self.dtsize and (self.dtsize & 1):
             dummy = self.file.read(1)
             self.readsize = self.readsize + len(dummy)
 
@@ -104,7 +104,7 @@ class ILChunk:
 
         if self.seekable:
             try:
-                restsize = self.chunksize - self.readsize
+                restsize = self.cknext - self.readsize
 
                 self.file.seek(restsize, 1)
                 self.readsize = self.readsize + restsize
@@ -114,8 +114,8 @@ class ILChunk:
             except OSError:
                 pass
         else:
-            while self.readsize < self.chunksize:
-                restsize = min(8192, self.chunksize - self.readsize)
+            while self.readsize < self.cknext:
+                restsize = min(8192, self.cknext - self.readsize)
                 dummy = self.read(n)
 
                 if not dummy:
@@ -127,30 +127,39 @@ class ILFile:
         if isinstance(file, str):
             file = open(file, 'rb')
 
-        self.data = ILChunk(file)
-        self.fourcc = self.data.getfourcc()
-        self.datasize = self.data.getdatasize()
-        self.alignment = self.data.getalignment()
-        self.chunksize = self.data.getchunksize()
-        self.fmtid = self.data.read(4)
+        self.header = ILChunk(file)
+        self.fourcc = self.header.getfourcc()
+        self.dtsize = self.header.getdtsize()
+        self.dtalgn = self.header.getdtalgn()
+        self.cknext = self.header.getcknext()
+        self.dttype = self.header.read(4)
 
         if self.fourcc != b'ILFF':
             raise ValueError('Wrong fourcc')
 
-        if self.alignment != 4:
-            raise ValueError('Wrong alignment')
+        if self.dtalgn != 4:
+            raise ValueError('Wrong dtalgn')
 
     def __enter__(self):
         return self
 
     def __exit__(self, *args, **kwargs):
-        self.data.file.close()
+        self.header.file.close()
 
     def chunks(self):
         while True:
             try:
-                chunk = ILChunk(self.data)
+                chunk = ILChunk(self.header)
                 yield chunk
                 chunk.skip()
             except EOFError:
                 break
+
+
+def fromfile(fp):
+    if isinstance(fp, str):
+        fp = open(fp, 'rb')
+
+    return ILFile(fp)
+
+    fp.close()

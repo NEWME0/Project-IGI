@@ -1,3 +1,5 @@
+"""
+
 import struct
 import numpy as np
 from tabulate import tabulate
@@ -205,3 +207,4 @@ def dump_font(srcpath):
         img = Image.fromarray(data, 'RGBA')
         img.save('my.png')
         # img.show()
+"""

@@ -7,10 +7,12 @@ import importlib
 def discover_plugins():
     path = [os.path.join(os.path.dirname(__file__), 'plugins')]
     plugins = dict()
+    ignore = ('mef', 'fnt')
 
     for _, name, _ in pkgutil.iter_modules(path):
         try:
-            plugins[name] = importlib.import_module('plugins.' + name)
+            if not name in ignore:
+                plugins[name] = importlib.import_module('plugins.' + name)
         except:
             raise
 
