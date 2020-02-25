@@ -7,11 +7,11 @@ def register_parser(cli):
     sub = cmd.add_subparsers()
     sub.require = True
 
-    sub_check = sub.add_parser('check', help="")
-    sub_check.add_argument('src', default='./_input/', help="")
+    sub_check = sub.add_parser('check')
+    sub_check.add_argument('src')
     sub_check.set_defaults(func=check.func)
 
-    sub_conver = sub.add_parser('convert', help="")
-    sub_conver.add_argument('src', default='./_input/', help="")
-    sub_conver.add_argument('dst', default='./_output/', help="")
-    sub_conver.set_defaults(func=convert.func)
+    sub_convert = sub.add_parser('convert')
+    sub_convert.add_argument('src')
+    sub_convert.add_argument('dst')
+    sub_convert.set_defaults(func=convert.func)

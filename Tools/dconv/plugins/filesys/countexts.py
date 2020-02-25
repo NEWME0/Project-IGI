@@ -7,7 +7,7 @@ def func(args):
 	datadict = defaultdict(lambda:0)
 
 	for path in fs.walkdir(args.src, '*'):
-		name, ext = os.path.splitext(path)
+		_, ext = os.path.splitext(path)
 		datadict[ext] += 1
 
 	data = list(datadict.items())

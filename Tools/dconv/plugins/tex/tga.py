@@ -181,31 +181,3 @@ def tofile(tga, fp):
     ))
 
     fp.close()
-
-"""
-typedef struct{
-   DWORD B:5;
-   DWORD G:5;
-   DWORD R:5;
-}RGB555;
-
-typedef struct{
-   DWORD B:5;
-   DWORD G:5;
-   DWORD R:5;
-   DWORD X:1;
-}XRGB1555;
-
-typedef struct{
-   UBYTE B;
-   UBYTE G;
-   UBYTE R;
-}RGB888;
-
-typedef struct{
-   UBYTE B;
-   UBYTE G;
-   UBYTE R;
-   UBYTE A;
-}ARGB8888;
-"""
