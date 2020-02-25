@@ -317,7 +317,7 @@ def _write_qvm5(fp, qvm):
     if isinstance(fp, str):
         fp = open(fp, 'wb')
 
-    fp.write(struct.pack('4s14I', 
+    fp.write(struct.pack('4s14I',
         qvm.signature,
         qvm.ver_major,
         qvm.ver_minor,
@@ -348,7 +348,7 @@ def _write_qvm7(fp, qvm):
     if isinstance(fp, str):
         fp = open(fp, 'wb')
 
-    fp.write(struct.pack('4s15I', 
+    fp.write(struct.pack('4s15I',
         qvm.signature,
         qvm.ver_major,
         qvm.ver_minor,

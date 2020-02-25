@@ -1,5 +1,5 @@
 import os
-from . import fnt
+from format import fnt
 
 
 def check(args):

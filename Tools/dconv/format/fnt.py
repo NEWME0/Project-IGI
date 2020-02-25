@@ -1,5 +1,3 @@
-"""
-
 import struct
 import numpy as np
 from tabulate import tabulate
@@ -189,22 +187,3 @@ def parse_fnt(stream):
     fnt.body = parse_body(stream, fnt.texh)
 
     return fnt
-
-
-from PIL import Image
-
-
-def dump_font(srcpath):
-    with open(srcpath, 'rb') as f:
-        font = parse_fnt(f)
-
-        data = font.body.image
-
-        data['r'] = 0
-        data['g'] = 0
-        data['b'] = 0
-
-        img = Image.fromarray(data, 'RGBA')
-        img.save('my.png')
-        # img.show()
-"""

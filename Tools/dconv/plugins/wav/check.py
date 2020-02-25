@@ -1,6 +1,6 @@
 from collections import defaultdict
 from utils import fs
-from . import wav
+from format import wav
 
 
 def func(args):

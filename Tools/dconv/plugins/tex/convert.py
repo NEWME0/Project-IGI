@@ -1,8 +1,8 @@
 import os
 
 from utils import fs
-from . import tex
-from . import tga
+from format import tex
+from format import tga
 
 
 def func(args):

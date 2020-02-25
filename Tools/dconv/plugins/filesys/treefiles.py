@@ -1,6 +1,7 @@
 import os
 import fnmatch
 
+
 def func(args):
     for root, dirs, files in os.walk(args.src):
         lvl = root.replace(args.src, '').count(os.sep)

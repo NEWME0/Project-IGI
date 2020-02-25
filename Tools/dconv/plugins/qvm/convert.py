@@ -1,6 +1,6 @@
 import os
 from utils import fs
-from . import qvm
+from format import qvm
 
 
 def func(args):

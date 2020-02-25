@@ -1,4 +1,4 @@
-from .ops import *
+from format.qvm.ops import *
 
 
 STRING = None

@@ -1,7 +1,7 @@
 import os
 import wave
 from utils import fs
-from . import wav
+from format import wav
 
 
 def func(args):
