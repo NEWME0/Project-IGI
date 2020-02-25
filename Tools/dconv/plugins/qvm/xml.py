@@ -12,7 +12,6 @@ from .ast import (
 )
 
 
-
 def strepr(st, tabs=0):
     if st.__class__ in (LiteralNumber, LiteralConst, LiteralString, LiteralIdentifier):
         return str(st.value)

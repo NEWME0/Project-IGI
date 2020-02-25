@@ -4,12 +4,15 @@
 //      File: IGI2_WAV.bt
 //   Authors: Rotari Artiom
 //   Version: 1.0
-//   Purpose: 
+//   Purpose:
 //  Category: Game
 // File Mask: ILSF
-//  ID BYTEs: 
-//   History: 
+//  ID BYTEs:
+//   History:
 //------------------------------------------------
+
+
+#include "../COMMON/TYPES.bt";
 
 
 LittleEndian();
@@ -17,14 +20,14 @@ LittleEndian();
 
 struct
 {
-    CHAR   fourcc[4];       // ILSF
-    UINT16 mode;            // 0, 1, 2, 3
-    UINT16 sample_width;    // 16
-    UINT16 channel_count;   // {1, 2}
-    UINT16 _1;              // {0, 4098}
-    UINT32 sample_rate;     // {11025, 22050, 44100}
-    UINT32 sample_count;
-    UBYTE  sample_data[FileSize() - FTell()];
+    CH fourcc[4];       // ILSF
+    U2 mode;            // 0, 1, 2, 3
+    U2 sample_width;    // 16
+    U2 channel_count;   // {1, 2}
+    U2 _1;              // {0, 4098}
+    U4 sample_rate;     // {11025, 22050, 44100}
+    U4 sample_count;
+    U1 sample_data[FileSize() - FTell()];
 } igi2_wav;
 
 
