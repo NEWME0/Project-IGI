@@ -14,15 +14,15 @@ class ILChunk:
                 self.fourcc,
                 self.dtsize,
                 self.dtalgn,
-                self.cknext
+                self.chnext
             ) = struct.unpack('<4s3I', self.file.read(16))
         except struct.error:
             raise EOFError from None
 
-        if self.cknext > 0:
-            self.cknext -= 16
+        if self.chnext > 0:
+            self.chnext -= 16
         else:
-            self.cknext = self.dtsize
+            self.chnext = self.dtsize
 
         self.readsize = 0
 
@@ -32,18 +32,6 @@ class ILChunk:
             self.seekable = False
         else:
             self.seekable = True
-
-    def getfourcc(self):
-        return self.fourcc
-
-    def getdtsize(self):
-        return self.dtsize
-
-    def getdtalgn(self):
-        return self.dtalgn
-
-    def getcknext(self):
-        return self.cknext
 
     def close(self):
         if not self.closed:
@@ -104,7 +92,7 @@ class ILChunk:
 
         if self.seekable:
             try:
-                restsize = self.cknext - self.readsize
+                restsize = self.chnext - self.readsize
 
                 self.file.seek(restsize, 1)
                 self.readsize = self.readsize + restsize
@@ -114,8 +102,8 @@ class ILChunk:
             except OSError:
                 pass
         else:
-            while self.readsize < self.cknext:
-                restsize = min(8192, self.cknext - self.readsize)
+            while self.readsize < self.chnext:
+                restsize = min(8192, self.chnext - self.readsize)
                 dummy = self.read(n)
 
                 if not dummy:
@@ -131,7 +119,7 @@ class ILFile:
         self.fourcc = self.header.getfourcc()
         self.dtsize = self.header.getdtsize()
         self.dtalgn = self.header.getdtalgn()
-        self.cknext = self.header.getcknext()
+        self.chnext = self.header.getchnext()
         self.dttype = self.header.read(4)
 
         if self.fourcc != b'ILFF':

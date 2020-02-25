@@ -410,3 +410,62 @@ def tofile(fp, qvm, version):
         return _write_qvm7(fp, qvm)
 
     fp.close()
+
+
+
+class Script:
+    __slots__ = (
+        'itable',
+        'ivalue',
+        'stable',
+        'svalue',
+        'ctable',
+        'tvalue',
+    )
+
+    def load(self, fp):
+        if isinstance(fp, str):
+            fp = open(fp, 'rb')
+
+        (
+            signature,
+            ver_major,
+            ver_minor,
+            of_itable,
+            of_ivalue,
+            sz_itable,
+            sz_ivalue,
+            of_stable,
+            of_svalue,
+            sz_stable,
+            sz_svalue,
+            of_ctable,
+            sz_ctable,
+            unknown_1,
+            unknown_2,
+        ) = struct.unpack('=4s14I', fp.read(60))
+
+        if self.ver_minor == 7:
+            of_tvalue = struct.unpack('=I', fp.read(4))[0]
+
+        self.ivalue = _read_strings(fp, sz_ivalue, of_ivalue)
+        self.svalue = _read_strings(fp, sz_svalue, of_svalue)
+
+        if self.ver_minor == 7:
+            self.ctable = _read_opcodes(fp, sz_ctable, of_ctable, op7.OPMAP)
+        else:
+            self.ctable = _read_opcodes(fp, sz_ctable, of_ctable, op5.OPMAP)
+
+        if self.ver_minor == 7:
+            self.tvalue = fp.read()
+
+        fp.close()
+
+
+    def save(self, fp, version):
+        if isinstance(fp, str):
+            fp = open(fp, 'wb')
+
+        # code here
+
+        fp.close()
