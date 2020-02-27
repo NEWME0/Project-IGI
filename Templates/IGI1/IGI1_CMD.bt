@@ -1,0 +1,221 @@
+//------------------------------------------------
+//--- 010 Editor v9.0.1 Binary Template
+//
+//      File: 
+//   Authors: 
+//   Version: 
+//   Purpose: 
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+
+
+#include "../COMMON/TYPES.bt";
+
+
+typedef struct PART_01
+{
+	U2 w; //1
+	U2 l; //4
+	U2 x; //3
+	U2 y; //0
+	U2 data[8];
+};
+
+
+typedef struct PART_03
+{
+	U2 w; //3
+	U2 l; //12
+	U2 x; //3
+	U2 y; //2
+	U2 data[16];
+};
+
+
+typedef struct PART_04
+{
+	U2 w; //4
+	U2 l; //16
+	U2 x; //4
+	U2 y; //2
+	U2 data[20];
+
+	Printf("%u %u %u %u\n", w, l, x, y);
+	Assert(y == 2);
+};
+
+
+typedef struct PART_05
+{
+	U2 w; //5
+	U2 l; //20
+	U2 x; //3
+	U2 y; //4
+	U2 data[24];
+};
+
+
+typedef struct PART_06
+{
+	U2 w; //6
+	U2 l; //14
+	U2 x; //4
+	U2 y; //4
+	U2 data[28];
+};
+
+
+typedef struct PART_07
+{
+	U2 w; //7
+	U2 l; //28
+	U2 x; //3
+	U2 y; //6
+	U2 data[32];
+};
+
+
+typedef struct PART_08
+{
+	U2 w; //8
+	U2 l; //32
+	U2 x; //4
+	U2 y; //5, 6
+
+	switch(y)
+	{
+		case 5: U2 data[34]; break;
+		case 6: U2 data[36]; break;
+	}
+};
+
+
+typedef struct PART_09
+{
+	U2 w; //9
+	U2 l; //36
+	U2 x; //5
+	U2 y; //5
+	U2 data[38];
+};
+
+
+typedef struct PART_10
+{
+	U2 w; //10
+	U2 l; //40
+	U2 x; //4
+	U2 y; //7
+	U2 data[42];
+};
+
+
+typedef struct PART_11
+{
+	U2 w; //11
+	U2 l; //44
+	U2 x; //5
+	U2 y; //7
+	U2 data[46];
+};
+
+
+typedef struct PART_12
+{
+	U2 w; //12
+	U2 l; //48
+	U2 x; //4
+	U2 y; //8
+	U2 data[48];
+};
+
+
+typedef struct PART_13
+{
+	U2 w; //13
+	U2 l; //52
+	U2 x; //5
+	U2 y; //8, 14
+
+	switch(y)
+	{
+		case 8:  U2 data[52]; break;
+		case 14: U2 data[64]; break;
+	}
+};
+
+
+typedef struct PART_14
+{
+	U2 w; //14
+	U2 l; //56
+	U2 x; //4
+	U2 y; //9
+	U2 data[54];
+};
+
+
+typedef struct PART_15
+{
+	U2 w; //15
+	U2 l; //60
+	U2 x; //5
+	U2 y; //9
+	U2 data[58];
+
+};
+
+
+typedef struct PART_16
+{
+	U2 w; //16
+	U2 l; //64
+	U2 x; //4, 6
+	U2 y; //9, 11
+
+	if(x == 4)
+		switch(y)
+		{
+			case 9:  U2 data[58]; break;
+			case 11: U2 data[62]; break;
+		}
+
+	if(x == 6)
+		switch(y)
+		{
+			case 9:  U2 data[62]; break;
+			case 11: U2 data[62]; break;
+		}
+};
+
+
+
+while(FTell() < FileSize())
+{
+	switch(ReadUShort(FTell()))
+	{
+		case 1:  PART_01 part_01 <optimize=false>;  break;
+
+		case 3:  PART_03 part_03 <optimize=false>;  break;
+		case 4:  PART_04 part_04 <optimize=false>;  break;
+		case 5:  PART_05 part_05 <optimize=false>;  break;
+		case 6:  PART_06 part_06 <optimize=false>;  break;
+		case 7:  PART_07 part_07 <optimize=false>;  break;
+		case 8:  PART_08 part_08 <optimize=false>;  break;
+		case 9:  PART_09 part_09 <optimize=false>;  break;
+		case 10: PART_10 part_10 <optimize=false>;  break;
+		case 11: PART_11 part_11 <optimize=false>;  break;
+		case 12: PART_12 part_12 <optimize=false>;  break;
+		case 13: PART_13 part_13 <optimize=false>;  break;
+		case 14: PART_14 part_14 <optimize=false>;  break;
+		case 15: PART_15 part_15 <optimize=false>;  break;
+		case 16: PART_16 part_16 <optimize=false>;  break;
+		default: {
+			U2 data[100];
+			Assert(false);
+		}
+	}
+}
