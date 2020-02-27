@@ -8,63 +8,56 @@ SOUNDPACKMETHOD_ADPCM = 2
 SOUNDPACKMETHOD_ADPCM_RESIDENT = 3
 
 
+def _decode_adpcm(sounddata, width, step=None):
+    return sounddata
+    return audioop.adpcm2lin(sounddata, width, step)
+
+
 class WAV:
     __slots__ = (
-        'signature',
-        'comptype',
-        'sampwidth',
+        'soundpack',
+        'samplewid',
         'nchannels',
-        'flag',
-        'state',
         'framerate',
-        'nframes',
-        'sample_data',
+        'sounddata',
     )
 
-
-def fromfile(srcfile):
-    if isinstance(srcfile, str):
-        srcfile = open(srcfile, 'rb')
-
-    wav = WAV()
-
-    (
-        wav.signature,
-        wav.comptype,
-        wav.sampwidth,
-        wav.nchannels,
-        wav.flag,
-        wav.state,
-        wav.framerate,
-        wav.nframes,
-    ) = struct.unpack('4s3H2B2I', srcfile.read(20))
+    def load(self, fp):
+        if isinstance(fp, str):
+            fp = open(fp, 'rb')
 
 
-    assert wav.signature == b'ILSF', "Unexpected signature"
-    assert wav.comptype  in (0, 1, 2, 3), "Unexpected comptype"
-    assert wav.sampwidth == 16, "Unexpected sampwidth"
-    assert wav.nchannels in (1, 2), "Unexpected nchannels"
-    assert wav.framerate in (11025, 22050, 44100), "Unexpected framerate"
+        head = struct.unpack('4s4H2I', fp.read(20))
 
 
-    if wav.comptype == 0:
-        wav.sample_data = srcfile.read(wav.nframes * wav.nchannels * 2)
+        if not head[0] == b'ILSF':
+            raise ValueError("Unexpected signature")
 
-    elif wav.comptype == 1:
-        wav.sample_data = srcfile.read(wav.nframes * wav.nchannels * 2)
+        if not head[1] in (0, 1, 2, 3):
+            raise ValueError("Unexpected soundpack method")
 
-    elif wav.comptype == 2:
-        wav.sample_data = srcfile.read()
-        wav.sample_data = audioop.adpcm2lin(wav.sample_data, 2, None)[0]
+        if not head[2] == 16:
+            raise ValueError("Unexpected sample width")
 
-    elif wav.comptype == 3:
-        wav.sample_data = srcfile.read()
-        wav.sample_data = audioop.adpcm2lin(wav.sample_data, 2, None)[0]
+        if not head[3] in (1, 2):
+            raise ValueError("Unexpected channels count")
+
+        if not head[5] in (11025, 22050, 44100):
+            raise ValueError("Unexpected framerate")
 
 
-    rest = srcfile.read()
-    assert len(rest) < 2, "Unexpected rest"
+        self.soundpack = head[1]
+        self.samplewid = head[2] // 8
+        self.nchannels = head[3]
+        self.framerate = head[5]
+        self.sounddata = fp.read()
 
-    srcfile.close()
 
-    return wav
+        if head[1] in (2, 3):
+            self.sounddata = _decode_adpcm(self.sounddata, 2, None)[0]
+
+
+        #verify sounddata length
+
+
+        fp.close()

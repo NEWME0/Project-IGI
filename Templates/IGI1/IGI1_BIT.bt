@@ -19,48 +19,25 @@
 BitfieldDisablePadding();
 
 
-typedef struct
-{
-	S1 _0a;
-	S1 _0b;
-	S1 _0c;
-	S1 _0d;
 
+
+struct
+{
+	U4 _0;
 	U4 _1;
 	U4 side;
-} HEAD <read=Read_HEAD>;
+} head[256];
 
 
-string Read_HEAD(HEAD &o)
-{
-	local string s = "";
-	SPrintf(s, "%i", o.side);
-	return s;
-}
-
-
-
-typedef struct(U4 side)
-{
-	U1 _0[(side * side) / 8];
-} BODY;
-
-
-HEAD head[52];
 
 local long i = 0;
 
-for(i=0; i<52; i++)
-	BODY body(head[i].side);
 
+for(i=0; i<256; i++)
+	if(head[i].side)
+	struct
+	{
+		U1 _0[(head[i].side * head[i].side) / 8];
+	} body;
 
-// 24 * 128 = 393216
-// 20 * 64  = 81920
-// 7  * 32  = 7168
-// 1  * 256 = 65536
-
-// 547840
-
-
-U1 rest[FileSize() - FTell()];
 
