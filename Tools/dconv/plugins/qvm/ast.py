@@ -121,40 +121,40 @@ def walk(bytecode, address=0, until=None):
             if op.addr == until:
                 break
 
-        if op.code in (BRK, BRA):
+        if op.__class__ in (BRK, BRA):
             break
 
-        elif op.code == POP:
+        elif op.__class__ == POP:
             address = op.addr + op.size
 
-        elif op.code in LiteralNumber.ops:
+        elif op.__class__ in LiteralNumber.ops:
             literal = LiteralNumber()
             literal.value = op.data
             statements.append(literal)
             address = op.addr + op.size
 
-        elif op.code in LiteralConst.ops:
+        elif op.__class__ in LiteralConst.ops:
             literal = LiteralConst()
-            literal.value = LiteralConst.ops[op.code]
+            literal.value = LiteralConst.ops[op.__class__]
             statements.append(literal)
             address = op.addr + op.size
 
-        elif op.code in LiteralString.ops:
+        elif op.__class__ in LiteralString.ops:
             literal = LiteralString()
             literal.value = '"{0}"'.format(STRING[op.data])
             statements.append(literal)
             address = op.addr + op.size
 
-        elif op.code in LiteralIdentifier.ops:
+        elif op.__class__ in LiteralIdentifier.ops:
             literal = LiteralIdentifier()
             literal.value = IDENTIFIER[op.data]
             statements.append(literal)
             address = op.addr + op.size
 
 
-        elif op.code in ExpressionUnary.ops:
+        elif op.__class__ in ExpressionUnary.ops:
             expression = ExpressionUnary()
-            expression.operator = OPERATOR[op.code]
+            expression.operator = OPERATOR[op.__class__]
             expression.argument = statements.pop()
 
             if isinstance(expression.argument, (ExpressionUnary, ExpressionBinary)):
@@ -165,9 +165,9 @@ def walk(bytecode, address=0, until=None):
             statements.append(expression)
             address = op.addr + op.size
 
-        elif op.code in ExpressionBinary.ops:
+        elif op.__class__ in ExpressionBinary.ops:
             expression = ExpressionBinary()
-            expression.operator = OPERATOR[op.code]
+            expression.operator = OPERATOR[op.__class__]
             expression.right = statements.pop()
             expression.left = statements.pop()
 
@@ -186,7 +186,7 @@ def walk(bytecode, address=0, until=None):
             statements.append(expression)
             address = op.addr + op.size
 
-        elif op.code in ExpressionCall.ops:
+        elif op.__class__ in ExpressionCall.ops:
             expression = ExpressionCall()
             expression.callee = statements.pop()
             expression.arguments = list()
@@ -201,7 +201,7 @@ def walk(bytecode, address=0, until=None):
             address = ex.addr + ex.size + ex.data
 
 
-        elif op.code == BF:
+        elif op.__class__ == BF:
             ex = bytecode[op.addr + op.size + op.data - 5]
 
             if ex.data < 0:

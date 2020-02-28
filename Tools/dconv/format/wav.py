@@ -61,3 +61,6 @@ class WAV:
 
 
         fp.close()
+
+    def save(self, fp):
+        NotImplemented

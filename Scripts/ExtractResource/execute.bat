@@ -1,2 +1,2 @@
-..\..\bin\gconv.exe extract-resource.qsc -InputPath=D:/Projects/IGI2_Project/Resources/ -OutputPath=D:/Projects/IGI2_Project/Resources/
+..\..\Tools\gconv\gconv.exe script.qsc -InputPath=..\_input\ -OutputPath=..\_output\
 pause

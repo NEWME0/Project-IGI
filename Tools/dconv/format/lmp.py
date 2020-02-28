@@ -1,38 +1,36 @@
 import struct
 
 
-class LMP:
-	__slots__ = ('segments')
-
-	def __init__(self):
-		self.segments = list()
-
-
 class LMPSquare:
-	__slots__ = ('side', 'data')
+    __slots__ = ('side', 'data')
 
-	def __init__(self, side=0, data=b''):
-		self.side = side
-		self.data = data
+    def __init__(self, side=0, data=b''):
+        self.side = side
+        self.data = data
 
 
-def fromfile(fp):
-	if isinstance(fp, str):
-		fp = open(fp, 'rb')
+class LMP:
+    __slots__ = ('squares')
 
-	lmpobj = LMP()
+    def __init__(self):
+        self.squares = list()
 
-	while True:
-		test = fp.read(4)
+    def load(self, fp):
+        if isinstance(fp, str):
+            fp = open(fp, 'rb')
 
-		if not test:
-			break
+        while True:
+            test = fp.read(4)
 
-		side = struct.unpack('I', test)[0]
-		data = fp.read(side * side)
+            if not test:
+                break
 
-		lmpobj.segments.append(LMPSquare(side, data))
+            side = struct.unpack('I', test)[0]
+            data = fp.read(side * side)
 
-	fp.close()
+            self.squares.append(LMPSquare(side, data))
 
-	return lmpobj
+        fp.close()
+
+    def save(self, fp):
+        NotImplemented

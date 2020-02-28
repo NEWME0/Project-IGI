@@ -1,14 +1,15 @@
 import os
 from PIL import Image
 from utils import fs
+from format.lmp import LMP
 
 
 def func(args):
 	for srcpath in fs.walkdir(args.src, '*.lmp'):
 		dstpath = srcpath.replace(args.src, args.dst, 1)
 
-		lmpobj = fromfile(srcpath)
-		#print(srcpath, len(lmpobj.segments))
+		lmpobj = LMP()
+		lmpobj.load(srcpath)
 
 		for i, square in enumerate(lmpobj.segments):
 			if square.side:

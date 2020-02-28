@@ -2,37 +2,43 @@ import struct
 from .common.datetime import Datetime
 
 
-class TMM:
-    __slots__ = ('_0', 'dt', '_1', 'width', 'height', 'bitmap')
+class TLM:
+    __slots__ = (
+        '_0',
+        'dt',
+        '_1',
+        'width',
+        'height',
+        'bitmap',
+        )
 
+    def __init__(self):
+        self.bitmap = list()
 
-def fromfile(fp):
-    if isinstance(fp, str):
-        fp = open(fp, 'rb')
+    def load(self, fp):
+        if isinstance(fp, str):
+            fp = open(fp, 'rb')
 
-    obj = TMM()
+        (
+            self._0,
+            *dt,
+            self._1,
+            self.width,
+            self.height,
+        ) = struct.unpack('11I', fp.read(44))
 
-    (
-        obj._0,
-        *dt,
-        obj._1,
-        obj.width,
-        obj.height,
-    ) = struct.unpack('11I', fp.read(44))
+        self.dt = Datetime(*dt)
 
-    obj.dt = Datetime(*dt)
+        for i in range(10):
+            size = (width // (1 << i)) * (height // (1 << i))
+            data = fp.read(size)
 
-    obj.bitmap = list()
+            if not data:
+                break
 
-    for i in range(10):
-        size = width // (1 << i)) * (height // (1 << i))
-        data = fp.read(size)
+            self.bitmap.append(data)
 
-        if not data:
-            break
+        fp.close()
 
-        obj.bitmap.append(data)
-
-    fp.close()
-
-    return obj
+    def save(self, fp):
+        NotImplemented

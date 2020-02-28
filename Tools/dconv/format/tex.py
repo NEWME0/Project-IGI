@@ -350,3 +350,14 @@ def fromfile(file):
     file.close()
 
     return tex
+
+
+
+class TEX:
+    __slots__ = ()
+
+    def load(self, fp):
+        pass
+
+    def save(self, fp):
+        NotImplemented
