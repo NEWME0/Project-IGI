@@ -1,0 +1,230 @@
+if(AIFunction_GetCurrentEventType() == AIEVENT_DEAD)
+{
+	AIAction_Dead(0);
+}
+else
+{
+	if(AIFunction_GetCurrentEventType() == AIEVENT_ALARMOFF)
+	{
+		AIFunction_RemoveAlarmActions();
+	}
+	else
+	{
+		if(AIFunction_GetCurrentEventType() == AIEVENT_FLASHBANG)
+		{
+		}
+		else
+		{
+			if(AIFunction_GetCurrentEventType() == AIEVENT_GRENADETHROWN)
+			{
+				if(AIFunction_GetRandomValue(1) > 0.5)
+				{
+					AIAction_RunPanicking(10, 0);
+				}
+			}
+			else
+			{
+				if(AIFunction_GetCurrentEventType() == AIEVENT_GRENADELAND)
+				{
+					if(AIFunction_GetRandomValue(1) > 0.25)
+					{
+						AIAction_RunPanicking(10, 0);
+					}
+				}
+				else
+				{
+					if(AIFunction_GetCurrentEventType() == AIEVENT_COMBAT)
+					{
+						if(AIFunction_GetAlarmTriggerID() != -1 && AIFunction_GetAlarmAccess() == AIALARMACCESS_BEFORECOMBAT && !AIFunction_GetAlarmControlStatus())
+						{
+							AIAction_Activate(
+								AIFunction_GetAlarmTriggerID(), TRUE, AIACTIONFLAG_PUSHABLE);
+						}
+						AIAction_Combat(AIACTIONFLAG_PUSHABLE);
+						if(AIFunction_GetAlarmTriggerID() != -1 && AIFunction_GetAlarmAccess() == AIALARMACCESS_AFTERCOMBAT && !AIFunction_GetAlarmControlStatus())
+						{
+							AIAction_Activate(
+								AIFunction_GetAlarmTriggerID(), TRUE, AIACTIONFLAG_PUSHABLE);
+						}
+					}
+					else
+					{
+						if(AIFunction_GetCurrentEventType() == AIEVENT_ALERT)
+						{
+							AIFunction_SendResponse();
+							AIAction_SetCombat(AIACTIONFLAG_PUSHABLE);
+						}
+						else
+						{
+							if(AIFunction_GetCurrentEventType() == AIEVENT_ENEMYDETECTION)
+							{
+								AIAction_SetCombat(AIACTIONFLAG_PUSHABLE);
+							}
+							else
+							{
+								if(AIFunction_GetCurrentEventType() == AIEVENT_GUNSHOT)
+								{
+									AIAction_SetCombat(AIACTIONFLAG_PUSHABLE);
+								}
+								else
+								{
+									if(AIFunction_GetCurrentEventType() == AIEVENT_TAKINGDAMAGE)
+									{
+										AIAction_SetCombat(AIACTIONFLAG_PUSHABLE);
+									}
+									else
+									{
+										if(AIFunction_GetCurrentEventType() == AIEVENT_GUNSHOTMISS)
+										{
+											AIAction_SetCombat(AIACTIONFLAG_PUSHABLE);
+										}
+										else
+										{
+											if(AIFunction_GetCurrentEventType() == AIEVENT_WALK)
+											{
+												AIAction_SetCombat(AIACTIONFLAG_PUSHABLE);
+											}
+											else
+											{
+												if(AIFunction_GetCurrentEventType() == AIEVENT_GROUNDIMPACT)
+												{
+													AIAction_SetCombat(AIACTIONFLAG_PUSHABLE);
+												}
+												else
+												{
+													if(AIFunction_GetCurrentEventType() == AIEVENT_DOOR)
+													{
+														if(AIFunction_GetAlarmTriggerID() != -1)
+														{
+															AIAction_Activate(
+																AIFunction_GetAlarmTriggerID(), TRUE, 0);
+														}
+													}
+													else
+													{
+														if(AIFunction_GetCurrentEventType() == AIEVENT_FENCE)
+														{
+															if(AIFunction_GetAlarmTriggerID() != -1)
+															{
+																AIAction_Activate(
+																	AIFunction_GetAlarmTriggerID(), TRUE, 0);
+															}
+														}
+														else
+														{
+															if(AIFunction_GetCurrentEventType() == AIEVENT_LADDER)
+															{
+																if(AIFunction_GetAlarmTriggerID() != -1)
+																{
+																	AIAction_Activate(
+																		AIFunction_GetAlarmTriggerID(), TRUE, 0);
+																}
+															}
+															else
+															{
+																if(AIFunction_GetCurrentEventType() == AIEVENT_EXPLOSION)
+																{
+																	if(AIFunction_GetEventDistance() < 15 * WORLD_METER)
+																	{
+																		AIAction_FallFlat(2, 0);
+																		if(AIFunction_GetAlarmTriggerID() != -1)
+																		{
+																			AIAction_Activate(
+																				AIFunction_GetAlarmTriggerID(), TRUE, 0);
+																		}
+																	}
+																	else
+																	{
+																		if(AIFunction_GetAlarmTriggerID() != -1)
+																		{
+																			AIAction_Activate(
+																				AIFunction_GetAlarmTriggerID(), TRUE, 0);
+																		}
+
+																	}
+																}
+																else
+																{
+																	if(AIFunction_GetCurrentEventType() == AIEVENT_ANIMATION)
+																	{
+																		AIFunction_SetScriptIntegerValue(0, 
+																			AIFunction_GetAnimationToPlay());
+																		if(AIFunction_GetScriptIntegerValue(0) != -1)
+																		{
+																			AIAction_PlayAnimation(
+																				AIFunction_GetScriptIntegerValue(0), AIACTIONFLAG_NONE);
+																		}
+																	}
+																	else
+																	{
+																		if(AIFunction_GetCurrentEventType() == AIEVENT_IDLE)
+																		{
+																			AIAction_Idle(1);
+																		}
+																		else
+																		{
+																			if(AIFunction_GetCurrentEventType() == AIEVENT_CREATE)
+																			{
+																				AIFunction_SetEventPriority(AIEVENT_DEAD);
+																				AIFunction_SetEventPriority(AIEVENT_ALARMOFF);
+																				AIFunction_SetEventPriority(AIEVENT_FLASHBANG);
+																				AIFunction_SetEventPriority(AIEVENT_GRENADETHROWN);
+																				AIFunction_SetEventPriority(AIEVENT_GRENADELAND);
+																				AIFunction_SetEventPriority(AIEVENT_COMBAT);
+																				AIFunction_SetEventPriority(AIEVENT_ALERT);
+																				AIFunction_SetEventPriority(AIEVENT_ENEMYDETECTION);
+																				AIFunction_SetEventPriority(AIEVENT_GUNSHOT);
+																				AIFunction_SetEventPriority(AIEVENT_TAKINGDAMAGE);
+																				AIFunction_SetEventPriority(AIEVENT_GUNSHOTMISS);
+																				AIFunction_SetEventPriority(AIEVENT_WALK);
+																				AIFunction_SetEventPriority(AIEVENT_GROUNDIMPACT);
+																				AIFunction_SetEventPriority(AIEVENT_DOOR);
+																				AIFunction_SetEventPriority(AIEVENT_FENCE);
+																				AIFunction_SetEventPriority(AIEVENT_ALARMON);
+																				AIFunction_SetEventPriority(AIEVENT_EXPLOSION);
+																				AIFunction_SetEventPriority(AIEVENT_ANIMATION);
+																				AIFunction_SetEventPriority(AIEVENT_IDLE);
+																				AIFunction_SetEventPriority(AIEVENT_CREATE);
+																				AIFunction_SetViewLength(40);
+																				AIFunction_SetAlarmViewLength(50);
+																				AIFunction_SetViewAlpha(50);
+																				AIFunction_SetViewGamma(45);
+																			}
+
+																		}
+
+																	}
+
+																}
+
+															}
+
+														}
+
+													}
+
+												}
+
+											}
+
+										}
+
+									}
+
+								}
+
+							}
+
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}

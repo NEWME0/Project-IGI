@@ -1,0 +1,42 @@
+if(AIFunction_GetCurrentEventType() == AIEVENT_CREATE)
+{
+	AIFunction_DefaultHandler();
+	AIFunction_SetAlarmControlID(97);
+	AIFunction_SetGunnerID(778);
+}
+else
+{
+	if(AIFunction_GetCurrentEventType() == AIEVENT_IDLE)
+	{
+		AIFunction_DefaultHandler();
+	}
+	else
+	{
+		if(AIFunction_GetCurrentEventType() == AIEVENT_ALARMON)
+		{
+			AIAction_Patrol(620, 0, AIACTIONFLAG_NONE);
+		}
+		else
+		{
+			if(AreaActivate_481.nActive)
+			{
+				AIAction_RunToNode(6, AIACTIONFLAG_NONE);
+			}
+			else
+			{
+				if(AIFunction_GetCurrentEventType() == AIEVENT_COMBAT)
+				{
+					AIFunction_DefaultHandler();
+				}
+				else
+				{
+					AIFunction_DefaultHandler();
+				}
+
+			}
+
+		}
+
+	}
+
+}

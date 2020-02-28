@@ -1,0 +1,10 @@
+if(AIFunction_GetCurrentEventType() == AIEVENT_CREATE)
+{
+	AIFunction_SetViewLength(55);
+	AIFunction_DefaultHandler();
+	AIFunction_SetGunnerID(3301);
+}
+else
+{
+	AIFunction_DefaultHandler();
+}

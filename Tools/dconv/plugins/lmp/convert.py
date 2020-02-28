@@ -11,14 +11,17 @@ def func(args):
 		lmpobj = LMP()
 		lmpobj.load(srcpath)
 
-		for i, square in enumerate(lmpobj.segments):
+		for i, square in enumerate(lmpobj.squares):
 			if square.side:
 				dstname = os.path.basename(srcpath)
 				dstfile = os.path.join(dstpath, '{0}.#{1:0>3}.png'.format(dstname[:-4], i))
 
-				os.makedirs(os.path.dirname(dstfile), exist_ok=True)
-
 				print(dstfile)
+
+				if args.debug:
+					continue
+
+				os.makedirs(os.path.dirname(dstfile), exist_ok=True)
 
 				im = Image.frombytes('L', (square.side, square.side), square.data, 'raw')
 				im.save(dstfile)

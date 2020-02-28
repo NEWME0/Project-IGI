@@ -22,6 +22,7 @@ def discover_plugins():
 
 def main():
     cli = argparse.ArgumentParser()
+    cli.add_argument('--debug', action='store_true')
     sub = cli.add_subparsers()
     sub.require = True
 

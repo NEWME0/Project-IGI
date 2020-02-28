@@ -9,10 +9,16 @@ def func(args):
     count = 0
 
     for srcpath in fs.walkdir(args.src, ('*.tex', '*.spr', '*.pic')):
-        dstpath = srcpath.replace(args.src, args.dst, 1)
-        os.makedirs(os.path.dirname(dstpath), exist_ok=True)
-
         texfile = tex.fromfile(srcpath)
+
+        dstpath = srcpath.replace(args.src, args.dst, 1)
+
+        print(dstpath)
+
+        if args.debug:
+            continue
+
+        os.makedirs(os.path.dirname(dstpath), exist_ok=True)
 
         for i in range(len(texfile.bitmaps)):
             fxt = srcpath[-4:]
@@ -38,8 +44,6 @@ def func(args):
             tgafile.setImageDescriptor(True, True, tex.ALPHA[texfile.mode])
 
             tga.tofile(tgafile, dstpath.replace(fxt, ext))
-
-        print(texfile.version, texfile.mode, srcpath)
 
         count += 1
 

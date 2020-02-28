@@ -1,0 +1,8 @@
+if(AIFunction_GetCurrentEventType() == AIEVENT_IDLE)
+{
+	AIAction_PlayAnimation(51, AIACTIONFLAG_NONE);
+}
+else
+{
+	AIFunction_DefaultHandler();
+}

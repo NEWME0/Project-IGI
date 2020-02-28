@@ -1,11 +1,16 @@
 import struct
-from .common.datetime import Datetime
 
 
-class TLM:
+class TMM:
     __slots__ = (
         '_0',
-        'dt',
+        'creation_year',
+        'creation_month',
+        'creation_day',
+        'creation_hour',
+        'creation_minute',
+        'creation_second',
+        'creation_milisecond',
         '_1',
         'width',
         'height',
@@ -21,13 +26,17 @@ class TLM:
 
         (
             self._0,
-            *dt,
+            self.creation_year,
+            self.creation_month,
+            self.creation_day,
+            self.creation_hour,
+            self.creation_minute,
+            self.creation_second,
+            self.creation_milisecond,
             self._1,
             self.width,
             self.height,
         ) = struct.unpack('11I', fp.read(44))
-
-        self.dt = Datetime(*dt)
 
         for i in range(10):
             size = (width // (1 << i)) * (height // (1 << i))

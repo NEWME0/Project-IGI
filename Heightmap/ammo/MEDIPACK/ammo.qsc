@@ -1,0 +1,1 @@
+DefineAmmoType(12, "AMMO_ID_MEDIPACK", "<MEDAMMO>", "<MEDAMMODESC>", 10005, 2, 255, 128, 0, 255, 255, 0, 0, "104_01_1", "Sound0");

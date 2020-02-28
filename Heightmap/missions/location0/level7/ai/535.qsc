@@ -1,0 +1,35 @@
+if(AIFunction_GetCurrentEventType() == AIEVENT_CREATE)
+{
+	AIFunction_DefaultHandler();
+	AIFunction_SetAlarmTriggerID(3332);
+	AIFunction_SetAlarmControlID(97);
+	AIFunction_SetAlarmAccess(AIALARMACCESS_BEFORECOMBAT);
+}
+else
+{
+	if(AIFunction_GetCurrentEventType() == AIEVENT_IDLE)
+	{
+		AIAction_Patrol(683, 0, AIACTIONFLAG_NONE);
+	}
+	else
+	{
+		if(AIFunction_GetCurrentEventType() == AIEVENT_ALARMON)
+		{
+			AIAction_Patrol(684, 0, AIACTIONFLAG_NONE);
+		}
+		else
+		{
+			if(AIFunction_GetCurrentEventType() == AIEVENT_COMBAT)
+			{
+				AIFunction_DefaultHandler();
+			}
+			else
+			{
+				AIFunction_DefaultHandler();
+			}
+
+		}
+
+	}
+
+}

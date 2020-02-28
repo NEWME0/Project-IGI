@@ -1,0 +1,36 @@
+if(AIFunction_GetCurrentEventType() == AIEVENT_CREATE)
+{
+	AIFunction_DefaultHandler();
+	AIFunction_SetAlarmControlID(98);
+	AIFunction_SetViewLength(75);
+}
+else
+{
+	if(AIFunction_GetCurrentEventType() == AIEVENT_IDLE)
+	{
+	}
+	else
+	{
+		if(AIFunction_GetCurrentEventType() == AIEVENT_ALARMON)
+		{
+			if(EditVariable_2999.nValue == 1)
+			{
+				AIAction_Patrol(3400, 0, AIACTIONFLAG_NONE);
+			}
+		}
+		else
+		{
+			if(AIFunction_GetCurrentEventType() == AIEVENT_COMBAT)
+			{
+				AIFunction_DefaultHandler();
+			}
+			else
+			{
+				AIFunction_DefaultHandler();
+			}
+
+		}
+
+	}
+
+}

@@ -1,0 +1,1 @@
+DefineMission(10, "Mission 10 Name", "Mission 10 Desc", "", 11, "missions/location0/level10", "missions/location0/common", "missions/location0/level10", "location0", "level10", "mission10.spr");

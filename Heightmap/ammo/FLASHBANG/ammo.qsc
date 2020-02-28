@@ -1,0 +1,1 @@
+DefineAmmoType(9, "AMMO_ID_FLASHBANG", "<12>", "<12DESC>", 10003, 2, 255, 128, 0, 255, 255, 0, 0, "137_01_1", "Sound0");

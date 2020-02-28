@@ -1,0 +1,11 @@
+if(AIFunction_GetCurrentEventType() == AIEVENT_IDLE)
+{
+	if(EditVariable_2011.nValue > 0)
+	{
+		AIAction_Patrol(671, 0, 1);
+	}
+}
+else
+{
+	AIFunction_DefaultHandler();
+}

@@ -1,11 +1,16 @@
 import struct
-from .common.datetime import Datetime
 
 
 class THM:
     __slots__ = (
         '_0',
-        'dt',
+        'creation_year',
+        'creation_month',
+        'creation_day',
+        'creation_hour',
+        'creation_minute',
+        'creation_second',
+        'creation_milisecond',
         '_1',
         '_2',
         '_3',
@@ -23,15 +28,19 @@ class THM:
 
         (
             self._0,
-            *dt,
+            self.creation_year,
+            self.creation_month,
+            self.creation_day,
+            self.creation_hour,
+            self.creation_minute,
+            self.creation_second,
+            self.creation_milisecond,
             self._1,
             self._2,
             self._3,
             self.width,
             self.height,
         ) = struct.unpack('13I', fp.read(52))
-
-        self.dt = Datetime(*dt)
 
         for i in range(10):
             size = (width // (1 << i)) * (height // (1 << i)) * 4

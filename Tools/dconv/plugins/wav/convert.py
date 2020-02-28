@@ -12,12 +12,13 @@ def func(args):
         wavfile.load(srcpath)
 
         dstpath = srcpath.replace(args.src, args.dst, 1)
-        os.makedirs(os.path.dirname(dstpath), exist_ok=True)
 
-        if wavfile.nchannels == 1 and wavfile.soundpack in (0, 1):
-            print(dstpath)
-        else:
+        print(dstpath)
+
+        if args.debug:
             continue
+
+        os.makedirs(os.path.dirname(dstpath), exist_ok=True)
 
         with wave.open(dstpath, 'w') as dstfile:
             dstfile.setnchannels(wavfile.nchannels)

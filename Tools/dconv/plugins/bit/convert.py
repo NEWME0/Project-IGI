@@ -17,6 +17,10 @@ def func(args):
 				dstfile = os.path.join(dstpath, '{0}.#{1:0>3}.png'.format(dstname[:-4], i))
 
 				print(dstfile)
+
+				if args.debug:
+					continue
+
 				os.makedirs(os.path.dirname(dstfile), exist_ok=True)
 
 				im = Image.frombytes('1', (square.side, square.side), square.data, 'raw')

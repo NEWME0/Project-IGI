@@ -1,0 +1,91 @@
+if(AIFunction_GetCurrentEventType() == AIEVENT_CREATE)
+{
+	AIFunction_SetEventPriority(AIEVENT_IDLE);
+	AIFunction_DefaultHandler();
+	AIFunction_SetViewLength(0.10000000149011612);
+	AIFunction_SetInvulnerability(1);
+}
+else
+{
+	if(AIFunction_GetCurrentEventType() == AIEVENT_IDLE)
+	{
+		AIAction_Patrol(775, 0, AIACTIONFLAG_NONE);
+	}
+	else
+	{
+		if(AIFunction_GetCurrentEventType() == AIEVENT_ALARMON)
+		{
+			0;
+		}
+		else
+		{
+			if(AIFunction_GetCurrentEventType() == AIEVENT_COMBAT)
+			{
+				0;
+			}
+			else
+			{
+				if(AIFunction_GetCurrentEventType() == AIEVENT_ENEMYDETECTION)
+				{
+					0;
+				}
+				else
+				{
+					if(AIFunction_GetCurrentEventType() == AIEVENT_EXPLOSION)
+					{
+						0;
+					}
+					else
+					{
+						if(AIFunction_GetCurrentEventType() == AIEVENT_GUNSHOT)
+						{
+							0;
+						}
+						else
+						{
+							if(AIFunction_GetCurrentEventType() == AIEVENT_GUNSHOTMISS)
+							{
+								0;
+							}
+							else
+							{
+								if(AIFunction_GetCurrentEventType() == AIEVENT_FRIENDLYDETECTION)
+								{
+									0;
+								}
+								else
+								{
+									if(AIFunction_GetCurrentEventType() == AIEVENT_TAKINGDAMAGE)
+									{
+										0;
+									}
+									else
+									{
+										if(AIFunction_GetCurrentEventType() == AIEVENT_GROUNDIMPACT)
+										{
+											0;
+										}
+										else
+										{
+											AIFunction_DefaultHandler();
+										}
+
+									}
+
+								}
+
+							}
+
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}

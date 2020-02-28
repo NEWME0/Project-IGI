@@ -1,0 +1,42 @@
+if(AIFunction_GetCurrentEventType() == AIEVENT_CREATE)
+{
+	AIFunction_DefaultHandler();
+}
+else
+{
+	if(AIFunction_GetCurrentEventType() == AIEVENT_IDLE)
+	{
+		if(GuardGenerator_701.nSpawns)
+		{
+			AIAction_Patrol(627, 0, AIACTIONFLAG_NONE);
+		}
+		else
+		{
+			if(GuardGenerator_701.nSpawns > 1)
+			{
+				AIAction_Patrol(630, 0, AIACTIONFLAG_NONE);
+			}
+
+		}
+	}
+	else
+	{
+		if(AIFunction_GetCurrentEventType() == AIEVENT_ALARMON)
+		{
+		}
+		else
+		{
+			if(AIFunction_GetCurrentEventType() == AIEVENT_COMBAT)
+			{
+				AIFunction_DefaultHandler();
+			}
+			else
+			{
+				AIFunction_DefaultHandler();
+			}
+
+		}
+
+	}
+
+}

@@ -1,0 +1,93 @@
+SetActiveMaterial(0);
+DefineQMaterial(1, 0, 0, 192, 192, 255);
+DefineGameMaterial("Air", 0, 0, 0.009999999776482582, TRUE, 0, "Walk0", "", "", "", "", "", "land_ground_1", "", "Hit0", "", "", "", "", "", "Hit0", "", TASKTYPE_GUNSHOTEFFECT, TRUE, TRUE, "", "", 0.029999999329447746, "1009_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "", "", 0.029999999329447746, 
+"1009_01_1");
+SetActiveMaterial(1);
+DefineQMaterial(0, 0.5, 0.5, 128, 96, 64);
+DefineGameMaterial("Ground", 10, 5, 0.009999999776482582, FALSE, 1, "walk_ground_1", "walk_ground_2", "walk_ground_3", "walk_ground_4", "walk_ground_5", "walk_ground_6", "land_ground_1", "rain_2", "bul_dirt_1", "bul_dirt_2", "bul_dirt_1", "", "", "", "Hit0", "", TASKTYPE_GUNSHOTEFFECT, TRUE, TRUE, 
+"hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1");
+SetActiveMaterial(2);
+DefineQMaterial(0, 0.25, 0.10000000149011612, 32, 32, 64);
+DefineGameMaterial("Water", 0, 0, 0.009999999776482582, TRUE, 1, "Walk0", "", "", "", "", "", "land_ground_1", "rain_2", "Hit0", "", "", "", "", "", "Hit0", "", TASKTYPE_GUNSHOTEFFECT, TRUE, TRUE, "", "", 0.029999999329447746, "1009_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "", "", 
+0.029999999329447746, "1009_01_1");
+SetActiveMaterial(3);
+DefineQMaterial(0, 0.15000000596046448, 0.6000000238418579, 128, 118, 108);
+DefineGameMaterial("Wood", 1, 10, 0.009999999776482582, FALSE, 1, "walk_wood_1", "walk_wood_2", "walk_wood_3", "walk_wood_4", "walk_wood_5", "walk_wood_6", "land_ground_5", "rain_2", "bul_wood_1", "bul_wood_2", "bul_wood_3", "bul_wood_4", "bul_wood_5", "bul_wood_6", "Hit0", "", TASKTYPE_GUNSHOTEFFECT, 
+TRUE, TRUE, "bullethole_wood.tex", "bullethole_wood.tex", 0.029999999329447746, "1011_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "bullethole_wood.tex", "bullethole_wood.tex", 0.029999999329447746, "1011_01_1");
+SetActiveMaterial(4);
+DefineQMaterial(0, 0.10000000149011612, 0.5, 128, 128, 128);
+DefineGameMaterial("Carton", 1, 10, 0.009999999776482582, TRUE, 1, "walk_ground_1", "walk_ground_2", "walk_ground_3", "walk_ground_4", "walk_ground_5", "walk_ground_6", "land_ground_1", "rain_1", "bul_carton_1", "bul_carton_2", "bul_carton_3", "bul_carton_1", "bul_carton_2", "bul_carton_3", "Hit0", 
+"", TASKTYPE_GUNSHOTEFFECT, TRUE, TRUE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1");
+SetActiveMaterial(5);
+DefineQMaterial(0, 1, 0.8999999761581421, 128, 128, 144);
+DefineGameMaterial("StrongMetal", 10, 30, 0.009999999776482582, FALSE, 1, "walk_metal_1", "walk_metal_2", "walk_metal_3", "walk_metal_4", "walk_metal_5", "walk_metal_6", "land_ground_2", "rain_1", "bul_metal_hrd_1", "bul_metal_hrd_2", "bul_metal_hrd_3", "bul_metal_hrd_1", "bul_metal_hrd_2", 
+"bul_metal_hrd_3", "Hit0", "", TASKTYPE_GUNSHOTEFFECT, TRUE, TRUE, "bullethole_metal.tex", "dent_metal.tex", 0.029999999329447746, "1013_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "bullethole_metal.tex", "bullethole_metal.tex", 0.029999999329447746, "1013_01_1");
+SetActiveMaterial(6);
+DefineQMaterial(0, 0.8999999761581421, 0.5, 118, 118, 134);
+DefineGameMaterial("NormalMetal", 5, 30, 0.009999999776482582, FALSE, 1, "walk_metal_1", "walk_metal_2", "walk_metal_3", "walk_metal_4", "walk_metal_5", "walk_metal_6", "land_ground_2", "rain_1", "bul_metal_nrm_1", "bul_metal_nrm_2", "bul_metal_nrm_3", "bul_metal_nrm_1", "bul_metal_nrm_2", 
+"bul_metal_nrm_3", "Hit0", "", TASKTYPE_GUNSHOTEFFECT, TRUE, TRUE, "bullethole_metal.tex", "dent_metal.tex", 0.029999999329447746, "1013_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "bullethole_metal.tex", "bullethole_metal.tex", 0.029999999329447746, "1013_01_1");
+SetActiveMaterial(7);
+DefineQMaterial(0, 0.800000011920929, 0.5, 108, 108, 124);
+DefineGameMaterial("SoftMetal", 3, 30, 0.009999999776482582, FALSE, 1, "walk_metal_1", "walk_metal_2", "walk_metal_3", "walk_metal_4", "walk_metal_5", "walk_metal_6", "land_ground_2", "rain_1", "bul_metal_sft_1", "bul_metal_sft_2", "bul_metal_sft_3", "bul_metal_sft_4", "bul_metal_sft_2", 
+"bul_metal_sft_3", "Hit0", "", TASKTYPE_GUNSHOTEFFECT, TRUE, TRUE, "bullethole_metal.tex", "dent_metal.tex", 0.029999999329447746, "1013_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "bullethole_metal.tex", "bullethole_metal.tex", 0.029999999329447746, "1013_01_1");
+SetActiveMaterial(8);
+DefineQMaterial(0, 0.20000000298023224, 0.5, 160, 0, 0);
+DefineGameMaterial("Flesh", 1, 0, 0.009999999776482582, FALSE, 0, "Walk0", "", "", "", "", "", "land_ground_1", "", "bul_flesh_1", "bul_flesh_2", "bul_flesh_3", "bul_flesh_4", "bul_flesh_5", "bul_flesh_3", "Hit0", "", TASKTYPE_GUNSHOTEFFECT, TRUE, TRUE, "hole_concrete1.tex", "hole_concrete1.tex", 
+0.029999999329447746, "1009_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1");
+SetActiveMaterial(9);
+DefineQMaterial(0, 0.20000000298023224, 0.5, 128, 0, 0);
+DefineGameMaterial("BloodyFlesh", 1, 0, 0.009999999776482582, FALSE, 0, "Walk0", "", "", "", "", "", "land_ground_1", "", "bul_flesh_2", "bul_flesh_2", "bul_flesh_2", "", "", "", "Hit0", "", TASKTYPE_GUNSHOTEFFECT, TRUE, TRUE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, 
+"1009_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1");
+SetActiveMaterial(10);
+DefineQMaterial(0, 0.30000001192092896, 0.800000011920929, 64, 64, 64);
+DefineGameMaterial("Textiles", 0, 5, 0.009999999776482582, FALSE, 0, "walk_ground_1", "walk_ground_2", "walk_ground_3", "walk_ground_4", "walk_ground_5", "walk_ground_6", "land_ground_1", "rain_2", "bul_textile_1", "bul_textile_1", "bul_textile_1", "bul_textile_1", "bul_textile_1", "bul_textile_1", 
+"Hit0", "", TASKTYPE_GUNSHOTEFFECT, TRUE, TRUE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1");
+SetActiveMaterial(11);
+DefineQMaterial(0, 0.8999999761581421, 1, 192, 192, 192);
+DefineGameMaterial("Concrete", 5, 25, 0.009999999776482582, FALSE, 1, "walk_ground_1", "walk_ground_2", "walk_ground_3", "walk_ground_4", "walk_ground_5", "walk_ground_6", "land_ground_3", "rain_2", "bul_concrete_1", "bul_concrete_2", "bul_concrete_1", "bul_concrete_2", "bul_concrete_1", 
+"bul_concrete_2", "Hit0", "", TASKTYPE_GUNSHOTEFFECT, TRUE, TRUE, "bullethole_concrete.tex", "dent_concrete.tex", 0.05000000074505806, "1012_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "bullethole_concrete.tex", "bullethole_concrete.tex", 0.05999999865889549, "1012_01_1");
+SetActiveMaterial(12);
+DefineQMaterial(0, 0.8999999761581421, 1, 64, 64, 64);
+DefineGameMaterial("Runway", 10, 25, 0.009999999776482582, FALSE, 1, "walk_ground_1", "walk_ground_2", "walk_ground_3", "walk_ground_4", "walk_ground_5", "walk_ground_6", "land_ground_1", "rain_2", "bul_asphalt_1", "bul_asphalt_2", "bul_asphalt_1", "bul_asphalt_2", "bul_asphalt_1", "bul_asphalt_2", 
+"Hit0", "", TASKTYPE_GUNSHOTEFFECT, TRUE, TRUE, "hole_concrete1.tex", "dent_concrete.tex", 0.029999999329447746, "1009_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1");
+SetActiveMaterial(13);
+DefineQMaterial(0, 0.30000001192092896, 0.800000011920929, 128, 128, 128);
+DefineGameMaterial("Rug", 0, 5, 0.009999999776482582, FALSE, 1, "walk_ground_1", "walk_ground_2", "walk_ground_3", "walk_ground_4", "walk_ground_5", "walk_ground_6", "land_ground_1", "rain_2", "bul_rug_1", "bul_rug_2", "bul_rug_1", "bul_rug_2", "bul_rug_1", "bul_rug_2", "Hit0", "", 
+TASKTYPE_GUNSHOTEFFECT, TRUE, TRUE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1");
+SetActiveMaterial(14);
+DefineQMaterial(1, 0.30000001192092896, 0.5, 128, 128, 255);
+DefineGameMaterial("Glass", 0, 15, 0.019999999552965164, FALSE, 1, "walk_ground_1", "walk_ground_2", "walk_ground_3", "walk_ground_4", "walk_ground_5", "walk_ground_6", "land_ground_1", "rain_2", "bul_glass_1", "bul_glass_2", "bul_glass_3", "bul_glass_4", "bul_glass_3", "bul_glass_4", "Hit0", "", 
+TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "hole_plexi1.tex", "hole_plexi1.tex", 0.07999999821186066, "1009_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "hole_plexi1.tex", "hole_plexi1.tex", 0.07999999821186066, "1009_01_1");
+SetActiveMaterial(15);
+DefineQMaterial(0, 0.15000000596046448, 0.6000000238418579, 128, 118, 255);
+DefineGameMaterial("Plastic", 1, 15, 0.009999999776482582, FALSE, 1, "walk_ground_1", "walk_ground_2", "walk_ground_3", "walk_ground_4", "walk_ground_5", "walk_ground_6", "land_ground_1", "rain_2", "bul_plastic_1", "bul_plastic_1", "bul_plastic_1", "", "", "", "Hit0", "", TASKTYPE_GUNSHOTEFFECT, TRUE, 
+TRUE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1");
+SetActiveMaterial(16);
+DefineQMaterial(0, 0.30000001192092896, 0.5, 255, 255, 255);
+DefineGameMaterial("Porcelain", 0, 30, 0.019999999552965164, FALSE, 1, "walk_ground_1", "walk_ground_2", "walk_ground_3", "walk_ground_4", "walk_ground_5", "walk_ground_6", "land_ground_1", "rain_2", "bul_porc_1", "bul_porc_2", "bul_porc_3", "bul_porc_4", "bul_porc_1", "bul_porc_4", "Hit0", "", 
+TASKTYPE_GUNSHOTEFFECT, TRUE, TRUE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1");
+SetActiveMaterial(17);
+DefineQMaterial(0, 0.30000001192092896, 1, 16, 16, 32);
+DefineGameMaterial("Rubber", 1, 5, 0.019999999552965164, FALSE, 1, "walk_ground_1", "walk_ground_2", "walk_ground_3", "walk_ground_4", "walk_ground_5", "walk_ground_6", "land_ground_1", "rain_2", "bul_rubber_1", "bul_rubber_1", "bul_rubber_1", "bul_rubber_1", "bul_rubber_1", "bul_rubber_1", "Hit0", 
+"", TASKTYPE_GUNSHOTEFFECT, TRUE, TRUE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1");
+SetActiveMaterial(18);
+DefineQMaterial(0.800000011920929, 0.800000011920929, 0.5, 108, 108, 124);
+DefineGameMaterial("Fence", 0, 30, 0.009999999776482582, FALSE, 1, "walk_metal_1", "walk_metal_2", "walk_metal_3", "walk_metal_4", "walk_metal_5", "walk_metal_6", "land_ground_2", "rain_1", "bul_metal_fnc_1", "bul_metal_fnc_2", "bul_metal_fnc_1", "bul_metal_fnc_2", "bul_metal_fnc_1", 
+"bul_metal_fnc_2", "Hit0", "", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "", "", 0.029999999329447746, "", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "", "", 0.029999999329447746, "");
+SetActiveMaterial(19);
+DefineQMaterial(0, 0.800000011920929, 0.5, 108, 108, 124);
+DefineGameMaterial("Gravel", 10, 30, 0.009999999776482582, FALSE, 10.0, "walk_gravel_1", "walk_gravel_2", "walk_gravel_3", "walk_gravel_4", "walk_gravel_5", "walk_gravel_6", "land_ground_4", "rain_1", "bul_gravel_1", "bul_gravel_2", "bul_gravel_3", "bul_gravel_1", "bul_gravel_2", "bul_gravel_3", 
+"Hit0", "", TASKTYPE_GUNSHOTEFFECT, TRUE, TRUE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1");
+SetActiveMaterial(20);
+DefineQMaterial(0, 0, 0, 192, 192, 255);
+DefineGameMaterial("Snow", 0, 0, 0.009999999776482582, TRUE, 1, "walk_snow_1", "walk_snow_2", "walk_snow_3", "walk_snow_4", "walk_snow_2", "walk_snow_4", "land_ground_1", "", "Hit0", "", "", "", "", "", "Hit0", "", TASKTYPE_GUNSHOTEFFECT, TRUE, TRUE, "hole_concrete1.tex", "hole_concrete1.tex", 
+0.029999999329447746, "1009_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "hole_concrete1.tex", "hole_concrete1.tex", 0.029999999329447746, "1009_01_1");
+SetActiveMaterial(21);
+DefineQMaterial(1, 0, 0, 255, 255, 255);
+DefineGameMaterial("HumanCollision", 0, 0, 0.009999999776482582, TRUE, 1, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", TASKTYPE_GUNSHOTEFFECT, TRUE, TRUE, "", "", 0, "1009_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "", "", 0, "1009_01_1");
+SetActiveMaterial(22);
+DefineQMaterial(1, 0, 0, 255, 255, 255);
+DefineGameMaterial("MetalLadder", 0, 0, 0.009999999776482582, TRUE, 1, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "", "", 0, "1009_01_1", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "", "", 0, "1009_01_1");
+SetActiveMaterial(23);
+DefineQMaterial(1, 0, 0, 255, 255, 255);
+DefineGameMaterial("MetalFence", 0, 0, 0.009999999776482582, TRUE, 1, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "", "", 0, "", TASKTYPE_GUNSHOTEFFECT, FALSE, FALSE, "", "", 0, "");

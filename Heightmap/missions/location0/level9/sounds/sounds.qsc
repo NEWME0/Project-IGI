@@ -1,0 +1,15 @@
+DefineGroup("VOICE", 
+	DefineSound("_cut09_01", "_CUT09_01", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("_cut09_02", "_CUT09_02", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("_cut09_03", "_CUT09_03", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("_cut09_04", "_CUT09_04", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("_cut09_05", "_CUT09_05", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("_cut09_06", "_CUT09_06", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("_cut09_07", "_CUT09_07", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("_cut09_08", "_CUT09_08", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, FALSE));
+DefineGroup("CUTSCENE SFX", 
+	DefineSound("m9_beeps", "M9_BEEPS", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("m9_office1", "M9_OFFICE1", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("m9_type1", "M9_TYPE1", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, TRUE));
+DefineGroup("INGAME SFX", 
+	DefineSound("m9_ambience", "M9_AMBIENCE", 0, 0, 0, 0.699999988079071, 0, 200.0, -1, -1, -1, -1, TRUE));

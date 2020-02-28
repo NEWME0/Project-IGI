@@ -1,0 +1,105 @@
+if(AIFunction_GetCurrentEventType() == AIEVENT_CREATE)
+{
+	AIFunction_DefaultHandler();
+	AIFunction_SetViewLength(20);
+	AIFunction_SetViewGamma(180);
+	AIFunction_SetInstantDeath(FALSE);
+}
+else
+{
+	if(AIFunction_GetCurrentEventType() == AIEVENT_GUNSHOTMISS)
+	{
+		0;
+	}
+	else
+	{
+		if(AIFunction_GetCurrentEventType() == AIEVENT_EXPLOSION)
+		{
+			0;
+		}
+		else
+		{
+			if(AIFunction_GetCurrentEventType() == AIEVENT_GRENADETHROWN)
+			{
+				0;
+			}
+			else
+			{
+				if(AIFunction_GetCurrentEventType() == AIEVENT_IDLE)
+				{
+					if(!HumanSoldier_404.isDead && !HumanSoldier_405.isDead && !HumanSoldier_407.isDead)
+					{
+						AIAction_Patrol(602, 0, AIACTIONFLAG_PUSHABLE);
+					}
+					else
+					{
+						if(HumanSoldier_404.isDead && HumanSoldier_405.isDead && HumanSoldier_407.isDead)
+						{
+							if(EditVariable_171.nValue == 3)
+							{
+								AIAction_Patrol(604, 0, AIACTIONFLAG_PUSHABLE);
+							}
+							else
+							{
+								if(EditVariable_174.nValue)
+								{
+									AIAction_Patrol(606, 0, AIACTIONFLAG_PUSHABLE);
+								}
+								else
+								{
+									if(EditVariable_176.nValue == 1)
+									{
+										AIAction_Patrol(624, 0, AIACTIONFLAG_PUSHABLE);
+									}
+									else
+									{
+										if(EditVariable_173.nValue == 1)
+										{
+											AIAction_Patrol(619, 0, AIACTIONFLAG_PUSHABLE);
+											EditVariable_173.nValue = 2;
+										}
+										else
+										{
+											if(EditVariable_179.nValue)
+											{
+												AIAction_Patrol(625, 0, AIACTIONFLAG_PUSHABLE);
+											}
+
+										}
+
+									}
+
+								}
+
+							}
+						}
+
+					}
+				}
+				else
+				{
+					if(AIFunction_GetCurrentEventType() == AIEVENT_ALARMON)
+					{
+					}
+					else
+					{
+						if(AIFunction_GetCurrentEventType() == AIEVENT_COMBAT)
+						{
+							AIFunction_DefaultHandler();
+						}
+						else
+						{
+							AIFunction_DefaultHandler();
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}

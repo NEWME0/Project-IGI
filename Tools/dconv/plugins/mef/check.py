@@ -16,14 +16,3 @@ def func(args):
 
 	for k, v in dataset.items():
 		print(k, v)
-
-"""
-
-
-dataset[meffile.hsem['mt']].add(len(meffile.d3dr))
-modeltype   d3dr
-1           {14}
-0           {12}
-3           {14}
-
-"""

@@ -1,0 +1,18 @@
+DefineGroup("CUTSCENE VOICEOVER", 
+	DefineSound("_cut13_01", "_CUT13_01", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("_out13_01", "_OUT13_01", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("_out13_02", "_OUT13_02", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("_out13_03", "_OUT13_03", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("_out13_04", "_OUT13_04", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("_out13_05", "_OUT13_05", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, FALSE), 
+	DefineSound("_out13_06", "_OUT13_06", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, FALSE));
+DefineGroup("CUTSCENE SFX", 
+	DefineSound("m13_baseamb", "M13_BASEAMB", 0, 0, 0, 0.6000000238418579, 0, 200.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("m13_heligr1", "M13_HELIGR1", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("m13_heligr2", "M13_HELIGR2", 0, 0, 0, 1, 0, 200.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("m13_heliinside", "M13_HELIINSIDE", 0, 0, 0, 0.699999988079071, 0, 200.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("m13_heliloop", "M13_HELILOOP", 0, 0, 0, 0.699999988079071, 0, 200.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("m13_wind", "M13_WIND", 0, 0, 0, 0.800000011920929, 0, 200.0, -1, -1, -1, -1, TRUE), 
+	DefineSound("m13_heliloop_cut", "M13_HELILOOP", 0, 0, 0, 0.4000000059604645, 0, 200.0, -1, -1, -1, -1, TRUE));
+DefineGroup("INGAME SFX", 
+	DefineSound("m13_ambience", "M13_AMBIENCE", 0, 0, 0, 0.6000000238418579, 0, 200.0, -1, -1, -1, -1, TRUE));
