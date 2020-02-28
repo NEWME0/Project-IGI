@@ -1,18 +1,38 @@
 //------------------------------------------------
 //--- 010 Editor v9.0.1 Binary Template
 //
-//      File: 
-//   Authors: 
-//   Version: 
-//   Purpose: 
-//  Category: 
-// File Mask: 
-//  ID Bytes: 
-//   History: 
+//      File:
+//   Authors:
+//   Version:
+//   Purpose:
+//  Category:
+// File Mask:
+//  ID Bytes:
+//   History:
 //------------------------------------------------
 
 
 
-#include "../COMMON/TYPES.bt"
+//#include "../COMMON/TYPES.bt";
+#include "/home/unifunit/Документы/IGI2-Project/Templates/common/TYPES.bt";
 
-U4 a[100];
+
+while(FTell() < FileSize())
+    struct
+    {
+        S2 _0;
+        S2 _1;
+        S2 _2;
+        S2 _3;
+        S2 _4;
+        S2 _5;
+        S2 _6;
+        S2 _7;
+        S2 _8;
+        S2 _9;
+        S2 _10;
+        S2 _11;
+        S2 _12;
+        S2 _13;
+        S4 _14;
+    } item;
