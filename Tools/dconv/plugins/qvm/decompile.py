@@ -1,6 +1,6 @@
 import os
 from utils import fs
-from format import qvm
+from format.qvm import QVM
 from . import ast
 from . import qsc
 
@@ -9,7 +9,8 @@ def func(args):
     count = 0
 
     for srcpath in fs.walkdir(args.src, '*.qvm'):
-        qvmfile = qvm.fromfile(srcpath)
+        qvmfile = QVM()
+        qvmfile.load(srcpath)
         qvmtree = ast.fromfile(qvmfile)
         qvmtext = qsc.fromtree(qvmtree)
 
