@@ -12,6 +12,7 @@
 //------------------------------------------------
 
 
-#include "../COMMON/TYPES.bt"
+//#include "../COMMON/TYPES.bt";
+#include "/home/unifunit/Документы/IGI2-Project/Templates/common/TYPES.bt";
 
-U4 d[(FileSize()) / 4];
+U4 num[(FileSize() - FTell()) / 4];
