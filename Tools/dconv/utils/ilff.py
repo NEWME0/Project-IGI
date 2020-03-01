@@ -109,6 +109,19 @@ class ILChunk:
                 if not dummy:
                     raise EOFError
 
+    def getfourcc(self):
+        return self.fourcc
+
+    def getdtsize(self):
+        return self.dtsize
+
+    def getdtalgn(self):
+        return self.dtalgn
+
+    def getchnext(self):
+        return self.chnext
+
+
 
 class ILFile:
     def __init__(self, file):

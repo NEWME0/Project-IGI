@@ -4,7 +4,7 @@ import argparse
 import importlib
 
 
-PLUGINS_IGNORE = ('mef',)
+PLUGINS_IGNORE = ()
 PLUGINS_PATH = [os.path.join(os.path.dirname(__file__), 'plugins')]
 
 
