@@ -37,17 +37,17 @@ typedef struct HSEM
     ILFF_HEADER header;
 
     U4 _0;
-    U4 yy;
-    U4 mm;
-    U4 dd;
-    U4 hh;
-    U4 mn;
-    U4 ss;
-    U4 ms;
-    U4 mt;
-    U4 _1;
-    U4 _2;
-    U4 _3;
+    U4 yy;  // datetime
+    U4 mm;  // datetime
+    U4 dd;  // datetime
+    U4 hh;  // datetime
+    U4 mn;  // datetime
+    U4 ss;  // datetime
+    U4 ms;  // datetime
+    U4 mt;  // modeltype
+    U4 _1;  // 0
+    U4 _2;  // 0
+    U4 _3;  // 0
     F4 f0;
     F4 f1;
     F4 f2;
@@ -85,7 +85,7 @@ typedef struct ATTA
 
     struct
     {
-        CH  name[16];
+        CH name[16];
         F4 px;
         F4 py;
         F4 pz;
@@ -175,52 +175,32 @@ typedef struct D3DR
     switch(igi1_mef.hsem.mt)
     {
         case 0:
-            U4 _0; // 4
-            U4 tc;
-            U4 mc;
-            U4 vc;
-            U4 _4; // 0
-            U4 _5; // 0
-            U4 _6; // 0
-            U4 _7; // 0
-            U4 _8; // 0
-            U4 _9; // 0
-            U4 _a; // 0
-            U4 _b; // 0
+            U4 _0;     // 4
+            U4 fn;     // face num
+            U4 mn;     // mesh num
+            U4 vn;     // vert num
+            U4 rs[8];  // 0
         break;
 
         case 1:
-            U4 _0; // 4
-            U4 _1;
-            U4 mc;
-            U4 _3;
-            U4 _4;
-            U4 _5;
-            U4 _6; // 0
-            U4 _7; // 0
-            U4 _8; // 0
-            U4 _9; // 0
-            U4 _a; // 0
-            U4 _b; // 0
-            U4 _c; // 0
-            U4 _d; // 0
+            U4 _0;     // 4
+            U4 fn;     // face num
+            U4 mn;     // mesh num
+            U4 v0;     // vert num 0
+            U4 v1;     // vert num 1
+            U4 vn;     // vert num
+            U4 rs[8];  // 0
         break;
 
         case 3:
-            U4 _0; // 4
-            U4 _1;
-            U4 _2;
-            U4 mc;
-            U4 _4;
-            U4 _5; // 0
-            U4 _6;
-            U4 _7; // 0
-            U4 _8; // 0
-            U4 _9; // 0
-            U4 _a; // 0
-            U4 _b; // 0
-            U4 _c; // 0
-            U4 _d; // 0
+            U4 _0;     // 4
+            U4 ln;     // lmap num
+            U4 fn;     // face num
+            U4 mn;     // mesh num
+            U4 vn;     // vert num
+            U4 _5;     // 0
+            U4 _6;     // 
+            U4 rs[7];  // 0
         break;
     }
 
@@ -238,39 +218,39 @@ typedef struct DNER
         case 1:
         struct
         {
-            F4 _0;
-            F4 _1;
-            F4 _2;
-            S2 _3;
-            S2 _4;
+            F4 px;
+            F4 py;
+            F4 pz;
+            S2 fn;
+            S2 fx;
             S2 _5;
-            S2 _6;
-            S2 _7;
+            S2 vo;
+            S2 vn;
             S2 _8;
             S2 _9;
             S2 _a;
-            U2 face[_3];
-        } mesh[igi1_mef.d3dr.mc] <optimize=false>;
+            U2 face[fn];
+        } mesh[igi1_mef.d3dr.mn] <optimize=false>;
         break;
 
         case 3:
         struct
         {
-            F4 _0;
-            F4 _1;
-            F4 _2;
-            S2 _3;
-            S2 _4;
+            F4 px;
+            F4 py;
+            F4 pz;
+            S2 fn;
+            S2 fx;
             S2 _5;
             S2 _6;
-            S2 _7;
-            S2 _8;
+            S2 vo;
+            S2 vn;
             S2 _9;
             S2 _a;
             S2 _b;
             S2 _c;
-            U2 face[_3];
-        } mesh[igi1_mef.d3dr.mc] <optimize=false>;
+            U2 face[fn];
+        } mesh[igi1_mef.d3dr.mn] <optimize=false>;
         break;
     }
 
@@ -287,14 +267,14 @@ typedef struct XTRV
         case 0:
         struct
         {
-            F4 _0;
-            F4 _1;
-            F4 _2;
+            F4 px;
+            F4 py;
+            F4 pz;
             F4 _3;
             F4 _4;
             F4 _5;
-            F4 _6;
-            F4 _7;
+            F4 u0;
+            F4 v0;
         } vertex[header.datasize / 32];
         break;
 
@@ -302,16 +282,16 @@ typedef struct XTRV
         case 3:
         struct
         {
-            F4 _0;
-            F4 _1;
-            F4 _2;
+            F4 px;
+            F4 py;
+            F4 pz;
             F4 _3;
             F4 _4;
             F4 _5;
-            F4 _6;
-            F4 _7;
-            F4 _8;
-            F4 _9;
+            F4 u0;
+            F4 v0;
+            F4 u1;
+            F4 v1;
         } vertex[header.datasize / 40];
         break;
     }
@@ -326,10 +306,10 @@ typedef struct PMTL
 
     struct
     {
-        U2 _0;  // {1 - 1024}
-        U2 _1;  // {1 - 904}
-        U2 _2;  // 0
-        U2 _3;  // 0
+        U2 _0;  // 
+        U2 _1;  // 
+        U2 _2;  // 
+        U2 _3;  // 
     } unk[header.datasize / 8];
 
     Padding();
@@ -340,22 +320,17 @@ typedef struct HSMC
 {
     ILFF_HEADER header;
 
-    U4 n_face_0;
-    U4 n_vertex_0;
-    U4 n_material_0;
-    U4 n_sph_0;
-    U4 _0;           // 0
-    U4 _1;           // 0
-    U4 _2;           // 0
-    U4 _3;           // 0
-    U4 n_face_1;
-    U4 n_vertex_1;
-    U4 n_material_1;
-    U4 n_sph_1;
-    U4 _4;           // 0
-    U4 _5;           // 0
-    U4 _6;           // 0
-    U4 _7;           // 0
+    struct
+    {
+        U4 fn;  //
+        U4 vn;  //
+        U4 mn;  //
+        U4 sn;  //
+        U4 _0;  // 0
+        U4 _1;  // 0
+        U4 _2;  // 0
+        U4 _3;  // 0
+    } cmesh[2];
 
     Padding();
 };
@@ -417,14 +392,14 @@ typedef struct HPSC
 
     struct
     {
-        F4 _0;  // -4300800.0  1645731.8  560655
-        F4 _1;  // -1232424.9  2430292.0  536491
-        F4 _2;  // -2059984.9  784330.7   499694
-        F4 _3;  //  0.0        4270366.5  696317
-        S2 _4;  // -1          14794      14796
-        S2 _5;  //  {0, 1}
-        S2 _6;  //  0          29588      23207
-        S2 _7;  //  0          29586      21872
+        F4 _0;  // -257428.67  645599.25
+        F4 _1;  // -389401.2   391259.34
+        F4 _2;  // -497025.03  485629.94
+        F4 _3;  //  2.938633   516600.06
+        S2 _4;  // -1          3287
+        S2 _5;  //  0          1
+        S2 _6;  //  0          6573
+        S2 _7;  //  0          6574
     } sph [header.datasize / 24];
 
     Padding();
@@ -435,34 +410,7 @@ typedef struct TXAN
 {
     ILFF_HEADER header;
 
-    U4 _00; // {25}
-    U4 _01; // {26}
-    U4 _02; // {0}
-    U4 _03; // {1}
-    U4 _04; // {2}
-    U4 _05; // {3}
-    U4 _06; // {4}
-    U4 _07; // {5}
-    U4 _08; // {6}
-    U4 _09; // {7}
-    U4 _10; // {8}
-    U4 _11; // {9}
-    U4 _12; // {10}
-    U4 _13; // {11}
-    U4 _14; // {12}
-    U4 _15; // {13}
-    U4 _16; // {14}
-    U4 _17; // {15}
-    U4 _18; // {16}
-    U4 _19; // {17}
-    U4 _20; // {18}
-    U4 _21; // {19}
-    U4 _22; // {20}
-    U4 _23; // {21}
-    U4 _24; // {22}
-    U4 _25; // {23}
-    U4 _26; // {24}
-    U4 _27; // {25}
+    U1 _0[header.datasize];
 
     Padding();
 };

@@ -6,51 +6,49 @@ from utils import ilff
 
 
 HSEM = np.dtype([
-	('_0', np.uint32),
-	('yy', np.uint32),
-	('mm', np.uint32),
-	('dd', np.uint32),
-	('hh', np.uint32),
-	('mn', np.uint32),
-	('ss', np.uint32),
-	('ms', np.uint32),
-	('mt', np.uint32),
-	('_1', np.uint32),
-	('_2', np.uint32),
-	('_3', np.uint32),
-	('f0', np.float32),
-	('f1', np.float32),
-	('f2', np.float32),
-	('f3', np.float32),
-	('f4', np.float32),
-	('f5', np.float32),
-	('f6', np.float32),
-	('f7', np.float32),
-	('f8', np.float32),
-	('f9', np.float32),
-	('fa', np.float32),
-	('fb', np.float32),
-	('_4', np.uint32),
-	('_5', np.uint32),
-	('_6', np.uint32),
-	('_7', np.uint32),
-	('_8', np.uint32),
-	('_9', np.uint32),
-	('fc', np.float32),
-	('_a', np.uint16),
-	('_b', np.uint16),
-	('_c', np.uint16),
-	('_d', np.uint16),
-	('_e', np.uint16),
-	('_f', np.uint16),
-	('rs', (np.uint8, 20)),
+	('_0', np.uint32),         # 
+	('yy', np.uint32),         # datetime
+	('mm', np.uint32),         # datetime
+	('dd', np.uint32),         # datetime
+	('hh', np.uint32),         # datetime
+	('mn', np.uint32),         # datetime
+	('ss', np.uint32),         # datetime
+	('ms', np.uint32),         # datetime
+	('mt', np.uint32),         # modeltype
+	('_1', np.uint32),         # 0
+	('_2', np.uint32),         # 0
+	('_3', np.uint32),         # 0
+	('f0', np.float32),        # 
+	('f1', np.float32),        # 
+	('f2', np.float32),        # 
+	('f3', np.float32),        # 
+	('f4', np.float32),        # 
+	('f5', np.float32),        # 
+	('f6', np.float32),        # 
+	('f7', np.float32),        # 
+	('f8', np.float32),        # 
+	('f9', np.float32),        # 
+	('fa', np.float32),        # 
+	('fb', np.float32),        # 
+	('fn', np.uint32),         # render faces count
+	('vn', np.uint32),         # render verts count
+	('_6', np.uint32),         # 
+	('cv', np.uint32),         # collision verts count
+	('cf', np.uint32),         # collision faces count
+	('_9', np.uint32),         # 
+	('fc', np.float32),        # 
+	('mg', np.uint16),         # magic verts count
+	('an', np.uint16),         # attachments count
+	('pv', np.uint16),         # portal verts count
+	('pf', np.uint16),         # portal faces count
+	('pn', np.uint16),         # portal count
+	('_f', np.uint16),         # 0
+	('rs', (np.uint8, 20)),    # 
 	])
 
 ATTA = np.dtype([
-	('nm', (np.string_, 16)),
-	('_0', np.float32),
-	('_1', np.float32),
-	('_2', np.float32),
+	('obj', (np.string_, 16)),
+	('loc', (np.float32, 3)),
 	('_3', np.float32),
 	('_4', np.float32),
 	('_5', np.float32),
@@ -64,80 +62,50 @@ ATTA = np.dtype([
 	])
 
 XTVM = np.dtype([
-	('_0', np.float32),
-	('_1', np.float32),
-	('_2', np.float32),
+	('pos', (np.float32, 3)),
 	('_3', np.int32),
 	])
 
 TROP = np.dtype([
-	('ov', np.uint32),
-	('nv', np.uint32),
-	('of', np.uint32),
-	('nf', np.uint32),
-	('id', np.uint32),
+	('vertsoff', np.uint32),
+	('vertsnum', np.uint32),
+	('facesoff', np.uint32),
+	('facesnum', np.uint32),
+	('portalid', np.uint32),
 	])
 
-XVTP = np.dtype([
-	('_0', np.float32),
-	('_1', np.float32),
-	('_2', np.float32),
-	])
+XVTP = np.dtype((np.float32, 3))
 
-CFTP = np.dtype([
-	('_0', np.uint32),
-	('_1', np.uint32),
-	('_2', np.uint32),
-	])
+CFTP = np.dtype((np.uint32, 3))
 
 
 D3DR_0 = np.dtype([
 	('_0', np.uint32),
-	('_1', np.uint32),
-	('_2', np.uint32),
-	('_3', np.uint32),
-	('_4', np.uint32),
-	('_5', np.uint32),
-	('_6', np.uint32),
-	('_7', np.uint32),
-	('_8', np.uint32),
-	('_9', np.uint32),
-	('_a', np.uint32),
-	('_b', np.uint32),
+	('facesnum', np.uint32),
+	('partsnum', np.uint32),
+	('vertsnum', np.uint32),
+	('reserved', (np.uint32, 8)),
 	])
 
 D3DR_1 = np.dtype([
 	('_0', np.uint32),
-	('_1', np.uint32),
-	('_2', np.uint32),
-	('_3', np.uint32),
-	('_4', np.uint32),
-	('_5', np.uint32),
-	('_6', np.uint32),
-	('_7', np.uint32),
-	('_8', np.uint32),
-	('_9', np.uint32),
-	('_a', np.uint32),
-	('_b', np.uint32),
-	('_c', np.uint32),
-	('_d', np.uint32),
+	('facesnum', np.uint32),
+	('partsnum', np.uint32),
+	('vert0num', np.uint32),
+	('vert1num', np.uint32),
+	('vertsnum', np.uint32),
+	('reserved', (np.uint32, 8)),
 	])
 
 D3DR_3 = np.dtype([
 	('_0', np.uint32),
-	('_1', np.uint32),
-	('_2', np.uint32),
-	('_3', np.uint32),
-	('_4', np.uint32),
+	('ltmapnum', np.uint32),
+	('facesnum', np.uint32),
+	('partsnum', np.uint32),
+	('vertsnum', np.uint32),
 	('_5', np.uint32),
 	('_6', np.uint32),
-	('_7', np.uint32),
-	('_8', np.uint32),
-	('_9', np.uint32),
-	('_a', np.uint32),
-	('_b', np.uint32),
-	('_c', np.uint32),
-	('_d', np.uint32),
+	('reserved', (np.uint32, 7)),
 	])
 
 D3DR = {
@@ -147,41 +115,63 @@ D3DR = {
 	}
 
 
+DNER_0 = np.dtype([
+	('location', (np.float32, 3)),
+	('indexnum', np.int16),
+	('nextoffs', np.int16),
+	('parentid', np.int16),
+	('vertsoff', np.int16),
+	('vertsnum', np.int16),
+	('_8', np.int16),
+	('_9', np.int16),
+	('_a', np.int16),
+	])
+
+DNER_3 = np.dtype([
+	('location', (np.float32, 3)),
+	('indexnum', np.int16),
+	('nextoffs', np.int16),
+	('parentid', np.int16),
+	('_6', np.int16),
+	('vertsoff', np.int16),
+	('vertsnum', np.int16),
+	('_9', np.int16),
+	('_a', np.int16),
+	('_b', np.int16),
+	('_c', np.int16),
+	])
+
+DNER = {
+	0: DNER_0,
+	1: DNER_0,
+	3: DNER_3,
+}
+
+
 XTRV_0 = np.dtype([
-	('_0', np.float32),
-	('_1', np.float32),
-	('_2', np.float32),
+	('pos', (np.float32, 3)),
 	('_3', np.float32),
 	('_4', np.float32),
 	('_5', np.float32),
-	('_6', np.float32),
-	('_7', np.float32),
+	('uv0', (np.float32, 2)),
 	])
 
 XTRV_1 = np.dtype([
-	('_0', np.float32),
-	('_1', np.float32),
-	('_2', np.float32),
+	('pos', (np.float32, 3)),
 	('_3', np.float32),
 	('_4', np.float32),
 	('_5', np.float32),
-	('_6', np.float32),
-	('_7', np.float32),
-	('_8', np.float32),
-	('_9', np.float32),
+	('uv0', (np.float32, 2)),
+	('uv1', (np.float32, 2)),
 	])
 
 XTRV_3 = np.dtype([
-	('_0', np.float32),
-	('_1', np.float32),
-	('_2', np.float32),
+	('pos', (np.float32, 3)),
 	('_3', np.float32),
 	('_4', np.float32),
 	('_5', np.float32),
-	('_6', np.float32),
-	('_7', np.float32),
-	('_8', np.float32),
-	('_9', np.float32),
+	('uv0', (np.float32, 2)),
+	('uv1', (np.float32, 2)),
 	])
 
 XTRV = {
@@ -199,10 +189,10 @@ PMTL = np.dtype([
 	])
 
 HSMC = np.dtype([
-	('nf', np.uint32),
-	('nv', np.uint32),
-	('nm', np.uint32),
-	('ns', np.uint32),
+	('fn', np.uint32),
+	('vn', np.uint32),
+	('mn', np.uint32),
+	('sn', np.uint32),
 	('_0', np.uint32),
 	('_1', np.uint32),
 	('_2', np.uint32),
@@ -210,9 +200,7 @@ HSMC = np.dtype([
 	])
 
 XTVC = np.dtype([
-	('_0', np.float32),
-	('_1', np.float32),
-	('_2', np.float32),
+	('pos', (np.float32, 3)),
 	('_3', np.float32),
 	])
 
@@ -244,85 +232,35 @@ HPSC = np.dtype([
 	])
 
 
+class DNER_CLASS:
+	__slots__ = ('head', 'faces')
 
-class DNER_0:
-	__slots__ = ('ls', '_0', '_1', '_2',
-				 '_3', '_4', '_5', '_6',
-				 '_7', '_8', '_9', '_a')
+	def __init__(self, head, faces):
+		self.head = head
+		self.faces = faces
 
-	def __init__(self, args):
-		(
-			self._0, self._1, self._2, self._3,
-			self._4, self._5, self._6, self._7,
-			self._8, self._9, self._a,
-		) = args
-
-class DNER_1:
-	__slots__ = ('ls', '_0', '_1', '_2',
-				 '_3', '_4', '_5', '_6',
-				 '_7', '_8', '_9', '_a')
-
-	def __init__(self, args):
-		(
-			self._0, self._1, self._2, self._3,
-			self._4, self._5, self._6, self._7,
-			self._8, self._9, self._a,
-		) = args
-
-class DNER_3:
-	__slots__ = ('ls', '_0', '_1', '_2',
-				 '_3', '_4', '_5', '_6',
-				 '_7', '_8', '_9', '_a', '_b', '_c')
-
-	def __init__(self, args):
-		(
-			self._0, self._1, self._2, self._3,
-			self._4, self._5, self._6, self._7,
-			self._8, self._9, self._a, self._b, self._c,
-		) = args
 
 def _load_dner(context, chunk):
 	dner = list()
 
-	if context.hsem['mt'][0] == 0:
-		while True:
-			buf = chunk.read(28)
-			if not buf:
-				break
+	while chunk.tell() < chunk.dtsize:
+		dt = DNER[context.hsem['mt'][0]]
+		sz = dt.itemsize
+		bf = chunk.read(sz)
 
-			obj = DNER_0(struct.unpack('=3f8H', buf))
-			obj.ls = np.frombuffer(chunk.read(obj._3*2), np.uint16)
-			dner.append(obj)
+		head = np.frombuffer(bf, dt)
 
+		sz = int(head['indexnum']) * 2
+		bf = chunk.read(sz)
 
+		faces = np.frombuffer(bf, np.dtype((np.uint16, 3)))
 
-	if context.hsem['mt'][0] == 1:
-		while True:
-			buf = chunk.read(28)
-			print(len(buf))
-			if not buf:
-				break
+		dner.append(DNER_CLASS(head, faces))
 
-			obj = DNER_1(struct.unpack('=3f8H', buf))
-			obj.ls = np.frombuffer(chunk.read(obj._3*2), np.uint16)
-			dner.append(obj)
-
-
-
-	if context.hsem['mt'][0] == 3:
-		while True:
-			buf = chunk.read(32)
-			if not buf:
-				break
-
-			obj = DNER_3(struct.unpack('=3f10H', buf))
-			obj.ls = np.frombuffer(chunk.read(obj._3*2), np.uint16)
-			dner.append(obj)
-
-	print(chunk.chnext - chunk.dtsize)
+		if head['nextoffs'] == -1:
+			break
 
 	return dner
-
 
 
 class MEF:
