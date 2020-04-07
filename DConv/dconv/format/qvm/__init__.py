@@ -77,16 +77,18 @@ def _load_opcodes(fp, size, offset, opmap):
 
 def _load_offsets(fp, size, offset):
     fp.seek(offset, 0)
+
     offsets = array.array('I')
     offsets.frombytes(fp.read(size))
+
     return offsets
 
 def _load_strings(fp, size, offset):
     fp.seek(offset, 0)
+
     strings = fp.read(size).split(b'\x00')[:-1]
     strings = [s.decode('utf-8') for s in strings]
-    strings = [s.replace('\n', '\\n') for s in strings]
-    strings = [s.replace('\"', '\\"') for s in strings]
+
     return strings
 
 

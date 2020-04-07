@@ -234,8 +234,8 @@ def fromfile(qvmfile):
     global STRING
     global IDENTIFIER
 
-    STRING = qvmfile.svalue
-    IDENTIFIER = qvmfile.ivalue
+    STRING = [s.replace('\n', '\\n').replace('\"', '\\"') for s in qvmfile.svalue]
+    IDENTIFIER = [s.replace('\n', '\\n').replace('\"', '\\"') for s in qvmfile.ivalue]
 
     bytecode = {op.addr: op for op in qvmfile.ctable}
     qvmtree = walk(bytecode, 0)

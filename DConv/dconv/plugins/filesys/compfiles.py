@@ -34,4 +34,7 @@ def func(args):
 	for srcpath in fs.walkdir(args.src, args.filter):
 		dstpath = srcpath.replace(args.src, args.dst, 1)
 
-		print(srcpath, compare_files(srcpath, dstpath))
+		result = compare_files(srcpath, dstpath)
+
+		if not result:
+			print(srcpath, result)
