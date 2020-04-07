@@ -1,8 +1,0 @@
-if(AIFunction_GetCurrentEventType() == AIEVENT_GUNSHOT || AIFunction_GetCurrentEventType() == AIEVENT_GUNSHOTMISS)
-{
-	AIAction_Patrol(653, 0, 1);
-}
-else
-{
-	AIFunction_DefaultHandler();
-}

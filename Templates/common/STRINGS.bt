@@ -40,6 +40,14 @@ typedef struct (UINT32 length) {
 
 
 
+typedef struct CSTRING CS;
+typedef struct WSTRING WS;
+typedef struct BSTRING BS;
+typedef struct ISTRING IS;
+typedef struct FSTRING FS;
+
+
+
 string Read_CSTRING(CSTRING &o) {
 	return o.value;
 }

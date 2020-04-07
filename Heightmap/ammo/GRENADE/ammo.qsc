@@ -1,1 +1,0 @@
-DefineAmmoType(6, "AMMO_ID_GRENADE", "<12>", "<12DESC>", 10000, 2, 255, 128, 0, 255, 255, 0, 0, "135_01_1", "Sound0");

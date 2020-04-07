@@ -1,1 +1,0 @@
-DefineMission(5, "Mission 5 Name", "Mission 5 Desc", "", 6, "missions/location0/level5", "missions/location0/common", "missions/location0/level5", "location0", "level5", "mission5.spr");

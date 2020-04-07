@@ -1,8 +1,0 @@
-if(AIFunction_GetCurrentEventType() == AIEVENT_IDLE)
-{
-	AIAction_Patrol(670, 0, 1);
-}
-else
-{
-	AIFunction_DefaultHandler();
-}

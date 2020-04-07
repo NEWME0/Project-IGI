@@ -10,7 +10,7 @@ long LodBytesCalc(uint lod, uint width, uint height, uint depth)
 
 typedef struct BITMAP(uint lod, uint width, uint height, uint depth)
 {
-		BYTE bitmap[(width / (1 << lod)) * (height / (1 << lod)) * depth];
+	BYTE bitmap[(width / (1 << lod)) * (height / (1 << lod)) * depth];
 };
 
 

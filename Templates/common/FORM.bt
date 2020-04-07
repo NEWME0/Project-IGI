@@ -5,10 +5,10 @@
 
 typedef struct FORM_HEADER
 {
-  BigEndian();
+	BigEndian();
 
-	CHAR   signature[4];
-	UINT32 data_size;
+	CHAR   fourcc[4];
+	UINT32 datasize;
 };
 
 

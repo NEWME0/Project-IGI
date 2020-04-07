@@ -12,8 +12,8 @@
 //------------------------------------------------
 
 
-//#include "../COMMON/TYPES.bt";
-#include "/home/unifunit/Документы/IGI2-Project/Templates/common/TYPES.bt";
+#include "../COMMON/TYPES.bt";
+//#include "/home/unifunit/Документы/IGI2-Project/Templates/common/TYPES.bt";
 
 
 struct

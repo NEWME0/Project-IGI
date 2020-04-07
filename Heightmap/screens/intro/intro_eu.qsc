@@ -1,6 +1,0 @@
-MovieSubtitle_RegisterFont(0, "LOCAL:screens/intro/font4.fnt");
-MovieSubtitle_RegisterFont(1, "LOCAL:screens/intro/font3.fnt");
-MovieSubtitle_RegisterText(1, "INTRO_0a", 0, 416, 1, 1, 1, TRUE, 4, 4, 0, 1, 0, 1);
-MovieSubtitle_RegisterText(0, "INTRO_1c", 16, 416, 1, 1, 1, FALSE, 25.5, 2, -1, 0, -1, 0);
-MovieSubtitle_RegisterText(0, "INTRO_2c", 16, 416, 1, 1, 1, FALSE, 28, 2, -1, 0, -1, 0);
-MovieSubtitle_RegisterText(0, "INTRO_3d", 16, 416, 1, 1, 1, FALSE, 30, 2, -1, 0, -1, 0);

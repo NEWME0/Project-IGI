@@ -13,26 +13,43 @@
 
 
 
-//#include "../COMMON/TYPES.bt";
-#include "/home/unifunit/Документы/IGI2-Project/Templates/common/TYPES.bt";
+#include "../COMMON/TYPES.bt";
+
 
 
 while(FTell() < FileSize())
     struct
     {
-        S2 _0;
-        S2 _1;
-        S2 _2;
-        S2 _3;
-        S2 _4;
-        S2 _5;
-        S2 _6;
-        S2 _7;
-        S2 _8;
-        S2 _9;
-        S2 _10;
-        S2 _11;
-        S2 _12;
-        S2 _13;
-        S4 _14;
+        U1 _00;
+        U1 _01;
+        U1 _02;
+        U1 _03;
+        U1 _04;
+        U1 _05;
+        U1 _06;
+        U1 _07;
+        U1 _08;
+        U1 _09;
+        U1 _10;
+        U1 _11;
+        U1 _12;
+        U1 _13;
+        U1 _14;
+        U1 _15;
+        U1 _16;
+        U1 _17;
+        U1 _18;
+        U1 _19;
+        U1 _20;
+        U1 _21;
+        U1 _22;
+        U1 _23;
+        U1 _24;
+        U1 _25;
+        U1 _26;
+        U1 _27;
+        U1 _28;
+        U1 _29;
+        U1 _30;
+        U1 _31;
     } item;

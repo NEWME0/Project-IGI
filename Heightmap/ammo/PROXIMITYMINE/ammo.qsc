@@ -1,1 +1,0 @@
-DefineAmmoType(7, "AMMO_ID_PROXIMITYMINE", "<12>", "<12DESC>", 10001, 2, 255, 128, 0, 255, 255, 0, 0, "136_01_1", "Sound0");

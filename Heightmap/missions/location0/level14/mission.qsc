@@ -1,1 +1,0 @@
-DefineMission(14, "Mission 14 Name", "Mission 14 Desc", "", MISSION_NEXT_MISSION_UNDEFINED, "missions/location0/level14", "missions/location0/common", "missions/location0/level14", "location0", "level14", "mission14.spr");

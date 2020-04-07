@@ -1,9 +1,0 @@
-if(AIFunction_GetCurrentEventType() == AIEVENT_CREATE)
-{
-	AIFunction_SetEventPriority(AIEVENT_DEAD);
-	AIFunction_SetEventPriority(AIEVENT_IDLE);
-	AIFunction_SetEventPriority(AIEVENT_CREATE);
-	AIFunction_SetViewLength(30);
-	AIFunction_SetViewAlpha(50);
-	AIFunction_SetViewGamma(45);
-}

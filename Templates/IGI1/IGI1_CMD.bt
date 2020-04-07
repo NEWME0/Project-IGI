@@ -12,8 +12,7 @@
 //------------------------------------------------
 
 
-//#include "../COMMON/TYPES.bt";
-#include "/home/unifunit/Документы/IGI2-Project/Templates/common/TYPES.bt";
+#include "../COMMON/TYPES.bt";
 
 
 typedef struct PART
@@ -23,9 +22,9 @@ typedef struct PART
 	U2 x;
 	U2 y;
 
-	U4 ldata[w];
-    U4 xdata[x];
-    U4 ydata[y];
+	U1 ldata[w*4];
+    U1 xdata[x*4];
+    U1 ydata[y*4];
 };
 
 while(FTell() < FileSize())

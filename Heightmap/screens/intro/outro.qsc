@@ -1,7 +1,0 @@
-MovieSubtitle_RegisterFont(0, "LOCAL:screens/intro/font4.fnt");
-MovieSubtitle_RegisterText(0, "OUTRO_1", 16, 416, 1, 1, 1, FALSE, 29, 2, -1, 0, -1, 0);
-MovieSubtitle_RegisterText(0, "OUTRO_2", 16, 416, 1, 1, 1, FALSE, 31, 2, -1, 0, -1, 0);
-MovieSubtitle_RegisterText(0, "OUTRO_3", 16, 416, 1, 1, 1, FALSE, 33, 5, -1, 0, -1, 0);
-MovieSubtitle_RegisterText(0, "OUTRO_4", 16, 416, 1, 1, 1, FALSE, 38, 8, -1, 0, -1, 0);
-MovieSubtitle_RegisterText(0, "OUTRO_5", 16, 416, 1, 1, 1, FALSE, 47, 4, -1, 0, -1, 0);
-MovieSubtitle_RegisterText(0, "OUTRO_6", 16, 416, 1, 1, 1, FALSE, 54.5, 2.0, -1, 0, -1, 0);

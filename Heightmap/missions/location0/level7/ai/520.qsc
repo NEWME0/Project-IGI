@@ -1,8 +1,0 @@
-if(AIFunction_GetCurrentEventType() == AIEVENT_IDLE)
-{
-	AIAction_PlayAnimation(49, AIACTIONFLAG_PUSHABLE);
-}
-else
-{
-	AIFunction_DefaultHandler();
-}
