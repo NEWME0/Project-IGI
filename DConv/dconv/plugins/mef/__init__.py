@@ -7,5 +7,5 @@ def register_parser(cli):
 	sub.require = True
 
 	sub_check = sub.add_parser('check')
-	sub_check.add_argument('src')
+	sub_check.add_argument('src', help="Source folder")
 	sub_check.set_defaults(func=check.func)

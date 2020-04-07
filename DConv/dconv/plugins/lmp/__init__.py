@@ -7,6 +7,6 @@ def register_parser(cli):
     sub.require = True
 
     sub_convert = sub.add_parser('convert', help="")
-    sub_convert.add_argument('src', help="")
-    sub_convert.add_argument('dst', help="")
+    sub_convert.add_argument('src', help="Source folder")
+    sub_convert.add_argument('dst', help="Destination folder")
     sub_convert.set_defaults(func=convert.func)
