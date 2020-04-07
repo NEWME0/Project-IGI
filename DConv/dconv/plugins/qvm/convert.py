@@ -18,7 +18,9 @@ def func(args):
             continue
 
         os.makedirs(os.path.dirname(dstpath), exist_ok=True)
-        qvmfile.save(fp, qvm5, version=5)
+
+        with open(dstpath, 'wb') as fp:
+            qvmfile.save(fp, version=5)
 
         count += 1
 
