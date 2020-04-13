@@ -33,4 +33,9 @@ class LMP:
         fp.close()
 
     def save(self, fp):
-        NotImplemented
+        if isinstance(fp, str):
+            fp = open(fp, 'wb')
+
+        for s in self.squares:
+            fp.write(struct.pack('I', s.side))
+            fp.write(s.data)

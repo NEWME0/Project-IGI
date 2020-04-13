@@ -43,3 +43,10 @@ def copydir(srcpath, dstpath, patterns=('*',)):
 
             os.makedirs(dirs, exist_ok=True)
             shutil.copyfile(srcpath, dstpath)
+
+
+def makedir(path, is_dir=False):
+    if not is_dir:
+        path = os.path.dirname(path)
+
+    os.makedirs(path, exist_ok=True)

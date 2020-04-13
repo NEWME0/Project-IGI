@@ -17,39 +17,41 @@
 
 
 
-while(FTell() < FileSize())
+
     struct
     {
-        U1 _00;
-        U1 _01;
-        U1 _02;
-        U1 _03;
-        U1 _04;
-        U1 _05;
-        U1 _06;
-        U1 _07;
-        U1 _08;
-        U1 _09;
-        U1 _10;
-        U1 _11;
-        U1 _12;
-        U1 _13;
-        U1 _14;
-        U1 _15;
-        U1 _16;
-        U1 _17;
-        U1 _18;
-        U1 _19;
-        U1 _20;
-        U1 _21;
-        U1 _22;
-        U1 _23;
-        U1 _24;
-        U1 _25;
-        U1 _26;
-        U1 _27;
-        U1 _28;
-        U1 _29;
-        U1 _30;
-        U1 _31;
-    } item;
+        U2 _00;
+        U2 _01;
+        U2 _02;
+        U2 _03;
+        U2 _04;
+        U2 _05; // if change to 0 strange things hapening
+        U2 _06;
+        U2 _07;
+        U2 _08;
+        U2 _09;
+        U2 _10;
+        U2 _11;
+        U2 _12; // if change to 0 strange things hapening
+        U2 _13;
+        U2 _14;
+        U2 _15; // from 0 to 7 may be lod
+    } item[FileSize() / 32];
+
+
+Assert(FEof());
+
+
+// Counts of _15
+// 0 3883
+// 1 2019
+// 2 1113
+// 3 917
+// 4 939
+// 5 952
+// 6 747
+// 7 452
+
+// Counts of _13
+// 0  1
+// 67 11021

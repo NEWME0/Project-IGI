@@ -11,6 +11,9 @@ class CTR:
         if isinstance(fp, str):
             fp = open(fp, 'rb')
 
-        self.items = np.frombuffer(fp.read(), (np.uint8, 32))
+        self.items = np.frombuffer(fp.read(), (np.uint16, 16))
 
         fp.close()
+
+    def save(self, fp):
+    	NotImplemented

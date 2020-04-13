@@ -6,7 +6,12 @@ class HMPSquare:
     __slots__ = ('unk0', 'unk1', 'side', 'data')
 
     def __init__(self, *args):
-        self.unk0, self.unk1, self.side, self.data = args
+        (
+            self.unk0, 
+            self.unk1, 
+            self.side, 
+            self.data
+        ) = args
 
 
 class HMP:
@@ -27,9 +32,8 @@ class HMP:
             unk1 = arr[i + 1]
             side = arr[i + 2]
 
-            if side:
-                data = fp.read((side + 1) * (side + 1))
-                self.squares.append(HMPSquare(unk0, unk1, side, data))
+            data = fp.read((side + 1) * (side + 1))
+            self.squares.append(HMPSquare(unk0, unk1, side, data))
 
         assert not fp.read(), "Expected end of file"
 
@@ -37,4 +41,11 @@ class HMP:
 
 
     def save(self, fp):
-        NotImplemented
+        if isinstance(fp, str):
+            fp = open(fp, 'wb')
+
+        for s in self.squares:
+            fp.write(struct.pack('=3I', s.unk0, s.unk1, s.side))
+
+        for s in self.squares:
+            fp.write(s.data)

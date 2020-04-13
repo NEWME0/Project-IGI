@@ -1,0 +1,23 @@
+// "TERRAIN.#00.tga"
+// "TERRAIN.#01.tga"
+// "TERRAIN.#02.tga"
+// "TERRAIN.#03.tga"
+// "TERRAIN.#04.tga"
+// "TERRAIN.#05.tga"
+// "TERRAIN.#06.tga"
+// "TERRAIN.#07.tga"
+// "TERRAIN.#08.tga"
+// "TERRAIN.#09.tga"
+// "TERRAIN.#10.tga"
+// "TERRAIN.#11.tga"
+// "TERRAIN.#12.tga"
+// "TERRAIN.#13.tga"
+// "TERRAIN.#14.tga"
+// "TERRAIN.#15.tga"
+// "TERRAIN.#16.tga"
+// "TERRAIN.#17.tga"
+
+
+
+
+MakeMultiTexture("TERRAIN.#00.tga", "TERRAIN.#01.tga", "TERRAIN.#02.tga", "TERRAIN.tex");

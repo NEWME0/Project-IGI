@@ -128,7 +128,7 @@ typedef struct LOOP_09
         U2 width;
         U2 height;
         U2 _0;
-        U1 reserved[16];
+        U4 reserved[4];
     } item[count];
 
     BITMAP img(0, width, height, mode)[count];

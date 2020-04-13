@@ -1,4 +1,4 @@
-from . import convert
+from . import export
 
 
 def register_parser(cli):
@@ -6,7 +6,7 @@ def register_parser(cli):
     sub = cmd.add_subparsers()
     sub.require = True
 
-    sub_convert = sub.add_parser('convert', help="Extract images from bit file as png")
-    sub_convert.add_argument('src', help="Source folder")
-    sub_convert.add_argument('dst', help="Destination folder")
-    sub_convert.set_defaults(func=convert.func)
+    sub_export = sub.add_parser('export', help="Export images from bit file as png")
+    sub_export.add_argument('src', help="Source folder")
+    sub_export.add_argument('dst', help="Destination folder")
+    sub_export.set_defaults(func=export.func)

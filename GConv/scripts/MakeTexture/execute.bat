@@ -1,14 +1,4 @@
-..\..\Tools\gconv\gconv.exe script_00.qsc -InputPath=..\_input\ -OutputPath=..\_output\ -HalfSize=ON -AutoMipMap=OFF -Transparency=OFF -IncludePalette=ON -TextureScaleFactor=10 -OutputMode=Dreamcast -ConversionMode=Bumpmap
-::..\..\Tools\gconv\gconv.exe script_01.qsc -InputPath=..\_input\ -OutputPath=..\_output\ -ConversionMode=Intensity8
-..\..\Tools\gconv\gconv.exe script_02.qsc -InputPath=..\_input\ -OutputPath=..\_output\ -HalfSize=ON -AutoMipMap=OFF -Transparency=OFF -IncludePalette=ON -TextureScaleFactor=10 -OutputMode=N64 -ConversionMode=ARGB8888
-..\..\Tools\gconv\gconv.exe script_03.qsc -InputPath=..\_input\ -OutputPath=..\_output\ -HalfSize=ON -AutoMipMap=OFF -Transparency=OFF -IncludePalette=ON -TextureScaleFactor=10 -OutputMode=PC_Software -ConversionMode=ARGB32
-::..\..\Tools\gconv\gconv.exe script_04.qsc -InputPath=..\_input\ -OutputPath=..\_output\ -ConversionMode=RGB565
-::..\..\Tools\gconv\gconv.exe script_05.qsc -InputPath=..\_input\ -OutputPath=..\_output\ -ConversionMode=ARGB4444
-..\..\Tools\gconv\gconv.exe script_06.qsc -InputPath=..\_input\ -OutputPath=..\_output\ -HalfSize=ON -AutoMipMap=OFF -Transparency=OFF -IncludePalette=ON -TextureScaleFactor=10 -OutputMode=PC_Glide -ConversionMode=ARGB1555
-..\..\Tools\gconv\gconv.exe script_07.qsc -InputPath=..\_input\ -OutputPath=..\_output\ -HalfSize=ON -AutoMipMap=OFF -Transparency=OFF -IncludePalette=ON -TextureScaleFactor=10 -OutputMode=PSX -ConversionMode=ARGB16
-..\..\Tools\gconv\gconv.exe script_08.qsc -InputPath=..\_input\ -OutputPath=..\_output\ -HalfSize=ON -AutoMipMap=OFF -Transparency=OFF -IncludePalette=ON -TextureScaleFactor=10 -OutputMode=PSX -ConversionMode=RGB16
-::..\..\Tools\gconv\gconv.exe script_09.qsc -InputPath=..\_input\ -OutputPath=..\_output\ -ConversionMode=Palette4
-::..\..\Tools\gconv\gconv.exe script_10.qsc -InputPath=..\_input\ -OutputPath=..\_output\ -ConversionMode=Palette8
+..\..\gconv\gconv.exe script.qsc -InputPath=..\_input\ -OutputPath=..\_output\ 
 pause
 
 
