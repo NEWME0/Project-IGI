@@ -1,2 +1,0 @@
-ConvertSoundFile("sound_1.wav", "sound_1_raw_resident.wav");
-ConvertSoundFile("sound_2.wav", "sound_2_raw_resident.wav");
