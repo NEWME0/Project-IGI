@@ -8,7 +8,45 @@ def func(args):
 		ctrfile = CTR()
 		ctrfile.load(srcpath)
 
-		print(srcpath, len(ctrfile.items))
+		items = ctrfile.items
+
+
+		for i in ('_00', '_01', '_02', '_03', '_04', '_05', '_06', '_07'):
+			unique, counts = np.unique(items[i], return_counts=True)
+
+			print(max(counts), min(counts))
+
+			#print([n for n, c in zip(unique, counts) if c > 1])
+
+		print()
+
+
+def func_minmax(args):
+	table = dict()
+
+	for srcpath in fs.walkdir(args.src, "*terrain.ctr"):
+		ctrfile = CTR()
+		ctrfile.load(srcpath)
+
+		items = ctrfile.items
+		level = srcpath.replace('D:\\Projects\\IGI2_Project\\IGI1\\ctr_backup\\location0\\', '').replace('\\terrain\\terrain.ctr', '')
+		order = int(level.replace('level', ''))
+
+		column = list()
+		column.append((level, len(items)))
+
+		for i in range(len(items[0])):
+			i = '_' + str(i).zfill(2)
+			column.append((items[i].min(), items[i].max()))
+
+		table[order] = column
+
+	table = [table[i] for i in sorted(table.keys())]
+
+	for i in range(len(table[0])):
+		pairs = '  '.join(['{0:<8}{1:<5}'.format(*column[i]) for column in table])
+
+		print(pairs)
 
 
 

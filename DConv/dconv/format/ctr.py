@@ -1,19 +1,43 @@
 import numpy as np
+from utils.format import FileFormat
 
 
-class CTR:
+class CTR(FileFormat):
     __slots__ = ('items')
 
-    def __init__(self):
-        self.items = list()
+    def _load(self, fp):
+        dt = [
+            ('_00', np.int16),
+            ('_01', np.int16),
+            ('_02', np.int16),
+            ('_03', np.int16),
+            ('_04', np.int16),
+            ('_05', np.int16),
+            ('_06', np.int16),
+            ('_07', np.int16),
 
-    def load(self, fp):
-        if isinstance(fp, str):
-            fp = open(fp, 'rb')
+            ('_08', np.int8),
+            ('_09', np.int8),
+            ('_10', np.int8),
+            ('_11', np.int8),
+            ('_12', np.int8),
+            ('_13', np.int8),
+            ('_14', np.int8),
+            ('_15', np.int8),
 
-        self.items = np.frombuffer(fp.read(), (np.uint16, 16))
+            ('_16', np.uint8),
+            ('_17', np.uint8),
+            ('_18', np.uint8),
+            ('_19', np.uint8),
+            ('_20', np.uint8),
+            ('_21', np.uint8),
+            ('_22', np.uint8),
+            ('_23', np.uint8),
+        ]
 
-        fp.close()
+        #dt = (np.int16, 16)
 
-    def save(self, fp):
-    	NotImplemented
+        self.items = np.frombuffer(fp.read(), dt).copy()
+
+    def _save(self, fp):
+        fp.write(self.items.tobytes())
