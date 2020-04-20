@@ -14,9 +14,6 @@ def func(args):
 
         print(dstpath)
 
-        if args.debug:
-            continue
-
         os.makedirs(os.path.dirname(dstpath), exist_ok=True)
 
         with open(dstpath, 'wb') as fp:

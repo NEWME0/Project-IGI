@@ -8,10 +8,10 @@ def func(args):
 	for srcpath in fs.walkdir(args.src, '*.lmp'):
 		dstpath = srcpath.replace(args.src, args.dst, 1)
 
-		lmpobj = LMP()
-		lmpobj.load(srcpath)
+		lmpfile = LMP()
+		lmpfile.load(srcpath)
 
-		for i, square in enumerate(lmpobj.squares):
+		for i, square in enumerate(lmpfile.squares):
 			if square.side:
 				dstname = os.path.basename(srcpath)
 				dstfile = os.path.join(dstpath, '{0}.#{1:0>3}.png'.format(dstname[:-4], i))

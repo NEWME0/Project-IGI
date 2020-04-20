@@ -1,5 +1,0 @@
-
-
-
-def func(args):
-	NotImplemented

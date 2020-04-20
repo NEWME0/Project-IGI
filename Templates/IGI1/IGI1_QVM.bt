@@ -33,9 +33,9 @@ typedef struct
         case 0x00:            break;  //BRK
         case 0x01:            break;  //NOP
         case 0x02:  U4 data;  break;  //PUSH
-        case 0x03:  U1 data;  break;  //PUSHB
+        case 0x03:  S1 data;  break;  //PUSHB
         case 0x04:  U2 data;  break;  //PUSHW
-        case 0x05:  U4 data;  break;  //PUSHF
+        case 0x05:  F4 data;  break;  //PUSHF
         case 0x06:            break;  //PUSHA
         case 0x07:            break;  //PUSHS
         case 0x08:  U4 data;  break;  //PUSHSI

@@ -1,6 +1,5 @@
-from . import export
-from . import check
-from . import flat
+from . import stat
+from . import edit
 
 
 def register_parser(cli):
@@ -8,11 +7,11 @@ def register_parser(cli):
     sub = cmd.add_subparsers()
     sub.require = True
 
-    sub_check = sub.add_parser('check', help="FOR TESTS")
-    sub_check.add_argument('src', help="Source folder")
-    sub_check.set_defaults(func=check.func)
+    sub_stat = sub.add_parser('stat', help="ONLY FOR RESEARCH")
+    sub_stat.add_argument('src', help="Input folder")
+    sub_stat.set_defaults(func=stat.func)
 
-    sub_flat = sub.add_parser('flat', help="FOR TESTS")
-    sub_flat.add_argument('src', help="Source folder")
-    sub_flat.add_argument('dst', help="Source folder")
-    sub_flat.set_defaults(func=flat.func)
+    sub_edit = sub.add_parser('edit', help="ONLY FOR RESEARCH")
+    sub_edit.add_argument('src', help="Input folder")
+    sub_edit.add_argument('dst', help="Output folder")
+    sub_edit.set_defaults(func=edit.func)

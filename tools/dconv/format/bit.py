@@ -36,6 +36,8 @@ class BIT(FileFormat):
         ints = array.array('I')
         ints.frombytes(fp.read(256*12))
 
+        self.squares = list()
+
         for i in range(0, 256*3, 3):
             unk0 = ints[i+0]
             unk1 = ints[i+1]

@@ -1,4 +1,7 @@
 __pycache__/
-backup/
-export/
 game/
+export/
+backup/
+research/
+tools/bconv/
+models/

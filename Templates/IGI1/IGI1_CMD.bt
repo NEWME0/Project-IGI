@@ -15,28 +15,65 @@
 #include "../COMMON/TYPES.bt";
 
 
-typedef struct PART
+typedef struct
+{
+	U1 _0;
+	U1 _1;
+	U1 _2;
+	U1 _3;
+} WITEM <read=Read_WITEM>;
+
+typedef struct
+{
+	U1 _0;
+	U1 _1;
+	U1 _2;
+	U1 _3;
+} XITEM <read=Read_XITEM>;
+
+typedef struct
+{
+	U1 _0;
+	U1 _1;
+	U1 _2;
+	U1 _3;
+} YITEM <read=Read_YITEM>;
+
+
+typedef struct ITEM
 {
 	U2 w;
 	U2 l;
 	U2 x;
 	U2 y;
 
-	U1 wdata[w*4];
-    U1 xdata[x*4];
-    U1 ydata[y*4];
+	WITEM wdata[w] <optimize=true>;
+    XITEM xdata[x] <optimize=true>;
+    YITEM ydata[y] <optimize=true>;
 };
 
 while(FTell() < FileSize())
-	PART part;
+	ITEM part;
 
 
-/*
+string Read_WITEM(WITEM &o)
+{
+	local string s;
+	SPrintf(s, "%u, %u, %u, %u", o._0, o._1, o._2, o._3);
+	return s;
+}
 
-wdata rgba
-{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 34}
-{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33}
-{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 34}
-{224, 240, 64}
+string Read_XITEM(XITEM &o)
+{
+	local string s;
+	SPrintf(s, "%u, %u, %u, %u", o._0, o._1, o._2, o._3);
+	return s;
+}
 
-*/
+string Read_YITEM(YITEM &o)
+{
+	local string s;
+	SPrintf(s, "%u, %u, %u, %u", o._0, o._1, o._2, o._3);
+	return s;
+}
+
