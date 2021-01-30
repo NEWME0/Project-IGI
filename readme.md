@@ -53,7 +53,8 @@ Related file formats:
 ### WAV files
 Files with extension `*.wav` (as expected) contains in-game sounds.\
 But do not confuse them with commonly used sound format [Waveform](https://en.wikipedia.org/wiki/WAV).
-Has signature (first 4 bytes of file) ILSF witch means --InnerLoopSoundFile--.
+
+Has signature (first 4 bytes of file) ILSF witch means __InnerLoopSoundFile__.
 
 Have four different sound pack methods.
 - `RAW` - not packed.
