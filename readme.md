@@ -32,6 +32,7 @@ python -m igipy.qvm --help
 
 ## Wiki
 
+
 ### QVM files
 Files with extension `*.qvm` contains compiled in-game scripts.\
 They are compiled into bytecode for game engine virtual machine (like Java JVM).
@@ -47,3 +48,17 @@ Related file formats:
 - `qsc` files (`Q Source Code`) - source code of in-game scripts.
 - `qas` files (`Q Assembler`) - intermediary file between `qsc` and `qvm`.
 - `qvm` files (`Q Virtual Machine`) - compiled in-game scripts.
+
+
+### WAV files
+Files with extension `*.wav` (as expected) contains in-game sounds.\
+But do not confuse them with commonly used sound format [Waveform](https://en.wikipedia.org/wiki/WAV).
+Has signature (first 4 bytes of file) ILSF witch means --InnerLoopSoundFile--.
+
+Have four different sound pack methods.
+- `RAW` - not packed.
+- `RAW_RESIDENT` - looks like not packed.
+- `ADPCM` - packed.
+- `ADPCM_RESIDENT` - packed.
+
+ADPCM and ADPCM_RESIDENT appears only first game and at moment I don't know how to decode them.
