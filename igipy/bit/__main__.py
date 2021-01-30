@@ -1,17 +1,17 @@
 from typer import Typer, echo
 
 
-app = Typer(add_completion=False)
+app = Typer(add_completion=False, help='Not implemented')
 
 
-@app.command()
+@app.command(help='Not implemented')
 def convert():
-    echo('Not implemented!!!')
+    pass
 
 
-@app.command()
+@app.command(help='Not implemented')
 def extract():
-    echo('Not implemented!!!')
+    pass
 
 
 if __name__ == "__main__":
