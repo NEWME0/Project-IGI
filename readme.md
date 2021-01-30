@@ -47,7 +47,3 @@ Related file formats:
 - `qsc` files (`Q Source Code`) - source code of in-game scripts.
 - `qas` files (`Q Assembler`) - intermediary file between `qsc` and `qvm`.
 - `qvm` files (`Q Virtual Machine`) - compiled in-game scripts.
-
-- Note: Second game has `igi2-editor` and `gconv.exe` tool that can be used to compile `qsc` files into `qvm`.
-- Note: `qas` files are created at `qsc` compilation and automatically deleted at end.
-- Note: If interrupt compilation process with an syntax error in `qsc` file - `qas` will remain in folder.
