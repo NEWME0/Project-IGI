@@ -45,7 +45,6 @@ class WAV:
         if not head[5] in (11025, 22050, 44100):
             raise ValueError("Unexpected framerate")
 
-
         self.soundpack = head[1]
         self.samplewid = head[2] // 8
         self.nchannels = head[3]
