@@ -22,13 +22,14 @@ def serialize(
 
     process = ManagedProcess()
     with process.manager():
+        # 1. Serialize source file into WAV model
         serializer = WAVFileSerializer()
-
         with process.handler('Failed at serialization.', ValidationError):
             with open(src, 'rb') as src_file:
                 instance = serializer.load(src_file)
                 process.results = instance.meta
 
+    # Output
     if verbose:
         return echo(process.details)
     else:
@@ -51,18 +52,19 @@ def convert(
 
     process = ManagedProcess()
     with process.manager():
+        # 1. Serialize source file into WAV model
         serializer = WAVFileSerializer(verbose=verbose)
-
         with process.handler('Failed at serialization.', ValidationError):
             with open(src, 'rb') as src_file:
                 instance = serializer.load(src_file)
 
+        # 2. Convert WAV model into Waveform file
         converter = WAVFileConverter(verbose=verbose, force=force)
-
         with process.handler('Failed at conversion.', ConversionError):
             with open(dst, 'wb') as dst_file:
                 converter.convert(instance, dst_file)
 
+    # Output
     if verbose:
         return echo(process.details)
     else:
