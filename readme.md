@@ -1,94 +1,34 @@
 # Project-IGI
-IGI Game modding tools.
+Python library and console util for extracting `Project I.G.I.` and `I.G.I-2: Covert Strike` resources.
 
+# Installation
+- Install Python3.8 or higher
+- Clone repository
+- Execute in cmd: `pip install -r requirements.txt`
+
+# Branches and repository
+- master - Actual version.
+- backup - First version (doesn't work)
 
 # Contacts
 ordersone@gmail.com
 
+## QVM files
+Files with extension `*.qvm` contains compiled in-game scripts.\
+They are compiled into bytecode for game engine virtual machine (like Java JVM).
 
-# Tools
+Exists two known version:
+1. Version 5 - in first game (__Project I.G.I.__)
+2. Version 7 - in second game (__I.G.I.-2: Covert Strike__)
 
-## dconv
-Console multitool created by comunity.
+Source code of both version are identical but in compiled form are incompatible.
+Scripts from first game can't be used in second game (without conversion) and vice versa.
 
-Features:
-- Decompile **.qvm** files
-- Export **.bit** files
-- Export **.hmp** files
-- Export **.lmp** files
-- Export **.tex** files
-- Export **.spr** files
-- Export **.pic** files
-- Export **.thm** files
-- Export **.tlm** files
-- Export **.tmm** files
-- Export **.wav** files (partialy)
+Related file formats:
+- QSC files (`Q Source Code`) - source code of in-game scripts.
+- QAS files (`Q Assembler`) - intermediary file between `QSC` and `QVM`.
+- QVM files (`Q Virtual Machine`) - compiled in-game scripts.
 
-Dependencies:
-- Python3
-- numpy (python module)
-- PIL (python module)
-- lxml (python module)
-
-Usage:
-```
-# Decompile all qvm files in folder and subfolder as qsc
-python dconv qvm decompile "./input/folder/" "./output/folder/"
-
-# Export all bit files in folder and subfolders as png
-python dconv bit export "./input/folder/" "./output/folder/"
-
-# Export all hmp files in folder and subfolders as png
-python dconv hmp export "./input/folder/" "./output/folder/"
-
-# Export all lmp files in folder and subfolders as png
-python dconv lmp export "./input/folder/" "./output/folder/"
-
-# Export all tex files in folder and subfolders as tga
-python dconv tex export "./input/folder/" "./output/folder/"
-
-# Export all spr files in folder and subfolders as tga
-python dconv spr export "./input/folder/" "./output/folder/"
-
-# Export all pic files in folder and subfolders as tga
-python dconv pic export "./input/folder/" "./output/folder/"
-
-# Export all thm files in folder and subfolders as png
-python dconv thm export "./input/folder/" "./output/folder/"
-
-# Export all tlm files in folder and subfolders as png
-python dconv tlm export "./input/folder/" "./output/folder/"
-
-# Export all tmm files in folder and subfolders as png
-python dconv tmm export "./input/folder/" "./output/folder/"
-
-# Export all wav files in folder and subfolders as WaveForm wav
-python dconv wav export "./input/folder/" "./output/folder/"
-```
-
-## gconv
-Game Converter created by IGI Developers (InnerLoop, Codemasters).
-Used create game resources.
-Part of igi2-editor.
-
-
-## igi1-terrain-tex-replacer
-Small tool writed for create custom terrain textures for IGI1.
-Usage:
-```
-python replacer --layers ".\terrain.clay" --output "terrain.tex"
-```
-
-## igi2-blender-mef-importer (DEV STAGE)
-Blender plugin for importing IGI2 models.
-
-
-## igi2-editor
-Level Editor created by IGI Developers (InnerLoop, Codemasters).
-
-
-## printable
-Small tool writed to find words in binary files (exe, dll, ...).
-```
-python printable "./input/gconvapi.dll" "./output.txt" --minword 2
-```
+Note: Second game has `editor` and `gconv` tool that can be used to compile `qsc` files into `qvm`.
+Note: `QAS` files are created on `QSC` compilation and automatically deleted at end.
+Note: If interrupt compilation process with an syntax error in `QSC` file - `QAS` will remain in folder.
