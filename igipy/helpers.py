@@ -1,4 +1,6 @@
+import os
 from contextlib import contextmanager
+from pathlib import Path
 from typing import Type, Tuple, Any
 
 
@@ -84,3 +86,20 @@ class ManagedProcess(object):
             self._exception = exc
             self._interrupt = interrupt
             raise Interrupt(interrupt)
+
+
+def walkdir(src_dir: Path):  # noqa
+    """
+        Walk all files in directory and yield filepath.
+    """
+    for root, dirs, files in os.walk(src_dir):
+        for filename in sorted(files):
+            yield Path(os.path.join(root, filename))
+
+
+def makedst(src: Path, src_dir: Path, dst_dir: Path, suffix: str) -> Path:  # noqa
+    """
+        Make destination Path by replacing parent directory and extension.
+    """
+    dst = str(src).replace(str(src_dir), str(dst_dir), 1)
+    return Path(dst).with_suffix(suffix)

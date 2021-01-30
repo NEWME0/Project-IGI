@@ -16,7 +16,7 @@ class FileConverter(ABC):
     """
 
     @abstractmethod
-    def convert(self, instance: BaseModel, file: BinaryIO):
+    def convert(self, instance: BaseModel) -> BinaryIO:
         """
             This method should be override.
         """

@@ -8,15 +8,9 @@ from igipy.serializers import FileSerializer
 class WAVFileSerializer(FileSerializer):
     model = WAV
 
-    def __init__(self, verbose: bool = False):
-        self.verbose = verbose
-
     def load(self, file: BinaryIO, *args, **kwargs) -> WAV:
         fmt = '4s4H2I'
         header = unpack(fmt, file.read(calcsize(fmt)))
-
-        if self.verbose:
-            print(header)
 
         instance = self.model(
             signature=header[0],
