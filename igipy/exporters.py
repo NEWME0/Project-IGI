@@ -4,19 +4,19 @@ from typing import BinaryIO
 from pydantic import BaseModel
 
 
-class ConversionError(ValueError):
+class ExportingError(RuntimeError):
     """
         Base conversion exception.
     """
 
 
-class FileConverter(ABC):
+class FileExporter(ABC):
     """
-        Base class for converters.
+        Base class for exporters.
     """
 
     @abstractmethod
-    def convert(self, instance: BaseModel) -> BinaryIO:
+    def perform_export(self, instance: BaseModel) -> BinaryIO:
         """
             This method should be override.
         """
