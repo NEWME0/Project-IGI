@@ -84,8 +84,8 @@ def command_export(
 
 @app.command(name='export-dir', help='Scan directory and export IGI WAV file to Waveform.')
 def command_export_dir(
-    src_dir: Path = Argument(..., help="Source directory path."),
-    dst_dir: Path = Argument(..., help="Destination directory path."),
+    src_dir: Path = Argument(..., case_sensitive=False, help="Source directory path."),
+    dst_dir: Path = Argument(..., case_sensitive=False, help="Destination directory path."),
     verbose: bool = Option(default=True, help="Verbose messages to prompt."),
     enforce: bool = Option(default=False, help="Ignore exporter exceptions."),
     rewrite: bool = Option(default=False, help="Overwrite destination file."),
