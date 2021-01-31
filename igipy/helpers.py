@@ -88,16 +88,27 @@ class ManagedProcess(object):
             raise Interrupt(interrupt)
 
 
-def walkdir(src_dir: Path):  # noqa
+def walk_files(base: Path):  # noqa
     """
-        Walk all files in directory and yield filepath.
+        Walk all files in directory and yielding path.
+        :param base - Base directory
     """
-    for root, dirs, files in os.walk(src_dir):
+    for root, dirs, files in os.walk(base):
         for filename in sorted(files):
             yield Path(os.path.join(root, filename))
 
 
-def makedst(src: Path, src_dir: Path, dst_dir: Path, suffix: str) -> Path:  # noqa
+def walk_folders(base: Path):
+    """
+        Walk all folders in directory and yielding path.
+        :param base - Base directory
+    """
+    for root, dirs, files in os.walk(base):
+        for filename in sorted(files):
+            yield Path(os.path.join(root, filename))
+
+
+def make_dst(src: Path, src_dir: Path, dst_dir: Path, suffix: str) -> Path:
     """
         Make destination Path by replacing parent directory and extension.
     """

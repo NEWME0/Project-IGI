@@ -4,7 +4,7 @@ from collections import defaultdict
 
 from typer import Typer, Argument, echo
 
-from igipy.helpers import walkdir
+from igipy.helpers import walk_files
 
 
 app = Typer(add_completion=False, help='Filesystem operations.')
@@ -20,7 +20,7 @@ def command_search(
 
     counts = defaultdict(lambda: 0)
 
-    for src in walkdir(src_dir):
+    for src in walk_files(src_dir):
         counts['total'] += 1
 
         if fnmatch(src, pattern):
@@ -39,7 +39,7 @@ def command_counts(
 
     counts = defaultdict(lambda: 0)
 
-    for src in walkdir(src_dir):
+    for src in walk_files(src_dir):
         counts[src.suffix] += 1
 
     echo(dict(counts))

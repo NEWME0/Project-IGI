@@ -5,7 +5,7 @@ from collections import defaultdict
 from typer import Typer, Option, Argument, echo
 from pydantic import ValidationError
 
-from igipy.helpers import ManagedProcess, walkdir, makedst
+from igipy.helpers import ManagedProcess, walk_files, make_dst
 from igipy.exporters import ExportingError
 from igipy.wav.exporters import WAVFileExporter
 from igipy.wav.serializers import WAVFileSerializer
@@ -106,7 +106,7 @@ def command_export_dir(
         counts = defaultdict(lambda: 0)
 
         # 3. Scan src_dir
-        for src in walkdir(src_dir):
+        for src in walk_files(src_dir):
             counts['total'] += 1
 
             # 4. Exclude files that not match pattern
@@ -116,7 +116,7 @@ def command_export_dir(
             counts['match'] += 1
 
             # 5. Generate destination file name
-            dst = makedst(src, src_dir=src_dir, dst_dir=dst_dir, suffix='.wav')
+            dst = make_dst(src, src_dir=src_dir, dst_dir=dst_dir, suffix='.wav')
 
             # 6. Perform exporting
             export_process = command_export(src, dst, verbose=False, enforce=enforce, rewrite=rewrite)
