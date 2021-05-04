@@ -1,3 +1,6 @@
 click==7.1.2
-pydantic==1.7.3
+numpy==1.20.2
+Pillow==8.2.0
+pydantic==1.8.1
 typer==0.3.2
+typing-extensions==3.10.0.0
