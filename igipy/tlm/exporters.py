@@ -2,16 +2,25 @@ from pathlib import Path
 from typing import Union
 
 from PIL import Image
+from numpy import ndarray, frombuffer, int8
 from pydantic import validate_arguments
 
 from igipy.tlm.models import TLM, TLMLod
+
+
+def swap_channels_to_rgba(bitmap: bytes, size_x: int, size_y: int) -> bytes:
+    source: ndarray = frombuffer(bitmap, dtype=int8)
+    target: ndarray = source.reshape((size_x, size_y, 4))[:, :, [2, 1, 0, 3]]
+    return target.tobytes()
 
 
 class TLM2PNG(object):
     @classmethod
     @validate_arguments(config=dict(arbitrary_types_allowed=True))
     def export_lod(cls, data: TLMLod, target_path: Path):
-        image = Image.frombytes(mode='RGBA', size=(data.size_x, data.size_y), data=data.bitmap)
+        size = (data.size_x, data.size_y)
+        data = swap_channels_to_rgba(data.bitmap, *size)
+        image = Image.frombytes(mode='RGBA', size=size, data=data)
         image.save(target_path)
 
     @classmethod
