@@ -11,7 +11,7 @@ from igipy.wav.exporters import WAVFileExporter
 from igipy.wav.serializers import WAVFileSerializer
 
 
-app = Typer(add_completion=False, help='Operations with IGI WAV files.')
+app = Typer(name='wav', add_completion=False, help='Operations with IGI WAV files.')
 
 
 @app.command(name='serialize', help='Serialize IGI WAV file without any output.')

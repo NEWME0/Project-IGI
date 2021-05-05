@@ -1,36 +1,37 @@
+from io import BufferedReader
+from pathlib import Path
 from struct import unpack
-from typing import BinaryIO
+from typing import Union
 
-from igipy.loaders import DateTimeLoader
+from pydantic import validate_arguments
+
+from igipy.loaders import DateTimeLoader, BaseLoader
 from igipy.tmm.models import TMM, TMMLod
 
 
 class TMMLodLoader(object):
     @classmethod
-    def load(cls, file: BinaryIO, size_x: int, size_y: int, lod: int) -> TMMLod:
+    @validate_arguments(config=dict(arbitrary_types_allowed=True))
+    def load(cls, file: BufferedReader, size_x: int, size_y: int, lod: int) -> TMMLod:
         lod_size_x = size_x // (1 << lod)
         lod_size_y = size_y // (1 << lod)
         lod_bitmap = file.read(lod_size_x * lod_size_y)
         return TMMLod(size_x=lod_size_x, size_y=lod_size_y, bitmap=lod_bitmap)
 
 
-class TMMLoader(object):
+class TMMLoader(BaseLoader):
     @classmethod
-    def load(cls, file: BinaryIO) -> TMM:
+    @validate_arguments(config=dict(arbitrary_types_allowed=True))
+    def load(cls, file: Union[BufferedReader, Path, str]) -> TMM:
+        file = cls.get_file_as_binary_io(file)
+
         unknown_00 = unpack('I', file.read(4))[0]
         created_at = DateTimeLoader.load(file)
         unknown_01, size_x, size_y = unpack('3I', file.read(12))
 
-        lod_00 = TMMLodLoader.load(file, size_x, size_y, 0)
-        lod_01 = TMMLodLoader.load(file, size_x, size_y, 1)
-        lod_02 = TMMLodLoader.load(file, size_x, size_y, 2)
-        lod_03 = TMMLodLoader.load(file, size_x, size_y, 3)
-        lod_04 = TMMLodLoader.load(file, size_x, size_y, 4)
-        lod_05 = TMMLodLoader.load(file, size_x, size_y, 5)
-        lod_06 = TMMLodLoader.load(file, size_x, size_y, 6)
-        lod_07 = TMMLodLoader.load(file, size_x, size_y, 7)
-        lod_08 = TMMLodLoader.load(file, size_x, size_y, 8)
-        lod_09 = TMMLodLoader.load(file, size_x, size_y, 9)
+        lod_kwargs = {
+            f'lod_{i:02d}': TMMLodLoader.load(file, size_x, size_y, i) for i in range(10)
+        }
 
         return TMM(
             unknown_00=unknown_00,
@@ -38,14 +39,5 @@ class TMMLoader(object):
             unknown_01=unknown_01,
             size_x=size_x,
             size_y=size_y,
-            lod_00=lod_00,
-            lod_01=lod_01,
-            lod_02=lod_02,
-            lod_03=lod_03,
-            lod_04=lod_04,
-            lod_05=lod_05,
-            lod_06=lod_06,
-            lod_07=lod_07,
-            lod_08=lod_08,
-            lod_09=lod_09,
+            **lod_kwargs
         )

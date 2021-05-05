@@ -1,5 +1,5 @@
+from io import BufferedReader
 from abc import ABC, abstractmethod
-from typing import BinaryIO
 
 from pydantic import BaseModel
 
@@ -16,7 +16,7 @@ class FileExporter(ABC):
     """
 
     @abstractmethod
-    def perform_export(self, instance: BaseModel) -> BinaryIO:
+    def perform_export(self, instance: BaseModel) -> BufferedReader:
         """
             This method should be override.
         """
