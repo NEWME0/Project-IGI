@@ -21,6 +21,7 @@ class TLM2PNG(object):
         size = (data.size_x, data.size_y)
         data = swap_channels_to_rgba(data.bitmap, *size)
         image = Image.frombytes(mode='RGBA', size=size, data=data)
+        image.transpose(Image.TRANSPOSE)
         image.save(target_path)
 
     @classmethod

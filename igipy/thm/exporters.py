@@ -12,6 +12,7 @@ class THM2PNG(object):
     @validate_arguments(config=dict(arbitrary_types_allowed=True))
     def export_lod(cls, data: THMLod, target_path: Path):
         image = Image.frombytes(mode='I', size=(data.size_x, data.size_y), data=data.bitmap)
+        image.transpose(Image.TRANSPOSE)
         image.save(target_path)
 
     @classmethod
