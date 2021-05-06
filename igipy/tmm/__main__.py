@@ -5,7 +5,7 @@ from typer import Typer, Argument
 from igipy.tmm.loaders import TMMLoader
 from igipy.tmm.exporters import TMM2PNG
 
-app = Typer(name='tmm', add_completion=False, help='TMM file utils.')
+app = Typer(name='tmm', add_completion=False, help='I.G.I 2: Covert Strike - Terrain Material Map file utils.')
 
 
 @app.command(name='export-one', help='Export one TMM file as PNG.')

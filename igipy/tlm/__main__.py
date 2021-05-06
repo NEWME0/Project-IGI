@@ -5,7 +5,7 @@ from typer import Typer, Argument
 from igipy.tlm.loaders import TLMLoader
 from igipy.tlm.exporters import TLM2PNG
 
-app = Typer(name='tlm', add_completion=False, help='TLM file utils.')
+app = Typer(name='tlm', add_completion=False, help='I.G.I 2: Covert Strike - Terrain Light Map file utils.')
 
 
 @app.command(name='export-one', help='Export one TLM file as PNG.')

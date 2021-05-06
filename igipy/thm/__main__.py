@@ -5,7 +5,7 @@ from typer import Typer, Argument
 from igipy.thm.loaders import THMLoader
 from igipy.thm.exporters import THM2PNG
 
-app = Typer(name='thm', add_completion=False, help='THM file utils.')
+app = Typer(name='thm', add_completion=False, help='I.G.I 2: Covert Strike - Terrain Height Map file utils.')
 
 
 @app.command(name='export-one', help='Export one THM file as PNG.')
