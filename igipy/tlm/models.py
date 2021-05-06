@@ -1,28 +1,37 @@
+from math import log2
+from typing import List
+from datetime import datetime
+
 from pydantic import Field
 from pydantic.main import BaseModel
-
-from igipy.models import DateTime
-
-
-class TLMLod(BaseModel):
-    size_x: int = Field(ge=0)
-    size_y: int = Field(ge=0)
-    bitmap: bytes
+from pydantic.types import PositiveInt
+from pydantic.class_validators import validator
+from PIL.Image import Image
 
 
 class TLM(BaseModel):
-    unknown_00: int = Field(ge=0)
-    created_at: DateTime
-    unknown_01: int = Field(ge=0)
-    size_x: int = Field(ge=0)
-    size_y: int = Field(ge=0)
-    lod_00: TLMLod
-    lod_01: TLMLod
-    lod_02: TLMLod
-    lod_03: TLMLod
-    lod_04: TLMLod
-    lod_05: TLMLod
-    lod_06: TLMLod
-    lod_07: TLMLod
-    lod_08: TLMLod
-    lod_09: TLMLod
+    class Config:
+        arbitrary_types_allowed = True
+
+    unknown_00: PositiveInt = Field(default=1008981770)
+    unknown_01: PositiveInt = Field(default=3)
+    created_at: datetime = Field(default_factory=datetime.now)
+    lod_images: List[Image] = Field(default_factory=list, max_items=10)
+
+    @validator('lod_images', each_item=True)
+    def validate_lod_mode(cls, v: Image):  # NOQA
+        assert v.mode == 'RGBA', ValueError('ensure this lod has mode RGBA')
+        return v
+
+    @validator('lod_images', each_item=True)
+    def validate_lod_size(cls, v: Image):  # NOQA
+        assert log2(v.size[0]).is_integer(), ValueError('ensure this lod x is power of 2')
+        assert log2(v.size[1]).is_integer(), ValueError('ensure this lod y is power of 2')
+        return v
+
+    @validator('lod_images')
+    def validate_lod_half(cls, v: List[Image]):  # NOQA
+        for i in range(1, len(v)):
+            assert v[i].size[0] == v[i-1].size[0] // 2, ValueError(f'ensure this lod x is half of prev lod x')
+            assert v[i].size[1] == v[i-1].size[1] // 2, ValueError(f'ensure this lod y is half of prev lod y')
+        return v

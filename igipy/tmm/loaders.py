@@ -23,7 +23,7 @@ class TMMLoader(BaseLoader):
     @classmethod
     @validate_arguments(config=dict(arbitrary_types_allowed=True))
     def load(cls, file: Union[BufferedReader, Path, str]) -> TMM:
-        file = cls.get_file_as_binary_io(file)
+        file = cls.get_buffered_reader(file)
 
         unknown_00 = unpack('I', file.read(4))[0]
         created_at = DateTimeLoader.load(file)

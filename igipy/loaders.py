@@ -10,7 +10,7 @@ from igipy.models import DateTime
 class BaseLoader(object):
     @classmethod
     @validate_arguments(config=dict(arbitrary_types_allowed=True))
-    def get_file_as_binary_io(cls, file: Union[BufferedReader, Path, str]) -> BufferedReader:
+    def get_buffered_reader(cls, file: Union[BufferedReader, Path, str]) -> BufferedReader:
         if isinstance(file, str):
             file = Path(file)
 
