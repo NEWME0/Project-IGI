@@ -1,10 +1,9 @@
 from pathlib import Path
-from typing import Union
 
-from PIL import Image, ImageColor
-from pydantic import validate_arguments
+from PIL import ImageColor
 
-from igipy.tmm.models import TMM, TMMLod
+from igipy.exporters import BaseExporter
+from igipy.tmm.models import TMM
 
 
 PALETTE = [
@@ -27,22 +26,9 @@ PALETTE = [
 ]
 
 
-class TMM2PNG(object):
-    @classmethod
-    @validate_arguments(config=dict(arbitrary_types_allowed=True))
-    def export_lod(cls, data: TMMLod, target_path: Path):
-        image = Image.frombytes(mode='P', size=(data.size_x, data.size_y), data=data.bitmap)
-        image.putpalette(data=PALETTE)
-        image.transpose(Image.TRANSPOSE)
-        image.save(target_path)
-
-    @classmethod
-    @validate_arguments(config=dict(arbitrary_types_allowed=True))
-    def export(cls, data: TMM, target_path: Union[Path, str]):
-        if isinstance(target_path, str):
-            target_path = Path(target_path)
-
-        for i in range(10):
-            lod = getattr(data, f'lod_{i:02d}', None)
-            if getattr(lod, 'bitmap', None):
-                cls.export_lod(lod, target_path.with_suffix(f'.tmm.lod{i}.png'))
+class TMM2PNG(BaseExporter[TMM]):
+    def _export(self, data: TMM, target: Path):
+        for lod_index, lod_image in enumerate(data.lod_images):
+            lod_image = self.transform(lod_image)
+            lod_image.putpalette(data=PALETTE)
+            lod_image.save(target.with_suffix(f'.tmm.lod{lod_index}.png'))

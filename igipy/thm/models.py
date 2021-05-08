@@ -1,29 +1,17 @@
-from pydantic import BaseModel, Field
+from typing import List
+from datetime import datetime
 
-from igipy.models import DateTime
-
-
-class THMLod(BaseModel):
-    size_x: int = Field(ge=0)
-    size_y: int = Field(ge=0)
-    bitmap: bytes
+from pydantic import BaseModel, Field, NonNegativeInt
+from PIL.Image import Image
 
 
 class THM(BaseModel):
-    unknown_00: int = Field(ge=0)
-    created_at: DateTime
-    unknown_01: int = Field(ge=0)
-    unknown_02: int = Field(ge=0)
-    unknown_03: int = Field(ge=0)
-    size_x: int = Field(ge=0)
-    size_y: int = Field(ge=0)
-    lod_00: THMLod
-    lod_01: THMLod
-    lod_02: THMLod
-    lod_03: THMLod
-    lod_04: THMLod
-    lod_05: THMLod
-    lod_06: THMLod
-    lod_07: THMLod
-    lod_08: THMLod
-    lod_09: THMLod
+    class Config:
+        arbitrary_types_allowed = True
+
+    unknown_00: NonNegativeInt = Field(default=1008981770)
+    created_at: datetime = Field(default_factory=datetime.now)
+    unknown_01: NonNegativeInt = Field(default=2)
+    unknown_02: NonNegativeInt = Field(default=0)
+    unknown_03: NonNegativeInt = Field(default=1065353216)
+    lod_images: List[Image] = Field(default_factory=list, max_items=10)

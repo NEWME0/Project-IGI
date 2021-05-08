@@ -2,10 +2,7 @@ from math import log2
 from typing import List
 from datetime import datetime
 
-from pydantic import Field
-from pydantic.main import BaseModel
-from pydantic.types import PositiveInt
-from pydantic.class_validators import validator
+from pydantic import Field, BaseModel, NonNegativeInt, validator
 from PIL.Image import Image
 
 
@@ -13,9 +10,9 @@ class TLM(BaseModel):
     class Config:
         arbitrary_types_allowed = True
 
-    unknown_00: PositiveInt = Field(default=1008981770)
-    unknown_01: PositiveInt = Field(default=3)
+    unknown_00: NonNegativeInt = Field(default=1008981770)
     created_at: datetime = Field(default_factory=datetime.now)
+    unknown_01: NonNegativeInt = Field(default=3)
     lod_images: List[Image] = Field(default_factory=list, max_items=10)
 
     @validator('lod_images', each_item=True)
