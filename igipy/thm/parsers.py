@@ -2,7 +2,6 @@ from io import BufferedReader, BufferedWriter
 from struct import unpack, pack
 from datetime import datetime
 
-import numpy as np
 from PIL import Image
 
 from igipy.parsers import BaseParser
@@ -38,13 +37,7 @@ class THMParser(BaseParser[THM]):
             if not lod_bytes:
                 break
 
-            lod_array = np.frombuffer(lod_bytes, dtype=np.float32)
-            lod_array = lod_array.reshape(lod_size_x, lod_size_y)
-            lod_array = lod_array + abs(lod_array.min())
-            lod_array = lod_array * (255 / lod_array.max())
-            lod_array = lod_array.astype(np.uint8)
-
-            lod_image = Image.fromarray(lod_array, mode='L')
+            lod_image = Image.frombuffer(mode='F', data=lod_bytes, size=(lod_size_x, lod_size_y))
             lod_images.append(lod_image)
 
         data = THM(
