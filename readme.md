@@ -31,6 +31,16 @@ python -m igipy.qvm --help
 - `backup` - First version (doesn't work but has many igi related resources)
 
 
+### Third party tools
+In folder `third party tools` can be found tools from other developers.
+
+- `gconv` - original game converter distributed by I.G.I 2 developers. 
+  Command line tool that run `.qsc` scripts.
+  
+- `wav2wav` - InnerLoop to Waveform converter developed by `guru1@bk.ru. 
+  This tool also can decode sound files encoded using ADPCM.
+
+
 ## Usage
 ```
 # Counts - scan directory and count extensions
@@ -63,9 +73,6 @@ igipy pic ...
 igipy qvm ...
 igipy spr ...
 igipy tex ...
-igipy thm ...
-igipy tlm ...
-igipy tmm ...
 ```
 
 
