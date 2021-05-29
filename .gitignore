@@ -131,3 +131,5 @@ dmypy.json
 
 tools/*
 notes/*
+igipy/*/tests/
+third party tools/gconv/examples/temp/*.tex
