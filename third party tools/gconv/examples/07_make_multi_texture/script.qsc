@@ -1,0 +1,1 @@
+MakeMultiTexture("TERRAIN.#00.tga", "TERRAIN.#01.tga", "TERRAIN.#02.tga", "TERRAIN.tex");
