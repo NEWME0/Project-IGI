@@ -1,0 +1,2 @@
+MakeTexture("../temp/igi_rgb.tga", "../temp/igi_rgb_03.tex");
+MakeTexture("../temp/igi_gray.tga", "../temp/igi_gray_03.tex");

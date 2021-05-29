@@ -1,5 +1,26 @@
-..\..\gconv.exe script.qsc
+..\..\gconv.exe script_01.qsc -ConversionMode=0
+..\..\gconv.exe script_02.qsc -ConversionMode=1
+..\..\gconv.exe script_03.qsc -ConversionMode=2
+..\..\gconv.exe script_04.qsc -ConversionMode=3
+..\..\gconv.exe script_05.qsc -ConversionMode=4
+..\..\gconv.exe script_06.qsc -ConversionMode=5
+..\..\gconv.exe script_07.qsc -ConversionMode=6
+..\..\gconv.exe script_08.qsc -ConversionMode=7
+..\..\gconv.exe script_09.qsc -ConversionMode=8
+..\..\gconv.exe script_10.qsc -ConversionMode=9
+..\..\gconv.exe script_11.qsc -ConversionMode=10
+..\..\gconv.exe script_12.qsc -ConversionMode=11
 pause
+
+:: AutoMipMap
+:: BumpHeight
+:: ConversionMode
+:: Dither
+:: HalfSize
+:: IncludePalette
+:: TextureScaleFactor
+:: Transparency
+:: TransparentColour
 
 
 ::  ..\..\gconv.exe -h
