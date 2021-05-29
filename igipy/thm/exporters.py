@@ -4,11 +4,11 @@ import numpy as np
 from PIL import Image
 from tifffile import imsave
 
-from igipy.exporters import BaseExporter
+from igipy.exporters import BaseImageExporter
 from igipy.thm.models import THM
 
 
-class THM2PNG(BaseExporter[THM]):
+class THM2PNG(BaseImageExporter[THM]):
     def __init__(self, normalize: bool = True, **kwargs):
         super(THM2PNG, self).__init__(**kwargs)
         self.normalize = normalize
@@ -30,7 +30,7 @@ class THM2PNG(BaseExporter[THM]):
             lod_image.save(target.with_suffix(f'.thm.lod{lod_index}.png'))
 
 
-class THM2TIF(BaseExporter[THM]):
+class THM2TIF(BaseImageExporter[THM]):
     def _export(self, data: THM, target: Path):
         for lod_index, lod_image in enumerate(data.lod_images):
             lod_image = self.transform(lod_image)
@@ -38,7 +38,7 @@ class THM2TIF(BaseExporter[THM]):
             imsave(data=lod_array, file=target.with_suffix(f'.thm.lod{lod_index}.tif'))
 
 
-class THM2NPY(BaseExporter[THM]):
+class THM2NPY(BaseImageExporter[THM]):
     def _export(self, data: THM, target: Path):
         for lod_index, lod_image in enumerate(data.lod_images):
             lod_image = self.transform(lod_image)

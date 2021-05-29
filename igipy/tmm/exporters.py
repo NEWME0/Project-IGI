@@ -2,7 +2,7 @@ from pathlib import Path
 
 from PIL import ImageColor
 
-from igipy.exporters import BaseExporter
+from igipy.exporters import BaseImageExporter
 from igipy.tmm.models import TMM
 
 
@@ -26,7 +26,7 @@ PALETTE = [
 ]
 
 
-class TMM2PNG(BaseExporter[TMM]):
+class TMM2PNG(BaseImageExporter[TMM]):
     def _export(self, data: TMM, target: Path):
         for lod_index, lod_image in enumerate(data.lod_images):
             lod_image = self.transform(lod_image)
