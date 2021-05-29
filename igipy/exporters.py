@@ -28,7 +28,7 @@ class FileExporter(ABC):
 ModelT = TypeVar('ModelT')
 
 
-class BaseExporter(ABC, Generic[ModelT]):
+class BaseExporter(Generic[ModelT], ABC):
     @abstractmethod
     def _export(self, data: ModelT, target: Path):
         """ This method should be implemented in inherited class. """
@@ -41,7 +41,7 @@ class BaseExporter(ABC, Generic[ModelT]):
         return self._export(data, target)
 
 
-class BaseImageExporter(ABC, BaseExporter):
+class BaseImageExporter(BaseExporter, Generic[ModelT], ABC):
     def __init__(self, flip_left_right=False, flip_top_bottom=False):
         self.flip_left_right = flip_left_right
         self.flip_top_bottom = flip_top_bottom
