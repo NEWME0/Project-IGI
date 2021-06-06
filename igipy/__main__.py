@@ -16,6 +16,7 @@ from igipy.thm.__main__ import app as thm_app
 from igipy.tlm.__main__ import app as tlm_app
 from igipy.tmm.__main__ import app as tmm_app
 from igipy.wav.__main__ import app as wav_app
+from igipy.fst.__main__ import app as fst_app
 
 
 app = Typer(add_completion=False)
@@ -36,6 +37,7 @@ app.add_typer(thm_app, name='thm')
 app.add_typer(tlm_app, name='tlm')
 app.add_typer(tmm_app, name='tmm')
 app.add_typer(wav_app, name='wav')
+app.add_typer(fst_app, name='fst')
 
 
 if __name__ == "__main__":

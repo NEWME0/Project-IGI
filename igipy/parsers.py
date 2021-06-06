@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from io import BufferedReader, BufferedWriter
-from typing import Union, TypeVar, Generic, Tuple
+from typing import Union, TypeVar, Generic
 from pathlib import Path
 
 from pydantic import validate_arguments, validate_model
@@ -22,7 +22,9 @@ class BaseParser(ABC, Generic[ModelT]):
         if isinstance(file, Path):
             file = file.open(mode='rb')
 
-        return self._load(file, *args, **kwargs)
+        result = self._load(file, *args, **kwargs)
+        file.close()
+        return result
 
     @abstractmethod
     def _dump(self, data: ModelT, file: BufferedWriter, *args, **kwargs):

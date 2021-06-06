@@ -1,7 +1,9 @@
 click==7.1.2
+lxml==4.6.3
 numpy==1.20.2
 Pillow==8.2.0
 pydantic==1.8.2
+python-dotenv==0.17.1
 tifffile==2021.4.8
 typer==0.3.2
 typing-extensions==3.10.0.0
