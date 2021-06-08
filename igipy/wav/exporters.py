@@ -22,7 +22,7 @@ class WAVFileExporter(FileExporter):
                 wave_file: Wave_write = wave_file
                 wave_file.setnchannels(instance.channels)
                 wave_file.setsampwidth(instance.sample_width // 8)
-                wave_file.setframerate(instance.frame_rate)
+                wave_file.setframerate(float(instance.frame_rate))
                 wave_file.writeframesraw(instance.frames)
 
             temp_file.seek(0)

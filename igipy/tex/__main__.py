@@ -1,39 +1,20 @@
 from pathlib import Path
+from typer import Typer, Argument
 
-from typer import Typer, Argument, Option, echo
-
+from igipy.tex.parsers import TEXParser
 
 app = Typer(add_completion=False, help='Not implemented.')
 
 
-@app.command(name='serialize', help='Not implemented.')
-def command_serialize(
-    src: Path = Argument(..., case_sensitive=False, help='Source file path.'),
-    verbose: bool = Option(default=True, help="Verbose messages to prompt."),
+@app.command(name='to_png', help='Not implemented.')
+def command_to_png(
+    source_dir: Path = Argument(..., case_sensitive=False, help='Source file path.')
 ):
-    echo('Not implemented.')
+    parser = TEXParser()
 
-
-@app.command(name='export', help='Not implemented.')
-def command_export(
-    src: Path = Argument(..., case_sensitive=False, help='Source file path.'),
-    dst: Path = Argument(..., case_sensitive=False, help='Destination file path.'),
-    verbose: bool = Option(default=True, help="Verbose messages to prompt."),
-    enforce: bool = Option(default=False, help="Ignore exporter exceptions."),
-    rewrite: bool = Option(default=False, help="Overwrite destination file."),
-):
-    echo('Not implemented.')
-
-
-@app.command(name='export-dir', help='Not implemented.')
-def command_export_dir(
-    src_dir: Path = Argument(..., case_sensitive=False, help="Source directory path."),
-    dst_dir: Path = Argument(..., case_sensitive=False, help="Destination directory path."),
-    verbose: bool = Option(default=True, help="Verbose messages to prompt."),
-    enforce: bool = Option(default=False, help="Ignore exporter exceptions."),
-    rewrite: bool = Option(default=False, help="Overwrite destination file."),
-):
-    echo('Not implemented.')
+    for source in source_dir.glob('**/*.tex'):
+        data = parser.load(source)
+        print(source.name, data)
 
 
 if __name__ == "__main__":
