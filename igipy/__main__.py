@@ -1,6 +1,5 @@
 from typer import Typer
 
-from igipy.abc.__main__ import app as abc_app
 from igipy.bit.__main__ import app as bit_app
 from igipy.cmd.__main__ import app as cmd_app
 from igipy.ctr.__main__ import app as ctr_app
@@ -21,7 +20,6 @@ from igipy.fst.__main__ import app as fst_app
 
 app = Typer(add_completion=False)
 
-app.add_typer(abc_app, name='abc')
 app.add_typer(bit_app, name='bit')
 app.add_typer(cmd_app, name='cmd')
 app.add_typer(ctr_app, name='ctr')
