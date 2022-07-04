@@ -1,5 +1,5 @@
 click==7.1.2
-lxml==4.6.3
+lxml==4.6.5
 numpy==1.20.2
 Pillow==8.2.0
 pydantic==1.8.2
